@@ -99,6 +99,41 @@
 
         .nav-cta:hover { background: #333 !important; }
 
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background: white;
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+        }
+
+        .breadcrumbs-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--black);
+        }
+
+        .breadcrumbs span {
+            color: var(--muted);
+        }
+
+        .breadcrumbs .current {
+            color: var(--black);
+            font-weight: 600;
+        }
+
         /* Hero */
         .hero {
             background: var(--accent);
@@ -508,6 +543,14 @@
         </div>
     </header>
 
+    <nav class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <a href="/">Home</a>
+            <span>/</span>
+            <span class="current">AI Tools</span>
+        </div>
+    </nav>
+
     <section class="hero">
         <div class="hero-badge">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -520,7 +563,7 @@
     <main class="main">
         <!-- Stats -->
         <div class="stats-section">
-            <h3 class="stats-title">Powered by PDL Company Database</h3>
+            <h3 class="stats-title">Powered by B2B Company Database</h3>
             <div class="stats-grid">
                 <div class="stat">
                     <div class="stat-value">623K+</div>
