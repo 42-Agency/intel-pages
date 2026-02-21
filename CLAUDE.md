@@ -1,413 +1,533 @@
-# Intel Pages - Lead Magnet Site
+# Intel Pages - B2B Marketing Resources
 
 **URL:** https://intel.42agency.com
 **Hosting:** Vercel (project: `intel-pages`)
 **Deploy:** `cd ~/Documents/Schema\ Agency/web/intel-pages && vercel --prod`
 
-## Overview
+---
 
-Lead magnet landing pages for 42 Agency. Gated downloads (email capture → HubSpot) for templates, audits, and toolkits.
+## Site Architecture
+
+### Information Architecture (User Intent)
+
+| Section | URL | Purpose | User Intent |
+|---------|-----|---------|-------------|
+| **Assess** | `/assess/` | Diagnostic tools hub | "How am I doing?" |
+| **Benchmarks** | `/b2b-benchmarks/` | Data & industry benchmarks | "What's good?" |
+| **AI Tools** | copilot.42agency.com | Interactive AI tools | "Help me do it" |
+| **Resources** | `/` (main index) | All templates & toolkits | "Give me templates" |
+
+### URL Structure
+
+```
+intel.42agency.com/
+├── /                           # Main resources hub
+├── /assess/                    # Assessments & diagnostics hub
+│   └── /calculator/            # B2B Benchmark Calculator
+├── /assessments/
+│   └── /hubspot-health/        # HubSpot CRM Health Assessment
+├── /b2b-benchmarks/            # Benchmarks hub (data)
+│   ├── /linkedin-ads-benchmarks/
+│   ├── /google-ads-benchmarks/
+│   ├── /meta-ads-benchmarks/
+│   ├── /linkedin-inmail-benchmarks/
+│   ├── /legal-tech-linkedin-ads/      # Industry pSEO
+│   ├── /healthcare-tech-linkedin-ads/
+│   ├── /fintech-linkedin-ads/
+│   └── /devops-linkedin-ads/
+├── /linkedin-audit/            # Audit templates
+├── /google-ads-audit/
+├── /meta-audit/
+├── /hubspot-audit/
+├── /mops-funnel/
+├── /zenabm/                    # ABM toolkit
+└── /exitfive/                  # Claude Code workshop
+```
+
+### Redirects (vercel.json)
+
+| From | To | Type |
+|------|----|------|
+| `/b2b-benchmarks/calculator/` | `/assess/calculator/` | 301 Permanent |
+
+---
 
 ## Tech Stack
 
 - Static HTML/CSS (no framework)
-- HubSpot Collected Forms API for email capture
+- Vercel Edge Functions for APIs
+- HubSpot CRM API + Collected Forms API
+- Resend for transactional email + Audiences
 - GTM Container: `GTM-MM5BTNS`
 - HubSpot Portal: `44888286`
 
+### API Endpoints
+
+| Endpoint | Purpose |
+|----------|---------|
+| `/api/assessment-results` | HubSpot Assessment → Email + HubSpot CRM + Resend |
+| `/api/calculator-results` | Benchmark Calculator → Email + HubSpot CRM + Resend |
+| `/api/validate-email` | Email validation via mails.so |
+
+### Environment Variables (Vercel)
+
+```
+RESEND_API_KEY=re_xxx
+RESEND_AUDIENCE_ID=xxx
+HUBSPOT_ACCESS_TOKEN=pat-na1-xxx
+```
+
+---
+
 ## Design System
 
+### Colors
+
 ```css
---accent: #DFFE68;        /* Yellow-green highlight */
---black: #1a1a1a;
---google: #4285F4;        /* Google Ads pages */
---linkedin: #0A66C2;      /* LinkedIn pages */
---meta: #0668E1;          /* Meta/Facebook pages */
-```
-
-- 2px solid black borders
-- 4px box shadows
-- Inter font
-
-## Logo
-
-**File:** `/42-logo.png` (horizontal, 674x171)
-**Source:** `~/Documents/Schema Agency/assets/42_logo_horizontal.png`
-
-**CSS (all pages):**
-```css
-.logo { flex-shrink: 0; }
-.logo img { height: 32px; width: auto; }
-```
-
-## HubSpot Form Integration
-
-All download forms submit to HubSpot Collected Forms API:
-
-```javascript
-async function handleSubmit(e) {
-    e.preventDefault();
-    const email = e.target.email.value;
-
-    await fetch('https://api.hsforms.com/submissions/v3/integration/submit/44888286/collected-forms', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            fields: [{ name: 'email', value: email }],
-            context: { pageUri: window.location.href, pageName: 'Page Name Here' }
-        })
-    });
-
-    // Trigger download after submission
-    window.location.href = '/path/to/file.xlsx';
+:root {
+    --accent: #DFFE68;        /* Lime yellow - CTAs, highlights */
+    --accent-hover: #C8E85C;
+    --black: #1a1a1a;         /* Text, borders */
+    --gray: #4a4a4a;          /* Body text */
+    --muted: #6b6b6b;         /* Secondary text */
+    --light-gray: #f5f5f5;    /* Backgrounds */
+    --green: #10B981;         /* Success, "Excellent" */
+    --orange: #F59E0B;        /* Warning, "Average" */
+    --red: #EF4444;           /* Error, "Poor" */
+    --blue: #3B82F6;          /* Info, "Good" */
+    --linkedin: #0A66C2;
+    --google: #4285F4;
+    --meta: #0668E1;
 }
 ```
 
-## Pages
+### Typography
 
-### Main Index (`/`)
-- Resource hub listing all lead magnets
-- Footer grid: 5 columns (42 Agency, Essays, AI Tools, Paid Media Audits, Resources)
+- **Font:** Inter (Google Fonts)
+- **Headings:** font-weight: 800, letter-spacing: -0.02em
+- **Body:** font-weight: 400
 
-### Paid Media Audits
+### Components
 
-| Page | Template | Sheets | Brand Color |
-|------|----------|--------|-------------|
-| `/google-ads-audit/` | `42_Google_Ads_Audit_Template.xlsx` | 9 | `#4285F4` |
-| `/linkedin-audit/` | `42_LinkedIn_Ads_Audit_Template.xlsx` | 9 | `#0A66C2` |
-| `/meta-audit/` | `42_Meta_Ads_Audit_Template.xlsx` | 9 | `#0668E1` |
-
-**Audit Template Structure (9 sheets each):**
-1. **Audit Overview** - Executive summary, health scores, priority issues
-2. **Conversion Tracking** - Platform-specific tracking checks
-3. **Account/Campaign Structure** - Organization, naming, overlap
-4. **Audience/Keyword Strategy** - Targeting analysis
-5. **Creative Performance** - Format mix, CTR benchmarks, fatigue
-6. **Budget & Bidding** - Pacing, bid strategies, efficiency
-7. **Lead Gen Forms / Ad Copy** - Platform-specific
-8. **Benchmarks Reference** - Industry CPLs, Poor→Excellent scoring
-9. **Recommendations** - P0/P1/P2/P3 prioritized actions
-
-**Each check includes:**
-- Status: ✅ Pass / ⚠️ Check / ❌ Fail
-- Current State (realistic placeholder)
-- Benchmark / Best Practice (specific numbers)
-- Risk Level (🔴 High / 🟡 Medium / 🟢 Low)
-- **42 Agency POV** (expert commentary)
-
-### MOPS & HubSpot
-
-| Page | Template |
-|------|----------|
-| `/hubspot-audit/` | `42_HubSpot_Audit_Template.xlsx` |
-| `/mops-funnel/` | `42_MOPS_Funnel_Workbook.xlsx` |
-| `/hubspot-salesforce/` | Google Doc checklist |
-
-### ABM & GTM
-
-| Page | Content |
-|------|---------|
-| `/zenabm/` | ABM toolkit (3 templates) |
-| `/zenabm/audit.html` | GTM Maturity Assessment (interactive) |
-| `/abm-campaign/` | ABM Campaign Planner |
-
-### LinkedIn Targeting
-
-| Page | Content |
-|------|---------|
-| `/linkedin-targeting/` | Targeting checklist hub |
-| `/linkedin-targeting/audience-sizing/` | Audience size guide |
-| `/linkedin-targeting/job-title-targeting/` | Job title strategy |
-| `/linkedin-targeting/account-lists/` | Company list uploads |
-
-### AI & Automation
-
-| Page | Content |
-|------|---------|
-| `/exitfive/` | Claude Code 101 workshop materials |
-
-## Creating New Audit Templates (Python)
-
-Templates created with openpyxl:
-
-```python
-import openpyxl
-from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
-
-# Styling
-header_fill = PatternFill(start_color="4285F4", fill_type="solid")  # Platform color
-header_font = Font(bold=True, color="FFFFFF", size=11)
-good_fill = PatternFill(start_color="D4EDDA", fill_type="solid")    # Green
-warning_fill = PatternFill(start_color="FFF3CD", fill_type="solid") # Yellow
-bad_fill = PatternFill(start_color="F8D7DA", fill_type="solid")     # Red
-
-# Check item columns:
-# A: Check Item
-# B: Status (Pass/Check/Fail)
-# C: Current State
-# D: Benchmark / Best Practice
-# E: Risk Level
-# F: 42 Agency POV
+**Cards:**
+```css
+.card {
+    background: white;
+    border: 2px solid var(--black);
+    border-radius: 16px;
+    box-shadow: 4px 4px 0px 0px var(--black);
+}
+.card:hover {
+    box-shadow: 6px 6px 0px 0px var(--black);
+    transform: translate(-2px, -2px);
+}
 ```
 
-## Footer Structure
+**Buttons:**
+```css
+.btn-primary {
+    background: var(--accent);
+    border: 2px solid var(--black);
+    border-radius: 8px;
+    font-weight: 700;
+    box-shadow: 4px 4px 0px 0px var(--black);
+}
+```
 
-**Social Links:** LinkedIn, X/Twitter, YouTube
+---
+
+## Global Header (Required on ALL pages)
 
 ```html
-<div class="social-links">
-    <a href="https://linkedin.com/company/42agency">LinkedIn</a>
-    <a href="https://x.com/get42agency">X/Twitter</a>
-    <a href="https://www.youtube.com/@Get42Agency">YouTube</a>
-</div>
-
-<div class="footer-grid">  <!-- 5 columns -->
-    <div class="footer-col">42 Agency</div>
-    <div class="footer-col">42/ Essays</div>
-    <div class="footer-col">AI Tools</div>
-    <div class="footer-col">Paid Media Audits</div>
-    <div class="footer-col">Resources</div>
-</div>
+<header class="header">
+    <div class="header-inner">
+        <a href="/" class="logo">
+            <img src="/42-logo.png" alt="42 Agency">
+        </a>
+        <nav class="nav">
+            <a href="/assess/">Assess</a>
+            <a href="/b2b-benchmarks/">Benchmarks</a>
+            <a href="https://copilot.42agency.com" target="_blank" class="external">
+                AI Tools
+                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+            <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+        </nav>
+    </div>
+</header>
 ```
 
+**Header CSS:**
 ```css
+.header {
+    border-bottom: 2px solid var(--black);
+    padding: 0.75rem 1.5rem;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img { height: 28px; width: auto; }
+.nav { display: flex; align-items: center; gap: 0.25rem; }
+.nav a {
+    padding: 0.5rem 1rem;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+.nav a:hover { color: var(--black); background: var(--light-gray); }
+.nav a.active { color: var(--black); font-weight: 600; background: var(--accent); }
+.nav-cta {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--black);
+    color: white !important;
+    border-radius: 6px;
+    font-weight: 600;
+}
+@media (max-width: 768px) { .nav { display: none; } }
+```
+
+---
+
+## Global Footer (Required on ALL pages)
+
+**5-column structure:**
+1. **Brand** - Logo, description, social links
+2. **Assess** - All diagnostic tools
+3. **Benchmarks** - All benchmark pages + industry sub-links
+4. **AI Tools + Resources** - Copilot links + templates
+5. **42 Agency** - Main site links
+
+```html
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <!-- Column 1: Brand -->
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/company/42agency" target="_blank">LinkedIn</a>
+                    <a href="https://x.com/42aboratory" target="_blank">X</a>
+                    <a href="https://www.youtube.com/@Get42Agency" target="_blank">YouTube</a>
+                </div>
+            </div>
+
+            <!-- Column 2: Assess -->
+            <div class="footer-col">
+                <h4>Assess</h4>
+                <a href="/assessments/hubspot-health/">HubSpot Health Check</a>
+                <a href="/assess/calculator/">Benchmark Calculator</a>
+                <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
+                <a href="/google-ads-audit/">Google Ads Audit</a>
+                <a href="/meta-audit/">Meta Ads Audit</a>
+                <a href="/hubspot-audit/">HubSpot Audit</a>
+            </div>
+
+            <!-- Column 3: Benchmarks -->
+            <div class="footer-col">
+                <h4>Benchmarks</h4>
+                <a href="/b2b-benchmarks/">All B2B Benchmarks</a>
+                <a href="/b2b-benchmarks/linkedin-ads-benchmarks/">LinkedIn Ads</a>
+                <a href="/b2b-benchmarks/google-ads-benchmarks/">Google Ads</a>
+                <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/">InMail Benchmarks</a>
+                <a href="/b2b-benchmarks/legal-tech-linkedin-ads/" class="sublink">Legal Tech</a>
+                <a href="/b2b-benchmarks/healthcare-tech-linkedin-ads/" class="sublink">Healthcare Tech</a>
+                <a href="/b2b-benchmarks/fintech-linkedin-ads/" class="sublink">FinTech</a>
+            </div>
+
+            <!-- Column 4: AI Tools + Resources -->
+            <div class="footer-col">
+                <h4>AI Tools</h4>
+                <a href="https://copilot.42agency.com" target="_blank">LinkedIn Ads Copilot</a>
+                <a href="https://copilot.42agency.com/linkedin-ads-targeting" target="_blank">Targeting Guide</a>
+                <h4 style="margin-top: 1.5rem;">Resources</h4>
+                <a href="/zenabm/">ABM Toolkit</a>
+                <a href="/mops-funnel/">MOPS Funnel Workbook</a>
+                <a href="/exitfive/">Claude Code 101</a>
+            </div>
+
+            <!-- Column 5: 42 Agency -->
+            <div class="footer-col">
+                <h4>42 Agency</h4>
+                <a href="https://42agency.com" target="_blank">Website</a>
+                <a href="https://42agency.com/contact" target="_blank">Contact Us</a>
+                <a href="https://42agency.com/case-studies" target="_blank">Case Studies</a>
+                <a href="https://42slash.com" target="_blank">42/ Essays</a>
+                <a href="https://42agency.com/careers" target="_blank">Careers</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 42 Agency. All rights reserved.</p>
+            <p><a href="https://42agency.com/privacy">Privacy</a> · <a href="https://42agency.com/terms">Terms</a></p>
+        </div>
+    </div>
+</footer>
+```
+
+**Footer CSS:**
+```css
+.footer {
+    border-top: 2px solid var(--black);
+    background: var(--black);
+    padding: 4rem 1.5rem 2rem;
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #333;
+}
+.footer-brand img { height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
+.footer-brand p { font-size: 0.85rem; color: #999; line-height: 1.6; }
+.footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+.footer-col a {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+}
+.footer-col a:hover { color: white; }
+.footer-col .sublink { padding-left: 0.75rem; font-size: 0.8rem; color: #666; }
+.footer-bottom {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #666;
+}
+@media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+```
+
+---
+
+## Lead Capture Flow (Interactive Tools)
+
+For interactive assessments and calculators, use this flow:
+
+### 1. Multi-Step Form → Email Gate → Results + LinkedIn Share
+
+```
+Step 1: User Input (questions/metrics)
+    ↓
+Step 2: Email Gate (email only - minimal friction)
+    ↓
+Step 3: Show Results + "Share to LinkedIn" button
+    ↓
+Background: API call to /api/[tool]-results
+    → Send email via Resend
+    → Push to HubSpot CRM
+    → Add to Resend Audience
+```
+
+### 2. API Endpoint Pattern (Email-Only)
+
+```javascript
+// /api/[tool]-results.js
+export const config = { runtime: 'edge' };
+
+export default async function handler(request) {
+    const { email, result } = await request.json();
+
+    // 1. Send results email via Resend
+    await sendResultsEmail(email, result);
+
+    // 2. Push to HubSpot CRM with tool-specific properties
+    await pushToHubSpot(email, result);
+
+    // 3. Add to Resend Audience for future marketing
+    await pushToResendAudience(email);
+
+    return Response.json({ success: true });
 }
 ```
 
-## Email Validation (REQUIRED FOR ALL NEW PAGES)
+### 3. LinkedIn Share Button (Downloads PNG + Copies Text + Opens LinkedIn)
 
-**API:** mails.so (real-time email verification)
-**Endpoint:** `/api/validate-email?email=...`
-**API Key:** `774d5d47-342e-46e9-acc2-5dff192e00ac`
-
-### Adding to New Pages
-
-**ALWAYS include this script before `</body>` on any page with a download form:**
-
+Include html-to-image CDN:
 ```html
-<script src="/js/email-validation.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
 ```
 
-**Form requirements:**
-- Form must have `id="downloadForm"` or `id="subscribeForm"`
-- Form must have class `email-form` with flex layout
-- Email input must be `type="email"`
-- The script automatically intercepts `onsubmit` handlers
+Share to LinkedIn function (downloads image, copies post text, opens LinkedIn):
+```javascript
+async function shareToLinkedIn() {
+    const card = document.getElementById('shareableCard');
 
-**Example form structure:**
-```html
-<form class="email-form" id="downloadForm" onsubmit="handleSubmit(event)">
-    <input type="email" name="email" placeholder="you@company.com" required>
-    <button type="submit">Get Template</button>
-</form>
+    // 1. Generate and download PNG
+    const dataUrl = await htmlToImage.toPng(card, {
+        quality: 1,
+        pixelRatio: 2,
+        backgroundColor: '#ffffff'
+    });
+    const link = document.createElement('a');
+    link.download = `[tool-name]-results.png`;
+    link.href = dataUrl;
+    link.click();
 
-<!-- Email validation MUST be included -->
-<script src="/js/email-validation.js"></script>
+    // 2. Copy post text to clipboard
+    const postText = `Just [took assessment/ran calculator]...
+
+Score: XX/100
+
+[Brief insight]
+
+Try it yourself: intel.42agency.com/[tool-path]`;
+
+    await navigator.clipboard.writeText(postText);
+
+    // 3. Show toast notification
+    const toast = document.getElementById('toast');
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 5000);
+
+    // 4. Open LinkedIn feed
+    setTimeout(() => {
+        window.open('https://www.linkedin.com/feed/', '_blank');
+    }, 500);
+}
 ```
 
-### How It Works
-1. Script intercepts the form's `onsubmit` handler
-2. User types email → debounce 600ms → validates via API
-3. On submit: blocks if invalid, only calls original handler if valid
-4. Invalid emails cannot download content
-
-### Validation Logic
-| mails.so result | Action |
-|-----------------|--------|
-| `deliverable` | ✅ Allow |
-| `catch_all` | ✅ Allow (risky flag) |
-| `unknown` | ✅ Allow (fail open) |
-| `is_disposable: true` | ❌ Block |
-| `invalid` | ❌ Block |
-| `undeliverable` | ❌ Block |
-
-### Files
-- `/api/validate-email.js` - Vercel Edge function (proxies to mails.so)
-- `/js/email-validation.js` - Client-side validation + UX (handles flex layout)
+Toast HTML (add to results section):
+```html
+<div id="toast" style="display: none; position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: #1a1a1a; color: white; padding: 1rem 1.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 1000; max-width: 400px; text-align: center;">
+    <div style="font-weight: 700; margin-bottom: 0.25rem;">Image downloaded, text copied!</div>
+    <div style="font-size: 0.85rem; color: #ccc;">Paste the text and attach your image to post.</div>
+</div>
+```
 
 ---
 
 ## Creating New Pages Checklist
 
-When creating a new lead magnet page:
+### Required Elements
 
-- [ ] Use horizontal logo (`/42-logo.png`) with `flex-shrink: 0`
+- [ ] Use global header with nav (copy from `/assess/index.html`)
+- [ ] Use comprehensive footer (copy from `/assess/index.html`)
 - [ ] Include GTM snippet in `<head>`
 - [ ] Include HubSpot tracking script in `<head>`
+- [ ] Add page to appropriate nav section (Assess, Benchmarks, Resources)
+- [ ] Update footer links if adding new category
+
+### For Gated Downloads
+
 - [ ] Form has `id="downloadForm"` and `class="email-form"`
-- [ ] **Add `<script src="/js/email-validation.js"></script>` before `</body>`**
-- [ ] Footer has 5 columns with YouTube link
-- [ ] Test email validation blocks disposable emails (try mailinator.com)
+- [ ] Include `/js/email-validation.js` before `</body>`
+- [ ] Submit to HubSpot Collected Forms API
+- [ ] Test email validation blocks disposable emails
+
+### For Interactive Tools (Assessments/Calculators)
+
+- [ ] Email-only gate (no name/company required)
+- [ ] Create `/api/[tool]-results.js` endpoint
+- [ ] Send results email via Resend
+- [ ] Push to HubSpot CRM with tool-specific properties
+- [ ] Push to Resend Audience
+- [ ] Add "Share to LinkedIn" button (downloads PNG + copies text + opens LinkedIn)
+- [ ] Include toast notification for share confirmation
+- [ ] Track GTM events for funnel analysis
 
 ---
 
-## Common Issues & Fixes
+## HubSpot Properties
 
-| Issue | Fix |
-|-------|-----|
-| Logo stretched | Use horizontal logo (674x171), add `flex-shrink: 0` to `.logo` |
-| Footer columns wrapping | Set `grid-template-columns: repeat(5, 1fr)` |
-| Form not submitting to HubSpot | Check API endpoint, verify `collected-forms` in URL |
-| Download works with invalid email | Missing `/js/email-validation.js` script |
-| Button becomes giant with validation | Script handles this automatically via flex wrapper |
+### Assessment Tools
+| Property | Type | Used By |
+|----------|------|---------|
+| `hubspot_health_score` | Number | HubSpot Assessment |
+| `hubspot_health_grade` | Dropdown (A-F) | HubSpot Assessment |
+| `hubspot_health_assessment_date` | Date | HubSpot Assessment |
+| `hubspot_health_critical_issues` | Number | HubSpot Assessment |
+| `hubspot_health_weakest_category` | Text | HubSpot Assessment |
 
-## File Locations
-
-- **Excel templates:** In each page's subdirectory (e.g., `/linkedin-audit/42_LinkedIn_Ads_Audit_Template.xlsx`)
-- **Logo:** `/42-logo.png` (horizontal version)
-- **Assets source:** `~/Documents/Schema Agency/assets/`
+### Calculator Tools
+| Property | Type | Used By |
+|----------|------|---------|
+| `benchmark_calculator_score` | Number | Benchmark Calculator |
+| `benchmark_calculator_industry` | Dropdown | Benchmark Calculator |
+| `benchmark_calculator_date` | Date | Benchmark Calculator |
+| `benchmark_calculator_weakest_metric` | Text | Benchmark Calculator |
 
 ---
 
-## B2B Benchmarks Pages (`/b2b-benchmarks/`)
+## Email Validation
 
-**URL:** https://intel.42agency.com/b2b-benchmarks
-**Last Updated:** February 19, 2026
+**API:** mails.so
+**Endpoint:** `/api/validate-email?email=...`
 
-### Site Structure
-
-| Page | URL | Purpose |
-|------|-----|---------|
-| Main Benchmarks | `/b2b-benchmarks/` | Gated lead magnet - ungated preview + email gate for industry data |
-| Calculator | `/b2b-benchmarks/calculator/` | Interactive tool - input your metrics, compare to benchmarks |
-| **Industry pSEO** | | |
-| Legal Tech | `/b2b-benchmarks/legal-tech-linkedin-ads/` | pSEO - $97-$350 CPL, role-specific content |
-| Healthcare Tech | `/b2b-benchmarks/healthcare-tech-linkedin-ads/` | pSEO - InMail + gift cards, $400-$600 CPL |
-| DevOps | `/b2b-benchmarks/devops-linkedin-ads/` | pSEO - $100 Amazon GC = 46% open, $265-$422 CPL |
-| FinTech | `/b2b-benchmarks/fintech-linkedin-ads/` | pSEO - Enterprise premium, segment-specific |
-| **Tactic/Channel pSEO** | | |
-| InMail Benchmarks | `/b2b-benchmarks/linkedin-inmail-benchmarks/` | Gift card strategy - 60-70% CPL reduction |
-| Meta Ads | `/b2b-benchmarks/meta-ads-benchmarks/` | B2B retargeting - $50-$150 CPL, ROAS 300-500% |
-
-### Main Page Structure
-
-**Ungated (free preview):**
-- Hero stats (87 clients, 14 industries, $5M+ spend)
-- LinkedIn Ads benchmark cards + rating scale
-- Google Ads benchmark cards + rating scale
-
-**Gated (requires email):**
-- LinkedIn CPL by Industry table (14 industries)
-- LinkedIn InMail benchmarks (gift card vs no incentive)
-- Google Search CPL by Industry
-- E-commerce/ROAS benchmarks
-
-**Gate Implementation:**
-- One unified sticky gate covering all gated sections
-- Email submits to HubSpot Collected Forms API
-- localStorage remembers unlock state
-- GTM event: `benchmarks_unlocked`
-
-### Overview
-
-Proprietary B2B paid media benchmarks based on real 42 Agency client data. NOT survey data.
-
-**Coverage:**
-- 87 B2B clients
-- 14 industries
-- $5M+ ad spend analyzed
-- 4 years of data (2022-2026)
-
-### Data Sources
-
-1. **Google Drive (Primary)** - Campaign planners, monthly insight summaries, recaps
-   - Shared Drive ID: `0AOfcq4y0GNrwUk9PVA`
-   - Root Folders: `132P9M_MXOW6Kqg2IaKfPjOn4ZOHzTZ8o`, `14-THmjClg6cOI3K27UXLVw3bF-Lymk_r`, `14zmNBaPMxwWgWnZWb6CgvE7FAPr1nYGE`, `1MRhiHSA9z00d92mUCSbHvTVQAAoV1a5s`
-
-2. **42 RAG Database** - Indexed content from Drive, Slack, ClickUp
-   - Database: Neon PostgreSQL (see `/Users/42agency/42-rag/.env.local`)
-
-3. **Databox MCP** - Live metrics from connected accounts
-
-### Extraction Scripts
-
-Located in `/Users/42agency/42-rag/scripts/`:
-
-| Script | Purpose |
-|--------|---------|
-| `list-drive-clients.ts` | List all 87 client folders from Drive |
-| `extract-benchmarks.ts` | Extract metrics from monthly reports |
-| `extract-all-benchmarks.ts` | Comprehensive extraction from campaign planners |
-| `extract-clean-benchmarks.ts` | Verified/cleaned benchmark extraction |
-| `read-campaign-planners.ts` | Read raw content from specific planners |
-| `final-benchmarks.json` | Compiled benchmark data (JSON) |
-
-### Running Extraction Scripts
-
-```bash
-cd ~/42-rag
-npx tsx scripts/list-drive-clients.ts        # List all clients
-npx tsx scripts/extract-clean-benchmarks.ts  # Extract verified data
+Include on all gated pages:
+```html
+<script src="/js/email-validation.js"></script>
 ```
 
-**Note:** Scripts use Google OAuth via 42 RAG app. Token auto-refreshes from database.
-
-### Key Files with Benchmark Data
-
-| File | Client | Key Metrics |
-|------|--------|-------------|
-| `STENO Monthly Insight Summary - January` | Steno | LinkedIn CPL $97-341, Google CPL $965 |
-| `WestCX Monthly Insight Summary - January` | WestCX | CPL $921, Cost/MQL $1,279 |
-| `Sanitaire - Monthly Insight Summary` | Bissell | ROAS 499%, Meta CPL $87 |
-| `Ethyca Recap Dec 2025` | Ethyca | CPL $130 (EU AI Act), $288-380 (ICP) |
-| `Unblocked <> 42A Campaign Planner` | Unblocked | InMail CPL $265-422 (w/ GC) |
-| `Rose Rocket <> 42 Campaign Planner` | Rose Rocket | Cost/SQL $1,778 |
-| `Float Campaign Planner` | Float | LinkedIn CPL $1,613 (50+ emp) |
-
-### Industries Covered
-
-1. Legal Tech (Steno, DISCO, Part3)
-2. Privacy/Security (Ethyca, Cerby, Teleport, Odaseva)
-3. Healthcare Tech (WestCX/TeleVox, OnCall Health, HR for Health)
-4. FinTech/Payments (PayNearMe, Float, A2X, Metronome)
-5. Logistics (Transfix, Rose Rocket, Afresh, SVT)
-6. DevOps/Engineering (Unblocked, Opsera, Stainless)
-7. Digital Workplace (Unily, Teamwork, Communo)
-8. EdTech/HR (InStride, Mathison, Cognota, Guru)
-9. Construction Tech (eSUB, Uptick, Knowify)
-10. E-commerce (TryNow, Cin7, Repspark)
-11. MarTech (SharpSpring, Klue, Pocus, Knak)
-12. Life Sciences (Redica, Cytena, ACTO)
-13. UCaaS/Telecom (Evolve IP, PiiComm)
-14. Consumer/B2B (Bissell/Sanitaire)
-
-### Quarterly Update Process
-
-1. **Run extraction scripts** to pull latest data from Drive
-   ```bash
-   cd ~/42-rag
-   npx tsx scripts/extract-clean-benchmarks.ts
-   ```
-
-2. **Review new Monthly Insight Summaries** - Search Drive for recent months
-
-3. **Update `final-benchmarks.json`** with new data points
-
-4. **Edit `/b2b-benchmarks/index.html`** - Update metrics, add new industries if needed
-
-5. **Update hero stats** - Client count, spend total, date range
-
-6. **Deploy**
-   ```bash
-   cd ~/Documents/Schema\ Agency/web/intel-pages && vercel --prod
-   ```
-
-### Key Benchmark Insights
-
-| Finding | Data Point |
-|---------|------------|
-| InMail gift cards reduce CPL 60-70% | $1,500+ → $400-500 |
-| Role-specific content wins | $97 (Paralegal Playbook) vs $341 (generic) |
-| Regulatory content performs | $130 CPL (EU AI Act) |
-| Exact match 2x better | $1,200 vs $2,800 MQL |
-| Search > PMax for ROAS | 553% vs 436% |
-| Construction has lowest Google CPL | $150-300 |
-| FinTech enterprise premium | $1,500-1,800 CPL (50+ emp) |
+| Result | Action |
+|--------|--------|
+| `deliverable` | Allow |
+| `catch_all` | Allow |
+| `unknown` | Allow (fail open) |
+| `is_disposable: true` | Block |
+| `invalid` | Block |
+| `undeliverable` | Block |
 
 ---
 
-*Last updated: February 19, 2026 - Added B2B benchmarks documentation with 87 clients across 14 industries*
+## File Structure
+
+```
+intel-pages/
+├── api/
+│   ├── assessment-results.js    # HubSpot Assessment API
+│   ├── calculator-results.js    # Benchmark Calculator API
+│   └── validate-email.js        # Email validation proxy
+├── js/
+│   └── email-validation.js      # Client-side validation
+├── assess/
+│   ├── index.html               # Assessments hub
+│   └── calculator/index.html    # Benchmark Calculator
+├── assessments/
+│   ├── index.html               # Legacy assessments index
+│   └── hubspot-health/index.html
+├── b2b-benchmarks/
+│   ├── index.html               # Benchmarks hub
+│   ├── calculator/index.html    # Redirects to /assess/calculator/
+│   └── [industry]-linkedin-ads/ # pSEO pages
+├── [audit-templates]/           # LinkedIn, Google, Meta, HubSpot
+├── vercel.json                  # Redirects + headers
+├── 42-logo.png                  # Horizontal logo
+└── CLAUDE.md                    # This file
+```
+
+---
+
+## Related Properties
+
+- **Copilot:** https://copilot.42agency.com (separate repo/deployment)
+- **Main Site:** https://42agency.com
+- **Essays:** https://42slash.com
+
+---
+
+*Last updated: February 21, 2026 - Major restructure: /assess/ hub, consistent nav/footer, lead capture flow*

@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/b2b-benchmarks/calculator",
+      "destination": "/assess/calculator/",
+      "permanent": true
+    },
+    {
+      "source": "/b2b-benchmarks/calculator/",
+      "destination": "/assess/calculator/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)\\.xlsx",

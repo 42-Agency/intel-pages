@@ -44,27 +44,43 @@
         .header {
             background: var(--white);
             border-bottom: 2px solid var(--black);
-            padding: 1rem 2rem;
+            padding: 0.75rem 1.5rem;
             position: sticky;
             top: 0;
             z-index: 100;
         }
         .header-inner {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo { flex-shrink: 0; }
-        .logo img { height: 32px; width: auto; }
-        .header-badge {
-            background: var(--accent);
-            padding: 0.4rem 1rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border: 2px solid var(--black);
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
         }
+        .nav a:hover { color: var(--black); background: var(--gray-lighter); }
+        .nav a.active { color: var(--black); font-weight: 600; background: var(--accent); }
+        .nav a.external { display: flex; align-items: center; gap: 0.25rem; }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--black);
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .nav-cta:hover { background: #333 !important; }
+        @media (max-width: 768px) { .nav { display: none; } }
 
         .hero {
             background: var(--white);
@@ -367,10 +383,18 @@
 
     <header class="header">
         <div class="header-inner">
-            <div class="logo">
+            <a href="/" class="logo">
                 <img src="/42-logo.png" alt="42 Agency">
-            </div>
-            <div class="header-badge">Free Resources</div>
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="https://copilot.42agency.com" target="_blank" class="external">
+                    AI Tools
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
         </div>
     </header>
 
@@ -382,6 +406,65 @@
     </section>
 
     <div class="container">
+        <h2 class="section-title">Assessments & Diagnostics</h2>
+        <div class="resource-grid">
+            <a href="/assessments/hubspot-health/" class="resource-card">
+                <span class="resource-badge assessment">Interactive</span>
+                <h3 class="resource-title">HubSpot CRM Health Assessment</h3>
+                <p class="resource-desc">42-point diagnostic covering data hygiene, lifecycle management, lead scoring, attribution, and more. Get a personalized health score and recommendations.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        5 minutes
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        42 checks
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Take Assessment
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/assess/calculator/" class="resource-card">
+                <span class="resource-badge toolkit">Calculator</span>
+                <h3 class="resource-title">B2B Benchmark Calculator</h3>
+                <p class="resource-desc">Input your LinkedIn & Google Ads metrics. See how you compare to 87 B2B campaigns with instant ratings and shareable results.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        3 minutes
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        8 metrics
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Try Calculator
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/assess/" class="resource-card">
+                <span class="resource-badge template">Hub</span>
+                <h3 class="resource-title">All Assessments & Audits</h3>
+                <p class="resource-desc">Browse all our diagnostic tools: HubSpot health check, paid media audit templates, benchmark calculator, and more.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        6 tools
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    View All
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+        </div>
+
         <h2 class="section-title">ABM & Go-to-Market</h2>
         <div class="resource-grid">
             <a href="/zenabm/audit.html" class="resource-card">
@@ -621,26 +704,6 @@
                 </div>
             </a>
 
-            <a href="/b2b-benchmarks/calculator/" class="resource-card">
-                <span class="resource-badge toolkit">Interactive</span>
-                <h3 class="resource-title">Benchmark Calculator</h3>
-                <p class="resource-desc">Input your LinkedIn or Google metrics and compare against industry benchmarks. Get a performance rating and actionable insights.</p>
-                <div class="resource-meta">
-                    <span class="resource-meta-item">
-                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                        Calculator
-                    </span>
-                    <span class="resource-meta-item">
-                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                        2 minutes
-                    </span>
-                </div>
-                <span class="resource-cta">
-                    Try Calculator
-                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                </span>
-            </a>
-
             <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/" class="resource-card">
                 <span class="resource-badge template">Tactic</span>
                 <h3 class="resource-title">LinkedIn InMail Benchmarks</h3>
@@ -726,12 +789,12 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
-                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <p>B2B performance marketing for companies that sell to enterprises. We've managed $50M+ in ad spend across 200+ accounts.</p>
                 <div class="social-links">
                     <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </a>
-                    <a href="https://x.com/get42agency" target="_blank" aria-label="X/Twitter">
+                    <a href="https://x.com/42aboratory" target="_blank" aria-label="X/Twitter">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
                     <a href="https://www.youtube.com/@Get42Agency" target="_blank" aria-label="YouTube">
@@ -741,45 +804,53 @@
             </div>
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>42 Agency</h4>
-                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
-                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
-                    <a href="https://42agency.com/seo-and-content" target="_blank">SEO & Content</a>
-                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
-                </div>
-                <div class="footer-col">
-                    <h4>42/ Essays</h4>
-                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
-                    <a href="https://42slash.com/p/the-abm-measurement-problem" target="_blank">The ABM Measurement Problem</a>
-                    <a href="https://42slash.com/p/the-claude-code-essay" target="_blank">The Claude Code Essay</a>
-                    <a href="https://42slash.com/p/demand-gen-is-not-lead-gen" target="_blank">Demand Gen is Not Lead Gen</a>
-                    <a href="https://42slash.com" target="_blank">All Essays →</a>
+                    <h4>Assess</h4>
+                    <a href="/assessments/hubspot-health/">HubSpot Health Check</a>
+                    <a href="/assess/calculator/">Benchmark Calculator</a>
+                    <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
+                    <a href="/google-ads-audit/">Google Ads Audit</a>
+                    <a href="/meta-audit/">Meta Ads Audit</a>
+                    <a href="/hubspot-audit/">HubSpot Audit</a>
                 </div>
                 <div class="footer-col">
                     <h4>Benchmarks</h4>
-                    <a href="/b2b-benchmarks/">All Benchmarks</a>
-                    <a href="/b2b-benchmarks/calculator/">Benchmark Calculator</a>
+                    <a href="/b2b-benchmarks/">All B2B Benchmarks</a>
+                    <a href="/b2b-benchmarks/linkedin-ads-benchmarks/">LinkedIn Ads</a>
+                    <a href="/b2b-benchmarks/google-ads-benchmarks/">Google Ads</a>
                     <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/">InMail Benchmarks</a>
-                    <a href="/b2b-benchmarks/meta-ads-benchmarks/">Meta Ads Benchmarks</a>
+                    <a href="/b2b-benchmarks/legal-tech-linkedin-ads/" style="padding-left: 0.5rem; font-size: 0.8rem; color: #888;">Legal Tech</a>
+                    <a href="/b2b-benchmarks/healthcare-tech-linkedin-ads/" style="padding-left: 0.5rem; font-size: 0.8rem; color: #888;">Healthcare Tech</a>
+                    <a href="/b2b-benchmarks/fintech-linkedin-ads/" style="padding-left: 0.5rem; font-size: 0.8rem; color: #888;">FinTech</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Paid Media Audits</h4>
-                    <a href="/google-ads-audit/">Google Ads Audit</a>
-                    <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
-                    <a href="/meta-audit/">Meta Ads Audit</a>
-                    <a href="/linkedin-targeting/">LinkedIn Targeting</a>
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">LinkedIn Ads Copilot</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting" target="_blank">Targeting Guide</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting/audience-sizing" target="_blank">Audience Sizing</a>
+                    <h4 style="margin-top: 1.5rem;">Resources</h4>
+                    <a href="/zenabm/">ABM Toolkit</a>
+                    <a href="/mops-funnel/">MOPS Funnel Workbook</a>
+                    <a href="/exitfive/">Claude Code 101</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Resources</h4>
-                    <a href="/hubspot-audit/">HubSpot Audit</a>
-                    <a href="/mops-funnel/">MOPS Funnel</a>
-                    <a href="/abm-campaign/">ABM Campaign</a>
-                    <a href="/zenabm/">ZenABM Toolkit</a>
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com" target="_blank">Website</a>
+                    <a href="https://42agency.com/contact" target="_blank">Contact Us</a>
+                    <a href="https://42agency.com/case-studies" target="_blank">Case Studies</a>
+                    <a href="https://42slash.com" target="_blank">42/ Essays</a>
+                    <a href="https://42agency.com/careers" target="_blank">Careers</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Popular Essays</h4>
+                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
+                    <a href="https://42slash.com/p/the-claude-code-essay" target="_blank">The Claude Code Essay</a>
+                    <a href="https://42slash.com/p/demand-gen-is-not-lead-gen" target="_blank">Demand Gen ≠ Lead Gen</a>
+                    <a href="https://42slash.com" target="_blank">All Essays →</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+            <p>&copy; 2026 42 Agency &middot; All rights reserved &middot; <a href="https://42agency.com/privacy" target="_blank" style="color: #888;">Privacy</a></p>
         </div>
     </footer>
 </body>
