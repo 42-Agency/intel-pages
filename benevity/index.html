@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benevity | Campaign Intelligence | 42 Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-green: #5BD675;
+            --dark: #0d0d0d;
+            --gray: #888;
+            --light-gray: #f5f5f5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--dark);
+            color: white;
+            line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 60px;
+        }
+        .logo { height: 32px; }
+        .prepared-for { font-size: 14px; color: var(--gray); }
+        .prepared-for strong { color: white; }
+
+        /* Hero */
+        .hero { text-align: center; margin-bottom: 80px; }
+        .badge {
+            display: inline-block;
+            background: rgba(91, 214, 117, 0.15);
+            color: var(--brand-green);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--brand-green);
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section */
+        .section { margin-bottom: 60px; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(91, 214, 117, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 18px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .section-subtitle { font-size: 14px; color: var(--gray); margin-left: auto; }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th {
+            background: rgba(255,255,255,0.05);
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            font-weight: 600;
+        }
+        td {
+            padding: 16px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px;
+        }
+        .highlight-row { background: rgba(91, 214, 117, 0.08); }
+        .highlight-row td { color: var(--brand-green); font-weight: 600; }
+        .cpc { color: var(--brand-green); font-weight: 600; }
+
+        /* Insight Box */
+        .insight-box {
+            background: linear-gradient(135deg, rgba(91, 214, 117, 0.1) 0%, rgba(91, 214, 117, 0.02) 100%);
+            border: 1px solid rgba(91, 214, 117, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 40px 0;
+        }
+        .insight-box h3 {
+            color: var(--brand-green);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        .insight-box p { color: #ccc; font-size: 15px; }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .cta-section h2 { font-size: 32px; margin-bottom: 16px; }
+        .cta-section p { color: var(--gray); margin-bottom: 32px; font-size: 16px; }
+        .cta-button {
+            display: inline-block;
+            background: var(--brand-green);
+            color: var(--dark);
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(91, 214, 117, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--gray);
+            font-size: 13px;
+        }
+        .footer a { color: var(--brand-green); text-decoration: none; }
+
+        /* Context note */
+        .context-note {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 60px;
+        }
+        .context-note p { color: #aaa; font-size: 14px; margin: 0; }
+        .context-note strong { color: white; }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 32px; }
+            .container { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="https://42agency.com/hubfs/42_horizontal_white.png" alt="42 Agency" class="logo">
+            <div class="prepared-for">Prepared for <strong>Mandy Schnirel</strong> | Benevity</div>
+        </header>
+
+        <div class="context-note">
+            <p>Hi Mandy - Kamil here. Following up on your <strong>Exit Five post about finding a strategic, data-driven agency partner</strong>. Rather than just pitch, I put together some actual data on your paid media opportunity. This is what we do for clients like InStride.</p>
+        </div>
+
+        <section class="hero">
+            <span class="badge">LIVE API DATA</span>
+            <h1>Campaign Intelligence</h1>
+            <p class="hero-subtitle">Real keyword CPCs and LinkedIn audience data for Benevity's target market - pulled from DataForSEO and LinkedIn Marketing API.</p>
+        </section>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">$15-25K</div>
+                <div class="stat-label">Recommended Monthly</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1,740</div>
+                <div class="stat-label">Monthly Search Volume</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">240K</div>
+                <div class="stat-label">LinkedIn Reach</div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">G</div>
+                <h2>Google Ads: Keyword Snapshot</h2>
+                <span class="section-subtitle">Live CPC data</span>
+            </div>
+            <table>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Volume/Mo</th>
+                    <th>Avg CPC</th>
+                    <th>Top of Page</th>
+                </tr>
+                <tr class="highlight-row">
+                    <td>donation management software</td>
+                    <td>1,000</td>
+                    <td class="cpc">$43.59</td>
+                    <td>$10.53 - $40.00</td>
+                </tr>
+                <tr>
+                    <td>CSR software</td>
+                    <td>210</td>
+                    <td class="cpc">$34.48</td>
+                    <td>$7.44 - $22.71</td>
+                </tr>
+                <tr>
+                    <td>corporate social responsibility platform</td>
+                    <td>170</td>
+                    <td>-</td>
+                    <td>$11.88 - $38.72</td>
+                </tr>
+                <tr>
+                    <td>corporate giving software</td>
+                    <td>70</td>
+                    <td class="cpc">$7.77</td>
+                    <td>$17.00 - $38.86</td>
+                </tr>
+                <tr>
+                    <td>employee giving program</td>
+                    <td>70</td>
+                    <td>-</td>
+                    <td>$5.57 - $17.62</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">in</div>
+                <h2>LinkedIn: Audience Snapshot</h2>
+                <span class="section-subtitle">Marketing API pricing</span>
+            </div>
+            <table>
+                <tr>
+                    <th>Audience</th>
+                    <th>Size</th>
+                    <th>CPM (Lead Gen)</th>
+                    <th>CPC (Traffic)</th>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Enterprise HR & Marketing Leaders (1K+ employees)</td>
+                    <td>240,000</td>
+                    <td class="cpc">$251.73</td>
+                    <td>$41.14</td>
+                </tr>
+                <tr>
+                    <td>CSR & Sustainability Decision Makers</td>
+                    <td>~3,600</td>
+                    <td class="cpc">$251.73</td>
+                    <td>$41.14</td>
+                </tr>
+            </table>
+        </section>
+
+        <div class="insight-box">
+            <h3>Why ABM-First Makes Sense for Benevity</h3>
+            <p>Your buyers - VP HR, CHROs, Chief People Officers at enterprise companies - don't respond to gated whitepapers. They respond to peer validation and thought leadership. We'd recommend a named-account approach on LinkedIn (InMail + retargeting) supported by high-intent search capture. This is exactly how we ran programs for InStride (workforce education for enterprise HR buyers).</p>
+        </div>
+
+        <section class="cta-section">
+            <h2>Want the Full Campaign Plan?</h2>
+            <p>50+ keywords, full audience specs, campaign structure, ad copy, budget allocation, and measurement framework.</p>
+            <a href="mailto:kamil@42agency.com?subject=Benevity%20Campaign%20Plan" class="cta-button">Let's Chat</a>
+        </section>
+
+        <footer class="footer">
+            <p>Prepared by <a href="https://42agency.com">42 Agency</a> | B2B Performance Marketing</p>
+        </footer>
+    </div>
+</body>
+</html>

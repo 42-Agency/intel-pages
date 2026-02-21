@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Job Title Targeting Guide | B2B Audience Building</title>
+    <meta name="description" content="How to target job titles on LinkedIn Ads. Seniority vs function vs exact titles, when to use each approach, and common targeting mistakes to avoid.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/linkedin-targeting/job-title-targeting/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.7;
+        }
+
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        .header { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--black); }
+        .logo span { color: var(--accent); }
+        .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .back-link:hover { color: var(--accent); }
+
+        .article { padding: 48px 0; }
+        .breadcrumb { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--gray-600); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); }
+
+        h1 { font-size: 36px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
+        .meta { font-size: 14px; color: var(--gray-600); margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-200); }
+        h2 { font-size: 24px; font-weight: 600; color: var(--black); margin: 48px 0 16px; }
+        h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 32px 0 12px; }
+        p { margin-bottom: 16px; color: var(--gray-800); }
+        ul, ol { margin: 0 0 24px 24px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--black); }
+        code { background: var(--gray-100); padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+
+        .table-wrapper { overflow-x: auto; margin: 24px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: var(--black); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); }
+        tr:nth-child(even) { background: var(--gray-50); }
+
+        .callout { background: var(--gray-50); border-left: 4px solid var(--accent); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .callout-title { font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .callout p { margin: 0; font-size: 15px; }
+
+        .warning { border-left-color: #f59e0b; background: #fffbeb; }
+
+        .cta-box { background: linear-gradient(135deg, var(--black) 0%, #2d3548 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+        .cta-box h3 { color: var(--white); margin: 0 0 8px; }
+        .cta-box p { color: var(--gray-400); margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: var(--accent); color: var(--black); padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .cta-button:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+        .footer { padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 48px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 14px; color: var(--gray-600); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 640px) { h1 { font-size: 28px; } h2 { font-size: 20px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                <a href="/linkedin-targeting/" class="back-link">← LinkedIn Targeting Checklist</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Resources</a> → <a href="/linkedin-targeting/">LinkedIn Targeting</a> → Job Title Targeting
+            </div>
+
+            <h1>LinkedIn Job Title Targeting: Seniority, Function, or Exact Titles?</h1>
+            <div class="meta">The strategic framework for building job-title-based audiences that actually convert.</div>
+
+            <p>LinkedIn offers three ways to target by job: <strong>Seniority</strong>, <strong>Job Function</strong>, and <strong>Job Titles</strong>. Most advertisers use them wrong—either too broad (wasted spend) or too narrow (no delivery).</p>
+
+            <p>This guide covers when to use each approach and how to combine them effectively.</p>
+
+            <h2>The Three Targeting Dimensions</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>What It Is</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Seniority</strong></td>
+                            <td>Level in org (Entry, Senior, Manager, Director, VP, CXO)</td>
+                            <td>Broad campaigns, awareness</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Job Function</strong></td>
+                            <td>Department (Marketing, Sales, IT, Finance, HR, etc.)</td>
+                            <td>Mid-funnel, department-specific products</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Job Titles</strong></td>
+                            <td>Exact or keyword-matched titles</td>
+                            <td>Tight targeting, ABM, niche roles</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Strategy 1: Seniority + Function (Recommended Default)</h2>
+
+            <p>The most reliable approach for B2B. Combine seniority level with job function to reach decision-makers in your target department.</p>
+
+            <h3>Example: Targeting Marketing Leaders</h3>
+            <ul>
+                <li>Seniority: Director, VP, CXO</li>
+                <li>Job Function: Marketing</li>
+                <li>Result: CMOs, VPs of Marketing, Marketing Directors, Heads of Marketing</li>
+            </ul>
+
+            <p>This captures the role regardless of how companies title it internally.</p>
+
+            <div class="callout">
+                <div class="callout-title">Why This Works Best</div>
+                <p>Job titles vary wildly across companies. "Head of Demand Gen" at one company is "Director of Growth Marketing" at another. Seniority + Function catches all variations without requiring you to guess every title permutation.</p>
+            </div>
+
+            <h2>Strategy 2: Exact Job Titles (Use Sparingly)</h2>
+
+            <p>Targeting exact job titles like "Chief Marketing Officer" or "VP of Sales" can work but has significant limitations:</p>
+
+            <h3>When Exact Titles Work</h3>
+            <ul>
+                <li><strong>C-suite targeting:</strong> CEO, CFO, CTO, CMO are standardized</li>
+                <li><strong>Highly specific roles:</strong> "Salesforce Administrator" or "HubSpot Manager"</li>
+                <li><strong>Niche functions:</strong> "Revenue Operations" or "Marketing Operations"</li>
+            </ul>
+
+            <h3>When Exact Titles Fail</h3>
+            <ul>
+                <li><strong>Mid-level roles:</strong> "Marketing Manager" vs "Senior Marketing Manager" vs "Marketing Lead"</li>
+                <li><strong>Emerging roles:</strong> Titles that haven't standardized yet</li>
+                <li><strong>International markets:</strong> Title conventions vary by country</li>
+            </ul>
+
+            <div class="callout warning">
+                <div class="callout-title">Warning: Title Fragmentation</div>
+                <p>LinkedIn data shows that targeting "VP of Marketing" only reaches ~15% of actual VPs of Marketing. The rest have variations: "Vice President, Marketing", "VP Marketing", "VP of Growth", etc. Use Job Function + Seniority instead.</p>
+            </div>
+
+            <h2>Strategy 3: Skills + Seniority (Advanced)</h2>
+
+            <p>For reaching practitioners regardless of title, combine skills with seniority:</p>
+
+            <h3>Example: Demand Gen Practitioners</h3>
+            <ul>
+                <li>Skills: Demand Generation, Lead Generation, Marketing Automation</li>
+                <li>Seniority: Senior, Manager, Director</li>
+                <li>Result: People who do demand gen work, regardless of title</li>
+            </ul>
+
+            <p>This works for reaching doers and influencers who may not have obvious titles.</p>
+
+            <h2>Combining Dimensions: The Layering Rules</h2>
+
+            <p>LinkedIn's targeting dimensions interact differently:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Combination</th>
+                            <th>Logic</th>
+                            <th>Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Seniority + Function</td>
+                            <td>AND</td>
+                            <td>Must have both (narrowing)</td>
+                        </tr>
+                        <tr>
+                            <td>Multiple Seniorities</td>
+                            <td>OR</td>
+                            <td>Any of these levels (expanding)</td>
+                        </tr>
+                        <tr>
+                            <td>Multiple Functions</td>
+                            <td>OR</td>
+                            <td>Any of these departments (expanding)</td>
+                        </tr>
+                        <tr>
+                            <td>Multiple Job Titles</td>
+                            <td>OR</td>
+                            <td>Any of these titles (expanding)</td>
+                        </tr>
+                        <tr>
+                            <td>Function + Job Titles</td>
+                            <td>AND</td>
+                            <td>Both required (often too narrow)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Common Targeting Mistakes</h2>
+
+            <h3>Mistake 1: Over-Layering</h3>
+            <p>Adding Seniority + Function + Industry + Company Size + Skills = audience too small</p>
+            <p><strong>Fix:</strong> Use maximum 3 targeting dimensions</p>
+
+            <h3>Mistake 2: Mixing Titles and Functions</h3>
+            <p>If you target Job Function: Marketing AND Job Title: "Marketing Manager", you're requiring both—not reaching Marketing Managers, but a subset.</p>
+            <p><strong>Fix:</strong> Use one or the other, not both</p>
+
+            <h3>Mistake 3: Forgetting Adjacent Buyers</h3>
+            <p>Only targeting CMOs misses the Director of Demand Gen who actually runs campaigns, or the VP of Sales who co-owns pipeline.</p>
+            <p><strong>Fix:</strong> Include adjacent seniority levels and functions</p>
+
+            <h2>Recommended Targeting by Use Case</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Use Case</th>
+                            <th>Recommended Approach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Awareness campaign</td>
+                            <td>Function only (broad reach)</td>
+                        </tr>
+                        <tr>
+                            <td>Mid-funnel content</td>
+                            <td>Function + Seniority (Manager+)</td>
+                        </tr>
+                        <tr>
+                            <td>Bottom-funnel conversion</td>
+                            <td>Function + Seniority (Director+)</td>
+                        </tr>
+                        <tr>
+                            <td>ABM campaigns</td>
+                            <td>Account List + Function + Seniority</td>
+                        </tr>
+                        <tr>
+                            <td>Practitioner targeting</td>
+                            <td>Skills + Seniority (Senior, Manager)</td>
+                        </tr>
+                        <tr>
+                            <td>C-suite only</td>
+                            <td>Seniority: CXO (simplest approach)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cta-box">
+                <h3>Get the Full Targeting Checklist</h3>
+                <p>Complete job title combinations, seniority mapping, and targeting templates for B2B campaigns.</p>
+                <a href="/linkedin-targeting/" class="cta-button">Download Checklist →</a>
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li><strong>Default to Seniority + Function</strong>—it catches title variations</li>
+                <li><strong>Use exact titles sparingly</strong>—only for standardized roles (C-suite, specific platforms)</li>
+                <li><strong>Never combine Function AND Titles</strong>—they AND together and over-restrict</li>
+                <li><strong>Include adjacent buyers</strong>—the person signing the contract isn't always the one evaluating solutions</li>
+                <li><strong>Max 3 targeting layers</strong>—more than that kills delivery</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer style="background: #0a0a0a; padding: 2rem; margin-top: 3rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 24px;"></a>
+                <span style="color: #666; font-size: 13px;">© 2026 42 Agency</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/linkedin-targeting/audience-sizing/" style="color: #999; text-decoration: none; font-size: 14px;">← Audience Sizing</a>
+                <a href="/linkedin-targeting/account-lists/" style="color: #999; text-decoration: none; font-size: 14px;">Account Lists →</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

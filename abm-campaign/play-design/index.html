@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM Play Design | Creating Effective Plays by Tier</title>
+    <meta name="description" content="How to design ABM plays for each account tier. 1:1, 1:Few, and 1:Many tactics, channel selection, and play templates for account-based marketing.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/abm-campaign/play-design/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root { --accent: #DFFE68; --black: #1a1a1a; --purple: #8b5cf6; --gray-50: #f9fafb; --gray-200: #e5e7eb; --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--black); }
+        .logo span { color: var(--accent); }
+        .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .article { padding: 48px 0; }
+        .breadcrumb { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--gray-600); text-decoration: none; }
+        h1 { font-size: 36px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
+        .meta { font-size: 14px; color: var(--gray-600); margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-200); }
+        h2 { font-size: 24px; font-weight: 600; color: var(--black); margin: 48px 0 16px; }
+        h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 32px 0 12px; }
+        p { margin-bottom: 16px; }
+        ul { margin: 0 0 24px 24px; }
+        li { margin-bottom: 8px; }
+        .table-wrapper { overflow-x: auto; margin: 24px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: var(--black); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
+        tr:nth-child(even) { background: var(--gray-50); }
+        .play-card { background: var(--gray-50); border-radius: 12px; padding: 24px; margin: 24px 0; border-left: 4px solid var(--purple); }
+        .play-card h4 { color: var(--black); margin-bottom: 12px; font-size: 16px; }
+        .play-card ul { margin-bottom: 0; }
+        .callout { background: var(--gray-50); border-left: 4px solid var(--purple); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .callout-title { font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .callout p { margin: 0; font-size: 15px; }
+        .tier-badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+        .tier-badge.t1 { background: #fee2e2; color: #991b1b; }
+        .tier-badge.t2 { background: #fef3c7; color: #92400e; }
+        .tier-badge.t3 { background: #dbeafe; color: #1d4ed8; }
+        .cta-box { background: linear-gradient(135deg, var(--black) 0%, #2d3548 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+        .cta-box h3 { color: var(--white); margin: 0 0 8px; }
+        .cta-box p { color: var(--gray-400); margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: var(--purple); color: var(--white); padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+        .footer { padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 48px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 14px; color: var(--gray-600); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        @media (max-width: 640px) { h1 { font-size: 28px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                <a href="/abm-campaign/" class="back-link">← ABM Campaign Template</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Resources</a> → <a href="/abm-campaign/">ABM Campaign</a> → Play Design
+            </div>
+
+            <h1>ABM Play Design: Creating Effective Plays by Tier</h1>
+            <div class="meta">How to design coordinated campaign plays that match your account tiers and buying stage.</div>
+
+            <p>An ABM "play" is a coordinated set of tactics designed to engage and advance specific accounts. Plays combine channels, content, and timing into a repeatable motion.</p>
+
+            <p>Different account tiers require different play intensity. Tier 1 gets white-glove treatment. Tier 3 gets smart automation.</p>
+
+            <h2>The Three ABM Approaches</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Approach</th>
+                            <th>Tier</th>
+                            <th>Personalization</th>
+                            <th>Scale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1:1</strong></td>
+                            <td>Tier 1</td>
+                            <td>Fully custom per account</td>
+                            <td>25-50 accounts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1:Few</strong></td>
+                            <td>Tier 2</td>
+                            <td>Customized per cluster</td>
+                            <td>100-300 accounts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1:Many</strong></td>
+                            <td>Tier 3</td>
+                            <td>Personalized at scale</td>
+                            <td>500-1,000 accounts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Tier 1: 1:1 Plays</h2>
+
+            <span class="tier-badge t1">Tier 1</span>
+
+            <p>Tier 1 accounts justify significant investment. Each play should feel like a campaign built just for that account.</p>
+
+            <div class="play-card">
+                <h4>Example Play: Executive Engagement</h4>
+                <ul>
+                    <li>Custom research report on their industry/company</li>
+                    <li>Personalized video from your executive to their executive</li>
+                    <li>LinkedIn engagement from multiple team members</li>
+                    <li>Direct mail package to key stakeholders</li>
+                    <li>Custom landing page with account-specific content</li>
+                    <li>SDR outreach referencing the above touchpoints</li>
+                </ul>
+            </div>
+
+            <h3>Tier 1 Channel Mix</h3>
+            <ul>
+                <li><strong>Direct mail:</strong> High-value, personalized packages</li>
+                <li><strong>1:1 ads:</strong> LinkedIn/display ads targeting specific company</li>
+                <li><strong>Executive engagement:</strong> Your leaders reaching out to theirs</li>
+                <li><strong>Custom content:</strong> Reports, videos, microsites built for the account</li>
+                <li><strong>Events:</strong> Exclusive dinners, executive roundtables</li>
+            </ul>
+
+            <h2>Tier 2: 1:Few Plays</h2>
+
+            <span class="tier-badge t2">Tier 2</span>
+
+            <p>Group accounts into clusters by shared attributes (industry, use case, challenge), then create plays for each cluster.</p>
+
+            <div class="play-card">
+                <h4>Example Play: Industry Cluster Campaign</h4>
+                <ul>
+                    <li>Industry-specific content hub (guide, webinar, case study)</li>
+                    <li>LinkedIn ads targeting accounts in the cluster</li>
+                    <li>Email sequence with industry-specific messaging</li>
+                    <li>SDR outreach using industry talking points</li>
+                    <li>Virtual event (industry roundtable, panel)</li>
+                </ul>
+            </div>
+
+            <h3>Cluster Examples</h3>
+            <ul>
+                <li><strong>By industry:</strong> FinTech cluster, HealthTech cluster, eCommerce cluster</li>
+                <li><strong>By use case:</strong> "Replacing legacy system" cluster, "Scaling operations" cluster</li>
+                <li><strong>By trigger:</strong> "Recently funded" cluster, "New leadership" cluster</li>
+            </ul>
+
+            <h2>Tier 3: 1:Many Plays</h2>
+
+            <span class="tier-badge t3">Tier 3</span>
+
+            <p>Tier 3 uses programmatic tactics that scale, with personalization through tokens and dynamic content.</p>
+
+            <div class="play-card">
+                <h4>Example Play: Intent-Triggered Nurture</h4>
+                <ul>
+                    <li>LinkedIn ads targeting all Tier 3 accounts</li>
+                    <li>Dynamic email with company name/industry personalization</li>
+                    <li>Automated SDR sequence when intent spikes</li>
+                    <li>Retargeting based on website engagement</li>
+                    <li>Scaled direct mail for accounts showing engagement</li>
+                </ul>
+            </div>
+
+            <h3>Tier 3 Personalization at Scale</h3>
+            <ul>
+                <li><strong>Dynamic content:</strong> Emails/pages that change based on industry, company size</li>
+                <li><strong>Intent-based triggers:</strong> Escalate from Tier 3 to Tier 2 tactics when signals spike</li>
+                <li><strong>Programmatic ads:</strong> LinkedIn/display targeting all accounts with relevant content</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-title">The Graduation Path</div>
+                <p>Tier 3 isn't a dead end. When a Tier 3 account shows strong engagement or intent, graduate them to Tier 2. When a Tier 2 account requests a demo or shows executive engagement, graduate to Tier 1 treatment.</p>
+            </div>
+
+            <h2>Play Components Checklist</h2>
+
+            <p>Every play should define:</p>
+
+            <ul>
+                <li><strong>Trigger:</strong> What starts this play? (Intent spike, form fill, sales request)</li>
+                <li><strong>Target:</strong> Who specifically? (Account tier, personas, buying stage)</li>
+                <li><strong>Tactics:</strong> What channels and content? (Ads, email, direct mail, etc.)</li>
+                <li><strong>Timing:</strong> What's the sequence and duration?</li>
+                <li><strong>Transition:</strong> What's the success criteria to move to next stage?</li>
+                <li><strong>Owner:</strong> Who orchestrates this play?</li>
+            </ul>
+
+            <h2>Channel Selection by Tier</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Channel</th>
+                            <th>Tier 1</th>
+                            <th>Tier 2</th>
+                            <th>Tier 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Custom content</td>
+                            <td>✅ Per account</td>
+                            <td>✅ Per cluster</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>Direct mail</td>
+                            <td>✅ Premium</td>
+                            <td>✅ Scaled</td>
+                            <td>⚠️ Triggered only</td>
+                        </tr>
+                        <tr>
+                            <td>LinkedIn Ads</td>
+                            <td>✅ 1:1 targeting</td>
+                            <td>✅ Cluster targeting</td>
+                            <td>✅ List targeting</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>✅ 1:1 personalized</td>
+                            <td>✅ Cluster personalized</td>
+                            <td>✅ Dynamic tokens</td>
+                        </tr>
+                        <tr>
+                            <td>Events</td>
+                            <td>✅ Exclusive</td>
+                            <td>✅ Industry-specific</td>
+                            <td>✅ Webinars</td>
+                        </tr>
+                        <tr>
+                            <td>SDR outreach</td>
+                            <td>✅ Highly researched</td>
+                            <td>✅ Cluster talking points</td>
+                            <td>⚠️ Intent-triggered</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cta-box">
+                <h3>Get the ABM Campaign Template</h3>
+                <p>Play templates for each tier, channel planning worksheets, and campaign calendars.</p>
+                <a href="/abm-campaign/" class="cta-button">Download Template →</a>
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li>Match play intensity to account tier—don't over-invest in Tier 3</li>
+                <li>1:1 = custom everything; 1:Few = cluster-based; 1:Many = programmatic</li>
+                <li>Every play needs a trigger, target, tactics, timing, and transition criteria</li>
+                <li>Build graduation paths so accounts can move up tiers based on engagement</li>
+                <li>Document plays in templates so they're repeatable</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer style="background: #0a0a0a; padding: 2rem; margin-top: 3rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 24px;"></a>
+                <span style="color: #666; font-size: 13px;">© 2026 42 Agency</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/abm-campaign/account-selection/" style="color: #999; text-decoration: none; font-size: 14px;">← Account Selection</a>
+                <a href="/abm-campaign/measurement/" style="color: #999; text-decoration: none; font-size: 14px;">Measurement →</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

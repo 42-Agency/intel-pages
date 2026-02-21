@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQL Definition: When Is a Lead Actually Marketing Qualified? | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+    <meta name="description" content="A practical framework for defining MQLs that sales will actually accept. Includes threshold calibration, exception handling, and common pitfalls.">
+    <meta property="og:title" content="MQL Definition: When Is a Lead Actually Marketing Qualified?">
+
+    <style>
+        :root { --accent: #DFFE68; --black: #1a1a1a; --white: #ffffff; --gray-dark: #4a4a4a; --gray: #6b6b6b; --gray-light: #e5e5e5; --gray-lighter: #f5f5f5; --mops: #8B5CF6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--gray-lighter); color: var(--black); line-height: 1.6; }
+        .header { background: var(--white); border-bottom: 2px solid var(--black); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link { color: var(--gray-dark); text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--gray-lighter); border: 1px solid var(--gray-light); }
+        .back-link:hover { background: var(--accent); }
+        .container { max-width: 720px; margin: 0 auto; padding: 2rem; }
+        .breadcrumb { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--gray-dark); text-decoration: none; }
+        .article-header { margin-bottom: 2.5rem; }
+        .article-badge { display: inline-block; background: var(--mops); color: white; padding: 0.3rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; border: 2px solid var(--black); }
+        .article-header h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; line-height: 1.15; }
+        .article-meta { font-size: 0.9rem; color: var(--gray); }
+        .article-content { background: var(--white); border: 2px solid var(--black); padding: 2.5rem; box-shadow: 4px 4px 0 var(--black); margin-bottom: 2rem; }
+        .article-content h2 { font-size: 1.4rem; font-weight: 800; margin: 2rem 0 1rem; }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+        .article-content p { margin-bottom: 1rem; color: var(--gray-dark); }
+        .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .article-content li { margin-bottom: 0.5rem; color: var(--gray-dark); }
+        .article-content strong { color: var(--black); }
+        .callout { background: var(--accent); border: 2px solid var(--black); padding: 1.25rem; margin: 1.5rem 0; }
+        .callout.warning { background: #fef3c7; }
+        .callout.danger { background: #fee2e2; }
+        .callout-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .callout p { margin: 0; font-size: 0.95rem; }
+
+        .definition-box { background: var(--black); color: var(--white); padding: 2rem; margin: 1.5rem 0; text-align: center; }
+        .definition-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 0.5rem; }
+        .definition-text { font-size: 1.35rem; font-weight: 700; line-height: 1.4; }
+
+        .criteria-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .criteria-card { padding: 1.25rem; border: 2px solid var(--black); }
+        .criteria-card.yes { background: #d1fae5; }
+        .criteria-card.no { background: #fee2e2; }
+        .criteria-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .criteria-card ul { margin: 0; padding-left: 1.25rem; font-size: 0.9rem; }
+
+        .threshold-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .threshold-table th { background: var(--black); color: var(--white); padding: 0.75rem; text-align: left; }
+        .threshold-table td { padding: 0.75rem; border-bottom: 1px solid var(--gray-light); }
+        .threshold-table tr:nth-child(even) { background: var(--gray-lighter); }
+
+        .cta-section { background: var(--accent); border: 2px solid var(--black); padding: 2rem; box-shadow: 4px 4px 0 var(--black); text-align: center; margin-bottom: 2rem; }
+        .cta-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-section p { color: var(--gray-dark); margin-bottom: 1.25rem; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--black); color: var(--white); padding: 0.875rem 1.75rem; font-size: 1rem; font-weight: 700; text-decoration: none; border: 2px solid var(--black); transition: all 0.15s; }
+        .cta-btn:hover { background: var(--white); color: var(--black); }
+        .cta-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .related-section { margin-bottom: 2rem; }
+        .related-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); margin-bottom: 1rem; }
+        .related-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .related-card { background: var(--white); border: 2px solid var(--black); padding: 1.25rem; text-decoration: none; color: inherit; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s; }
+        .related-card:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--black); }
+        .related-card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.35rem; }
+        .related-card-desc { font-size: 0.85rem; color: var(--gray); }
+        @media (max-width: 768px) { .article-header h1 { font-size: 1.75rem; } .article-content { padding: 1.5rem; } .related-cards, .criteria-grid { grid-template-columns: 1fr; } }
+
+        .footer { background: var(--black); color: var(--white); padding: 4rem 2rem 1.5rem; margin-top: 2rem; }
+        .footer-top { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 250px 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333; }
+        .footer-logo { height: 28px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a { width: 40px; height: 40px; background: #333; display: flex; align-items: center; justify-content: center; color: #fff; transition: all 0.15s; }
+        .social-links a:hover { background: var(--accent); color: var(--black); }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; color: var(--accent); }
+        .footer-col a { display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1000px; margin: 0 auto; padding-top: 2rem; text-align: center; }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+        @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo"><img src="/42-logo.png" alt="42 Agency"></div>
+            <a href="/mops-funnel/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                MOPS Funnel
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Resources</a> / <a href="/mops-funnel/">MOPS Funnel</a> / MQL Definition
+        </div>
+
+        <div class="article-header">
+            <span class="article-badge">MOPS</span>
+            <h1>MQL Definition: When Is a Lead Actually Marketing Qualified?</h1>
+            <p class="article-meta">A practical framework that ends the marketing-sales blame game.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>The MQL Problem</h2>
+            <p>Marketing reports 500 MQLs. Sales says 450 were garbage. Marketing blames sales for not following up. Sales blames marketing for sending junk. Sound familiar?</p>
+            <p>The problem isn't either team—it's the <strong>lack of a shared, specific MQL definition</strong> that both teams wrote together and agreed to enforce.</p>
+
+            <div class="definition-box">
+                <div class="definition-label">A Working MQL Definition</div>
+                <div class="definition-text">A contact who matches our ICP (Grade A or B) AND has demonstrated buying intent through their behavior (Score 50+) OR has explicitly requested to speak with sales.</div>
+            </div>
+
+            <h2>The Two Paths to MQL</h2>
+            <p>There are only two ways a contact should become an MQL:</p>
+
+            <h3>Path 1: Scored MQL (Threshold-Based)</h3>
+            <p>Contact passes both demographic AND behavioral thresholds:</p>
+            <ul>
+                <li><strong>Demographic Grade:</strong> A or B (confirmed ICP fit)</li>
+                <li><strong>Behavioral Score:</strong> 50+ points (engaged beyond casual browsing)</li>
+            </ul>
+            <p>This catches leads who are actively researching but haven't raised their hand yet.</p>
+
+            <h3>Path 2: Hand-Raiser MQL (Intent-Based)</h3>
+            <p>Contact explicitly requests contact, regardless of score:</p>
+            <ul>
+                <li>Submitted "Contact Sales" or "Request Demo" form</li>
+                <li>Replied to email asking to talk</li>
+                <li>Called the sales line</li>
+            </ul>
+            <p>These bypass behavioral scoring because intent is explicit. But they still need demographic validation—a competitor requesting a demo isn't an MQL.</p>
+
+            <h2>What Makes an MQL vs. Not</h2>
+
+            <div class="criteria-grid">
+                <div class="criteria-card yes">
+                    <h4>IS an MQL</h4>
+                    <ul>
+                        <li>VP Marketing at 500-person SaaS, score 55</li>
+                        <li>Director Ops, viewed pricing 3x this week</li>
+                        <li>Any A/B grade who requested demo</li>
+                        <li>Manager at ICP company, attended webinar + downloaded case study</li>
+                    </ul>
+                </div>
+                <div class="criteria-card no">
+                    <h4>IS NOT an MQL</h4>
+                    <ul>
+                        <li>Student with 80 points (wrong persona)</li>
+                        <li>Competitor researching you (wrong company)</li>
+                        <li>Consultant seeking partnership (not a buyer)</li>
+                        <li>ICP contact who only downloaded 1 ebook (low engagement)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Calibrating Your Threshold</h2>
+            <p>The right threshold depends on your business. Here's how to find it:</p>
+
+            <h3>Step 1: Pull Historical Data</h3>
+            <p>Look at your last 100 MQLs. What percentage converted to SQL? To opportunity? To closed-won?</p>
+
+            <h3>Step 2: Compare by Score Range</h3>
+            <table class="threshold-table">
+                <thead>
+                    <tr>
+                        <th>Score Range</th>
+                        <th>MQL Count</th>
+                        <th>SQL Rate</th>
+                        <th>Opp Rate</th>
+                        <th>Verdict</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0-30</td>
+                        <td>45</td>
+                        <td>5%</td>
+                        <td>1%</td>
+                        <td>Too early</td>
+                    </tr>
+                    <tr>
+                        <td>31-50</td>
+                        <td>30</td>
+                        <td>15%</td>
+                        <td>5%</td>
+                        <td>Marginal</td>
+                    </tr>
+                    <tr>
+                        <td>51-70</td>
+                        <td>18</td>
+                        <td>35%</td>
+                        <td>15%</td>
+                        <td>Good</td>
+                    </tr>
+                    <tr>
+                        <td>71+</td>
+                        <td>7</td>
+                        <td>60%</td>
+                        <td>30%</td>
+                        <td>Hot</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Step 3: Set Your Line</h3>
+            <p>Choose the threshold where SQL rate becomes acceptable to sales. In the example above, 50+ would be the right cutoff—anything below has poor conversion.</p>
+
+            <div class="callout">
+                <div class="callout-title">The 30% Rule</div>
+                <p>If fewer than 30% of your MQLs convert to SQL, your threshold is too low. If more than 60% convert, you might be missing opportunities by being too restrictive. Aim for 30-50% MQL→SQL conversion.</p>
+            </div>
+
+            <h2>Handling Edge Cases</h2>
+
+            <h3>What About C-Grade Leads with High Scores?</h3>
+            <p>These are tricky. They're engaged but may not be buyers (wrong seniority, wrong department). Options:</p>
+            <ol>
+                <li><strong>Don't auto-MQL:</strong> Keep in nurture, flag for manual review</li>
+                <li><strong>MQL with caveat:</strong> Route to SDR for quick qualification call</li>
+                <li><strong>Research the account:</strong> Maybe they're the internal champion</li>
+            </ol>
+
+            <h3>What About A-Grade Leads with No Activity?</h3>
+            <p>Perfect fit but cold. Don't MQL—they haven't shown interest. Add to targeted nurture or outbound cadence.</p>
+
+            <h3>What About Event Leads?</h3>
+            <p>Conference badge scans aren't MQLs. They're leads that need scoring like everyone else. A 5-minute booth conversation doesn't equal buying intent.</p>
+
+            <div class="callout warning">
+                <div class="callout-title">Don't Let Events Pollute Your MQL Numbers</div>
+                <p>Events generate volume, not quality. Treat event leads as top-of-funnel entries that need to prove engagement before MQL status.</p>
+            </div>
+
+            <h2>Document It and Get Sign-Off</h2>
+            <p>Your MQL definition should be:</p>
+            <ol>
+                <li><strong>Written down</strong> in a shared doc both teams reference</li>
+                <li><strong>Specific</strong> with exact scores, grades, and exceptions</li>
+                <li><strong>Agreed to</strong> by both marketing and sales leadership</li>
+                <li><strong>Reviewed quarterly</strong> and adjusted based on conversion data</li>
+            </ol>
+            <p>If sales is rejecting MQLs, pull the data. Either the definition needs adjustment or sales isn't following the SLA.</p>
+        </div>
+
+        <div class="cta-section">
+            <h2>Get the Full Funnel Workbook</h2>
+            <p>Our MOPS Funnel workbook includes MQL definition templates, scoring thresholds, and conversion tracking.</p>
+            <a href="/mops-funnel/" class="cta-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download Workbook
+            </a>
+        </div>
+
+        <div class="related-section">
+            <h3 class="related-title">Related Guides</h3>
+            <div class="related-cards">
+                <a href="/mops-funnel/lead-scoring/" class="related-card">
+                    <div class="related-card-title">Lead Scoring Model</div>
+                    <div class="related-card-desc">Demographic + behavioral scoring framework</div>
+                </a>
+                <a href="/mops-funnel/lifecycle-stages/" class="related-card">
+                    <div class="related-card-title">Lifecycle Stage Definitions</div>
+                    <div class="related-card-desc">Clear stage definitions from subscriber to customer</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="https://x.com/get42agency" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col"><h4>42 Agency</h4><a href="https://42agency.com/demand-generation">Demand Generation</a><a href="https://42agency.com/marketing-operations">Marketing Operations</a><a href="https://42agency.com/seo-and-content">SEO & Content</a><a href="https://42agency.com/contact-us">Contact Us</a></div>
+                <div class="footer-col"><h4>42/ Essays</h4><a href="https://42slash.com/p/abm-is-just-good-marketing">ABM is Just Good Marketing</a><a href="https://42slash.com/p/the-abm-measurement-problem">The ABM Measurement Problem</a><a href="https://42slash.com">All Essays</a></div>
+                <div class="footer-col"><h4>AI Tools</h4><a href="https://copilot.42agency.com">Marvin (LinkedIn Ads AI)</a></div>
+                <div class="footer-col"><h4>MOPS Guides</h4><a href="/mops-funnel/lead-scoring/">Lead Scoring</a><a href="/mops-funnel/lifecycle-stages/">Lifecycle Stages</a><a href="/mops-funnel/mql-definition/">MQL Definition</a><a href="/mops-funnel/">Full Workbook</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 42 Agency</p></div>
+    </footer>
+</body>
+</html>

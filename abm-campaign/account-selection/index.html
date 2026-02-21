@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM Account Selection | How to Build Your Target Account List</title>
+    <meta name="description" content="How to select target accounts for ABM. ICP definition, account scoring criteria, and list building strategies for account-based marketing.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/abm-campaign/account-selection/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root { --accent: #DFFE68; --black: #1a1a1a; --purple: #8b5cf6; --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--black); }
+        .logo span { color: var(--accent); }
+        .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .back-link:hover { color: var(--purple); }
+        .article { padding: 48px 0; }
+        .breadcrumb { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--gray-600); text-decoration: none; }
+        h1 { font-size: 36px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
+        .meta { font-size: 14px; color: var(--gray-600); margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-200); }
+        h2 { font-size: 24px; font-weight: 600; color: var(--black); margin: 48px 0 16px; }
+        h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 32px 0 12px; }
+        p { margin-bottom: 16px; }
+        ul, ol { margin: 0 0 24px 24px; }
+        li { margin-bottom: 8px; }
+        .table-wrapper { overflow-x: auto; margin: 24px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: var(--black); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); }
+        tr:nth-child(even) { background: var(--gray-50); }
+        .callout { background: var(--gray-50); border-left: 4px solid var(--purple); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .callout-title { font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .callout p { margin: 0; font-size: 15px; }
+        .cta-box { background: linear-gradient(135deg, var(--black) 0%, #2d3548 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+        .cta-box h3 { color: var(--white); margin: 0 0 8px; }
+        .cta-box p { color: var(--gray-400); margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: var(--purple); color: var(--white); padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+        .footer { padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 48px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 14px; color: var(--gray-600); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        @media (max-width: 640px) { h1 { font-size: 28px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                <a href="/abm-campaign/" class="back-link">← ABM Campaign Template</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Resources</a> → <a href="/abm-campaign/">ABM Campaign</a> → Account Selection
+            </div>
+
+            <h1>ABM Account Selection: Building Your Target Account List</h1>
+            <div class="meta">How to identify and prioritize accounts for account-based marketing programs.</div>
+
+            <p>Account selection is the foundation of ABM. Select the wrong accounts and you'll waste budget on companies that will never buy. Select too many and you can't execute meaningful 1:1 tactics.</p>
+
+            <p>This guide covers the systematic approach to building a target account list that balances ambition with executability.</p>
+
+            <h2>The Account Selection Framework</h2>
+
+            <p>Effective account selection uses three dimensions:</p>
+
+            <ol>
+                <li><strong>Fit:</strong> Does this account match your ICP? (Firmographics, technographics)</li>
+                <li><strong>Intent:</strong> Is this account showing buying signals? (Research, engagement)</li>
+                <li><strong>Opportunity:</strong> Is there realistic revenue potential? (Budget, timeline, need)</li>
+            </ol>
+
+            <h2>Step 1: Define Your ICP Criteria</h2>
+
+            <p>Start with firmographic and technographic attributes that indicate fit:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Criteria Examples</th>
+                            <th>Data Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Company Size</td>
+                            <td>500-5,000 employees</td>
+                            <td>LinkedIn, ZoomInfo</td>
+                        </tr>
+                        <tr>
+                            <td>Revenue</td>
+                            <td>$50M-$500M ARR</td>
+                            <td>ZoomInfo, Crunchbase</td>
+                        </tr>
+                        <tr>
+                            <td>Industry</td>
+                            <td>SaaS, FinTech, HealthTech</td>
+                            <td>LinkedIn, company website</td>
+                        </tr>
+                        <tr>
+                            <td>Geography</td>
+                            <td>North America, UK</td>
+                            <td>LinkedIn, HQ location</td>
+                        </tr>
+                        <tr>
+                            <td>Technology Stack</td>
+                            <td>Uses Salesforce, HubSpot</td>
+                            <td>BuiltWith, G2</td>
+                        </tr>
+                        <tr>
+                            <td>Growth Signals</td>
+                            <td>Recently funded, hiring</td>
+                            <td>Crunchbase, LinkedIn</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">Start with Closed-Won Analysis</div>
+                <p>Before defining ICP criteria theoretically, analyze your last 20 closed-won deals. What firmographic patterns emerge? The best ICP definition comes from data, not assumptions.</p>
+            </div>
+
+            <h2>Step 2: Layer Intent Data</h2>
+
+            <p>Fit alone isn't enough. Layer intent signals to prioritize accounts showing buying behavior:</p>
+
+            <h3>First-Party Intent</h3>
+            <ul>
+                <li>Website visits (especially pricing, demo pages)</li>
+                <li>Content downloads</li>
+                <li>Email engagement</li>
+                <li>Event attendance</li>
+            </ul>
+
+            <h3>Third-Party Intent</h3>
+            <ul>
+                <li>Topic research (Bombora, G2 Intent)</li>
+                <li>Competitor research</li>
+                <li>Category page views on review sites</li>
+                <li>Job postings (hiring for relevant roles)</li>
+            </ul>
+
+            <h2>Step 3: Size Your List by Tier</h2>
+
+            <p>Your total list size depends on resources. Here's a realistic sizing framework:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tier</th>
+                            <th>Accounts</th>
+                            <th>Selection Criteria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tier 1</strong></td>
+                            <td>25-50</td>
+                            <td>Highest fit + active intent + strategic value</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tier 2</strong></td>
+                            <td>100-300</td>
+                            <td>High fit + some intent signals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tier 3</strong></td>
+                            <td>500-1,000</td>
+                            <td>Good fit, awaiting intent activation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Step 4: Validate with Sales</h2>
+
+            <p>Marketing shouldn't build the target account list alone. Involve sales to:</p>
+
+            <ul>
+                <li><strong>Add strategic accounts:</strong> Accounts sales knows have potential but aren't showing intent yet</li>
+                <li><strong>Remove bad fits:</strong> Accounts that look good on paper but have hidden disqualifiers</li>
+                <li><strong>Prioritize by relationship:</strong> Accounts where you have existing connections or warm introductions</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-title">The 10% Rule</div>
+                <p>Sales should be able to name and describe any Tier 1 account from memory. If your Tier 1 list is too big for sales to know intimately, it's too big.</p>
+            </div>
+
+            <h2>Common Account Selection Mistakes</h2>
+
+            <h3>Mistake 1: List Too Large</h3>
+            <p>5,000 "target accounts" isn't ABM—it's demand gen with account targeting. True ABM requires focus.</p>
+
+            <h3>Mistake 2: Static List</h3>
+            <p>Target account lists should be reviewed quarterly. Add accounts showing new intent; graduate accounts that engaged to sales; remove accounts that are bad fits.</p>
+
+            <h3>Mistake 3: Ignoring Account Coverage</h3>
+            <p>Before adding an account, check: Do we have contacts at this company? If you have zero contacts, even great intent data won't help.</p>
+
+            <div class="cta-box">
+                <h3>Get the ABM Campaign Template</h3>
+                <p>Account scoring matrix, tiering framework, and selection criteria templates.</p>
+                <a href="/abm-campaign/" class="cta-button">Download Template →</a>
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li>Use three dimensions: Fit + Intent + Opportunity</li>
+                <li>Base ICP on closed-won analysis, not assumptions</li>
+                <li>Size tiers realistically: 25-50 Tier 1, 100-300 Tier 2, 500-1,000 Tier 3</li>
+                <li>Validate list with sales—they'll catch bad fits and add strategic accounts</li>
+                <li>Review and refresh the list quarterly</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer style="background: #0a0a0a; padding: 2rem; margin-top: 3rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 24px;"></a>
+                <span style="color: #666; font-size: 13px;">© 2026 42 Agency</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/abm-campaign/" style="color: #999; text-decoration: none; font-size: 14px;">← ABM Template</a>
+                <a href="/abm-campaign/play-design/" style="color: #999; text-decoration: none; font-size: 14px;">Play Design →</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

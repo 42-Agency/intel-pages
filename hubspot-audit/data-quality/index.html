@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Data Quality: The Complete Hygiene Checklist | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta name="description" content="The complete HubSpot data quality checklist. Find duplicates, fix formatting issues, clean bad emails, and maintain CRM hygiene.">
+    <meta property="og:title" content="HubSpot Data Quality: The Complete Hygiene Checklist">
+    <meta property="og:description" content="Step-by-step guide to finding and fixing data quality issues in HubSpot.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+            --hubspot: #FF7A59;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-lighter);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+        }
+        .back-link:hover { background: var(--accent); }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a {
+            color: var(--gray-dark);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .article-header {
+            margin-bottom: 2.5rem;
+        }
+        .article-badge {
+            display: inline-block;
+            background: var(--hubspot);
+            color: white;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--black);
+        }
+        .article-header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .article-meta {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-content {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 2.5rem;
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 2rem;
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 2rem 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .article-content p {
+            margin-bottom: 1rem;
+            color: var(--gray-dark);
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+            color: var(--gray-dark);
+        }
+        .article-content strong {
+            color: var(--black);
+        }
+
+        .callout {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .callout.warning {
+            background: #fff3cd;
+        }
+        .callout.danger {
+            background: #fee2e2;
+        }
+        .callout-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .callout p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .issue-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .issue-card {
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+            padding: 1.25rem;
+        }
+        .issue-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .issue-card h4 svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--hubspot);
+        }
+        .issue-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--gray-dark);
+        }
+
+        .checklist-section {
+            background: var(--gray-lighter);
+            border: 2px solid var(--black);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .checklist-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--hubspot);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .checklist li span {
+            font-size: 0.95rem;
+        }
+
+        .metric-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .metric-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+        }
+        .metric-box .value {
+            font-size: 1.75rem;
+            font-weight: 800;
+        }
+        .metric-box .label {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 2rem;
+            box-shadow: 4px 4px 0 var(--black);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .cta-section h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .cta-section p {
+            color: var(--gray-dark);
+            margin-bottom: 1.25rem;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.875rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--black);
+            transition: all 0.15s;
+        }
+        .cta-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .related-section {
+            margin-bottom: 2rem;
+        }
+        .related-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .related-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .related-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 3px 3px 0 var(--black);
+            transition: all 0.15s;
+        }
+        .related-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+        .related-card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.35rem;
+        }
+        .related-card-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.75rem; }
+            .article-content { padding: 1.5rem; }
+            .related-cards { grid-template-columns: 1fr; }
+            .issue-grid { grid-template-columns: 1fr; }
+            .metric-boxes { grid-template-columns: 1fr; }
+        }
+
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+        .footer-top {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-logo {
+            height: 28px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.15s;
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--black);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+
+        @media (max-width: 900px) {
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </div>
+            <a href="/hubspot-audit/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                HubSpot Audit
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Resources</a> / <a href="/hubspot-audit/">HubSpot Audit</a> / Data Quality
+        </div>
+
+        <div class="article-header">
+            <span class="article-badge">HubSpot</span>
+            <h1>HubSpot Data Quality: The Complete Hygiene Checklist</h1>
+            <p class="article-meta">How to find duplicates, fix formatting issues, and maintain clean CRM data.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>Why Data Quality Kills Revenue</h2>
+            <p>Bad data doesn't just create reporting headaches — it directly impacts revenue:</p>
+
+            <div class="metric-boxes">
+                <div class="metric-box">
+                    <div class="value">25%</div>
+                    <div class="label">of B2B data decays annually</div>
+                </div>
+                <div class="metric-box">
+                    <div class="value">27%</div>
+                    <div class="label">revenue lost to bad data (Gartner)</div>
+                </div>
+                <div class="metric-box">
+                    <div class="value">50%</div>
+                    <div class="label">of CRM records have issues</div>
+                </div>
+            </div>
+
+            <p>Every bad record means:</p>
+            <ul>
+                <li><strong>Wasted ad spend</strong> on audiences with wrong firmographics</li>
+                <li><strong>Missed follow-ups</strong> when contacts aren't properly routed</li>
+                <li><strong>Wrong reporting</strong> that leads to bad decisions</li>
+                <li><strong>Sales frustration</strong> with bad leads and missing info</li>
+            </ul>
+
+            <h2>The 6 Data Quality Problems</h2>
+            <p>Every HubSpot portal has the same issues. Here's what to look for:</p>
+
+            <div class="issue-grid">
+                <div class="issue-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                        Duplicates
+                    </h4>
+                    <p>Same contact/company with multiple records. Causes split engagement history.</p>
+                </div>
+                <div class="issue-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        Inconsistent Formatting
+                    </h4>
+                    <p>Phone: (555) 123-4567 vs 5551234567 vs +1-555-123-4567</p>
+                </div>
+                <div class="issue-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        Invalid Emails
+                    </h4>
+                    <p>Bounced, typos (gnail.com), role-based (info@), disposable domains.</p>
+                </div>
+                <div class="issue-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        Missing Required Fields
+                    </h4>
+                    <p>No company, no lifecycle stage, no owner assignment.</p>
+                </div>
+                <div class="issue-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                        Wrong Firmographics
+                    </h4>
+                    <p>Outdated company size, wrong industry, old job titles.</p>
+                </div>
+                <div class="issue-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>
+                        Stale Records
+                    </h4>
+                    <p>No activity in 12+ months, churned customers still as "Customers."</p>
+                </div>
+            </div>
+
+            <h2>The Data Quality Checklist</h2>
+
+            <div class="checklist-section">
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    Email Quality
+                </h3>
+                <ul class="checklist">
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Run <strong>hard bounce list</strong> — exclude from all sends</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Find <strong>typo domains</strong>: gnail.com, gmial.com, outlok.com</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Flag <strong>role-based emails</strong>: info@, sales@, support@</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Check for <strong>disposable domains</strong>: mailinator, guerrillamail, tempmail</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Verify <strong>personal emails in B2B</strong>: gmail.com, yahoo.com (okay for SMB, flag for enterprise)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="checklist-section">
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                    Duplicates
+                </h3>
+                <ul class="checklist">
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Use HubSpot's <strong>Manage Duplicates</strong> tool (Settings → Data Management)</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Check <strong>same name, different email</strong> — common with form re-submissions</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Check <strong>same email, different name</strong> — could be typos or shared aliases</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span>Review <strong>company duplicates</strong> — "Acme Inc" vs "Acme, Inc." vs "ACME"</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="checklist-section">
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    Formatting Consistency
+                </h3>
+                <ul class="checklist">
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span><strong>Phone numbers</strong> — pick one format (E.164 recommended: +15551234567)</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span><strong>Names</strong> — proper case (John Smith, not JOHN SMITH or john smith)</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span><strong>Countries</strong> — standardize (United States, not US, USA, U.S., America)</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span><strong>Job titles</strong> — normalize (VP vs Vice President vs V.P.)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="checklist-section">
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Completeness
+                </h3>
+                <ul class="checklist">
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span><strong>Contacts without companies</strong> — associate or research</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span><strong>Missing lifecycle stage</strong> — every contact needs one</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span><strong>No contact owner</strong> — unassigned leads slip through cracks</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        <span><strong>Companies without industry/size</strong> — critical for segmentation</span>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Data Quality Automation</h2>
+            <p>Set up workflows to catch issues automatically:</p>
+
+            <h3>1. Phone Number Formatter</h3>
+            <p>Workflow that normalizes phone formats using Operations Hub or a custom coded action. Trigger: Phone number is known AND doesn't match your format pattern.</p>
+
+            <h3>2. Duplicate Prevention</h3>
+            <p>Use form validation to check for existing contacts before creating new ones. HubSpot's native deduplication helps, but prevention is better than cleanup.</p>
+
+            <h3>3. Stale Record Flagging</h3>
+            <p>Create a list: "Last Activity Date is more than 365 days ago." Review quarterly and either re-engage or archive.</p>
+
+            <h3>4. Enrichment on Create</h3>
+            <p>Use tools like Clearbit, ZoomInfo, or Apollo to auto-fill company data when a new contact is created. Prevents missing data from the start.</p>
+
+            <div class="callout">
+                <div class="callout-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    The 1% Rule
+                </div>
+                <p>Aim for <strong>less than 1% invalid emails</strong> and <strong>less than 5% duplicates</strong>. Above that, you're losing money to bad data.</p>
+            </div>
+
+            <h2>Quarterly Data Review Cadence</h2>
+            <ol>
+                <li><strong>Week 1:</strong> Run duplicate report, merge obvious matches</li>
+                <li><strong>Week 2:</strong> Email quality check, suppress bounces/invalids</li>
+                <li><strong>Week 3:</strong> Completeness audit, enrich missing fields</li>
+                <li><strong>Week 4:</strong> Stale record review, archive or re-engage</li>
+            </ol>
+        </div>
+
+        <div class="cta-section">
+            <h2>Get the Full Audit Template</h2>
+            <p>Our 10-sheet HubSpot Audit workbook includes the data quality checklist plus SOPs for properties, workflows, and reporting.</p>
+            <a href="/hubspot-audit/" class="cta-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download Template
+            </a>
+        </div>
+
+        <div class="related-section">
+            <h3 class="related-title">Related Guides</h3>
+            <div class="related-cards">
+                <a href="/hubspot-audit/property-cleanup/" class="related-card">
+                    <div class="related-card-title">Property Cleanup Guide</div>
+                    <div class="related-card-desc">How to identify and archive unused properties</div>
+                </a>
+                <a href="/hubspot-audit/workflow-audit/" class="related-card">
+                    <div class="related-card-title">Workflow Audit Guide</div>
+                    <div class="related-card-desc">Find broken and redundant automations</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/get42agency" target="_blank" aria-label="X/Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
+                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
+                    <a href="https://42agency.com/seo-and-content" target="_blank">SEO & Content</a>
+                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42/ Essays</h4>
+                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
+                    <a href="https://42slash.com/p/the-abm-measurement-problem" target="_blank">The ABM Measurement Problem</a>
+                    <a href="https://42slash.com/p/the-claude-code-essay" target="_blank">The Claude Code Essay</a>
+                    <a href="https://42slash.com" target="_blank">All Essays</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">Marvin (LinkedIn Ads AI)</a>
+                </div>
+                <div class="footer-col">
+                    <h4>HubSpot Guides</h4>
+                    <a href="/hubspot-audit/property-cleanup/">Property Cleanup</a>
+                    <a href="/hubspot-audit/workflow-audit/">Workflow Audit</a>
+                    <a href="/hubspot-audit/data-quality/">Data Quality</a>
+                    <a href="/hubspot-audit/">Full Audit Template</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

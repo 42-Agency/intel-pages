@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphite Connect | Market Intelligence - 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+    
+    <style>
+        :root {
+            --green: #DFFE68;
+            --green-hover: #C8E85C;
+            --dark: #1a1a1a;
+            --gray: #4a4a4a;
+            --light: #f5f5f5;
+            --blue: #0A66C2;
+            --orange: #F59E0B;
+            --emerald: #10B981;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #fff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .header {
+            border-bottom: 2px solid var(--dark);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; }
+        .header-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .header-badge img {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+        
+        /* Hero */
+        .hero {
+            background: var(--light);
+            border-bottom: 2px solid var(--dark);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-bottom: 2px solid var(--dark);
+        }
+        .stat {
+            padding: 1.5rem;
+            text-align: center;
+            border-right: 2px solid var(--dark);
+        }
+        .stat:last-child { border-right: none; }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+        .stat.highlight {
+            background: var(--green);
+        }
+        .stat.emerald {
+            background: var(--emerald);
+            color: white;
+        }
+        .stat.emerald .stat-label { color: rgba(255,255,255,0.8); }
+        
+        /* Main Content */
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Section */
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        /* Revenue Box */
+        .revenue-box {
+            background: var(--emerald);
+            color: white;
+            border: 2px solid var(--dark);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 4px 4px 0 var(--dark);
+        }
+        .revenue-box h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .revenue-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .revenue-step {
+            background: rgba(255,255,255,0.15);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            min-width: 80px;
+        }
+        .revenue-step .num {
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+        .revenue-step .label {
+            font-size: 0.65rem;
+            opacity: 0.85;
+            text-transform: uppercase;
+        }
+        .revenue-arrow {
+            font-size: 1.25rem;
+            opacity: 0.5;
+        }
+        .revenue-assumptions {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        /* Two Column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .stat { border-bottom: 2px solid var(--dark); }
+        }
+        
+        /* Table */
+        .kw-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .kw-table th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--light);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--dark);
+        }
+        .kw-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+        .kw-name { font-weight: 500; }
+        .kw-vol { font-weight: 600; }
+        .kw-cpc { color: var(--orange); font-weight: 600; }
+        .badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            font-weight: 600;
+        }
+        .badge.branded {
+            background: var(--green);
+            color: var(--dark);
+        }
+        
+        /* LinkedIn Box */
+        .linkedin-box {
+            background: var(--blue);
+            color: white;
+            border: 2px solid var(--dark);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0 var(--dark);
+        }
+        .linkedin-box h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .linkedin-stat {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+        .linkedin-stat strong {
+            font-weight: 700;
+        }
+        .linkedin-titles {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        /* Economics Box */
+        .econ-box {
+            background: var(--light);
+            border: 2px solid var(--dark);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 4px 4px 0 var(--dark);
+        }
+        .econ-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+        .econ-item .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        .econ-item .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: var(--green);
+            border: 2px solid var(--dark);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 6px 6px 0 var(--dark);
+            margin-top: 2rem;
+        }
+        .cta-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .cta-section p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--gray);
+        }
+        .cta-subtext {
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        .footer {
+            border-top: 2px solid var(--dark);
+            padding: 2rem;
+            text-align: center;
+            background: var(--dark);
+            color: #999;
+            font-size: 0.85rem;
+        }
+        .footer a { color: var(--green); }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="/42-logo.png" alt="42 Agency">
+        </div>
+        <div class="header-badge">
+            <img src="https://www.google.com/s2/favicons?domain=graphiteconnect.com&sz=128" alt="Graphite Connect">
+            Graphite Connect
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>460K Decision-Makers. 41K Annual Searches.</h1>
+        <p>Market intelligence briefing for Graphite Connect — where your buyers are searching and scrolling.</p>
+    </section>
+    
+    <div class="stats-bar">
+        <div class="stat highlight">
+            <div class="stat-value">460K</div>
+            <div class="stat-label">LinkedIn Audience</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">3,390</div>
+            <div class="stat-label">Monthly Searches</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">$41</div>
+            <div class="stat-label">Avg CPC</div>
+        </div>
+        <div class="stat emerald">
+            <div class="stat-value">$675K</div>
+            <div class="stat-label">Pipeline Opportunity</div>
+        </div>
+    </div>
+    
+    <main class="main">
+        
+        <div class="revenue-box">
+            <h3>Revenue Opportunity Model (Annual)</h3>
+            <div class="revenue-flow">
+                <div class="revenue-step">
+                    <div class="num">41K</div>
+                    <div class="label">Searches</div>
+                </div>
+                <div class="revenue-arrow">→</div>
+                <div class="revenue-step">
+                    <div class="num">1K</div>
+                    <div class="label">Clicks</div>
+                </div>
+                <div class="revenue-arrow">→</div>
+                <div class="revenue-step">
+                    <div class="num">36</div>
+                    <div class="label">Leads</div>
+                </div>
+                <div class="revenue-arrow">→</div>
+                <div class="revenue-step">
+                    <div class="num">9</div>
+                    <div class="label">SQLs</div>
+                </div>
+                <div class="revenue-arrow">→</div>
+                <div class="revenue-step">
+                    <div class="num">$675K</div>
+                    <div class="label">Pipeline</div>
+                </div>
+            </div>
+            <div class="revenue-assumptions">
+                3.0% CTR • 3.0% conversion • 25% MQL→SQL • $75K ACV
+            </div>
+        </div>
+        
+        <div class="econ-box">
+            <div class="econ-grid">
+                <div class="econ-item">
+                    <div class="value">$75K</div>
+                    <div class="label">Est. Deal Size</div>
+                </div>
+                <div class="econ-item">
+                    <div class="value">$25K</div>
+                    <div class="label">Target CAC</div>
+                </div>
+                <div class="econ-item">
+                    <div class="value">3:1</div>
+                    <div class="label">LTV:CAC Target</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="two-col">
+            <div class="section">
+                <h2 class="section-title">Search Demand</h2>
+                <table class="kw-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Vol/mo</th>
+                            <th>CPC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr>
+                <td class="kw-name">graphite connect <span class="badge branded">Branded</span></td>
+                <td class="kw-vol">1,300</td>
+                <td class="kw-cpc">$27.39</td>
+            </tr>
+            <tr>
+                <td class="kw-name">supplier risk management </td>
+                <td class="kw-vol">590</td>
+                <td class="kw-cpc">$17.67</td>
+            </tr>
+            <tr>
+                <td class="kw-name">procurement automation </td>
+                <td class="kw-vol">480</td>
+                <td class="kw-cpc">$37.33</td>
+            </tr>
+            <tr>
+                <td class="kw-name">supplier management software </td>
+                <td class="kw-vol">390</td>
+                <td class="kw-cpc">$51.03</td>
+            </tr>
+            <tr>
+                <td class="kw-name">supplier onboarding software </td>
+                <td class="kw-vol">260</td>
+                <td class="kw-cpc">$64.94</td>
+            </tr>
+            <tr>
+                <td class="kw-name">vendor management platform </td>
+                <td class="kw-vol">260</td>
+                <td class="kw-cpc">$71.58</td>
+            </tr>
+            <tr>
+                <td class="kw-name">supplier information management </td>
+                <td class="kw-vol">110</td>
+                <td class="kw-cpc">$18.62</td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">LinkedIn Audience</h2>
+                <div class="linkedin-box">
+                    <div class="linkedin-stat"><strong>460K</strong> Target Size</div>
+                    <div class="linkedin-stat"><strong>Director/VP</strong> Seniority</div>
+                    <div class="linkedin-stat"><strong>5,000+</strong> Employees</div>
+                    <div class="linkedin-titles">
+                        <strong>Titles:</strong> CPO, VP Procurement, Director Supply Chain, Category Manager
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Want the Full Strategy?</h2>
+            <p>This is the opportunity. The full plan includes campaign architecture, audience targeting, ad copy, and a 90-day roadmap.</p>
+            <a href="https://www.42agency.com/contact-us" class="cta-btn">Schedule a Strategy Call</a>
+            <div class="cta-subtext">15 minutes. We'll walk through the specific numbers.</div>
+        </div>
+        
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2026 <a href="https://42agency.com">42 Agency</a> · B2B Demand Generation</p>
+        <p style="margin-top: 8px;">Data: DataForSEO, LinkedIn Marketing API · February 2026</p>
+    </footer>
+
+</body>
+</html>

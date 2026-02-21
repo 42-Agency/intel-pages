@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Lifecycle Stage Definitions: From Subscriber to Customer | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+    <meta name="description" content="Clear definitions for B2B lifecycle stages: Subscriber, Lead, MQL, SQL, Opportunity, Customer. Includes transition criteria and common mistakes.">
+    <meta property="og:title" content="B2B Lifecycle Stage Definitions: From Subscriber to Customer">
+
+    <style>
+        :root { --accent: #DFFE68; --black: #1a1a1a; --white: #ffffff; --gray-dark: #4a4a4a; --gray: #6b6b6b; --gray-light: #e5e5e5; --gray-lighter: #f5f5f5; --mops: #8B5CF6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--gray-lighter); color: var(--black); line-height: 1.6; }
+        .header { background: var(--white); border-bottom: 2px solid var(--black); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link { color: var(--gray-dark); text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--gray-lighter); border: 1px solid var(--gray-light); }
+        .back-link:hover { background: var(--accent); }
+        .container { max-width: 720px; margin: 0 auto; padding: 2rem; }
+        .breadcrumb { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--gray-dark); text-decoration: none; }
+        .article-header { margin-bottom: 2.5rem; }
+        .article-badge { display: inline-block; background: var(--mops); color: white; padding: 0.3rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; border: 2px solid var(--black); }
+        .article-header h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; line-height: 1.15; }
+        .article-meta { font-size: 0.9rem; color: var(--gray); }
+        .article-content { background: var(--white); border: 2px solid var(--black); padding: 2.5rem; box-shadow: 4px 4px 0 var(--black); margin-bottom: 2rem; }
+        .article-content h2 { font-size: 1.4rem; font-weight: 800; margin: 2rem 0 1rem; }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+        .article-content p { margin-bottom: 1rem; color: var(--gray-dark); }
+        .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .article-content li { margin-bottom: 0.5rem; color: var(--gray-dark); }
+        .article-content strong { color: var(--black); }
+        .callout { background: var(--accent); border: 2px solid var(--black); padding: 1.25rem; margin: 1.5rem 0; }
+        .callout.warning { background: #fef3c7; }
+        .callout-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .callout p { margin: 0; font-size: 0.95rem; }
+
+        .stage-card { background: var(--gray-lighter); border: 2px solid var(--black); padding: 1.5rem; margin: 1.5rem 0; position: relative; }
+        .stage-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--mops); }
+        .stage-name { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        .stage-number { background: var(--black); color: var(--white); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+        .stage-def { font-size: 0.95rem; color: var(--gray-dark); margin-bottom: 1rem; }
+        .stage-criteria { background: var(--white); padding: 1rem; border: 1px solid var(--gray-light); }
+        .stage-criteria h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; color: var(--mops); }
+        .stage-criteria ul { margin: 0; padding-left: 1.25rem; font-size: 0.9rem; }
+
+        .flow-diagram { display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin: 2rem 0; padding: 1.5rem; background: var(--black); }
+        .flow-stage { background: var(--gray-lighter); padding: 0.5rem 1rem; font-weight: 700; font-size: 0.85rem; border: 2px solid var(--black); }
+        .flow-stage.active { background: var(--accent); }
+        .flow-arrow { color: var(--accent); font-size: 1.25rem; }
+
+        .cta-section { background: var(--accent); border: 2px solid var(--black); padding: 2rem; box-shadow: 4px 4px 0 var(--black); text-align: center; margin-bottom: 2rem; }
+        .cta-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-section p { color: var(--gray-dark); margin-bottom: 1.25rem; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--black); color: var(--white); padding: 0.875rem 1.75rem; font-size: 1rem; font-weight: 700; text-decoration: none; border: 2px solid var(--black); transition: all 0.15s; }
+        .cta-btn:hover { background: var(--white); color: var(--black); }
+        .cta-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .related-section { margin-bottom: 2rem; }
+        .related-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); margin-bottom: 1rem; }
+        .related-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .related-card { background: var(--white); border: 2px solid var(--black); padding: 1.25rem; text-decoration: none; color: inherit; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s; }
+        .related-card:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--black); }
+        .related-card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.35rem; }
+        .related-card-desc { font-size: 0.85rem; color: var(--gray); }
+        @media (max-width: 768px) { .article-header h1 { font-size: 1.75rem; } .article-content { padding: 1.5rem; } .related-cards { grid-template-columns: 1fr; } .flow-diagram { flex-direction: column; } .flow-arrow { transform: rotate(90deg); } }
+
+        .footer { background: var(--black); color: var(--white); padding: 4rem 2rem 1.5rem; margin-top: 2rem; }
+        .footer-top { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 250px 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333; }
+        .footer-logo { height: 28px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a { width: 40px; height: 40px; background: #333; display: flex; align-items: center; justify-content: center; color: #fff; transition: all 0.15s; }
+        .social-links a:hover { background: var(--accent); color: var(--black); }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; color: var(--accent); }
+        .footer-col a { display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1000px; margin: 0 auto; padding-top: 2rem; text-align: center; }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+        @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo"><img src="/42-logo.png" alt="42 Agency"></div>
+            <a href="/mops-funnel/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                MOPS Funnel
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Resources</a> / <a href="/mops-funnel/">MOPS Funnel</a> / Lifecycle Stages
+        </div>
+
+        <div class="article-header">
+            <span class="article-badge">MOPS</span>
+            <h1>B2B Lifecycle Stages: Clear Definitions & Transition Criteria</h1>
+            <p class="article-meta">The exact definitions we use to eliminate funnel confusion between marketing and sales.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>Why Lifecycle Stages Matter</h2>
+            <p>Without clear lifecycle stage definitions, you get chaos:</p>
+            <ul>
+                <li>Marketing says they generated 500 MQLs. Sales says they only got 50 good ones.</li>
+                <li>Leads sit in limbo because no one owns the transition.</li>
+                <li>Reports are meaningless because stages mean different things to different people.</li>
+            </ul>
+            <p>The fix: <strong>written definitions with explicit transition criteria</strong> that both teams agree to.</p>
+
+            <div class="flow-diagram">
+                <span class="flow-stage">Subscriber</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-stage">Lead</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-stage active">MQL</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-stage">SQL</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-stage">Opportunity</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-stage">Customer</span>
+            </div>
+
+            <h2>The 6 Lifecycle Stages</h2>
+
+            <div class="stage-card">
+                <div class="stage-name"><span class="stage-number">1</span> Subscriber</div>
+                <p class="stage-def">Someone who has opted in to receive communications but hasn't shown buying intent.</p>
+                <div class="stage-criteria">
+                    <h4>Entry Criteria</h4>
+                    <ul>
+                        <li>Subscribed to newsletter or blog</li>
+                        <li>No form fill beyond email opt-in</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-name"><span class="stage-number">2</span> Lead</div>
+                <p class="stage-def">A contact who has provided information beyond email (name, company, etc.) but hasn't been qualified.</p>
+                <div class="stage-criteria">
+                    <h4>Entry Criteria</h4>
+                    <ul>
+                        <li>Filled out a form with name + company</li>
+                        <li>Downloaded gated content</li>
+                        <li>Registered for webinar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-name"><span class="stage-number">3</span> Marketing Qualified Lead (MQL)</div>
+                <p class="stage-def">A lead that meets both demographic fit AND behavioral engagement thresholds.</p>
+                <div class="stage-criteria">
+                    <h4>Entry Criteria</h4>
+                    <ul>
+                        <li>Demographic grade of A or B</li>
+                        <li>Behavioral score above threshold (e.g., 50+ points)</li>
+                        <li>OR: Requested demo/contact (auto-MQL)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-name"><span class="stage-number">4</span> Sales Qualified Lead (SQL)</div>
+                <p class="stage-def">An MQL that sales has accepted and confirmed has a real opportunity potential.</p>
+                <div class="stage-criteria">
+                    <h4>Entry Criteria</h4>
+                    <ul>
+                        <li>Sales has made contact (connected, not just attempted)</li>
+                        <li>Confirmed budget authority or path to it</li>
+                        <li>Timeline within next 6-12 months</li>
+                        <li>Active evaluation (not "just researching")</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-name"><span class="stage-number">5</span> Opportunity</div>
+                <p class="stage-def">A qualified prospect in an active sales process with a deal attached.</p>
+                <div class="stage-criteria">
+                    <h4>Entry Criteria</h4>
+                    <ul>
+                        <li>Deal/opportunity created in CRM</li>
+                        <li>Identified decision-maker and process</li>
+                        <li>Active negotiation or evaluation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-name"><span class="stage-number">6</span> Customer</div>
+                <p class="stage-def">A contact at a company that has purchased.</p>
+                <div class="stage-criteria">
+                    <h4>Entry Criteria</h4>
+                    <ul>
+                        <li>Closed-won deal</li>
+                        <li>Contract signed or payment received</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Common Mistakes to Avoid</h2>
+
+            <div class="callout warning">
+                <div class="callout-title">Mistake #1: Auto-MQL on Any Form Fill</div>
+                <p>A newsletter signup isn't an MQL. A whitepaper download from a competitor isn't an MQL. Reserve MQL for leads that actually meet qualification criteria.</p>
+            </div>
+
+            <div class="callout warning">
+                <div class="callout-title">Mistake #2: No Clear SQL Acceptance</div>
+                <p>If sales can silently ignore MQLs, you have no handoff. Require explicit acceptance (SQL) or rejection (disqualified) with a reason.</p>
+            </div>
+
+            <div class="callout warning">
+                <div class="callout-title">Mistake #3: Stages That Skip</div>
+                <p>Contacts should move through stages in order. A subscriber shouldn't become an opportunity without passing through lead and MQL stages (unless auto-MQL criteria are met).</p>
+            </div>
+
+            <h2>Backward Movement: Disqualification</h2>
+            <p>Not all leads move forward. Build in disqualification paths:</p>
+            <ul>
+                <li><strong>MQL → Lead:</strong> Sales rejects, needs more nurturing</li>
+                <li><strong>SQL → Disqualified:</strong> No budget, wrong fit, competitor</li>
+                <li><strong>Opportunity → Closed Lost:</strong> Deal didn't close</li>
+            </ul>
+            <p>Track DQ reasons in a property. This data helps marketing understand what's not working.</p>
+
+            <h2>SLA: The Missing Piece</h2>
+            <p>Definitions are useless without follow-through. Add SLAs:</p>
+            <ul>
+                <li><strong>MQL → SQL review:</strong> Sales must accept/reject within 24 hours</li>
+                <li><strong>SQL follow-up:</strong> First outreach within 4 hours</li>
+                <li><strong>Recycle:</strong> Rejected MQLs return to nurture, not limbo</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2>Get the Full Funnel Workbook</h2>
+            <p>Our MOPS Funnel workbook includes lifecycle stage definitions, lead scoring templates, and DQ reason tracking.</p>
+            <a href="/mops-funnel/" class="cta-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download Workbook
+            </a>
+        </div>
+
+        <div class="related-section">
+            <h3 class="related-title">Related Guides</h3>
+            <div class="related-cards">
+                <a href="/mops-funnel/lead-scoring/" class="related-card">
+                    <div class="related-card-title">Lead Scoring Model</div>
+                    <div class="related-card-desc">Demographic + behavioral scoring framework</div>
+                </a>
+                <a href="/mops-funnel/mql-definition/" class="related-card">
+                    <div class="related-card-title">MQL Definition Framework</div>
+                    <div class="related-card-desc">When is a lead actually "marketing qualified"?</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="https://x.com/get42agency" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col"><h4>42 Agency</h4><a href="https://42agency.com/demand-generation">Demand Generation</a><a href="https://42agency.com/marketing-operations">Marketing Operations</a><a href="https://42agency.com/seo-and-content">SEO & Content</a><a href="https://42agency.com/contact-us">Contact Us</a></div>
+                <div class="footer-col"><h4>42/ Essays</h4><a href="https://42slash.com/p/abm-is-just-good-marketing">ABM is Just Good Marketing</a><a href="https://42slash.com/p/the-abm-measurement-problem">The ABM Measurement Problem</a><a href="https://42slash.com">All Essays</a></div>
+                <div class="footer-col"><h4>AI Tools</h4><a href="https://copilot.42agency.com">Marvin (LinkedIn Ads AI)</a></div>
+                <div class="footer-col"><h4>MOPS Guides</h4><a href="/mops-funnel/lead-scoring/">Lead Scoring</a><a href="/mops-funnel/lifecycle-stages/">Lifecycle Stages</a><a href="/mops-funnel/mql-definition/">MQL Definition</a><a href="/mops-funnel/">Full Workbook</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 42 Agency</p></div>
+    </footer>
+</body>
+</html>

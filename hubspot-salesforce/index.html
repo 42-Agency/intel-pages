@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Salesforce Integration Checklist | 42 Agency</title>
+    <meta name="description" content="Free HubSpot Salesforce integration checklist. Field mapping, sync settings, lifecycle stage alignment, and common integration pitfalls to avoid.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/hubspot-salesforce/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68; --accent-dark: #C8E85C; --black: #1a1a1a;
+            --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+            --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937;
+            --white: #ffffff; --orange: #ff7a59; --blue: #00a1e0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--black); }
+        .logo span { color: var(--accent); }
+        .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .back-link:hover { color: var(--accent); }
+        .hero { padding: 64px 0 48px; text-align: center; }
+        .badge { display: inline-block; background: var(--accent); color: var(--black); font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 20px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.5px; }
+        h1 { font-size: 42px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
+        .subtitle { font-size: 18px; color: var(--gray-600); max-width: 600px; margin: 0 auto; }
+        .logo-row { display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 32px; }
+        .platform-logo { padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 18px; }
+        .platform-logo.hubspot { background: #fff3f0; color: var(--orange); }
+        .platform-logo.salesforce { background: #e6f4fb; color: var(--blue); }
+        .sync-arrow { font-size: 24px; color: var(--gray-400); }
+        .form-section { background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 16px; padding: 48px; margin: 32px 0 64px; text-align: center; }
+        .form-section h2 { font-size: 24px; color: var(--black); margin-bottom: 8px; }
+        .form-section p { color: var(--gray-600); margin-bottom: 24px; }
+        .form-container { max-width: 450px; margin: 0 auto; }
+        .email-capture-form { display: flex; gap: 12px; }
+        .email-capture-form input { flex: 1; padding: 16px 20px; font-size: 16px; border: 2px solid var(--black); background: var(--white); outline: none; }
+        .email-capture-form input:focus { border-color: var(--accent); }
+        .email-capture-form button { padding: 16px 24px; background: var(--accent); color: var(--black); font-weight: 700; font-size: 16px; border: 2px solid var(--black); cursor: pointer; box-shadow: 4px 4px 0 var(--black); transition: all 0.15s; white-space: nowrap; }
+        .email-capture-form button:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--black); }
+        .email-capture-form button:disabled { opacity: 0.7; cursor: wait; }
+        .form-note { font-size: 13px; color: var(--gray-600); margin-top: 12px; }
+        .download-btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: var(--black); font-weight: 700; text-decoration: none; border: 2px solid var(--black); box-shadow: 4px 4px 0 var(--black); }
+        @media (max-width: 600px) { .email-capture-form { flex-direction: column; } }
+        .whats-inside { padding: 48px 0; border-top: 1px solid var(--gray-200); }
+        .whats-inside h2 { font-size: 28px; color: var(--black); margin-bottom: 32px; text-align: center; }
+        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .feature { background: var(--gray-50); border-radius: 12px; padding: 24px; }
+        .feature-icon { width: 40px; height: 40px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 20px; }
+        .feature h3 { font-size: 16px; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .feature p { font-size: 14px; color: var(--gray-600); }
+        .preview { padding: 48px 0; border-top: 1px solid var(--gray-200); }
+        .preview h2 { font-size: 28px; color: var(--black); margin-bottom: 32px; text-align: center; }
+        .checklist-preview { background: var(--gray-50); border-radius: 12px; padding: 32px; }
+        .checklist-section { margin-bottom: 24px; }
+        .checklist-section:last-child { margin-bottom: 0; }
+        .checklist-section h4 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .checklist-item { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--gray-200); }
+        .checklist-item:last-child { border-bottom: none; }
+        .check-box { width: 20px; height: 20px; border: 2px solid var(--accent); border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--accent); }
+        .checklist-item span { font-size: 14px; color: var(--gray-800); }
+        .related { padding: 48px 0; border-top: 1px solid var(--gray-200); }
+        .related h2 { font-size: 20px; color: var(--black); margin-bottom: 24px; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .related-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; padding: 20px; text-decoration: none; transition: all 0.2s; }
+        .related-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .related-card h3 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+        .related-card p { font-size: 12px; color: var(--gray-600); }
+        .footer { padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 48px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 14px; color: var(--gray-600); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .footer-links a:hover { color: var(--accent); }
+        @media (max-width: 640px) { h1 { font-size: 32px; } .features-grid, .related-grid { grid-template-columns: 1fr; } .form-section { padding: 32px 24px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency"></a>
+                <a href="/" class="back-link">← All Resources</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <span class="badge">Free Checklist</span>
+                <h1>HubSpot ↔ Salesforce Integration Checklist</h1>
+                <p class="subtitle">The complete checklist for setting up and auditing your HubSpot-Salesforce sync. Field mapping, lifecycle alignment, and sync direction rules.</p>
+                <div class="logo-row">
+                    <span class="platform-logo hubspot">HubSpot</span>
+                    <span class="sync-arrow">⇄</span>
+                    <span class="platform-logo salesforce">Salesforce</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <h2>Download the Checklist</h2>
+                <p>Get the Excel template with field mapping, lifecycle alignment, and sync error troubleshooting.</p>
+                <div class="form-container" id="form-container">
+                    <form id="download-form" class="email-capture-form">
+                        <input type="email" name="email" placeholder="Enter your work email" required>
+                        <button type="submit">Download Free Checklist</button>
+                    </form>
+                    <p class="form-note">No spam. Unsubscribe anytime.</p>
+                </div>
+                <div id="success-message" style="display:none;">
+                    <p style="color:var(--black);font-weight:600;margin-bottom:16px;">Your download is starting...</p>
+                    <a href="/hubspot-salesforce/HubSpot_Salesforce_Checklist.xlsx" download class="download-btn">Click here if download doesn't start</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="whats-inside">
+            <div class="container">
+                <h2>What's Inside</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">🔗</div>
+                        <h3>Field Mapping Guide</h3>
+                        <p>Which fields to sync, sync direction (HubSpot → SF, SF → HubSpot, or bidirectional), and when to use each.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Lifecycle Stage Alignment</h3>
+                        <p>How to map HubSpot lifecycle stages to Salesforce lead status and opportunity stages.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">⚠️</div>
+                        <h3>Common Pitfalls</h3>
+                        <p>The integration mistakes that cause data sync failures, duplicate records, and reporting gaps.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✅</div>
+                        <h3>Pre-Launch Checklist</h3>
+                        <p>What to verify before turning on the sync—and what to monitor after.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview">
+            <div class="container">
+                <h2>Checklist Preview</h2>
+                <div class="checklist-preview">
+                    <div class="checklist-section">
+                        <h4>Pre-Integration Setup</h4>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Audit existing HubSpot properties for duplicates and naming conventions</span></div>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Document Salesforce required fields on Lead and Contact objects</span></div>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Define lifecycle stage ↔ lead status mapping</span></div>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Create Salesforce integration user with appropriate permissions</span></div>
+                    </div>
+                    <div class="checklist-section">
+                        <h4>Field Mapping Decisions</h4>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Set sync direction for each mapped field</span></div>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Configure "most recent" vs "prefer Salesforce" conflict resolution</span></div>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Map owner fields (HubSpot owner ↔ Salesforce owner)</span></div>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Define inclusion list criteria for selective sync</span></div>
+                    </div>
+                    <div class="checklist-section">
+                        <h4>Post-Launch Validation</h4>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Test sync with 5-10 records before full enablement</span></div>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Monitor sync errors dashboard for 48 hours</span></div>
+                        <div class="checklist-item"><div class="check-box">✓</div><span>Validate lifecycle stage transitions</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related">
+            <div class="container">
+                <h2>Integration Guides</h2>
+                <div class="related-grid">
+                    <a href="/hubspot-salesforce/field-mapping/" class="related-card">
+                        <h3>Field Mapping</h3>
+                        <p>Sync direction rules and conflict resolution</p>
+                    </a>
+                    <a href="/hubspot-salesforce/lifecycle-alignment/" class="related-card">
+                        <h3>Lifecycle Alignment</h3>
+                        <p>Stage mapping between systems</p>
+                    </a>
+                    <a href="/hubspot-salesforce/sync-errors/" class="related-card">
+                        <h3>Sync Errors</h3>
+                        <p>Common failures and how to fix them</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background: #0a0a0a; color: #fff; padding: 3rem 2rem 1.5rem; margin-top: 3rem;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding-bottom: 2rem; border-bottom: 1px solid #333;">
+                <div>
+                    <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                    <p style="font-size: 14px; color: #999; margin-top: 12px; line-height: 1.5;">B2B performance marketing for companies that sell to enterprises.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: #5BD675;">42 Agency</h4>
+                        <a href="https://42agency.com/demand-generation" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">Demand Generation</a>
+                        <a href="https://42agency.com/marketing-operations" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">Marketing Operations</a>
+                        <a href="https://42agency.com/contact-us" style="display: block; color: #ccc; text-decoration: none; font-size: 14px;">Contact Us</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: #5BD675;">Resources</h4>
+                        <a href="/" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">All Resources</a>
+                        <a href="/linkedin-targeting/" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">LinkedIn Targeting</a>
+                        <a href="/abm-campaign/" style="display: block; color: #ccc; text-decoration: none; font-size: 14px;">ABM Campaign</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: #5BD675;">Essays</h4>
+                        <a href="https://42slash.com" target="_blank" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">42/ Substack</a>
+                        <a href="https://linkedin.com/company/42agency" target="_blank" style="display: block; color: #ccc; text-decoration: none; font-size: 14px;">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top: 1.5rem; text-align: center;">
+                <p style="font-size: 13px; color: #666;">© 2026 42 Agency · All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const HUBSPOT_PORTAL = '44888286';
+    const DOWNLOAD_FILE = '/hubspot-salesforce/HubSpot_Salesforce_Checklist.xlsx';
+
+    document.getElementById('download-form')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[name="email"]').value;
+        const btn = this.querySelector('button');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        try {
+            await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL}/collected-forms`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    fields: [{ objectTypeId: '0-1', name: 'email', value: email }],
+                    context: { pageUri: window.location.href, pageName: document.title }
+                })
+            });
+        } catch (err) { console.log('HubSpot:', err); }
+
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('success-message').style.display = 'block';
+
+        const link = document.createElement('a');
+        link.href = DOWNLOAD_FILE;
+        link.download = 'HubSpot_Salesforce_Checklist.xlsx';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Salesforce Sync Errors | Common Failures & How to Fix Them</title>
+    <meta name="description" content="How to troubleshoot HubSpot Salesforce sync errors. Common failure causes, error messages explained, and step-by-step fixes.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/hubspot-salesforce/sync-errors/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root { --accent: #DFFE68; --accent-dark: #C8E85C; --black: #1a1a1a; --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937; --white: #ffffff; --red: #ef4444; --yellow: #f59e0b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--black); }
+        .logo span { color: var(--accent); }
+        .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .back-link:hover { color: var(--accent); }
+        .article { padding: 48px 0; }
+        .breadcrumb { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--gray-600); text-decoration: none; }
+        h1 { font-size: 36px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
+        .meta { font-size: 14px; color: var(--gray-600); margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-200); }
+        h2 { font-size: 24px; font-weight: 600; color: var(--black); margin: 48px 0 16px; }
+        h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 32px 0 12px; }
+        p { margin-bottom: 16px; }
+        ul, ol { margin: 0 0 24px 24px; }
+        li { margin-bottom: 8px; }
+        code { background: var(--gray-100); padding: 2px 6px; border-radius: 4px; font-size: 14px; font-family: monospace; }
+        .error-card { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 20px; margin: 24px 0; }
+        .error-card h4 { color: var(--red); font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .error-card h4::before { content: "⚠"; }
+        .error-card .error-msg { font-family: monospace; font-size: 13px; background: #fee2e2; padding: 8px 12px; border-radius: 4px; margin: 12px 0; color: #991b1b; }
+        .error-card .fix { margin-top: 12px; padding-top: 12px; border-top: 1px solid #fecaca; }
+        .error-card .fix strong { color: var(--black); }
+        .callout { background: var(--gray-50); border-left: 4px solid var(--accent); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .callout-title { font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .callout p { margin: 0; font-size: 15px; }
+        .table-wrapper { overflow-x: auto; margin: 24px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: var(--black); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); }
+        tr:nth-child(even) { background: var(--gray-50); }
+        .cta-box { background: linear-gradient(135deg, var(--black) 0%, #2d3548 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+        .cta-box h3 { color: var(--white); margin: 0 0 8px; }
+        .cta-box p { color: var(--gray-400); margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: var(--accent); color: var(--black); padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+        .footer { padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 48px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 14px; color: var(--gray-600); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        @media (max-width: 640px) { h1 { font-size: 28px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                <a href="/hubspot-salesforce/" class="back-link">← Integration Checklist</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Resources</a> → <a href="/hubspot-salesforce/">HubSpot ↔ Salesforce</a> → Sync Errors
+            </div>
+
+            <h1>HubSpot Salesforce Sync Errors: Common Failures & Fixes</h1>
+            <div class="meta">How to diagnose and resolve the most common integration sync failures.</div>
+
+            <p>Sync errors are inevitable with HubSpot-Salesforce integrations. The key is understanding what each error means and how to fix it without breaking other things.</p>
+
+            <p>This guide covers the most common sync errors, what causes them, and step-by-step fixes.</p>
+
+            <h2>Where to Find Sync Errors</h2>
+
+            <p>In HubSpot, navigate to: <strong>Settings → Integrations → Connected Apps → Salesforce → Sync Health</strong></p>
+
+            <p>You'll see:</p>
+            <ul>
+                <li><strong>Sync errors:</strong> Records that failed to sync</li>
+                <li><strong>Error categories:</strong> Grouped by error type</li>
+                <li><strong>Affected records:</strong> Links to specific contacts/companies</li>
+            </ul>
+
+            <h2>Most Common Sync Errors</h2>
+
+            <div class="error-card">
+                <h4>REQUIRED_FIELD_MISSING</h4>
+                <div class="error-msg">Required fields are missing: [Last Name]</div>
+                <p>Salesforce requires certain fields that HubSpot doesn't have populated.</p>
+                <div class="fix">
+                    <strong>Fix:</strong> Either populate the required field in HubSpot before sync, or make the field non-required in Salesforce. For Last Name specifically, HubSpot can auto-populate "[Unknown]" if enabled in sync settings.
+                </div>
+            </div>
+
+            <div class="error-card">
+                <h4>DUPLICATE_VALUE</h4>
+                <div class="error-msg">duplicate value found: Email duplicates value on record with id: 00Q...</div>
+                <p>A record with this email already exists in Salesforce. HubSpot is trying to create a duplicate.</p>
+                <div class="fix">
+                    <strong>Fix:</strong> Merge the duplicate records in Salesforce, or update HubSpot's sync settings to match existing records instead of creating new ones. Check "Update existing records" in your inclusion list settings.
+                </div>
+            </div>
+
+            <div class="error-card">
+                <h4>INVALID_FIELD_VALUE</h4>
+                <div class="error-msg">Invalid picklist value: "Enterprise" for field: Company_Size__c</div>
+                <p>HubSpot is sending a value that doesn't exist in Salesforce's picklist options.</p>
+                <div class="fix">
+                    <strong>Fix:</strong> Either add the missing value to the Salesforce picklist, or create a field mapping that translates HubSpot values to valid Salesforce values. Consider using a HubSpot workflow to standardize values before sync.
+                </div>
+            </div>
+
+            <div class="error-card">
+                <h4>INSUFFICIENT_ACCESS_RIGHTS</h4>
+                <div class="error-msg">insufficient access rights on object id</div>
+                <p>The Salesforce integration user doesn't have permission to create/update this record type.</p>
+                <div class="fix">
+                    <strong>Fix:</strong> In Salesforce, check the integration user's profile permissions. Ensure they have Create, Read, Edit access on Leads, Contacts, Accounts, and Opportunities. Also check object-level and field-level security.
+                </div>
+            </div>
+
+            <div class="error-card">
+                <h4>INVALID_EMAIL_ADDRESS</h4>
+                <div class="error-msg">Invalid email address: test@test</div>
+                <p>The email format doesn't pass Salesforce validation.</p>
+                <div class="fix">
+                    <strong>Fix:</strong> Clean up invalid emails in HubSpot before they sync. Use a HubSpot workflow to quarantine contacts with invalid email formats, or add email validation to your forms.
+                </div>
+            </div>
+
+            <div class="error-card">
+                <h4>UNABLE_TO_LOCK_ROW</h4>
+                <div class="error-msg">unable to obtain exclusive access to this record</div>
+                <p>Another process in Salesforce is updating the same record simultaneously.</p>
+                <div class="fix">
+                    <strong>Fix:</strong> Usually temporary—HubSpot will retry. If persistent, check for Salesforce workflows/triggers that run on the same records. Reduce automation overlap between systems.
+                </div>
+            </div>
+
+            <h2>Error Categories & Priority</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Severity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Required field missing</td>
+                            <td>High</td>
+                            <td>Fix immediately—blocks all new syncs</td>
+                        </tr>
+                        <tr>
+                            <td>Duplicate value</td>
+                            <td>High</td>
+                            <td>Clean up duplicates, adjust sync rules</td>
+                        </tr>
+                        <tr>
+                            <td>Invalid field value</td>
+                            <td>Medium</td>
+                            <td>Add missing picklist values or map translations</td>
+                        </tr>
+                        <tr>
+                            <td>Permission errors</td>
+                            <td>High</td>
+                            <td>Fix integration user permissions ASAP</td>
+                        </tr>
+                        <tr>
+                            <td>Row lock errors</td>
+                            <td>Low</td>
+                            <td>Usually self-resolving; monitor if persistent</td>
+                        </tr>
+                        <tr>
+                            <td>Invalid email</td>
+                            <td>Low</td>
+                            <td>Clean data, improve form validation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Preventing Sync Errors</h2>
+
+            <h3>1. Use an Inclusion List</h3>
+            <p>Don't sync every HubSpot contact to Salesforce. Use an inclusion list to sync only qualified records:</p>
+            <ul>
+                <li>Has valid email format</li>
+                <li>Has first name AND last name</li>
+                <li>Lifecycle stage = MQL or beyond</li>
+                <li>Not a competitor or personal email</li>
+            </ul>
+
+            <h3>2. Validate Data Before Sync</h3>
+            <p>Use HubSpot workflows to validate required fields before a contact meets inclusion list criteria:</p>
+            <ul>
+                <li>If Last Name is empty, set to "[Unknown]"</li>
+                <li>If Company is empty, set to email domain</li>
+                <li>Standardize picklist values to match Salesforce</li>
+            </ul>
+
+            <h3>3. Match Integration User Permissions</h3>
+            <p>The Salesforce integration user needs:</p>
+            <ul>
+                <li>API Enabled permission</li>
+                <li>CRUD on Leads, Contacts, Accounts, Opportunities</li>
+                <li>Field-level access to all mapped fields</li>
+                <li>Record type access if you use multiple record types</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-title">Pro Tip: Weekly Sync Health Review</div>
+                <p>Set a calendar reminder to check sync health weekly. Small error counts are normal—investigate if errors exceed 5% of synced records or if a new error type suddenly appears.</p>
+            </div>
+
+            <h2>Troubleshooting Workflow</h2>
+
+            <ol>
+                <li><strong>Identify the error type</strong> in HubSpot sync health dashboard</li>
+                <li><strong>Click into affected records</strong> to see specific error messages</li>
+                <li><strong>Check the field/value</strong> causing the error in both systems</li>
+                <li><strong>Fix root cause</strong> (permissions, missing values, data quality)</li>
+                <li><strong>Retry sync</strong> for affected records</li>
+                <li><strong>Monitor</strong> for 24-48 hours to confirm resolution</li>
+            </ol>
+
+            <div class="cta-box">
+                <h3>Get the Full Integration Checklist</h3>
+                <p>Pre-launch validation, error prevention checklist, and ongoing monitoring guide.</p>
+                <a href="/hubspot-salesforce/" class="cta-button">Download Checklist →</a>
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li>Check sync health dashboard weekly—don't let errors accumulate</li>
+                <li>Required field and duplicate errors are highest priority</li>
+                <li>Use inclusion lists to prevent bad data from syncing</li>
+                <li>Validate data with workflows before it meets sync criteria</li>
+                <li>Most row lock errors are temporary and self-resolve</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer style="background: #0a0a0a; padding: 2rem; margin-top: 3rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 24px;"></a>
+                <span style="color: #666; font-size: 13px;">© 2026 42 Agency</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/hubspot-salesforce/lifecycle-alignment/" style="color: #999; text-decoration: none; font-size: 14px;">← Lifecycle Alignment</a>
+                <a href="/hubspot-salesforce/" style="color: #999; text-decoration: none; font-size: 14px;">Integration Checklist →</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

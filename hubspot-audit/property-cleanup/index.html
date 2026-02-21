@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Property Audit: How to Clean Up Unused Properties | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta name="description" content="Learn how to identify and clean up unused HubSpot properties. Step-by-step guide to auditing contact, company, and deal properties for better data hygiene.">
+    <meta property="og:title" content="HubSpot Property Audit: How to Clean Up Unused Properties">
+    <meta property="og:description" content="Step-by-step guide to auditing and cleaning up unused HubSpot properties for better CRM performance.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+            --hubspot: #FF7A59;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-lighter);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+        }
+        .back-link:hover { background: var(--accent); }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a {
+            color: var(--gray-dark);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .article-header {
+            margin-bottom: 2.5rem;
+        }
+        .article-badge {
+            display: inline-block;
+            background: var(--hubspot);
+            color: white;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--black);
+        }
+        .article-header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .article-meta {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-content {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 2.5rem;
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 2rem;
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 2rem 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .article-content p {
+            margin-bottom: 1rem;
+            color: var(--gray-dark);
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+            color: var(--gray-dark);
+        }
+        .article-content strong {
+            color: var(--black);
+        }
+
+        .callout {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .callout-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .callout p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .step-box {
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        .step-number {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-right: 0.75rem;
+        }
+        .step-title {
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline;
+        }
+        .step-content {
+            margin-top: 0.75rem;
+            padding-left: 2.5rem;
+            font-size: 0.95rem;
+            color: var(--gray-dark);
+        }
+
+        .code-block {
+            background: var(--black);
+            color: #e5e5e5;
+            padding: 1rem;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border: 2px solid var(--black);
+        }
+        .code-block .comment { color: #888; }
+
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 2rem;
+            box-shadow: 4px 4px 0 var(--black);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .cta-section h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .cta-section p {
+            color: var(--gray-dark);
+            margin-bottom: 1.25rem;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.875rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--black);
+            transition: all 0.15s;
+        }
+        .cta-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .related-section {
+            margin-bottom: 2rem;
+        }
+        .related-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .related-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .related-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 3px 3px 0 var(--black);
+            transition: all 0.15s;
+        }
+        .related-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+        .related-card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.35rem;
+        }
+        .related-card-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.75rem; }
+            .article-content { padding: 1.5rem; }
+            .related-cards { grid-template-columns: 1fr; }
+        }
+
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+        .footer-top {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-logo {
+            height: 28px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.15s;
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--black);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+
+        @media (max-width: 900px) {
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </div>
+            <a href="/hubspot-audit/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                HubSpot Audit
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Resources</a> / <a href="/hubspot-audit/">HubSpot Audit</a> / Property Cleanup
+        </div>
+
+        <div class="article-header">
+            <span class="article-badge">HubSpot</span>
+            <h1>How to Audit & Clean Up Unused HubSpot Properties</h1>
+            <p class="article-meta">The step-by-step process we use to eliminate property bloat and improve CRM performance.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>Why Property Bloat Matters</h2>
+            <p>Most HubSpot portals accumulate hundreds of unused properties over time. We've seen portals with 400+ contact properties where fewer than 50 are actually used. This bloat causes:</p>
+            <ul>
+                <li><strong>Slower page loads</strong> in HubSpot (especially record views)</li>
+                <li><strong>Confused users</strong> who don't know which fields to fill</li>
+                <li><strong>Reporting errors</strong> from duplicate or conflicting properties</li>
+                <li><strong>Integration issues</strong> when syncing with other tools</li>
+                <li><strong>Higher risk of bad data</strong> entering the system</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    The 50% Rule
+                </div>
+                <p>In our audits, we typically find that <strong>50-70% of custom properties can be archived</strong> without any impact on operations. The trick is identifying which ones.</p>
+            </div>
+
+            <h2>The 5-Step Property Audit Process</h2>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <span class="step-title">Export Your Property List</span>
+                <div class="step-content">
+                    <p>Go to Settings → Properties and export all properties for each object (Contacts, Companies, Deals). Include: property name, internal name, type, created date, and group.</p>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <span class="step-title">Identify "Never Populated" Properties</span>
+                <div class="step-content">
+                    <p>Create a list in HubSpot for contacts where each property "is known." Properties with <5% population rate across your database are candidates for removal.</p>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <span class="step-title">Check Integration Dependencies</span>
+                <div class="step-content">
+                    <p>Before archiving, check if the property is used in any integrations (Salesforce sync, Zapier, native integrations). Search the property internal name in your integration settings.</p>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <span class="step-title">Check Workflow & Automation Dependencies</span>
+                <div class="step-content">
+                    <p>Search for the property in Workflows, Forms, Lists, and Reports. HubSpot's property detail page shows some of this, but manual verification is safer.</p>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">5</span>
+                <span class="step-title">Archive in Batches</span>
+                <div class="step-content">
+                    <p>Archive properties in batches of 10-20, then wait a week. This gives your team time to flag if something breaks. Archived properties can be restored if needed.</p>
+                </div>
+            </div>
+
+            <h2>Properties You Should Never Delete</h2>
+            <p>Some properties look unused but are actually critical:</p>
+            <ul>
+                <li><strong>Original Source properties</strong> — even if not displayed, these power attribution</li>
+                <li><strong>Lifecycle Stage</strong> — core to HubSpot's funnel logic</li>
+                <li><strong>Lead Status</strong> — required for sales handoff</li>
+                <li><strong>Associated Company/Deal IDs</strong> — powers object relationships</li>
+                <li><strong>Any property with "hs_" prefix</strong> — HubSpot system properties</li>
+            </ul>
+
+            <h2>Quick Wins: Common Bloat Sources</h2>
+            <h3>1. Old Integration Properties</h3>
+            <p>Previous integrations (Drift, Intercom, old forms) often leave behind dozens of properties. If the integration is disconnected, these are safe to archive.</p>
+
+            <h3>2. Duplicate "Same Meaning" Properties</h3>
+            <p>We often find: "Job Title", "job_title", "Contact Job Title", "Title" — all meaning the same thing. Consolidate to one and map the others.</p>
+
+            <h3>3. Campaign-Specific Properties</h3>
+            <p>Properties created for one-off campaigns ("Webinar_2023_Attended") that are no longer needed. Archive these and use lists/campaigns for historical data.</p>
+
+            <h3>4. Test Properties</h3>
+            <p>Properties with names like "test", "temp", "delete_me", or developer names. These are always safe to remove.</p>
+
+            <h2>The Audit Spreadsheet Format</h2>
+            <p>When auditing, we track each property with these columns:</p>
+
+            <div class="code-block">
+Property Name | Internal Name | Object | Population % | Used In Workflows? | Used In Forms? | Integration? | Recommendation
+--------------|---------------|--------|--------------|-------------------|----------------|--------------|---------------
+Job Title     | jobtitle      | Contact| 78%          | Yes               | Yes            | Salesforce   | KEEP
+Webinar 2023  | webinar_2023  | Contact| 2%           | No                | No             | No           | ARCHIVE
+Test Field    | test_field_1  | Contact| 0%           | No                | No             | No           | ARCHIVE
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Get the Full Audit Template</h2>
+            <p>Our 10-sheet HubSpot Audit workbook includes the property audit spreadsheet plus SOPs for workflows, reporting, and data quality.</p>
+            <a href="/hubspot-audit/" class="cta-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download Template
+            </a>
+        </div>
+
+        <div class="related-section">
+            <h3 class="related-title">Related Guides</h3>
+            <div class="related-cards">
+                <a href="/hubspot-audit/workflow-audit/" class="related-card">
+                    <div class="related-card-title">Workflow Audit Guide</div>
+                    <div class="related-card-desc">How to identify broken and redundant automations</div>
+                </a>
+                <a href="/hubspot-audit/data-quality/" class="related-card">
+                    <div class="related-card-title">Data Quality Checklist</div>
+                    <div class="related-card-desc">Clean up duplicates, formatting, and bad data</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/get42agency" target="_blank" aria-label="X/Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
+                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
+                    <a href="https://42agency.com/seo-and-content" target="_blank">SEO & Content</a>
+                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42/ Essays</h4>
+                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
+                    <a href="https://42slash.com/p/the-abm-measurement-problem" target="_blank">The ABM Measurement Problem</a>
+                    <a href="https://42slash.com/p/the-claude-code-essay" target="_blank">The Claude Code Essay</a>
+                    <a href="https://42slash.com" target="_blank">All Essays</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">Marvin (LinkedIn Ads AI)</a>
+                </div>
+                <div class="footer-col">
+                    <h4>HubSpot Guides</h4>
+                    <a href="/hubspot-audit/property-cleanup/">Property Cleanup</a>
+                    <a href="/hubspot-audit/workflow-audit/">Workflow Audit</a>
+                    <a href="/hubspot-audit/data-quality/">Data Quality</a>
+                    <a href="/hubspot-audit/">Full Audit Template</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

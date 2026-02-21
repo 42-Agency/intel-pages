@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Account List Targeting | ABM Company List Uploads</title>
+    <meta name="description" content="How to use LinkedIn account list targeting for ABM. Company list uploads, match rates, minimum list sizes, and layering strategies for B2B campaigns.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/linkedin-targeting/account-lists/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--black); }
+        .logo span { color: var(--accent); }
+        .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .back-link:hover { color: var(--accent); }
+        .article { padding: 48px 0; }
+        .breadcrumb { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--gray-600); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); }
+        h1 { font-size: 36px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
+        .meta { font-size: 14px; color: var(--gray-600); margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-200); }
+        h2 { font-size: 24px; font-weight: 600; color: var(--black); margin: 48px 0 16px; }
+        h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 32px 0 12px; }
+        p { margin-bottom: 16px; color: var(--gray-800); }
+        ul, ol { margin: 0 0 24px 24px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--black); }
+        code { background: var(--gray-100); padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+        .table-wrapper { overflow-x: auto; margin: 24px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: var(--black); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); }
+        tr:nth-child(even) { background: var(--gray-50); }
+        .callout { background: var(--gray-50); border-left: 4px solid var(--accent); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .callout-title { font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .callout p { margin: 0; font-size: 15px; }
+        .cta-box { background: linear-gradient(135deg, var(--black) 0%, #2d3548 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+        .cta-box h3 { color: var(--white); margin: 0 0 8px; }
+        .cta-box p { color: var(--gray-400); margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: var(--accent); color: var(--black); padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .cta-button:hover { background: var(--green-dark); transform: translateY(-2px); }
+        .footer { padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 48px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 14px; color: var(--gray-600); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .footer-links a:hover { color: var(--accent); }
+        @media (max-width: 640px) { h1 { font-size: 28px; } h2 { font-size: 20px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                <a href="/linkedin-targeting/" class="back-link">← LinkedIn Targeting Checklist</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Resources</a> → <a href="/linkedin-targeting/">LinkedIn Targeting</a> → Account Lists
+            </div>
+
+            <h1>LinkedIn Account List Targeting for ABM Campaigns</h1>
+            <div class="meta">How to upload company lists, expected match rates, and layering strategies for account-based campaigns.</div>
+
+            <p>Account list targeting (also called Matched Audiences - Companies) lets you upload a list of target accounts and show ads only to employees at those companies. It's the foundation of LinkedIn ABM.</p>
+
+            <p>This guide covers the practical details: list formatting, match rates, minimum sizes, and how to layer account lists with other targeting.</p>
+
+            <h2>How LinkedIn Account Matching Works</h2>
+
+            <p>When you upload a company list, LinkedIn attempts to match your companies to their database using:</p>
+
+            <ol>
+                <li><strong>Company name</strong> (required)</li>
+                <li><strong>Website domain</strong> (highly recommended)</li>
+                <li><strong>LinkedIn Company Page URL</strong> (best match rate)</li>
+            </ol>
+
+            <p>LinkedIn's algorithm fuzzy-matches company names, but domains and page URLs provide deterministic matching.</p>
+
+            <div class="callout">
+                <div class="callout-title">Include Domains for Better Match Rates</div>
+                <p>Lists with only company names match at ~60-70%. Adding website domains improves match rate to 80-90%. LinkedIn Company Page URLs get 95%+ match rates.</p>
+            </div>
+
+            <h2>CSV Formatting Requirements</h2>
+
+            <p>LinkedIn accepts CSV files with these columns:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column Name</th>
+                            <th>Required</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>companyname</code></td>
+                            <td>Yes</td>
+                            <td>Salesforce</td>
+                        </tr>
+                        <tr>
+                            <td><code>companywebsite</code></td>
+                            <td>No (recommended)</td>
+                            <td>salesforce.com</td>
+                        </tr>
+                        <tr>
+                            <td><code>companypageurl</code></td>
+                            <td>No (best)</td>
+                            <td>linkedin.com/company/salesforce</td>
+                        </tr>
+                        <tr>
+                            <td><code>stocksymbol</code></td>
+                            <td>No</td>
+                            <td>CRM</td>
+                        </tr>
+                        <tr>
+                            <td><code>industry</code></td>
+                            <td>No</td>
+                            <td>Software</td>
+                        </tr>
+                        <tr>
+                            <td><code>city</code></td>
+                            <td>No</td>
+                            <td>San Francisco</td>
+                        </tr>
+                        <tr>
+                            <td><code>country</code></td>
+                            <td>No</td>
+                            <td>United States</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Minimum List Sizes</h2>
+
+            <p>LinkedIn requires minimum company counts for delivery:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>List Type</th>
+                            <th>Minimum Companies</th>
+                            <th>Recommended</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Account list only (no other targeting)</td>
+                            <td>300</td>
+                            <td>1,000+</td>
+                        </tr>
+                        <tr>
+                            <td>Account list + job targeting</td>
+                            <td>300</td>
+                            <td>500+</td>
+                        </tr>
+                        <tr>
+                            <td>Account list + contact list overlay</td>
+                            <td>300</td>
+                            <td>500+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>After matching, LinkedIn shows you "Matched companies" count. If fewer than 300 match, you'll need to expand your list.</p>
+
+            <h2>Expected Match Rates</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data Quality</th>
+                            <th>Expected Match Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Company names only</td>
+                            <td>60-70%</td>
+                        </tr>
+                        <tr>
+                            <td>Names + website domains</td>
+                            <td>80-90%</td>
+                        </tr>
+                        <tr>
+                            <td>Names + LinkedIn URLs</td>
+                            <td>95%+</td>
+                        </tr>
+                        <tr>
+                            <td>Fortune 500 / well-known companies</td>
+                            <td>95%+</td>
+                        </tr>
+                        <tr>
+                            <td>SMB / local businesses</td>
+                            <td>40-60%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">Why SMBs Match Poorly</div>
+                <p>Small businesses often don't have LinkedIn Company Pages, or employees don't link to them. If you're targeting SMBs, use industry + company size targeting instead of account lists.</p>
+            </div>
+
+            <h2>Layering Account Lists with Job Targeting</h2>
+
+            <p>Account lists are most powerful when combined with job targeting. This creates focused ABM audiences:</p>
+
+            <h3>Example: Enterprise ABM Campaign</h3>
+            <ul>
+                <li><strong>Account List:</strong> 500 target accounts</li>
+                <li><strong>Job Function:</strong> Marketing</li>
+                <li><strong>Seniority:</strong> Director, VP, CXO</li>
+                <li><strong>Result:</strong> Marketing leaders at your target accounts only</li>
+            </ul>
+
+            <p>This combination typically yields audiences of 5,000-50,000 depending on account list size and company sizes.</p>
+
+            <h3>Layering Order Matters</h3>
+
+            <ol>
+                <li>Start with your account list (defines the universe)</li>
+                <li>Add job function (Marketing, Sales, IT, etc.)</li>
+                <li>Add seniority level (Manager+, Director+, etc.)</li>
+                <li><strong>Don't add</strong> industry or company size—your list already defines this</li>
+            </ol>
+
+            <h2>Account List Tiers</h2>
+
+            <p>For sophisticated ABM, create separate lists by tier:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tier</th>
+                            <th>Accounts</th>
+                            <th>Budget Split</th>
+                            <th>Targeting</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tier 1</td>
+                            <td>50-100</td>
+                            <td>40%</td>
+                            <td>Account list + broad job targeting</td>
+                        </tr>
+                        <tr>
+                            <td>Tier 2</td>
+                            <td>200-500</td>
+                            <td>35%</td>
+                            <td>Account list + seniority filter</td>
+                        </tr>
+                        <tr>
+                            <td>Tier 3</td>
+                            <td>1,000+</td>
+                            <td>25%</td>
+                            <td>Account list only (broad reach)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Contact List vs Account List</h2>
+
+            <p>LinkedIn offers two Matched Audience types:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Upload</th>
+                            <th>Targeting</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Account List</strong></td>
+                            <td>Company names/domains</td>
+                            <td>Anyone at those companies</td>
+                            <td>ABM awareness, new logo prospecting</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contact List</strong></td>
+                            <td>Email addresses</td>
+                            <td>Those specific people only</td>
+                            <td>Retargeting, nurturing known contacts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>You can also combine them: Account list + Contact list exclusion = reach new people at target accounts.</p>
+
+            <h2>Common Account List Mistakes</h2>
+
+            <h3>Mistake 1: List Too Small</h3>
+            <p>300 companies sounds like a lot, but after match rate and job filtering, you might have only 2,000 people. That's too small for consistent delivery.</p>
+            <p><strong>Fix:</strong> Start with 1,000+ companies for reliable campaigns.</p>
+
+            <h3>Mistake 2: No Job Targeting Overlay</h3>
+            <p>Running account list only reaches everyone at those companies—including interns and irrelevant departments.</p>
+            <p><strong>Fix:</strong> Always layer with job function and seniority.</p>
+
+            <h3>Mistake 3: Mixing Account Tiers</h3>
+            <p>One campaign with Tier 1-3 accounts means your best accounts compete for budget with lower-priority ones.</p>
+            <p><strong>Fix:</strong> Separate campaigns by tier with dedicated budgets.</p>
+
+            <div class="cta-box">
+                <h3>Get the Full Targeting Checklist</h3>
+                <p>Account list templates, match rate benchmarks, and layering strategies for LinkedIn ABM.</p>
+                <a href="/linkedin-targeting/" class="cta-button">Download Checklist →</a>
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li><strong>Include domains or LinkedIn URLs</strong>—company names alone match poorly</li>
+                <li><strong>Minimum 1,000 companies</strong> for reliable campaign delivery</li>
+                <li><strong>Always layer with job targeting</strong>—account list alone is too broad</li>
+                <li><strong>Separate tiers into different campaigns</strong>—don't let Tier 3 steal Tier 1's budget</li>
+                <li><strong>SMBs match poorly</strong>—use industry/size targeting instead</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer style="background: #0a0a0a; padding: 2rem; margin-top: 3rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 24px;"></a>
+                <span style="color: #666; font-size: 13px;">© 2026 42 Agency</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/linkedin-targeting/job-title-targeting/" style="color: #999; text-decoration: none; font-size: 14px;">← Job Titles</a>
+                <a href="/linkedin-targeting/" style="color: #999; text-decoration: none; font-size: 14px;">LinkedIn Targeting →</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

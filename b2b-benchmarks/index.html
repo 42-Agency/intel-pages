@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Paid Media Benchmarks 2026 | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="B2B Paid Media Benchmarks 2026 - Real Data from 42 Agency Clients">
+    <meta property="og:description" content="LinkedIn Ads & Google Ads benchmarks based on $5M+ in B2B SaaS ad spend. CPL data across 14 industries from real campaigns.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://intel.42agency.com/b2b-benchmarks">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --light-gray: #f5f5f5;
+            --linkedin: #0A66C2;
+            --google: #4285F4;
+            --green: #10B981;
+            --orange: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: white;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 2px solid var(--black);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--light-gray);
+            border-bottom: 2px solid var(--black);
+            padding: 4rem 2rem;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main */
+        .main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--black);
+        }
+
+        .section-icon.linkedin {
+            background: var(--linkedin);
+        }
+
+        .section-icon.google {
+            background: var(--google);
+        }
+
+        .section-icon svg {
+            fill: white;
+            width: 24px;
+            height: 24px;
+        }
+
+        .section h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        /* Benchmark Cards */
+        .benchmark-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .benchmark-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+
+        .benchmark-card.highlight {
+            background: var(--accent);
+        }
+
+        .benchmark-metric {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .benchmark-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        .benchmark-range {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+
+        /* Detailed Table */
+        .table-container {
+            overflow-x: auto;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background: var(--light-gray);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #fafafa;
+        }
+
+        .rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .rating.excellent {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .rating.good {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .rating.average {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .rating.poor {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Unified Gate Styles */
+        .gated-wrapper {
+            position: relative;
+        }
+
+        .gated-wrapper.locked .gated-sections {
+            filter: blur(6px);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .sticky-gate {
+            position: sticky;
+            top: 80px;
+            z-index: 50;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .gated-wrapper.locked .sticky-gate {
+            display: block;
+        }
+
+        .gated-wrapper.unlocked .sticky-gate {
+            display: none;
+        }
+
+        .gate-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            max-width: 480px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .gate-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .gate-card > p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .email-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .email-form button {
+            background: var(--accent);
+            color: var(--black);
+            border: 2px solid var(--black);
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .email-form button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .email-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .gate-trust {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        .gate-trust svg {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        /* Methodology */
+        .methodology {
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .methodology h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .methodology p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .methodology ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .methodology li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .methodology li svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--green);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--black);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid var(--black);
+            padding: 2rem;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .benchmark-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-stats {
+                gap: 1rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-form button {
+                width: 100%;
+            }
+        }
+
+        /* Insight boxes */
+        .insight-box {
+            border: 2px solid;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .insight-box.orange {
+            background: #fef3c7;
+            border-color: var(--orange);
+        }
+
+        .insight-box.blue {
+            background: #dbeafe;
+            border-color: var(--google);
+        }
+
+        .insight-box strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .insight-box.orange strong {
+            color: var(--orange);
+        }
+
+        .insight-box.blue strong {
+            color: var(--google);
+        }
+
+        .insight-box span {
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </div>
+            <div class="header-badge">
+                Updated: February 2026
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>B2B Paid Media Benchmarks</h1>
+            <p>Real performance data from 87 B2B clients across 14 industries. No surveys. No self-reported data. Just actual campaign metrics from $5M+ in managed ad spend.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">87</div>
+                    <div class="hero-stat-label">B2B Clients</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">14</div>
+                    <div class="hero-stat-label">Industries</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">$5M+</div>
+                    <div class="hero-stat-label">Ad Spend Analyzed</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">4 yrs</div>
+                    <div class="hero-stat-label">Data Range</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main">
+        <!-- GATED CONTENT WRAPPER - Covers everything except hero -->
+        <div class="gated-wrapper locked" id="gatedWrapper">
+
+            <!-- Sticky Gate -->
+            <div class="sticky-gate">
+                <div class="gate-card">
+                    <h3>Unlock All Benchmarks</h3>
+                    <p>Get LinkedIn & Google Ads benchmarks, CPL data across 14 industries, InMail performance tactics, and channel-specific insights.</p>
+                    <form class="email-form" id="downloadForm" onsubmit="handleGateSubmit(event)">
+                        <input type="email" name="email" placeholder="you@company.com" required>
+                        <button type="submit">Unlock Data</button>
+                    </form>
+                    <p class="gate-trust">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        No spam. Real data from 87 B2B campaigns.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Gated Sections -->
+            <div class="gated-sections">
+
+                <!-- LinkedIn Ads Benchmarks -->
+                <section class="section">
+                    <div class="section-header">
+                        <div class="section-icon linkedin">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                        <h2>LinkedIn Ads Benchmarks</h2>
+                    </div>
+
+                    <div class="benchmark-grid">
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">Average CTR</div>
+                            <div class="benchmark-value">0.65%</div>
+                            <div class="benchmark-range">Range: 0.16% - 0.94%</div>
+                        </div>
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">Average CPM</div>
+                            <div class="benchmark-value">$60</div>
+                            <div class="benchmark-range">Range: $22 - $92</div>
+                        </div>
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">Average CPC</div>
+                            <div class="benchmark-value">$10.11</div>
+                            <div class="benchmark-range">Range: $7.91 - $13.71</div>
+                        </div>
+                        <div class="benchmark-card highlight">
+                            <div class="benchmark-metric">Average CPL</div>
+                            <div class="benchmark-value">$276</div>
+                            <div class="benchmark-range">Range: $207 - $345</div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Poor</th>
+                                    <th>Average</th>
+                                    <th>Good</th>
+                                    <th>Excellent</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>CTR</strong></td>
+                                    <td><span class="rating poor">&lt; 0.30%</span></td>
+                                    <td><span class="rating average">0.30% - 0.60%</span></td>
+                                    <td><span class="rating good">0.60% - 0.90%</span></td>
+                                    <td><span class="rating excellent">&gt; 0.90%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CPM</strong></td>
+                                    <td><span class="rating poor">&gt; $100</span></td>
+                                    <td><span class="rating average">$70 - $100</span></td>
+                                    <td><span class="rating good">$45 - $70</span></td>
+                                    <td><span class="rating excellent">&lt; $45</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CPC</strong></td>
+                                    <td><span class="rating poor">&gt; $15</span></td>
+                                    <td><span class="rating average">$10 - $15</span></td>
+                                    <td><span class="rating good">$6 - $10</span></td>
+                                    <td><span class="rating excellent">&lt; $6</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CPL (Lead Gen)</strong></td>
+                                    <td><span class="rating poor">&gt; $400</span></td>
+                                    <td><span class="rating average">$250 - $400</span></td>
+                                    <td><span class="rating good">$150 - $250</span></td>
+                                    <td><span class="rating excellent">&lt; $150</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Form Completion Rate</strong></td>
+                                    <td><span class="rating poor">&lt; 10%</span></td>
+                                    <td><span class="rating average">10% - 15%</span></td>
+                                    <td><span class="rating good">15% - 25%</span></td>
+                                    <td><span class="rating excellent">&gt; 25%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Google Ads Benchmarks -->
+                <section class="section">
+                    <div class="section-header">
+                        <div class="section-icon google">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                        </div>
+                        <h2>Google Ads Benchmarks (B2B Search)</h2>
+                    </div>
+
+                    <div class="benchmark-grid">
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">Average CTR</div>
+                            <div class="benchmark-value">1.30%</div>
+                            <div class="benchmark-range">Range: 1.04% - 1.70%</div>
+                        </div>
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">Average CPC</div>
+                            <div class="benchmark-value">$6.29</div>
+                            <div class="benchmark-range">Range: $2.88 - $8.38</div>
+                        </div>
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">Conversion Rate</div>
+                            <div class="benchmark-value">0.31%</div>
+                            <div class="benchmark-range">Range: 0.05% - 0.70%</div>
+                        </div>
+                        <div class="benchmark-card highlight">
+                            <div class="benchmark-metric">Cost/Conversion</div>
+                            <div class="benchmark-value">$606</div>
+                            <div class="benchmark-range">Range: $332 - $1,075</div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Poor</th>
+                                    <th>Average</th>
+                                    <th>Good</th>
+                                    <th>Excellent</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>CTR (Search)</strong></td>
+                                    <td><span class="rating poor">&lt; 0.80%</span></td>
+                                    <td><span class="rating average">0.80% - 1.20%</span></td>
+                                    <td><span class="rating good">1.20% - 2.00%</span></td>
+                                    <td><span class="rating excellent">&gt; 2.00%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CPC (Search)</strong></td>
+                                    <td><span class="rating poor">&gt; $12</span></td>
+                                    <td><span class="rating average">$7 - $12</span></td>
+                                    <td><span class="rating good">$3 - $7</span></td>
+                                    <td><span class="rating excellent">&lt; $3</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Conversion Rate</strong></td>
+                                    <td><span class="rating poor">&lt; 0.15%</span></td>
+                                    <td><span class="rating average">0.15% - 0.40%</span></td>
+                                    <td><span class="rating good">0.40% - 1.00%</span></td>
+                                    <td><span class="rating excellent">&gt; 1.00%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cost/Conversion</strong></td>
+                                    <td><span class="rating poor">&gt; $800</span></td>
+                                    <td><span class="rating average">$500 - $800</span></td>
+                                    <td><span class="rating good">$250 - $500</span></td>
+                                    <td><span class="rating excellent">&lt; $250</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Search Impression Share</strong></td>
+                                    <td><span class="rating poor">&lt; 30%</span></td>
+                                    <td><span class="rating average">30% - 50%</span></td>
+                                    <td><span class="rating good">50% - 70%</span></td>
+                                    <td><span class="rating excellent">&gt; 70%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- LinkedIn CPL by Industry -->
+                <section class="section">
+                    <div class="section-header">
+                        <div class="section-icon" style="background: var(--green);">
+                            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h2>LinkedIn CPL by Industry</h2>
+                    </div>
+
+                    <p style="color: var(--gray); margin-bottom: 1.5rem;">Cost per Lead across 14 industries. Data segmented by content type and campaign objective.</p>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Industry</th>
+                                    <th>Content CPL</th>
+                                    <th>Direct Lead Gen CPL</th>
+                                    <th>Key Insight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Legal Tech</strong></td>
+                                    <td><span class="rating excellent">$97 - $110</span></td>
+                                    <td><span class="rating average">$300 - $350</span></td>
+                                    <td>Role-specific playbooks win</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Privacy / Security</strong></td>
+                                    <td><span class="rating excellent">$130 - $180</span></td>
+                                    <td><span class="rating average">$280 - $400</span></td>
+                                    <td>Regulatory content (EU AI Act)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Construction Tech</strong></td>
+                                    <td><span class="rating good">$150 - $250</span></td>
+                                    <td><span class="rating average">$400 - $700</span></td>
+                                    <td>Owner/GM targeting</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>EdTech / HR Tech</strong></td>
+                                    <td><span class="rating good">$150 - $300</span></td>
+                                    <td><span class="rating average">$250 - $500</span></td>
+                                    <td>HR decision makers</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MarTech / SalesTech</strong></td>
+                                    <td><span class="rating good">$200 - $350</span></td>
+                                    <td><span class="rating average">$300 - $600</span></td>
+                                    <td>Marketing personas</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Logistics / Supply Chain</strong></td>
+                                    <td><span class="rating good">$200 - $400</span></td>
+                                    <td><span class="rating average">$300 - $600</span></td>
+                                    <td>Operations targeting</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>UCaaS / Telecom</strong></td>
+                                    <td><span class="rating good">$200 - $350</span></td>
+                                    <td><span class="rating average">$300 - $500</span></td>
+                                    <td>IT decision makers</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Life Sciences</strong></td>
+                                    <td><span class="rating average">$300 - $500</span></td>
+                                    <td><span class="rating average">$400 - $800</span></td>
+                                    <td>Pharma/biotech targets</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DevOps / Engineering</strong></td>
+                                    <td><span class="rating average">$400 - $600</span></td>
+                                    <td><span class="rating poor">$1,500 - $2,500</span></td>
+                                    <td>InMail w/ incentive: $400-500</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Digital Workplace</strong></td>
+                                    <td><span class="rating average">$350 - $550</span></td>
+                                    <td><span class="rating poor">$500 - $800</span></td>
+                                    <td>Enterprise targets</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Healthcare Tech</strong></td>
+                                    <td><span class="rating average">$400 - $600</span></td>
+                                    <td><span class="rating poor">$800 - $1,000</span></td>
+                                    <td>InMail w/ GC: $400-600</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>FinTech / Payments</strong></td>
+                                    <td><span class="rating average">$200 - $400</span></td>
+                                    <td><span class="rating poor">$1,500 - $1,800</span></td>
+                                    <td>Enterprise (50+ emp) premium</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="insight-box orange">
+                        <strong>Key Insight:</strong>
+                        <span>Content CPL is 2-4x lower than direct lead gen across every industry. Role-specific content and regulatory content consistently outperform generic guides. For high-CPL industries (DevOps, Healthcare, FinTech), InMail with gift card incentives can reduce CPL by 60-70%.</span>
+                    </div>
+                </section>
+
+                <!-- LinkedIn InMail Benchmarks -->
+                <section class="section">
+                    <div class="section-header">
+                        <div class="section-icon linkedin">
+                            <svg viewBox="0 0 24 24" fill="white">
+                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <h2>LinkedIn InMail Benchmarks</h2>
+                    </div>
+
+                    <p style="color: var(--gray); margin-bottom: 1.5rem;">InMail performance varies dramatically based on incentive offers. Gift card incentives ($50-$100 value) can double open rates and reduce CPL by 60%+.</p>
+
+                    <div class="benchmark-grid">
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">Open Rate (No Incentive)</div>
+                            <div class="benchmark-value">30-36%</div>
+                            <div class="benchmark-range">Industry average</div>
+                        </div>
+                        <div class="benchmark-card highlight">
+                            <div class="benchmark-metric">Open Rate (With GC)</div>
+                            <div class="benchmark-value">40-50%</div>
+                            <div class="benchmark-range">+33% improvement</div>
+                        </div>
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">CPL (No Incentive)</div>
+                            <div class="benchmark-value">$1,500+</div>
+                            <div class="benchmark-range">Range: $1,000-$2,000</div>
+                        </div>
+                        <div class="benchmark-card highlight">
+                            <div class="benchmark-metric">CPL (With GC)</div>
+                            <div class="benchmark-value">$400-$500</div>
+                            <div class="benchmark-range">-70% reduction</div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Incentive Type</th>
+                                    <th>Open Rate</th>
+                                    <th>CPL Range</th>
+                                    <th>Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Amazon Gift Card ($100-$105)</strong></td>
+                                    <td><span class="rating excellent">46%</span></td>
+                                    <td><span class="rating excellent">$265 - $422</span></td>
+                                    <td>DevOps, Enterprise</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Spa & Wellness Gift Card</strong></td>
+                                    <td><span class="rating good">40-45%</span></td>
+                                    <td><span class="rating good">$400 - $600</span></td>
+                                    <td>Healthcare, HR</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>No Incentive</strong></td>
+                                    <td><span class="rating average">30-36%</span></td>
+                                    <td><span class="rating poor">$1,500 - $1,800</span></td>
+                                    <td>Strong brand awareness only</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Google Search CPL by Industry -->
+                <section class="section">
+                    <div class="section-header">
+                        <div class="section-icon google">
+                            <svg viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h2>Google Search CPL by Industry</h2>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Industry</th>
+                                    <th>Cost/Lead</th>
+                                    <th>Cost/SQL</th>
+                                    <th>Key Insight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Construction Tech</strong></td>
+                                    <td><span class="rating excellent">$150 - $300</span></td>
+                                    <td><span class="rating good">$400 - $700</span></td>
+                                    <td>Industry-specific terms</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>UCaaS / Telecom</strong></td>
+                                    <td><span class="rating good">$200 - $400</span></td>
+                                    <td><span class="rating good">$500 - $900</span></td>
+                                    <td>Service terms</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Consumer / B2B</strong></td>
+                                    <td><span class="rating excellent">$50 - $60</span></td>
+                                    <td>—</td>
+                                    <td>E-commerce (499% ROAS)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Legal Tech</strong></td>
+                                    <td><span class="rating average">$900 - $1,500</span></td>
+                                    <td>—</td>
+                                    <td>High-intent branded</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Healthcare Tech</strong></td>
+                                    <td><span class="rating average">$800 - $1,100</span></td>
+                                    <td><span class="rating poor">$1,400 - $2,300</span></td>
+                                    <td>Competitive space</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Digital Workplace</strong></td>
+                                    <td><span class="rating average">$1,000 - $1,500</span></td>
+                                    <td><span class="rating poor">$2,500 - $3,000</span></td>
+                                    <td>Exact match 2x better</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Logistics</strong></td>
+                                    <td>—</td>
+                                    <td><span class="rating average">$1,500 - $3,000</span></td>
+                                    <td>CAD pricing</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="insight-box blue">
+                        <strong>Match Type Impact:</strong>
+                        <span>Exact match keywords deliver 2-2.5x better efficiency than phrase match. Construction and UCaaS see the lowest CPLs due to less competition. Enterprise software (Digital Workplace, Healthcare) face $1,000+ CPLs.</span>
+                    </div>
+                </section>
+
+                <!-- E-commerce / ROAS Section -->
+                <section class="section">
+                    <div class="section-header">
+                        <div class="section-icon" style="background: var(--orange);">
+                            <svg viewBox="0 0 24 24" fill="white">
+                                <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                            </svg>
+                        </div>
+                        <h2>E-commerce / ROAS Benchmarks</h2>
+                    </div>
+
+                    <p style="color: var(--gray); margin-bottom: 1.5rem;">For B2B e-commerce and hybrid consumer/B2B clients, ROAS is the primary metric.</p>
+
+                    <div class="benchmark-grid">
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">Google Search ROAS</div>
+                            <div class="benchmark-value">500-550%</div>
+                            <div class="benchmark-range">Outperforms PMax</div>
+                        </div>
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">PMax ROAS</div>
+                            <div class="benchmark-value">400-450%</div>
+                            <div class="benchmark-range">Volume at lower efficiency</div>
+                        </div>
+                        <div class="benchmark-card">
+                            <div class="benchmark-metric">Cost/Conv (Search)</div>
+                            <div class="benchmark-value">$54</div>
+                            <div class="benchmark-range">E-commerce transactions</div>
+                        </div>
+                        <div class="benchmark-card highlight">
+                            <div class="benchmark-metric">Meta CPL (B2B)</div>
+                            <div class="benchmark-value">$50-$100</div>
+                            <div class="benchmark-range">Commercial leads</div>
+                        </div>
+                    </div>
+                </section>
+
+            </div><!-- end gated-sections -->
+        </div><!-- end gated-wrapper -->
+
+        <!-- Methodology -->
+        <div class="methodology">
+            <h3>Methodology</h3>
+            <p>These benchmarks are derived from actual campaign data across 87 B2B clients managed by 42 Agency from 2022-2026. Unlike industry surveys, this data comes directly from campaign performance reports, monthly insights, and platform APIs.</p>
+            <ul>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>87 B2B clients across 14 industries</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>$5M+ in managed ad spend analyzed</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>Data from LinkedIn, Google, Meta, HubSpot</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>North American targeting (US, Canada)</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>B2B SaaS, Healthcare, FinTech, Legal, + 10 more</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>Updated monthly from campaign reports</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Explore More -->
+        <div class="explore-section" style="margin: 3rem 0;">
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.5rem;">Dive Deeper</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <a href="/b2b-benchmarks/calculator/" style="display: block; padding: 1.25rem; background: var(--accent); border: 2px solid var(--black); border-radius: 10px; text-decoration: none; color: var(--black); font-weight: 700; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s;">
+                    Benchmark Calculator
+                    <span style="display: block; font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; color: var(--gray);">Compare your metrics</span>
+                </a>
+                <a href="/b2b-benchmarks/linkedin-ads-benchmarks/" style="display: block; padding: 1.25rem; background: #0A66C2; border: 2px solid var(--black); border-radius: 10px; text-decoration: none; color: white; font-weight: 700; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s;">
+                    B2B LinkedIn Ads Benchmarks
+                    <span style="display: block; font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; color: rgba(255,255,255,0.8);">Complete guide by industry</span>
+                </a>
+                <a href="/b2b-benchmarks/google-ads-benchmarks/" style="display: block; padding: 1.25rem; background: #4285F4; border: 2px solid var(--black); border-radius: 10px; text-decoration: none; color: white; font-weight: 700; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s;">
+                    B2B Google Ads Benchmarks
+                    <span style="display: block; font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; color: rgba(255,255,255,0.8);">Search, PMax & Display</span>
+                </a>
+                <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/" style="display: block; padding: 1.25rem; background: white; border: 2px solid var(--black); border-radius: 10px; text-decoration: none; color: var(--black); font-weight: 700; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s;">
+                    InMail Benchmarks
+                    <span style="display: block; font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; color: var(--gray);">Gift card strategy data</span>
+                </a>
+                <a href="/b2b-benchmarks/meta-ads-benchmarks/" style="display: block; padding: 1.25rem; background: white; border: 2px solid var(--black); border-radius: 10px; text-decoration: none; color: var(--black); font-weight: 700; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s;">
+                    Meta Ads Benchmarks
+                    <span style="display: block; font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; color: var(--gray);">B2B Facebook/Instagram</span>
+                </a>
+                <a href="/b2b-benchmarks/legal-tech-linkedin-ads/" style="display: block; padding: 1.25rem; background: white; border: 2px solid var(--black); border-radius: 10px; text-decoration: none; color: var(--black); font-weight: 700; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s;">
+                    Legal Tech
+                    <span style="display: block; font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; color: var(--gray);">$97-$350 CPL</span>
+                </a>
+                <a href="/b2b-benchmarks/healthcare-tech-linkedin-ads/" style="display: block; padding: 1.25rem; background: white; border: 2px solid var(--black); border-radius: 10px; text-decoration: none; color: var(--black); font-weight: 700; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s;">
+                    Healthcare Tech
+                    <span style="display: block; font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; color: var(--gray);">$400-$600 CPL</span>
+                </a>
+                <a href="/b2b-benchmarks/devops-linkedin-ads/" style="display: block; padding: 1.25rem; background: white; border: 2px solid var(--black); border-radius: 10px; text-decoration: none; color: var(--black); font-weight: 700; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s;">
+                    DevOps
+                    <span style="display: block; font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; color: var(--gray);">$265-$422 with GC</span>
+                </a>
+                <a href="/b2b-benchmarks/fintech-linkedin-ads/" style="display: block; padding: 1.25rem; background: white; border: 2px solid var(--black); border-radius: 10px; text-decoration: none; color: var(--black); font-weight: 700; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s;">
+                    FinTech
+                    <span style="display: block; font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; color: var(--gray);">Enterprise vs SMB</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>How Do Your Campaigns Compare?</h2>
+            <p>Get a free audit of your paid media performance against these benchmarks. We'll show you exactly where you're leaving money on the table.</p>
+            <a href="https://www.42agency.com/contact-us" class="cta-btn">Get Your Free Audit</a>
+        </div>
+    </main>
+
+    <footer class="footer" style="background: #1a1a1a; color: white; padding: 3rem 2rem 1.5rem;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding-bottom: 2rem; border-bottom: 1px solid #333;">
+                <div>
+                    <img src="/42-logo.png" alt="42 Agency" style="height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem;">
+                    <p style="font-size: 0.85rem; color: #999; line-height: 1.5;">B2B performance marketing for companies that need pipeline, not impressions.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+                    <div>
+                        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #DFFE68; margin-bottom: 1rem;">Benchmarks</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem;">
+                            <li style="margin-bottom: 0.5rem;"><a href="/b2b-benchmarks/" style="color: #ccc; text-decoration: none;">All Benchmarks</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="/b2b-benchmarks/linkedin-ads-benchmarks/" style="color: #ccc; text-decoration: none;">LinkedIn Ads</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="/b2b-benchmarks/google-ads-benchmarks/" style="color: #ccc; text-decoration: none;">Google Ads</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="/b2b-benchmarks/meta-ads-benchmarks/" style="color: #ccc; text-decoration: none;">Meta Ads</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="/b2b-benchmarks/calculator/" style="color: #ccc; text-decoration: none;">Calculator</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #DFFE68; margin-bottom: 1rem;">By Industry</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem;">
+                            <li style="margin-bottom: 0.5rem;"><a href="/b2b-benchmarks/fintech-linkedin-ads/" style="color: #ccc; text-decoration: none;">FinTech</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="/b2b-benchmarks/healthcare-tech-linkedin-ads/" style="color: #ccc; text-decoration: none;">Healthcare Tech</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="/b2b-benchmarks/legal-tech-linkedin-ads/" style="color: #ccc; text-decoration: none;">Legal Tech</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="/b2b-benchmarks/devops-linkedin-ads/" style="color: #ccc; text-decoration: none;">DevOps</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #DFFE68; margin-bottom: 1rem;">Audit Templates</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem;">
+                            <li style="margin-bottom: 0.5rem;"><a href="/google-ads-audit/" style="color: #ccc; text-decoration: none;">Google Ads Audit</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="/linkedin-audit/" style="color: #ccc; text-decoration: none;">LinkedIn Ads Audit</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="/meta-audit/" style="color: #ccc; text-decoration: none;">Meta Ads Audit</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #DFFE68; margin-bottom: 1rem;">42 Agency</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem;">
+                            <li style="margin-bottom: 0.5rem;"><a href="https://42agency.com" style="color: #ccc; text-decoration: none;">Website</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="https://42agency.com/contact-us" style="color: #ccc; text-decoration: none;">Contact Us</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="https://www.linkedin.com/company/42agency" style="color: #ccc; text-decoration: none;">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; font-size: 0.8rem; color: #666;">
+                <p>&copy; 2026 42 Agency. All rights reserved.</p>
+                <p>Data refreshed February 2026. Based on 87 clients across 14 industries.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Email Validation -->
+    <script src="/js/email-validation.js"></script>
+
+    <script>
+        const STORAGE_KEY = 'benchmarks_unlocked';
+
+        function checkUnlocked() {
+            if (localStorage.getItem(STORAGE_KEY) === 'true') {
+                unlockContent();
+            }
+        }
+
+        function unlockContent() {
+            const wrapper = document.getElementById('gatedWrapper');
+            wrapper.classList.remove('locked');
+            wrapper.classList.add('unlocked');
+            localStorage.setItem(STORAGE_KEY, 'true');
+        }
+
+        async function handleGateSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const email = form.email.value;
+            const button = form.querySelector('button');
+            const originalText = button.textContent;
+
+            button.disabled = true;
+            button.textContent = 'Unlocking...';
+
+            try {
+                await fetch('https://api.hsforms.com/submissions/v3/integration/submit/44888286/collected-forms', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        fields: [{ name: 'email', value: email }],
+                        context: {
+                            pageUri: window.location.href,
+                            pageName: 'B2B Paid Media Benchmarks 2026'
+                        }
+                    })
+                });
+
+                if (window.dataLayer) {
+                    window.dataLayer.push({
+                        event: 'benchmarks_unlocked',
+                        email: email
+                    });
+                }
+
+                unlockContent();
+
+                document.querySelector('.gated-sections').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+            } catch (error) {
+                console.error('Error:', error);
+                unlockContent();
+            }
+
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+
+        checkUnlocked();
+    </script>
+</body>
+</html>

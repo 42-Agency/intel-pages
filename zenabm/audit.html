@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTM Maturity Assessment | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta property="og:title" content="GTM Maturity Assessment | 42 Agency">
+    <meta property="og:description" content="Score your enterprise GTM maturity across BUILD, ACTIVATE, and MEASURE. Find your weakest link in 3 minutes.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+            --build-color: #10B981;
+            --activate-color: #3B82F6;
+            --measure-color: #F59E0B;
+            --error-color: #EF4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-lighter);
+            color: var(--black);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+        }
+        .back-link:hover { background: var(--accent); }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Progress Bar - Fixed at bottom */
+        .progress-fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-top: 2px solid var(--black);
+            padding: 1rem 2rem;
+            z-index: 99;
+            display: none;
+        }
+        .progress-fixed.active { display: block; }
+        .progress-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .progress-bar {
+            height: 8px;
+            background: var(--gray-light);
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .progress-percent {
+            background: var(--accent);
+            padding: 0.25rem 0.75rem;
+            font-weight: 800;
+            border: 2px solid var(--black);
+        }
+        .progress-section { color: var(--gray-dark); }
+
+        /* Intro Screen */
+        .intro {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .intro h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+        .intro h1 span {
+            background: var(--accent);
+            padding: 0 0.25rem;
+        }
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            max-width: 550px;
+            margin: 0 auto 2rem;
+        }
+        .layer-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .layer-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        .layer-card .number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+        .layer-card.build .number { color: var(--build-color); }
+        .layer-card.activate .number { color: var(--activate-color); }
+        .layer-card.measure .number { color: var(--measure-color); }
+        .layer-card .label { font-weight: 700; font-size: 0.95rem; }
+        .layer-card .count { font-size: 0.8rem; color: var(--gray); margin-top: 0.25rem; }
+
+        .start-btn {
+            background: var(--accent);
+            color: var(--black);
+            border: 2px solid var(--black);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            box-shadow: 4px 4px 0 var(--black);
+            transition: all 0.15s ease;
+        }
+        .start-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--black);
+        }
+        .time-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Question Screen */
+        .question-screen {
+            display: none;
+            padding-bottom: 100px; /* Space for fixed progress bar */
+        }
+        .question-screen.active { display: block; }
+
+        .question-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 2rem;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+
+        .layer-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--black);
+        }
+        .layer-badge.build { background: rgba(16, 185, 129, 0.15); color: var(--build-color); }
+        .layer-badge.activate { background: rgba(59, 130, 246, 0.15); color: var(--activate-color); }
+        .layer-badge.measure { background: rgba(245, 158, 11, 0.15); color: var(--measure-color); }
+
+        .question-number {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .question-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .option {
+            background: var(--gray-lighter);
+            border: 2px solid var(--gray-light);
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .option:hover {
+            border-color: var(--black);
+            background: var(--white);
+        }
+        .option.selected {
+            border-color: var(--black);
+            background: var(--accent);
+            box-shadow: 3px 3px 0 var(--black);
+        }
+        .option-score {
+            width: 32px;
+            height: 32px;
+            background: var(--white);
+            border: 2px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .option.selected .option-score {
+            background: var(--black);
+            color: var(--white);
+        }
+        .option-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+        .nav-btn {
+            background: var(--white);
+            border: 2px solid var(--black);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.15s ease;
+        }
+        .nav-btn:hover:not(:disabled) {
+            background: var(--gray-lighter);
+        }
+        .nav-btn.primary {
+            background: var(--accent);
+            box-shadow: 3px 3px 0 var(--black);
+        }
+        .nav-btn.primary:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* Results Screen */
+        .results-screen {
+            display: none;
+            padding: 1rem 0;
+        }
+        .results-screen.active { display: block; }
+
+        .results-header {
+            text-align: center;
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 2.5rem;
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 1.5rem;
+        }
+        .results-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .overall-score {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .overall-label {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .maturity-level {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid var(--black);
+        }
+        .maturity-level.emerging { background: rgba(239, 68, 68, 0.2); }
+        .maturity-level.developing { background: rgba(245, 158, 11, 0.2); }
+        .maturity-level.established { background: rgba(59, 130, 246, 0.2); }
+        .maturity-level.advanced { background: var(--accent); }
+
+        /* Teaser Section (visible before unlock) */
+        .teaser-section {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 4px 4px 0 var(--black);
+            text-align: center;
+        }
+        .teaser-weakest {
+            margin-bottom: 1.5rem;
+        }
+        .teaser-weakest-label {
+            font-size: 0.85rem;
+            color: var(--error-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+        .teaser-weakest-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+        }
+        .teaser-preview {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .teaser-stat {
+            text-align: center;
+        }
+        .teaser-stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        .teaser-stat-value.build { color: var(--build-color); }
+        .teaser-stat-value.activate { color: var(--activate-color); }
+        .teaser-stat-value.measure { color: var(--measure-color); }
+        .teaser-stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        /* Email Gate */
+        .email-gate {
+            background: var(--gray-lighter);
+            padding: 1.5rem;
+            border: 2px dashed var(--gray-light);
+        }
+        .email-gate h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .email-gate p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .email-gate-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .email-gate-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--black);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .email-gate-form input:focus {
+            outline: none;
+            box-shadow: 3px 3px 0 var(--accent);
+        }
+        .email-gate-form button {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: inherit;
+            box-shadow: 3px 3px 0 var(--black);
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .email-gate-form button:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        .email-gate-form button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .email-note {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 0.75rem;
+        }
+        .email-error {
+            color: var(--error-color);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        /* Locked Content (blurred) */
+        .locked-content {
+            position: relative;
+        }
+        .locked-content.locked::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+        .locked-content.locked::after {
+            content: '🔒 Unlock with email above';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--black);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 11;
+            border: 2px solid var(--black);
+        }
+
+        /* Full Results (shown after unlock) */
+        .matrix-section {
+            margin-bottom: 1.5rem;
+        }
+        .matrix-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .matrix-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 3px 3px 0 var(--black);
+        }
+        .matrix-layer {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .matrix-card.build .matrix-layer { color: var(--build-color); }
+        .matrix-card.activate .matrix-layer { color: var(--activate-color); }
+        .matrix-card.measure .matrix-layer { color: var(--measure-color); }
+
+        .matrix-score {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+        .matrix-max {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+        .matrix-bar {
+            height: 8px;
+            background: var(--gray-light);
+            overflow: hidden;
+        }
+        .matrix-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        .matrix-card.build .matrix-fill { background: var(--build-color); }
+        .matrix-card.activate .matrix-fill { background: var(--activate-color); }
+        .matrix-card.measure .matrix-fill { background: var(--measure-color); }
+
+        .matrix-status {
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Recommendations */
+        .weakest-section {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 4px 4px 0 var(--error-color);
+        }
+        .weakest-title {
+            font-size: 0.85rem;
+            color: var(--error-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .weakest-layer {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .weakest-desc {
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Recommendation Categories */
+        .rec-category {
+            margin-bottom: 1.5rem;
+        }
+        .rec-category:last-child {
+            margin-bottom: 0;
+        }
+        .rec-category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+        .rec-category-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--black);
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+        .rec-category-icon.quick { background: var(--accent); }
+        .rec-category-icon.foundation { background: var(--activate-color); color: white; }
+        .rec-category-icon.advanced { background: var(--black); color: white; }
+        .rec-category-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .rec-category-subtitle {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-left: auto;
+        }
+
+        /* Recommendation Items */
+        .rec-item {
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .rec-item:last-child {
+            margin-bottom: 0;
+        }
+        .rec-item-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .rec-item-title svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--build-color);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .rec-item-detail {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        .rec-item-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+        }
+        .rec-item-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .rec-item-meta-label {
+            color: var(--gray);
+            font-weight: 600;
+        }
+        .rec-item-meta-value {
+            color: var(--black);
+        }
+        .rec-item-tools {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+        }
+        .rec-item-outcome {
+            background: rgba(223, 254, 104, 0.3);
+            border: 1px solid var(--accent);
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .rec-item-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        .focus-list {
+            list-style: none;
+        }
+        .focus-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+        }
+        .focus-list li svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--build-color);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Benchmark */
+        .benchmark-section {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 3px 3px 0 var(--black);
+        }
+        .benchmark-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .benchmark-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .benchmark-label {
+            width: 120px;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            font-weight: 500;
+        }
+        .benchmark-bar {
+            flex: 1;
+            height: 20px;
+            background: var(--gray-light);
+            position: relative;
+            overflow: hidden;
+        }
+        .benchmark-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        .benchmark-fill.you { background: var(--accent); }
+        .benchmark-fill.avg { background: var(--gray); }
+
+        /* CTA */
+        .results-cta {
+            text-align: center;
+            padding: 2rem;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 1.5rem;
+        }
+        .results-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .results-cta p {
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+        }
+        .results-cta .cta-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid var(--black);
+        }
+        .results-cta .cta-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .share-btn {
+            background: var(--white);
+            border: 2px solid var(--black);
+            color: var(--black);
+            padding: 0.75rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-family: inherit;
+        }
+        .share-btn:hover { background: var(--gray-lighter); }
+
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+        .footer-top {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand { }
+        .footer-logo {
+            height: 28px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.15s;
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--black);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+
+        @media (max-width: 900px) {
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .intro h1 { font-size: 1.75rem; }
+            .layer-preview { grid-template-columns: 1fr; }
+            .matrix-grid { grid-template-columns: 1fr; }
+            .question-text { font-size: 1.2rem; }
+            .overall-score { font-size: 4rem; }
+            .teaser-preview { flex-direction: column; gap: 1rem; }
+            .email-gate-form { flex-direction: column; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </div>
+            <a href="/zenabm" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                Back to Resources
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Intro Screen -->
+        <div class="intro" id="introScreen">
+            <h1>GTM <span>Maturity</span> Assessment</h1>
+            <p>Score your enterprise go-to-market across three layers. Find your weakest link and know exactly where to focus.</p>
+
+            <div class="layer-preview">
+                <div class="layer-card build">
+                    <div class="number">01</div>
+                    <div class="label">BUILD</div>
+                    <div class="count">7 questions</div>
+                </div>
+                <div class="layer-card activate">
+                    <div class="number">02</div>
+                    <div class="label">ACTIVATE</div>
+                    <div class="count">7 questions</div>
+                </div>
+                <div class="layer-card measure">
+                    <div class="number">03</div>
+                    <div class="label">MEASURE</div>
+                    <div class="count">7 questions</div>
+                </div>
+            </div>
+
+            <button class="start-btn" onclick="startQuiz()">Start Assessment</button>
+            <p class="time-note">Takes about 3 minutes</p>
+        </div>
+
+        <!-- Question Screen -->
+        <div class="question-screen" id="questionScreen">
+            <div class="question-card">
+                <span class="layer-badge" id="layerBadge">BUILD</span>
+                <p class="question-number" id="questionNumber">Question 1 of 21</p>
+                <h2 class="question-text" id="questionText"></h2>
+
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prevBtn" onclick="prevQuestion()">Previous</button>
+                <button class="nav-btn primary" id="nextBtn" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-header">
+                <h1>Your GTM Maturity Score</h1>
+                <div class="overall-score" id="overallScore">0</div>
+                <div class="overall-label">out of 105 points</div>
+                <div class="maturity-level" id="maturityLevel">Emerging</div>
+            </div>
+
+            <!-- Teaser Section (always visible) -->
+            <div class="teaser-section" id="teaserSection">
+                <div class="teaser-preview">
+                    <div class="teaser-stat">
+                        <div class="teaser-stat-value build" id="teaserBuild">0</div>
+                        <div class="teaser-stat-label">BUILD</div>
+                    </div>
+                    <div class="teaser-stat">
+                        <div class="teaser-stat-value activate" id="teaserActivate">0</div>
+                        <div class="teaser-stat-label">ACTIVATE</div>
+                    </div>
+                    <div class="teaser-stat">
+                        <div class="teaser-stat-value measure" id="teaserMeasure">0</div>
+                        <div class="teaser-stat-label">MEASURE</div>
+                    </div>
+                </div>
+                <div class="teaser-weakest">
+                    <div class="teaser-weakest-label">Your Weakest Link</div>
+                    <div class="teaser-weakest-value" id="teaserWeakest">BUILD</div>
+                </div>
+
+                <div class="email-gate" id="emailGate">
+                    <h3>Unlock Your Full Results</h3>
+                    <p>Get detailed recommendations and action items for each layer.</p>
+                    <form class="email-gate-form" id="emailForm" onsubmit="submitEmail(event)">
+                        <input type="email" id="emailInput" placeholder="you@company.com" required>
+                        <button type="submit" id="submitBtn">Unlock Results</button>
+                    </form>
+                    <p class="email-note">We'll send you the full report + future GTM resources.</p>
+                    <p class="email-error" id="emailError">Something went wrong. Please try again.</p>
+                </div>
+            </div>
+
+            <!-- Locked Content -->
+            <div class="locked-content locked" id="lockedContent">
+                <div class="matrix-section">
+                    <h2 class="matrix-title">Layer Breakdown</h2>
+                    <div class="matrix-grid">
+                        <div class="matrix-card build">
+                            <div class="matrix-layer">Build</div>
+                            <div class="matrix-score" id="buildScore">0</div>
+                            <div class="matrix-max">/ 35 points</div>
+                            <div class="matrix-bar">
+                                <div class="matrix-fill" id="buildBar" style="width: 0%"></div>
+                            </div>
+                            <div class="matrix-status" id="buildStatus">Emerging</div>
+                        </div>
+                        <div class="matrix-card activate">
+                            <div class="matrix-layer">Activate</div>
+                            <div class="matrix-score" id="activateScore">0</div>
+                            <div class="matrix-max">/ 35 points</div>
+                            <div class="matrix-bar">
+                                <div class="matrix-fill" id="activateBar" style="width: 0%"></div>
+                            </div>
+                            <div class="matrix-status" id="activateStatus">Emerging</div>
+                        </div>
+                        <div class="matrix-card measure">
+                            <div class="matrix-layer">Measure</div>
+                            <div class="matrix-score" id="measureScore">0</div>
+                            <div class="matrix-max">/ 35 points</div>
+                            <div class="matrix-bar">
+                                <div class="matrix-fill" id="measureBar" style="width: 0%"></div>
+                            </div>
+                            <div class="matrix-status" id="measureStatus">Emerging</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weakest-section" id="weakestSection">
+                    <div class="weakest-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        Recommendations for <span id="weakestLayerSpan">BUILD</span>
+                    </div>
+                    <p class="weakest-desc" id="weakestDesc"></p>
+                    <div id="recommendationsContainer"></div>
+                </div>
+
+                <div class="benchmark-section">
+                    <h3 class="benchmark-title">How You Compare</h3>
+                    <div class="benchmark-row">
+                        <span class="benchmark-label">Your Score</span>
+                        <div class="benchmark-bar">
+                            <div class="benchmark-fill you" id="yourBenchmark" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="benchmark-row">
+                        <span class="benchmark-label">Avg B2B Company</span>
+                        <div class="benchmark-bar">
+                            <div class="benchmark-fill avg" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    <div class="benchmark-row">
+                        <span class="benchmark-label">Top Performers</span>
+                        <div class="benchmark-bar">
+                            <div class="benchmark-fill avg" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-cta">
+                <h2>Need Help Implementing?</h2>
+                <p>We build ABM systems for enterprise B2B. Let's fix your weakest link.</p>
+                <a href="https://www.42agency.com/contact-us" class="cta-btn">Talk to 42 Agency</a>
+            </div>
+
+            <div class="share-buttons">
+                <a href="/zenabm" class="share-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Download Templates
+                </a>
+                <button class="share-btn" onclick="restartQuiz()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                    Retake
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Progress Bar -->
+    <div class="progress-fixed" id="progressFixed">
+        <div class="progress-inner">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            <div class="progress-text">
+                <span class="progress-section" id="progressSection">BUILD</span>
+                <span class="progress-percent" id="progressPercent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/get42agency" target="_blank" aria-label="X/Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@Get42Agency" target="_blank" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
+                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
+                    <a href="https://42agency.com/seo-and-content" target="_blank">SEO & Content</a>
+                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42/ Essays</h4>
+                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
+                    <a href="https://42slash.com/p/the-abm-measurement-problem" target="_blank">The ABM Measurement Problem</a>
+                    <a href="https://42slash.com/p/the-claude-code-essay" target="_blank">The Claude Code Essay</a>
+                    <a href="https://42slash.com" target="_blank">All Essays →</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">Marvin (LinkedIn Ads AI)</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/zenabm/audit.html">GTM Assessment</a>
+                    <a href="/zenabm/">ZenABM Toolkit</a>
+                    <a href="/hubspot-audit/">HubSpot Audit</a>
+                    <a href="/mops-funnel/">MOPS Funnel</a>
+                    <a href="/exitfive/">Claude Code Cheatsheet</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // HubSpot Config - Update this form GUID after creating in HubSpot
+        const HUBSPOT_PORTAL_ID = '44888286';
+        const HUBSPOT_FORM_GUID = 'YOUR_FORM_GUID_HERE'; // Create form in HubSpot and paste GUID
+
+        const questions = [
+            // BUILD (7 questions)
+            { layer: 'build', text: 'How well-defined is your Ideal Customer Profile (ICP)?', options: [
+                { score: 1, text: 'We target anyone who might buy' },
+                { score: 2, text: 'We have a general sense of our best customers' },
+                { score: 3, text: 'We have documented ICP criteria (industry, size, etc.)' },
+                { score: 4, text: 'ICP is data-backed with win rate analysis' },
+                { score: 5, text: 'Dynamic ICP with predictive scoring and regular refinement' }
+            ]},
+            { layer: 'build', text: 'How do you build and maintain your target account list?', options: [
+                { score: 1, text: 'Sales picks accounts based on gut feel' },
+                { score: 2, text: 'We pull lists from LinkedIn or ZoomInfo occasionally' },
+                { score: 3, text: 'We have a defined process for list building with criteria' },
+                { score: 4, text: 'Automated enrichment with Clay or similar tools' },
+                { score: 5, text: 'Real-time signals (hiring, funding, tech) trigger list updates' }
+            ]},
+            { layer: 'build', text: 'How do you handle closed-lost opportunities?', options: [
+                { score: 1, text: 'They sit in CRM - we move on' },
+                { score: 2, text: 'Occasional manual review by sales' },
+                { score: 3, text: 'Quarterly reactivation campaigns' },
+                { score: 4, text: 'Automated nurture with re-engagement triggers' },
+                { score: 5, text: 'Signal-based reactivation (new champion, budget cycle, expansion)' }
+            ]},
+            { layer: 'build', text: 'How segmented is your audience for marketing?', options: [
+                { score: 1, text: 'Everyone gets the same message' },
+                { score: 2, text: 'Basic segments (enterprise vs SMB)' },
+                { score: 3, text: 'Persona-based segments with tailored content' },
+                { score: 4, text: 'Multi-dimensional (persona × stage × industry)' },
+                { score: 5, text: 'Micro-segments with personalized journeys and dynamic content' }
+            ]},
+            { layer: 'build', text: 'How mature is your data enrichment and hygiene?', options: [
+                { score: 1, text: 'CRM data is messy and outdated' },
+                { score: 2, text: 'Manual cleanup once a year' },
+                { score: 3, text: 'Regular enrichment with a single tool' },
+                { score: 4, text: 'Automated enrichment and validation workflows' },
+                { score: 5, text: 'Real-time sync with multiple sources, waterfall enrichment' }
+            ]},
+            { layer: 'build', text: 'Do you use intent data?', options: [
+                { score: 1, text: 'What is intent data?' },
+                { score: 2, text: 'We have it but rarely use it' },
+                { score: 3, text: 'Intent triggers ads or alerts' },
+                { score: 4, text: 'Intent integrated into scoring and routing' },
+                { score: 5, text: 'Composite intent (multiple sources) drives tiering and plays' }
+            ]},
+            { layer: 'build', text: 'How do you identify the buying committee?', options: [
+                { score: 1, text: 'We talk to whoever responds' },
+                { score: 2, text: 'We know the main contact title' },
+                { score: 3, text: 'We map 3-5 stakeholders per account' },
+                { score: 4, text: 'Full committee map with influence roles' },
+                { score: 5, text: 'Dynamic committee tracking with engagement scoring' }
+            ]},
+            // ACTIVATE (7 questions)
+            { layer: 'activate', text: 'How many channels do you use to reach target accounts?', options: [
+                { score: 1, text: 'Just email or just LinkedIn' },
+                { score: 2, text: '2 channels (email + LinkedIn ads)' },
+                { score: 3, text: '3-4 channels with some coordination' },
+                { score: 4, text: '5+ channels with orchestrated timing' },
+                { score: 5, text: 'Full surround sound: ads, outbound, CTV, direct mail, events' }
+            ]},
+            { layer: 'activate', text: 'Do you run private events or executive dinners?', options: [
+                { score: 1, text: 'Never - not our style' },
+                { score: 2, text: 'Occasionally at conferences' },
+                { score: 3, text: '1-2 owned events per year' },
+                { score: 4, text: 'Regular cadence of intimate experiences' },
+                { score: 5, text: 'Strategic event program tied to pipeline with exec participation' }
+            ]},
+            { layer: 'activate', text: 'How integrated is your SDR/BDR team with marketing?', options: [
+                { score: 1, text: 'Separate teams, separate goals' },
+                { score: 2, text: 'Marketing passes leads, sales works them' },
+                { score: 3, text: 'Shared target list, some coordination' },
+                { score: 4, text: 'BDRs use marketing signals to prioritize' },
+                { score: 5, text: 'BDRs report to marketing, fully orchestrated plays' }
+            ]},
+            { layer: 'activate', text: 'Do you use CTV (Connected TV) or programmatic?', options: [
+                { score: 1, text: 'Never heard of it for B2B' },
+                { score: 2, text: 'Tried it once, unclear results' },
+                { score: 3, text: 'Running it but not integrated with other channels' },
+                { score: 4, text: 'Account-targeted CTV as air cover' },
+                { score: 5, text: 'Full programmatic + CTV strategy with measurement' }
+            ]},
+            { layer: 'activate', text: 'Do you use direct mail or physical gifting?', options: [
+                { score: 1, text: 'Too expensive / old school' },
+                { score: 2, text: 'Generic swag sometimes' },
+                { score: 3, text: 'Personalized gifts for key accounts' },
+                { score: 4, text: 'Timed direct mail as part of orchestration' },
+                { score: 5, text: 'Strategic DM program with tracking and follow-up sequences' }
+            ]},
+            { layer: 'activate', text: 'How do you differentiate activation by account tier?', options: [
+                { score: 1, text: 'Same treatment for everyone' },
+                { score: 2, text: 'More budget for "big" accounts' },
+                { score: 3, text: 'Defined tiers with different channel mix' },
+                { score: 4, text: 'Tier-specific plays with dedicated resources' },
+                { score: 5, text: '1:1 for Tier 1, 1:Few for Tier 2, scaled for Tier 3' }
+            ]},
+            { layer: 'activate', text: 'When does your AE enter the engagement?', options: [
+                { score: 1, text: 'Only after demo is booked' },
+                { score: 2, text: 'After BDR qualifies' },
+                { score: 3, text: 'AE shadows key accounts early' },
+                { score: 4, text: 'AE active on LinkedIn for Tier 1' },
+                { score: 5, text: 'Coordinated AE plays: social engagement, event hosting, exec intros' }
+            ]},
+            // MEASURE (7 questions)
+            { layer: 'measure', text: 'What is your primary marketing metric?', options: [
+                { score: 1, text: 'Leads / MQLs' },
+                { score: 2, text: 'SQLs or meetings booked' },
+                { score: 3, text: 'Pipeline created' },
+                { score: 4, text: 'Account progression through stages' },
+                { score: 5, text: 'Account engagement scores + pipeline velocity + revenue' }
+            ]},
+            { layer: 'measure', text: 'Do you have account-level scoring?', options: [
+                { score: 1, text: 'Only lead scoring' },
+                { score: 2, text: 'Basic account score (sum of lead scores)' },
+                { score: 3, text: 'Multi-signal account scoring' },
+                { score: 4, text: 'Weighted signals with decay logic' },
+                { score: 5, text: 'Composite scoring with buying group coverage and stage mapping' }
+            ]},
+            { layer: 'measure', text: 'How do you track engagement across multiple contacts at an account?', options: [
+                { score: 1, text: 'We track individuals, not accounts' },
+                { score: 2, text: 'Manual rollup in spreadsheets' },
+                { score: 3, text: 'Account-level view in CRM or MAP' },
+                { score: 4, text: 'Unified account timeline with all touchpoints' },
+                { score: 5, text: 'Buying group engagement heatmap with influence weighting' }
+            ]},
+            { layer: 'measure', text: 'Do you run holdout tests or incrementality analysis?', options: [
+                { score: 1, text: 'What are those?' },
+                { score: 2, text: 'We rely on attribution' },
+                { score: 3, text: 'Occasional A/B tests' },
+                { score: 4, text: 'Regular holdout groups for major campaigns' },
+                { score: 5, text: 'Systematic incrementality testing with statistical rigor' }
+            ]},
+            { layer: 'measure', text: 'How confident are you in channel ROI?', options: [
+                { score: 1, text: 'Not at all - it\'s a black box' },
+                { score: 2, text: 'We use last-touch attribution' },
+                { score: 3, text: 'Multi-touch attribution model' },
+                { score: 4, text: 'Attribution + qualitative signals' },
+                { score: 5, text: 'MMM, holdouts, and brand lift studies inform decisions' }
+            ]},
+            { layer: 'measure', text: 'How quickly do you know if a campaign is working?', options: [
+                { score: 1, text: 'We wait for pipeline 6+ months later' },
+                { score: 2, text: 'Monthly pipeline review' },
+                { score: 3, text: 'Weekly leading indicator dashboards' },
+                { score: 4, text: 'Real-time engagement metrics with pipeline correlation' },
+                { score: 5, text: 'Predictive signals flagged in days, not months' }
+            ]},
+            { layer: 'measure', text: 'How do you measure brand impact?', options: [
+                { score: 1, text: 'We don\'t - brand is soft' },
+                { score: 2, text: 'Website traffic and social followers' },
+                { score: 3, text: 'Share of voice and mention tracking' },
+                { score: 4, text: 'Brand lift surveys on major campaigns' },
+                { score: 5, text: 'Continuous brand tracking with correlation to pipeline' }
+            ]}
+        ];
+
+        let currentQuestion = 0;
+        let answers = new Array(questions.length).fill(null);
+        let resultsData = {};
+
+        function startQuiz() {
+            document.getElementById('introScreen').style.display = 'none';
+            document.getElementById('progressFixed').classList.add('active');
+            document.getElementById('questionScreen').classList.add('active');
+            showQuestion(0);
+        }
+
+        function showQuestion(index) {
+            const q = questions[index];
+            const layerBadge = document.getElementById('layerBadge');
+            layerBadge.textContent = q.layer.toUpperCase();
+            layerBadge.className = 'layer-badge ' + q.layer;
+
+            document.getElementById('questionNumber').textContent = `Question ${index + 1} of ${questions.length}`;
+            document.getElementById('questionText').textContent = q.text;
+
+            const optionsHtml = q.options.map((opt, i) => `
+                <div class="option ${answers[index] === i ? 'selected' : ''}" onclick="selectOption(${i})">
+                    <div class="option-score">${opt.score}</div>
+                    <div class="option-text">${opt.text}</div>
+                </div>
+            `).join('');
+            document.getElementById('optionsContainer').innerHTML = optionsHtml;
+
+            const progress = ((index + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressSection').textContent = q.layer.toUpperCase() + ' · Q' + (index + 1);
+            document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
+
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').textContent = index === questions.length - 1 ? 'See Results' : 'Next';
+        }
+
+        function selectOption(optionIndex) {
+            answers[currentQuestion] = optionIndex;
+            document.querySelectorAll('.option').forEach((el, i) => {
+                el.classList.toggle('selected', i === optionIndex);
+            });
+        }
+
+        function nextQuestion() {
+            if (answers[currentQuestion] === null) {
+                alert('Please select an answer');
+                return;
+            }
+
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function showResults() {
+            document.getElementById('questionScreen').classList.remove('active');
+            document.getElementById('progressFixed').classList.remove('active');
+            document.getElementById('resultsScreen').classList.add('active');
+
+            let buildScore = 0, activateScore = 0, measureScore = 0;
+
+            questions.forEach((q, i) => {
+                const score = q.options[answers[i]].score;
+                if (q.layer === 'build') buildScore += score;
+                else if (q.layer === 'activate') activateScore += score;
+                else measureScore += score;
+            });
+
+            const totalScore = buildScore + activateScore + measureScore;
+
+            // Store for HubSpot
+            resultsData = { totalScore, buildScore, activateScore, measureScore };
+
+            // Animate main score
+            animateValue('overallScore', 0, totalScore, 1000);
+
+            // Teaser scores
+            document.getElementById('teaserBuild').textContent = buildScore;
+            document.getElementById('teaserActivate').textContent = activateScore;
+            document.getElementById('teaserMeasure').textContent = measureScore;
+
+            // Weakest link
+            const scores = { BUILD: buildScore, ACTIVATE: activateScore, MEASURE: measureScore };
+            const weakest = Object.entries(scores).reduce((a, b) => a[1] < b[1] ? a : b)[0];
+            document.getElementById('teaserWeakest').textContent = weakest;
+            document.getElementById('weakestLayerSpan').textContent = weakest;
+
+            // Maturity level
+            const maturityEl = document.getElementById('maturityLevel');
+            if (totalScore < 40) {
+                maturityEl.textContent = 'Emerging';
+                maturityEl.className = 'maturity-level emerging';
+            } else if (totalScore < 60) {
+                maturityEl.textContent = 'Developing';
+                maturityEl.className = 'maturity-level developing';
+            } else if (totalScore < 80) {
+                maturityEl.textContent = 'Established';
+                maturityEl.className = 'maturity-level established';
+            } else {
+                maturityEl.textContent = 'Advanced';
+                maturityEl.className = 'maturity-level advanced';
+            }
+
+            // Prepare locked content (will show after unlock)
+            document.getElementById('buildScore').textContent = buildScore;
+            document.getElementById('activateScore').textContent = activateScore;
+            document.getElementById('measureScore').textContent = measureScore;
+
+            document.getElementById('buildBar').style.width = (buildScore / 35 * 100) + '%';
+            document.getElementById('activateBar').style.width = (activateScore / 35 * 100) + '%';
+            document.getElementById('measureBar').style.width = (measureScore / 35 * 100) + '%';
+            document.getElementById('yourBenchmark').style.width = (totalScore / 105 * 100) + '%';
+
+            document.getElementById('buildStatus').textContent = getStatus(buildScore);
+            document.getElementById('activateStatus').textContent = getStatus(activateScore);
+            document.getElementById('measureStatus').textContent = getStatus(measureScore);
+
+            const recommendations = {
+                BUILD: {
+                    desc: 'Your foundation needs work. Without the right audience and data, even perfect activation won\'t land. You\'re likely wasting 30-50% of your budget reaching the wrong accounts or missing buying signals.',
+                    quickWins: [
+                        {
+                            title: 'Audit your ICP against closed-won data',
+                            detail: 'Export last 12 months of closed-won deals. Look at industry, company size, tech stack, and buying triggers. You\'ll likely find 2-3 segments that close at 2x+ the rate of others.',
+                            tools: 'HubSpot/Salesforce export, spreadsheet analysis',
+                            outcome: 'Focused target list that converts 40-60% better'
+                        },
+                        {
+                            title: 'Set up automated enrichment on inbound leads',
+                            detail: 'Every new lead should be enriched within minutes with firmographics, tech stack, and recent news. This enables instant prioritization and personalization.',
+                            tools: 'Clay (recommended), Clearbit, Apollo',
+                            outcome: 'BDRs prioritize high-fit leads instantly, 2x response rates'
+                        }
+                    ],
+                    foundational: [
+                        {
+                            title: 'Build a closed-lost reactivation engine',
+                            detail: 'Most B2B companies ignore 80%+ of their closed-lost pipeline. Set up triggers for champion job changes, new funding, or expansion signals.',
+                            tools: 'UserGems for job changes, Crunchbase for funding, G2/TrustRadius for intent',
+                            outcome: '15-25% of reactivated closed-losts convert (they already know you)'
+                        },
+                        {
+                            title: 'Implement waterfall enrichment',
+                            detail: 'No single data provider has everything. Chain multiple sources: ZoomInfo → Apollo → Clearbit → LinkedIn. Fill gaps systematically.',
+                            tools: 'Clay waterfall templates, or custom workflow',
+                            outcome: '90%+ contact coverage vs. 60-70% with single source'
+                        },
+                        {
+                            title: 'Add intent data to scoring',
+                            detail: 'Layer 3rd-party intent (Bombora, G2) with 1st-party signals (website visits, content engagement). Weight by recency and intensity.',
+                            tools: 'Bombora, 6sense, G2 Buyer Intent',
+                            outcome: 'Catch accounts 2-3 months earlier in buying cycle'
+                        }
+                    ],
+                    advanced: [
+                        {
+                            title: 'Build dynamic buying committee maps',
+                            detail: 'For Tier 1 accounts, map every stakeholder: champion, economic buyer, technical evaluator, blocker. Track engagement across the committee.',
+                            tools: 'LinkedIn Sales Navigator, Org chart tools, CRM custom objects',
+                            outcome: 'Multi-thread deals, reduce single-thread risk by 50%'
+                        }
+                    ]
+                },
+                ACTIVATE: {
+                    desc: 'You\'re not showing up in enough places. Your audience makes buying decisions across 15-20 touchpoints, but you\'re only present in 2-3. They don\'t know you exist or don\'t trust you enough to engage.',
+                    quickWins: [
+                        {
+                            title: 'Add LinkedIn retargeting to your mix',
+                            detail: 'If you\'re running any paid, add account-targeted LinkedIn retargeting. Match your target account list and serve ads to website visitors. Low cost, high visibility.',
+                            tools: 'LinkedIn Matched Audiences, website visitor retargeting',
+                            outcome: '3-5x higher CTR vs. cold prospecting, keeps you top of mind'
+                        },
+                        {
+                            title: 'Align BDR sequences with ad campaigns',
+                            detail: 'When accounts see your ads and then get a relevant email, response rates spike. Share your campaign themes and timing with outbound.',
+                            tools: 'Outreach/Salesloft, shared campaign calendar',
+                            outcome: '40-60% higher email reply rates when ads prime the audience'
+                        }
+                    ],
+                    foundational: [
+                        {
+                            title: 'Implement tiered account treatment',
+                            detail: 'Not every account deserves the same investment. Tier 1 (top 50): 1:1 personalization, custom content, exec engagement. Tier 2 (next 200): 1:Few campaigns. Tier 3 (1000+): scaled plays.',
+                            tools: 'Mutiny for 1:1 web personalization, Sendoso for direct mail, 6sense for orchestration',
+                            outcome: 'Tier 1 accounts get 10x the attention, pipeline per account increases 3-5x'
+                        },
+                        {
+                            title: 'Add CTV/programmatic as air cover',
+                            detail: 'Connected TV and programmatic display ads reach your accounts outside of work context. Creates familiarity before outbound touches.',
+                            tools: 'StackAdapt, The Trade Desk, or LinkedIn CTV',
+                            outcome: 'Outbound response rates up 25-40% when accounts have seen brand ads'
+                        },
+                        {
+                            title: 'Launch executive dinners or intimate events',
+                            detail: 'Invite 8-12 executives from target accounts to an intimate dinner with a thought leader. No pitch, pure value. Builds relationships at scale.',
+                            tools: 'Goldcast for virtual, local venues for in-person, Postal for invites',
+                            outcome: '40-60% of dinner attendees enter pipeline within 90 days'
+                        }
+                    ],
+                    advanced: [
+                        {
+                            title: 'Build coordinated AE social plays',
+                            detail: 'AEs engage Tier 1 accounts on LinkedIn before any formal outreach. Comment on their posts, share relevant content, build familiarity.',
+                            tools: 'Taplio, Shield, LinkedIn native',
+                            outcome: 'Warm intros vs. cold outreach, 2x+ meeting book rates'
+                        },
+                        {
+                            title: 'Implement trigger-based direct mail',
+                            detail: 'Send personalized packages when accounts hit engagement thresholds or signal intent. Not random swag—strategic intervention.',
+                            tools: 'Sendoso, Postal, PFL',
+                            outcome: 'Direct mail generates 3-5x higher response than email alone'
+                        }
+                    ]
+                },
+                MEASURE: {
+                    desc: 'You can\'t improve what you can\'t measure. Without proper measurement, you\'re flying blind—probably over-crediting last-touch channels and under-investing in what actually creates demand.',
+                    quickWins: [
+                        {
+                            title: 'Shift from lead metrics to account progression',
+                            detail: 'Stop counting MQLs. Start tracking: accounts engaged, accounts in buying cycle, accounts in pipeline, accounts won. This is what the C-suite actually cares about.',
+                            tools: 'CRM reports, Databox/Looker dashboards',
+                            outcome: 'Marketing speaks revenue language, credibility with leadership increases'
+                        },
+                        {
+                            title: 'Add self-reported attribution to forms',
+                            detail: 'Ask "How did you hear about us?" on demo forms. Freeform text, not dropdown. You\'ll learn channels attribution can\'t track (podcasts, dark social, word of mouth).',
+                            tools: 'Form field + manual tagging',
+                            outcome: 'Discover 30-50% of pipeline comes from "invisible" channels'
+                        }
+                    ],
+                    foundational: [
+                        {
+                            title: 'Implement account-level scoring with decay',
+                            detail: 'Account scores should reflect recent behavior, not lifetime accumulation. Apply time decay (50% per 30 days). A hot account that goes cold should look cold.',
+                            tools: 'HubSpot custom scoring, 6sense, Demandbase',
+                            outcome: 'Sales focuses on actually engaged accounts, not stale leads'
+                        },
+                        {
+                            title: 'Build a buying group engagement dashboard',
+                            detail: 'Track engagement across the full buying committee, not just one contact. Show: # of contacts engaged, % of committee covered, engagement by persona.',
+                            tools: 'Custom CRM dashboard, Salesforce account hierarchies',
+                            outcome: 'Identify multi-threaded vs. single-threaded deals early'
+                        },
+                        {
+                            title: 'Run holdout tests to prove incrementality',
+                            detail: 'Take 20% of your target accounts, exclude them from a specific channel, and compare pipeline creation. This is the only way to prove marketing actually caused the outcome.',
+                            tools: 'Matched market testing, geo holdouts',
+                            outcome: 'Know true incremental impact, reallocate budget with confidence'
+                        }
+                    ],
+                    advanced: [
+                        {
+                            title: 'Layer in Marketing Mix Modeling',
+                            detail: 'For $100K+ monthly spend, add MMM to complement attribution. Captures brand effects, cross-channel synergies, and time-lagged impact that attribution misses.',
+                            tools: 'Google Meridian (free), Meta Robyn, or agency partner',
+                            outcome: 'Full picture of channel effectiveness, optimal budget allocation'
+                        },
+                        {
+                            title: 'Track pipeline velocity by source',
+                            detail: 'Measure time-to-close by marketing source. Some channels create pipeline that closes in 30 days; others take 6 months. Velocity matters as much as volume.',
+                            tools: 'CRM opportunity data, cohort analysis',
+                            outcome: 'Prioritize channels that create faster pipeline'
+                        }
+                    ]
+                }
+            };
+
+            document.getElementById('weakestDesc').textContent = recommendations[weakest].desc;
+
+            // Render structured recommendations
+            const rec = recommendations[weakest];
+            let recHtml = '';
+
+            // Quick Wins
+            if (rec.quickWins && rec.quickWins.length > 0) {
+                recHtml += `
+                    <div class="rec-category">
+                        <div class="rec-category-header">
+                            <div class="rec-category-icon quick">⚡</div>
+                            <span class="rec-category-title">Quick Wins</span>
+                            <span class="rec-category-subtitle">Do this week</span>
+                        </div>
+                        ${rec.quickWins.map(item => `
+                            <div class="rec-item">
+                                <div class="rec-item-title">
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    ${item.title}
+                                </div>
+                                <div class="rec-item-detail">${item.detail}</div>
+                                <div class="rec-item-meta">
+                                    <div class="rec-item-meta-item">
+                                        <span class="rec-item-meta-label">Tools:</span>
+                                        <span class="rec-item-tools">${item.tools}</span>
+                                    </div>
+                                    <div class="rec-item-meta-item">
+                                        <span class="rec-item-meta-label">Outcome:</span>
+                                        <span class="rec-item-outcome">${item.outcome}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            // Foundational Fixes
+            if (rec.foundational && rec.foundational.length > 0) {
+                recHtml += `
+                    <div class="rec-category">
+                        <div class="rec-category-header">
+                            <div class="rec-category-icon foundation">🔧</div>
+                            <span class="rec-category-title">Foundational Fixes</span>
+                            <span class="rec-category-subtitle">Next 30-60 days</span>
+                        </div>
+                        ${rec.foundational.map(item => `
+                            <div class="rec-item">
+                                <div class="rec-item-title">
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    ${item.title}
+                                </div>
+                                <div class="rec-item-detail">${item.detail}</div>
+                                <div class="rec-item-meta">
+                                    <div class="rec-item-meta-item">
+                                        <span class="rec-item-meta-label">Tools:</span>
+                                        <span class="rec-item-tools">${item.tools}</span>
+                                    </div>
+                                    <div class="rec-item-meta-item">
+                                        <span class="rec-item-meta-label">Outcome:</span>
+                                        <span class="rec-item-outcome">${item.outcome}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            // Advanced Plays
+            if (rec.advanced && rec.advanced.length > 0) {
+                recHtml += `
+                    <div class="rec-category">
+                        <div class="rec-category-header">
+                            <div class="rec-category-icon advanced">🚀</div>
+                            <span class="rec-category-title">Advanced Plays</span>
+                            <span class="rec-category-subtitle">When foundations are solid</span>
+                        </div>
+                        ${rec.advanced.map(item => `
+                            <div class="rec-item">
+                                <div class="rec-item-title">
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    ${item.title}
+                                </div>
+                                <div class="rec-item-detail">${item.detail}</div>
+                                <div class="rec-item-meta">
+                                    <div class="rec-item-meta-item">
+                                        <span class="rec-item-meta-label">Tools:</span>
+                                        <span class="rec-item-tools">${item.tools}</span>
+                                    </div>
+                                    <div class="rec-item-meta-item">
+                                        <span class="rec-item-meta-label">Outcome:</span>
+                                        <span class="rec-item-outcome">${item.outcome}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            document.getElementById('recommendationsContainer').innerHTML = recHtml;
+        }
+
+        function getStatus(score) {
+            if (score < 14) return 'Emerging';
+            if (score < 21) return 'Developing';
+            if (score < 28) return 'Established';
+            return 'Advanced';
+        }
+
+        function animateValue(id, start, end, duration) {
+            const el = document.getElementById(id);
+            const range = end - start;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = Math.floor(start + range * progress);
+                el.textContent = value;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        async function submitEmail(e) {
+            e.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            const submitBtn = document.getElementById('submitBtn');
+            const errorEl = document.getElementById('emailError');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Unlocking...';
+            errorEl.style.display = 'none';
+
+            try {
+                // Submit to HubSpot Forms API
+                const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        fields: [
+                            { name: 'email', value: email },
+                            { name: 'gtm_maturity_score', value: String(resultsData.totalScore) },
+                            { name: 'gtm_build_score', value: String(resultsData.buildScore) },
+                            { name: 'gtm_activate_score', value: String(resultsData.activateScore) },
+                            { name: 'gtm_measure_score', value: String(resultsData.measureScore) }
+                        ],
+                        context: {
+                            pageUri: window.location.href,
+                            pageName: 'GTM Maturity Assessment'
+                        }
+                    })
+                });
+
+                if (!response.ok && HUBSPOT_FORM_GUID === 'YOUR_FORM_GUID_HERE') {
+                    // Form not configured yet - still unlock for demo
+                    console.log('HubSpot form not configured. Email:', email, 'Scores:', resultsData);
+                }
+
+                // Unlock content
+                unlockResults();
+
+            } catch (err) {
+                console.error('Error:', err);
+                // Still unlock even if HubSpot fails
+                unlockResults();
+            }
+        }
+
+        function unlockResults() {
+            document.getElementById('emailGate').style.display = 'none';
+            document.getElementById('lockedContent').classList.remove('locked');
+            document.getElementById('teaserSection').style.paddingBottom = '0';
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            answers = new Array(questions.length).fill(null);
+            resultsData = {};
+            document.getElementById('resultsScreen').classList.remove('active');
+            document.getElementById('introScreen').style.display = 'block';
+            document.getElementById('emailGate').style.display = 'block';
+            document.getElementById('lockedContent').classList.add('locked');
+            document.getElementById('emailInput').value = '';
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('submitBtn').textContent = 'Unlock Results';
+        }
+    </script>
+    <script src="/js/email-validation.js"></script>
+</body>
+</html>

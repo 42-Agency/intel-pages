@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code Cheatsheet for B2B Marketers | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta property="og:title" content="Claude Code Cheatsheet for B2B Marketers | 42 Agency">
+    <meta property="og:description" content="One-page reference for using Claude Code in B2B marketing. Installation, prompts, and practical use cases.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-lighter);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo-group img { height: 28px; }
+        .logo-group span { color: var(--gray-light); font-size: 1.25rem; }
+        .back-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+        }
+        .back-link:hover { background: var(--accent); }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2rem 0 3rem;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--black);
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        .hero h1 span {
+            background: var(--accent);
+            padding: 0 0.25rem;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--gray-dark);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .preview-section {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 2rem;
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 2rem;
+        }
+        .preview-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .preview-item {
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+            padding: 1rem;
+        }
+        .preview-item h4 {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .preview-item h4 svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--accent-dark);
+        }
+        .preview-item p {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        .code-preview {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--accent);
+        }
+        .code-preview .comment { color: #888; }
+        .code-preview .prompt { color: var(--accent); }
+
+        .download-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 2rem;
+            box-shadow: 4px 4px 0 var(--black);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .download-section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .download-section p {
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+        }
+        .email-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 450px;
+            margin: 0 auto 1rem;
+        }
+        .email-form input[type="email"] {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid var(--black);
+            background: var(--white);
+        }
+        .email-form input[type="email"]:focus {
+            outline: none;
+            box-shadow: 3px 3px 0 var(--black);
+        }
+        .email-form button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 2px solid var(--black);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .email-form button:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        .email-form button svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--gray-dark);
+            margin-top: 0.5rem;
+        }
+        .download-ready {
+            display: none;
+        }
+        .download-ready.show {
+            display: block;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--black);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .download-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .context-section {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 2rem;
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 2rem;
+        }
+        .context-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .context-section p {
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+        }
+        .context-logos {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-light);
+        }
+        .context-logos img {
+            height: 24px;
+            opacity: 0.7;
+        }
+
+        .related-section {
+            margin-bottom: 2rem;
+        }
+        .related-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .related-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .related-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 3px 3px 0 var(--black);
+            transition: all 0.15s;
+        }
+        .related-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+        .related-card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.35rem;
+        }
+        .related-card-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .preview-grid { grid-template-columns: 1fr; }
+            .related-cards { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.75rem; }
+            .email-form { flex-direction: column; }
+        }
+
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+        .footer-top {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand { }
+        .footer-logo {
+            height: 28px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.15s;
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--black);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+
+        @media (max-width: 900px) {
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo-group">
+                <img src="42_logo_black.png" alt="42 Agency">
+                <span>×</span>
+                <img src="exitfive_logo_black.svg" alt="Exit Five">
+            </div>
+            <a href="/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                All Resources
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <span class="hero-badge">Exit Five Workshop</span>
+            <h1>Claude Code <span>Cheatsheet</span></h1>
+            <p>Everything B2B marketers need to get started with Claude Code. One page, print-friendly, no fluff.</p>
+        </section>
+
+        <div class="preview-section">
+            <h2 class="preview-title">What's on the Cheatsheet</h2>
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Installation (2 min)
+                    </h4>
+                    <p>Node.js setup and npm install command</p>
+                </div>
+                <div class="preview-item">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Ready-to-Use Prompts
+                    </h4>
+                    <p>Data analysis, competitive research, content repurposing</p>
+                </div>
+                <div class="preview-item">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        CLAUDE.md Setup
+                    </h4>
+                    <p>How to give Claude persistent project memory</p>
+                </div>
+                <div class="preview-item">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Essential Commands
+                    </h4>
+                    <p>Keyboard shortcuts and slash commands</p>
+                </div>
+                <div class="preview-item">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        42 Agency Agents
+                    </h4>
+                    <p>Real agents we built for competitive intel, reporting, and more</p>
+                </div>
+                <div class="preview-item">
+                    <h4>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        First Week Plan
+                    </h4>
+                    <p>Day-by-day guide to getting productive</p>
+                </div>
+            </div>
+
+            <div class="code-preview">
+                <span class="comment"># Install Claude Code</span><br>
+                npm install -g @anthropic-ai/claude-code<br><br>
+                <span class="comment"># Start in any project folder</span><br>
+                <span class="prompt">$</span> claude<br><br>
+                <span class="prompt">&gt;</span> "Look at google_ads_export.csv. Which campaigns have CPL above $150?"
+            </div>
+        </div>
+
+        <div class="download-section">
+            <h2>Get the Cheatsheet</h2>
+            <p>Enter your email for instant access. Print it, pin it, reference it.</p>
+
+            <form class="email-form" id="downloadForm" onsubmit="handleSubmit(event)">
+                <input type="email" name="email" placeholder="you@company.com" required>
+                <button type="submit">
+                    <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Get Cheatsheet
+                </button>
+            </form>
+            <p class="form-note">We'll also send you occasional B2B marketing resources.</p>
+
+            <div class="download-ready" id="downloadReady">
+                <p style="font-weight: 700; margin-bottom: 1rem;">Thanks! Click below to view:</p>
+                <a href="cheatsheet.html" target="_blank" class="download-btn">
+                    <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    View Cheatsheet
+                </a>
+            </div>
+        </div>
+
+        <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const email = form.email.value;
+
+            // Hide form, show download
+            form.style.display = 'none';
+            document.querySelector('.form-note').style.display = 'none';
+            document.getElementById('downloadReady').classList.add('show');
+
+            // Auto-open cheatsheet
+            setTimeout(() => {
+                window.open('cheatsheet.html', '_blank');
+            }, 500);
+        }
+        </script>
+
+        <div class="context-section">
+            <h3>From the Exit Five Workshop</h3>
+            <p>This cheatsheet was created for a live session with Exit Five on using Claude Code for B2B marketing. The full workshop covered hands-on examples for competitive research, data analysis, and building automated workflows.</p>
+            <div class="context-logos">
+                <img src="42_logo_black.png" alt="42 Agency">
+                <img src="exitfive_logo_black.svg" alt="Exit Five">
+            </div>
+        </div>
+
+        <div class="related-section">
+            <h3 class="related-title">Related Resources</h3>
+            <div class="related-cards">
+                <a href="/zenabm/audit.html" class="related-card">
+                    <div class="related-card-title">GTM Maturity Assessment</div>
+                    <div class="related-card-desc">Score your go-to-market across 21 dimensions</div>
+                </a>
+                <a href="/hubspot-audit/" class="related-card">
+                    <div class="related-card-title">HubSpot Audit Template</div>
+                    <div class="related-card-desc">10-sheet comprehensive audit workbook</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/get42agency" target="_blank" aria-label="X/Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@Get42Agency" target="_blank" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
+                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
+                    <a href="https://42agency.com/seo-and-content" target="_blank">SEO & Content</a>
+                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42/ Essays</h4>
+                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
+                    <a href="https://42slash.com/p/the-abm-measurement-problem" target="_blank">The ABM Measurement Problem</a>
+                    <a href="https://42slash.com/p/the-claude-code-essay" target="_blank">The Claude Code Essay</a>
+                    <a href="https://42slash.com" target="_blank">All Essays →</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">Marvin (LinkedIn Ads AI)</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/zenabm/audit.html">GTM Assessment</a>
+                    <a href="/zenabm/">ZenABM Toolkit</a>
+                    <a href="/hubspot-audit/">HubSpot Audit</a>
+                    <a href="/mops-funnel/">MOPS Funnel</a>
+                    <a href="/exitfive/">Claude Code Cheatsheet</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+        </div>
+    </footer>
+    <script src="/js/email-validation.js"></script>
+</body>
+</html>

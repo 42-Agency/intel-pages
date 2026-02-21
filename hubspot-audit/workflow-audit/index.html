@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Workflow Audit: Find Broken & Redundant Automations | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta name="description" content="Learn how to audit HubSpot workflows for errors, redundancies, and performance issues. Step-by-step guide to cleaning up your automation.">
+    <meta property="og:title" content="HubSpot Workflow Audit: Find Broken & Redundant Automations">
+    <meta property="og:description" content="Step-by-step guide to auditing HubSpot workflows for errors and redundancies.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+            --hubspot: #FF7A59;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-lighter);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+        }
+        .back-link:hover { background: var(--accent); }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a {
+            color: var(--gray-dark);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .article-header {
+            margin-bottom: 2.5rem;
+        }
+        .article-badge {
+            display: inline-block;
+            background: var(--hubspot);
+            color: white;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--black);
+        }
+        .article-header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .article-meta {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-content {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 2.5rem;
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 2rem;
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 2rem 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .article-content p {
+            margin-bottom: 1rem;
+            color: var(--gray-dark);
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+            color: var(--gray-dark);
+        }
+        .article-content strong {
+            color: var(--black);
+        }
+
+        .callout {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .callout.warning {
+            background: #fff3cd;
+        }
+        .callout-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .callout p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .audit-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .audit-table th {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 700;
+        }
+        .audit-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .audit-table tr:nth-child(even) {
+            background: var(--gray-lighter);
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 3px;
+        }
+        .status-badge.error { background: #fee2e2; color: #dc2626; }
+        .status-badge.warning { background: #fef3c7; color: #d97706; }
+        .status-badge.ok { background: #d1fae5; color: #059669; }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+            margin-bottom: 0.5rem;
+        }
+        .checklist li svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--hubspot);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 2rem;
+            box-shadow: 4px 4px 0 var(--black);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .cta-section h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .cta-section p {
+            color: var(--gray-dark);
+            margin-bottom: 1.25rem;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.875rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--black);
+            transition: all 0.15s;
+        }
+        .cta-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .related-section {
+            margin-bottom: 2rem;
+        }
+        .related-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .related-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .related-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 3px 3px 0 var(--black);
+            transition: all 0.15s;
+        }
+        .related-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+        .related-card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.35rem;
+        }
+        .related-card-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.75rem; }
+            .article-content { padding: 1.5rem; }
+            .related-cards { grid-template-columns: 1fr; }
+            .audit-table { font-size: 0.8rem; }
+        }
+
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+        .footer-top {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-logo {
+            height: 28px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.15s;
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--black);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+
+        @media (max-width: 900px) {
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </div>
+            <a href="/hubspot-audit/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                HubSpot Audit
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Resources</a> / <a href="/hubspot-audit/">HubSpot Audit</a> / Workflow Audit
+        </div>
+
+        <div class="article-header">
+            <span class="article-badge">HubSpot</span>
+            <h1>How to Audit HubSpot Workflows for Errors & Redundancies</h1>
+            <p class="article-meta">The framework we use to clean up automation chaos and prevent broken workflows.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>The Hidden Cost of Workflow Chaos</h2>
+            <p>Most HubSpot portals have 50-200+ workflows, and at least 30% of them are broken, redundant, or conflicting. We've seen portals where:</p>
+            <ul>
+                <li><strong>5 different workflows</strong> try to set lifecycle stage on the same trigger</li>
+                <li><strong>Nurture emails send twice</strong> because of overlapping enrollment</li>
+                <li><strong>Lead routing fails silently</strong> because a property dependency broke</li>
+                <li><strong>Contacts get stuck</strong> in workflows with no exit criteria</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    The 4 Workflow Problems
+                </div>
+                <p>Every workflow audit reveals the same four issues: <strong>Errors</strong> (broken), <strong>Conflicts</strong> (competing), <strong>Redundancies</strong> (duplicate logic), and <strong>Orphans</strong> (disconnected from current process).</p>
+            </div>
+
+            <h2>The Workflow Audit Framework</h2>
+
+            <h3>Step 1: Categorize Every Workflow</h3>
+            <p>First, sort all workflows into functional categories. This reveals where you have overlap:</p>
+
+            <table class="audit-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Purpose</th>
+                        <th>Typical Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Lifecycle Management</strong></td>
+                        <td>Setting lifecycle stage, lead status</td>
+                        <td>3-5 (often 10+ = problem)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lead Routing</strong></td>
+                        <td>Assigning owners, round robin</td>
+                        <td>2-4</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nurture & Email</strong></td>
+                        <td>Drip campaigns, newsletters</td>
+                        <td>5-15</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Enrichment</strong></td>
+                        <td>Formatting, normalization</td>
+                        <td>3-8</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Internal Notifications</strong></td>
+                        <td>Sales alerts, task creation</td>
+                        <td>5-10</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Integration Sync</strong></td>
+                        <td>Salesforce, Slack, etc.</td>
+                        <td>2-5</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Step 2: Check for Errors (The Quick Wins)</h3>
+            <p>HubSpot flags some errors, but not all. Check each workflow for:</p>
+
+            <ul class="checklist">
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div><strong>Red error badges</strong> — HubSpot-flagged issues (missing properties, deleted lists)</div>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div><strong>0 enrolled in last 30 days</strong> — Workflow may be dead or broken enrollment</div>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div><strong>Send email actions with 0% delivery</strong> — Email deleted or domain issue</div>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div><strong>"If/then" branches with no contacts</strong> — Logic may be outdated</div>
+                </li>
+            </ul>
+
+            <h3>Step 3: Find Conflicts (Same Trigger, Different Outcomes)</h3>
+            <p>The most dangerous workflow problem: multiple workflows that fire on the same trigger but set conflicting values.</p>
+
+            <div class="callout warning">
+                <div class="callout-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                    Common Conflict Example
+                </div>
+                <p><strong>Workflow A:</strong> Form submission → Set lifecycle = MQL<br>
+                <strong>Workflow B:</strong> Form submission → Set lifecycle = Lead<br><br>
+                Result: Lifecycle stage becomes a coin flip based on execution order.</p>
+            </div>
+
+            <p>To find conflicts, export all workflows and group by:</p>
+            <ol>
+                <li>Enrollment trigger (form submission, property change, etc.)</li>
+                <li>Properties being set</li>
+                <li>Look for overlaps where trigger matches but values differ</li>
+            </ol>
+
+            <h3>Step 4: Identify Redundancies</h3>
+            <p>Redundant workflows do the same thing in different ways. Common examples:</p>
+            <ul>
+                <li><strong>Multiple "set country" workflows</strong> — each handling different formats</li>
+                <li><strong>Duplicate lead alerts</strong> — same notification sent from different triggers</li>
+                <li><strong>Overlapping nurtures</strong> — contacts enrolled in 3 similar drip campaigns</li>
+            </ul>
+            <p>Consolidate these into single workflows with branching logic.</p>
+
+            <h3>Step 5: Find Orphan Workflows</h3>
+            <p>Orphan workflows are relics of old processes that no one turned off:</p>
+            <ul>
+                <li>Workflows for events that happened 2+ years ago</li>
+                <li>Workflows referencing employees who left</li>
+                <li>Workflows for products/campaigns that no longer exist</li>
+                <li>Workflows with "test" or "old" in the name</li>
+            </ul>
+
+            <h2>The Workflow Audit Checklist</h2>
+            <p>For each workflow, record:</p>
+
+            <table class="audit-table">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>What to Check</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Name</strong></td>
+                        <td>Is it descriptive? Does it follow naming convention?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Status</strong></td>
+                        <td>On/Off — if Off, why?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Category</strong></td>
+                        <td>Lifecycle / Routing / Nurture / Data / Notification / Integration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enrollment Trigger</strong></td>
+                        <td>What activates this workflow?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>30-Day Enrollments</strong></td>
+                        <td>0 = likely broken or orphaned</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Errors</strong></td>
+                        <td>Any red badges or warnings?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conflicts With</strong></td>
+                        <td>Other workflows setting same properties</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recommendation</strong></td>
+                        <td>Keep / Consolidate / Turn Off / Delete</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Workflow Naming Convention</h2>
+            <p>After the audit, implement consistent naming:</p>
+            <p><code>[CATEGORY] - [Object] - [Purpose] - [Version]</code></p>
+            <p>Examples:</p>
+            <ul>
+                <li><code>LIFECYCLE - Contact - MQL Promotion - v2</code></li>
+                <li><code>ROUTING - Contact - Inbound Lead Assignment</code></li>
+                <li><code>NURTURE - Contact - Product Demo Follow-up</code></li>
+                <li><code>DATA - Contact - Phone Number Formatting</code></li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2>Get the Full Audit Template</h2>
+            <p>Our 10-sheet HubSpot Audit workbook includes the workflow audit spreadsheet plus SOPs for properties, reporting, and data quality.</p>
+            <a href="/hubspot-audit/" class="cta-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download Template
+            </a>
+        </div>
+
+        <div class="related-section">
+            <h3 class="related-title">Related Guides</h3>
+            <div class="related-cards">
+                <a href="/hubspot-audit/property-cleanup/" class="related-card">
+                    <div class="related-card-title">Property Cleanup Guide</div>
+                    <div class="related-card-desc">How to identify and archive unused properties</div>
+                </a>
+                <a href="/hubspot-audit/data-quality/" class="related-card">
+                    <div class="related-card-title">Data Quality Checklist</div>
+                    <div class="related-card-desc">Clean up duplicates, formatting, and bad data</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/get42agency" target="_blank" aria-label="X/Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
+                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
+                    <a href="https://42agency.com/seo-and-content" target="_blank">SEO & Content</a>
+                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42/ Essays</h4>
+                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
+                    <a href="https://42slash.com/p/the-abm-measurement-problem" target="_blank">The ABM Measurement Problem</a>
+                    <a href="https://42slash.com/p/the-claude-code-essay" target="_blank">The Claude Code Essay</a>
+                    <a href="https://42slash.com" target="_blank">All Essays</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">Marvin (LinkedIn Ads AI)</a>
+                </div>
+                <div class="footer-col">
+                    <h4>HubSpot Guides</h4>
+                    <a href="/hubspot-audit/property-cleanup/">Property Cleanup</a>
+                    <a href="/hubspot-audit/workflow-audit/">Workflow Audit</a>
+                    <a href="/hubspot-audit/data-quality/">Data Quality</a>
+                    <a href="/hubspot-audit/">Full Audit Template</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

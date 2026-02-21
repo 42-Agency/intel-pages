@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Buying Signals: How to Identify Purchase Readiness | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+    <meta name="description" content="The complete list of B2B buying signals: intent data, website behavior, job changes, and company events that indicate purchase readiness.">
+    <meta property="og:title" content="B2B Buying Signals: How to Identify Purchase Readiness">
+
+    <style>
+        :root { --accent: #DFFE68; --black: #1a1a1a; --white: #ffffff; --gray-dark: #4a4a4a; --gray: #6b6b6b; --gray-light: #e5e5e5; --gray-lighter: #f5f5f5; --abm: #3B82F6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--gray-lighter); color: var(--black); line-height: 1.6; }
+        .header { background: var(--white); border-bottom: 2px solid var(--black); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link { color: var(--gray-dark); text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--gray-lighter); border: 1px solid var(--gray-light); }
+        .back-link:hover { background: var(--accent); }
+        .container { max-width: 720px; margin: 0 auto; padding: 2rem; }
+        .breadcrumb { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--gray-dark); text-decoration: none; }
+        .article-header { margin-bottom: 2.5rem; }
+        .article-badge { display: inline-block; background: var(--abm); color: white; padding: 0.3rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; border: 2px solid var(--black); }
+        .article-header h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; line-height: 1.15; }
+        .article-meta { font-size: 0.9rem; color: var(--gray); }
+        .article-content { background: var(--white); border: 2px solid var(--black); padding: 2.5rem; box-shadow: 4px 4px 0 var(--black); margin-bottom: 2rem; }
+        .article-content h2 { font-size: 1.4rem; font-weight: 800; margin: 2rem 0 1rem; }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+        .article-content p { margin-bottom: 1rem; color: var(--gray-dark); }
+        .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .article-content li { margin-bottom: 0.5rem; color: var(--gray-dark); }
+        .article-content strong { color: var(--black); }
+        .callout { background: var(--accent); border: 2px solid var(--black); padding: 1.25rem; margin: 1.5rem 0; }
+        .callout-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .callout p { margin: 0; font-size: 0.95rem; }
+
+        .signal-category { margin: 2rem 0; }
+        .signal-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+        .signal-icon { width: 40px; height: 40px; background: var(--abm); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        .signal-header h3 { font-size: 1.2rem; font-weight: 800; margin: 0; }
+
+        .signal-grid { display: grid; gap: 0.75rem; }
+        .signal-item { display: flex; gap: 1rem; background: var(--gray-lighter); border: 1px solid var(--gray-light); padding: 1rem; }
+        .signal-strength { width: 60px; flex-shrink: 0; text-align: center; }
+        .signal-strength .dots { font-size: 1.25rem; letter-spacing: 2px; }
+        .signal-strength .label { font-size: 0.7rem; text-transform: uppercase; color: var(--gray); }
+        .signal-content h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .signal-content p { font-size: 0.85rem; color: var(--gray-dark); margin: 0; }
+        .signal-content .source { font-size: 0.75rem; color: var(--abm); margin-top: 0.35rem; }
+
+        .strength-legend { display: flex; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: var(--gray-lighter); border: 1px solid var(--gray-light); }
+        .strength-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+
+        .response-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .response-table th { background: var(--black); color: var(--white); padding: 0.75rem; text-align: left; }
+        .response-table td { padding: 0.75rem; border-bottom: 1px solid var(--gray-light); }
+        .response-table tr:nth-child(even) { background: var(--gray-lighter); }
+
+        .cta-section { background: var(--accent); border: 2px solid var(--black); padding: 2rem; box-shadow: 4px 4px 0 var(--black); text-align: center; margin-bottom: 2rem; }
+        .cta-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-section p { color: var(--gray-dark); margin-bottom: 1.25rem; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--black); color: var(--white); padding: 0.875rem 1.75rem; font-size: 1rem; font-weight: 700; text-decoration: none; border: 2px solid var(--black); transition: all 0.15s; }
+        .cta-btn:hover { background: var(--white); color: var(--black); }
+        .cta-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .related-section { margin-bottom: 2rem; }
+        .related-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--gray); margin-bottom: 1rem; }
+        .related-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .related-card { background: var(--white); border: 2px solid var(--black); padding: 1.25rem; text-decoration: none; color: inherit; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s; }
+        .related-card:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--black); }
+        .related-card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.35rem; }
+        .related-card-desc { font-size: 0.85rem; color: var(--gray); }
+        @media (max-width: 768px) { .article-header h1 { font-size: 1.75rem; } .article-content { padding: 1.5rem; } .related-cards { grid-template-columns: 1fr; } .strength-legend { flex-direction: column; gap: 0.5rem; } }
+
+        .footer { background: var(--black); color: var(--white); padding: 4rem 2rem 1.5rem; margin-top: 2rem; }
+        .footer-top { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 250px 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333; }
+        .footer-logo { height: 28px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a { width: 40px; height: 40px; background: #333; display: flex; align-items: center; justify-content: center; color: #fff; transition: all 0.15s; }
+        .social-links a:hover { background: var(--accent); color: var(--black); }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; color: var(--accent); }
+        .footer-col a { display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1000px; margin: 0 auto; padding-top: 2rem; text-align: center; }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+        @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo"><img src="/42-logo.png" alt="42 Agency"></div>
+            <a href="/zenabm/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                ZenABM
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Resources</a> / <a href="/zenabm/">ZenABM</a> / Buying Signals
+        </div>
+
+        <div class="article-header">
+            <span class="article-badge">ABM</span>
+            <h1>B2B Buying Signals: Identify Purchase Readiness</h1>
+            <p class="article-meta">The signals that indicate an account is ready to buy—and how to respond to each.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>Why Signals Beat Timing</h2>
+            <p>Most sales outreach fails because it's based on <strong>your timeline</strong>, not theirs. Buying signals flip the script—they tell you when an account is actually in-market, so you can reach them at the right moment.</p>
+
+            <p>Signals fall into four categories, from strongest to weakest:</p>
+
+            <div class="strength-legend">
+                <div class="strength-item"><span style="color: #22c55e; font-weight: 700;">●●●</span> Strong (act immediately)</div>
+                <div class="strength-item"><span style="color: #eab308; font-weight: 700;">●●○</span> Medium (prioritize outreach)</div>
+                <div class="strength-item"><span style="color: #f97316; font-weight: 700;">●○○</span> Weak (increase monitoring)</div>
+            </div>
+
+            <div class="signal-category">
+                <div class="signal-header">
+                    <div class="signal-icon">🔥</div>
+                    <h3>Intent Signals</h3>
+                </div>
+                <div class="signal-grid">
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #22c55e;">●●●</div>
+                            <div class="label">Strong</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Researching your category keywords</h4>
+                            <p>Multiple people at the account searching for solutions like yours.</p>
+                            <div class="source">Source: Bombora, 6sense, G2 Intent</div>
+                        </div>
+                    </div>
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #22c55e;">●●●</div>
+                            <div class="label">Strong</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Viewing competitor websites</h4>
+                            <p>Active evaluation of alternatives—they're comparing options.</p>
+                            <div class="source">Source: Bombora, SimilarWeb</div>
+                        </div>
+                    </div>
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #eab308;">●●○</div>
+                            <div class="label">Medium</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Reading industry review sites</h4>
+                            <p>G2, TrustRadius, Capterra visits for your category.</p>
+                            <div class="source">Source: G2 Buyer Intent, TrustRadius</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signal-category">
+                <div class="signal-header">
+                    <div class="signal-icon">👤</div>
+                    <h3>People Signals</h3>
+                </div>
+                <div class="signal-grid">
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #22c55e;">●●●</div>
+                            <div class="label">Strong</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>New executive in target role</h4>
+                            <p>New VP/Director typically reviews vendors in first 90 days.</p>
+                            <div class="source">Source: LinkedIn Sales Navigator, ZoomInfo</div>
+                        </div>
+                    </div>
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #eab308;">●●○</div>
+                            <div class="label">Medium</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Former customer joins new company</h4>
+                            <p>Champions often bring their preferred vendors with them.</p>
+                            <div class="source">Source: LinkedIn, UserGems, Champify</div>
+                        </div>
+                    </div>
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #eab308;">●●○</div>
+                            <div class="label">Medium</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Hiring for related roles</h4>
+                            <p>Job postings indicate investment in the function you support.</p>
+                            <div class="source">Source: LinkedIn Jobs, Indeed, company careers page</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signal-category">
+                <div class="signal-header">
+                    <div class="signal-icon">🏢</div>
+                    <h3>Company Signals</h3>
+                </div>
+                <div class="signal-grid">
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #22c55e;">●●●</div>
+                            <div class="label">Strong</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Recent funding round</h4>
+                            <p>Fresh capital = budget for new initiatives and vendors.</p>
+                            <div class="source">Source: Crunchbase, PitchBook, news</div>
+                        </div>
+                    </div>
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #eab308;">●●○</div>
+                            <div class="label">Medium</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>M&A announcement</h4>
+                            <p>Acquisitions trigger system consolidation and new purchases.</p>
+                            <div class="source">Source: News alerts, Crunchbase</div>
+                        </div>
+                    </div>
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #f97316;">●○○</div>
+                            <div class="label">Weak</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Tech stack changes</h4>
+                            <p>Adopted a complementary tool = more likely to need yours.</p>
+                            <div class="source">Source: BuiltWith, HG Insights, Slintel</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signal-category">
+                <div class="signal-header">
+                    <div class="signal-icon">📊</div>
+                    <h3>Engagement Signals</h3>
+                </div>
+                <div class="signal-grid">
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #22c55e;">●●●</div>
+                            <div class="label">Strong</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Multiple contacts engaged</h4>
+                            <p>3+ people from same account active = buying committee forming.</p>
+                            <div class="source">Source: Your CRM, marketing automation</div>
+                        </div>
+                    </div>
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #22c55e;">●●●</div>
+                            <div class="label">Strong</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Pricing page visits</h4>
+                            <p>Evaluating cost = late-stage consideration.</p>
+                            <div class="source">Source: Website analytics, Clearbit Reveal</div>
+                        </div>
+                    </div>
+                    <div class="signal-item">
+                        <div class="signal-strength">
+                            <div class="dots" style="color: #eab308;">●●○</div>
+                            <div class="label">Medium</div>
+                        </div>
+                        <div class="signal-content">
+                            <h4>Case study downloads</h4>
+                            <p>Building internal business case with proof points.</p>
+                            <div class="source">Source: Marketing automation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Response Playbook</h2>
+            <p>Different signals require different responses:</p>
+
+            <table class="response-table">
+                <thead>
+                    <tr>
+                        <th>Signal Strength</th>
+                        <th>Response</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Strong (●●●)</strong></td>
+                        <td>Direct sales outreach, executive sponsor intro, custom content</td>
+                        <td>Within 24 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medium (●●○)</strong></td>
+                        <td>SDR sequence, targeted ads, relevant content push</td>
+                        <td>Within 1 week</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weak (●○○)</strong></td>
+                        <td>Add to monitoring list, increase ad frequency, nurture</td>
+                        <td>Passive monitoring</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <div class="callout-title">Signal Stacking</div>
+                <p>One weak signal means nothing. Three weak signals together = one strong signal. Build workflows that trigger when multiple signals fire within a time window.</p>
+            </div>
+
+            <h2>Building Your Signal Stack</h2>
+            <ol>
+                <li><strong>Start with first-party data:</strong> Website visits, content downloads, email engagement. Free and owned.</li>
+                <li><strong>Add people signals:</strong> LinkedIn Sales Navigator for job changes. High ROI.</li>
+                <li><strong>Layer intent data:</strong> Bombora, G2, 6sense. More expensive but powerful for timing.</li>
+                <li><strong>Create composite scores:</strong> Weight signals by strength, trigger alerts at thresholds.</li>
+                <li><strong>Connect to action:</strong> Signals without response workflows are wasted data.</li>
+            </ol>
+        </div>
+
+        <div class="cta-section">
+            <h2>Get the GTM Assessment</h2>
+            <p>Score your buying signal infrastructure alongside 20 other GTM capabilities.</p>
+            <a href="/zenabm/audit.html" class="cta-btn">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Take Assessment
+            </a>
+        </div>
+
+        <div class="related-section">
+            <h3 class="related-title">Related Guides</h3>
+            <div class="related-cards">
+                <a href="/zenabm/account-scoring/" class="related-card">
+                    <div class="related-card-title">Account Scoring Model</div>
+                    <div class="related-card-desc">Fit + intent + engagement scoring</div>
+                </a>
+                <a href="/zenabm/account-tiering/" class="related-card">
+                    <div class="related-card-title">Account Tiering Guide</div>
+                    <div class="related-card-desc">Structure your 1:1, 1:few, 1:many programs</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="https://x.com/get42agency" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col"><h4>42 Agency</h4><a href="https://42agency.com/demand-generation">Demand Generation</a><a href="https://42agency.com/marketing-operations">Marketing Operations</a><a href="https://42agency.com/seo-and-content">SEO & Content</a><a href="https://42agency.com/contact-us">Contact Us</a></div>
+                <div class="footer-col"><h4>42/ Essays</h4><a href="https://42slash.com/p/abm-is-just-good-marketing">ABM is Just Good Marketing</a><a href="https://42slash.com/p/the-abm-measurement-problem">The ABM Measurement Problem</a><a href="https://42slash.com">All Essays</a></div>
+                <div class="footer-col"><h4>AI Tools</h4><a href="https://copilot.42agency.com">Marvin (LinkedIn Ads AI)</a></div>
+                <div class="footer-col"><h4>ABM Guides</h4><a href="/zenabm/account-scoring/">Account Scoring</a><a href="/zenabm/account-tiering/">Account Tiering</a><a href="/zenabm/buying-signals/">Buying Signals</a><a href="/zenabm/">Full Toolkit</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 42 Agency</p></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Ads Targeting Checklist | 42 Agency</title>
+    <meta name="description" content="Free LinkedIn Ads targeting checklist. Audience sizing, job title targeting, company list uploads, and exclusion strategies for B2B campaigns.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/linkedin-targeting/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .back-link {
+            font-size: 14px;
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 64px 0 48px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--black);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: var(--gray-50);
+            border: 2px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 48px;
+            margin: 32px 0 64px;
+            text-align: center;
+        }
+
+        .form-section h2 {
+            font-size: 24px;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .form-section p {
+            color: var(--gray-600);
+            margin-bottom: 24px;
+        }
+
+        .form-container {
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .email-capture-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .email-capture-form input {
+            flex: 1;
+            padding: 16px 20px;
+            font-size: 16px;
+            border: 2px solid var(--black);
+            background: var(--white);
+            outline: none;
+        }
+
+        .email-capture-form input:focus {
+            border-color: var(--accent);
+        }
+
+        .email-capture-form button {
+            padding: 16px 24px;
+            background: var(--accent);
+            color: var(--black);
+            font-weight: 700;
+            font-size: 16px;
+            border: 2px solid var(--black);
+            cursor: pointer;
+            box-shadow: 4px 4px 0 var(--black);
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+
+        .email-capture-form button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--black);
+        }
+
+        .email-capture-form button:disabled {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .form-note {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin-top: 12px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--accent);
+            color: var(--black);
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+        }
+
+        @media (max-width: 600px) {
+            .email-capture-form {
+                flex-direction: column;
+            }
+        }
+
+        /* What's Inside */
+        .whats-inside {
+            padding: 48px 0;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .whats-inside h2 {
+            font-size: 28px;
+            color: var(--black);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .feature {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+
+        .feature h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        /* Preview */
+        .preview {
+            padding: 48px 0;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .preview h2 {
+            font-size: 28px;
+            color: var(--black);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .preview-table {
+            background: var(--gray-50);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .preview-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .preview-table th {
+            background: var(--black);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .preview-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+
+        .preview-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Related Guides */
+        .related {
+            padding: 48px 0;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .related h2 {
+            font-size: 20px;
+            color: var(--black);
+            margin-bottom: 24px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .related-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 20px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .related-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .related-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+
+        .related-card p {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--gray-200);
+            margin-top: 48px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-brand {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .features-grid,
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-section {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency"></a>
+                <a href="/" class="back-link">← All Resources</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <span class="badge">Free Template</span>
+                <h1>LinkedIn Ads Targeting Checklist</h1>
+                <p class="subtitle">The complete checklist for building high-performing LinkedIn audiences. Job titles, company targeting, exclusions, and audience sizing benchmarks.</p>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <h2>Download the Checklist</h2>
+                <p>Get the Excel template with targeting criteria, audience sizing benchmarks, and exclusion rules.</p>
+                <div class="form-container" id="form-container">
+                    <form id="download-form" class="email-capture-form">
+                        <input type="email" name="email" placeholder="Enter your work email" required>
+                        <button type="submit">Download Free Checklist</button>
+                    </form>
+                    <p class="form-note">No spam. Unsubscribe anytime.</p>
+                </div>
+                <div id="success-message" style="display:none;">
+                    <p style="color:var(--black);font-weight:600;margin-bottom:16px;">Your download is starting...</p>
+                    <a href="/linkedin-targeting/LinkedIn_Targeting_Checklist.xlsx" download class="download-btn">Click here if download doesn't start</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="whats-inside">
+            <div class="container">
+                <h2>What's Inside</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Job Title Targeting</h3>
+                        <p>Seniority levels, job functions, and title combinations that actually work for B2B.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🏢</div>
+                        <h3>Company Targeting</h3>
+                        <p>Industry, company size, and account list upload best practices.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">📊</div>
+                        <h3>Audience Sizing</h3>
+                        <p>Minimum audience thresholds by campaign type and budget level.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🚫</div>
+                        <h3>Exclusion Rules</h3>
+                        <p>What to exclude to avoid wasted spend: competitors, existing customers, bad fits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview">
+            <div class="container">
+                <h2>Template Preview</h2>
+                <div class="preview-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Targeting Criteria</th>
+                                <th>Recommended</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Minimum audience size (Awareness)</td>
+                                <td><span class="check">300K+</span></td>
+                                <td>Allows for frequency optimization</td>
+                            </tr>
+                            <tr>
+                                <td>Minimum audience size (Conversion)</td>
+                                <td><span class="check">50K+</span></td>
+                                <td>Tighter targeting acceptable</td>
+                            </tr>
+                            <tr>
+                                <td>Job title targeting layers</td>
+                                <td><span class="check">2-3 max</span></td>
+                                <td>Seniority + Function + Title</td>
+                            </tr>
+                            <tr>
+                                <td>Account list minimum</td>
+                                <td><span class="check">1,000 companies</span></td>
+                                <td>For reliable delivery</td>
+                            </tr>
+                            <tr>
+                                <td>Contact list minimum</td>
+                                <td><span class="check">10,000 emails</span></td>
+                                <td>30-50% match rate typical</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="related">
+            <div class="container">
+                <h2>LinkedIn Ads Guides</h2>
+                <div class="related-grid">
+                    <a href="/linkedin-targeting/audience-sizing/" class="related-card">
+                        <h3>Audience Sizing</h3>
+                        <p>How big should your LinkedIn audience be?</p>
+                    </a>
+                    <a href="/linkedin-targeting/job-title-targeting/" class="related-card">
+                        <h3>Job Title Targeting</h3>
+                        <p>Seniority vs function vs title combinations</p>
+                    </a>
+                    <a href="/linkedin-targeting/account-lists/" class="related-card">
+                        <h3>Account List Uploads</h3>
+                        <p>ABM targeting with company lists</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background: #0a0a0a; color: #fff; padding: 3rem 2rem 1.5rem; margin-top: 3rem;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding-bottom: 2rem; border-bottom: 1px solid #333;">
+                <div>
+                    <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                    <p style="font-size: 14px; color: #999; margin-top: 12px; line-height: 1.5;">B2B performance marketing for companies that sell to enterprises.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: #5BD675;">42 Agency</h4>
+                        <a href="https://42agency.com/demand-generation" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">Demand Generation</a>
+                        <a href="https://42agency.com/marketing-operations" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">Marketing Operations</a>
+                        <a href="https://42agency.com/contact-us" style="display: block; color: #ccc; text-decoration: none; font-size: 14px;">Contact Us</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: #5BD675;">Resources</h4>
+                        <a href="/" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">All Resources</a>
+                        <a href="/hubspot-audit/" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">HubSpot Audit</a>
+                        <a href="/abm-campaign/" style="display: block; color: #ccc; text-decoration: none; font-size: 14px;">ABM Campaign</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: #5BD675;">Essays</h4>
+                        <a href="https://42slash.com" target="_blank" style="display: block; color: #ccc; text-decoration: none; font-size: 14px; margin-bottom: 8px;">42/ Substack</a>
+                        <a href="https://linkedin.com/company/42agency" target="_blank" style="display: block; color: #ccc; text-decoration: none; font-size: 14px;">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top: 1.5rem; text-align: center;">
+                <p style="font-size: 13px; color: #666;">© 2026 42 Agency · All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Email form handler
+    const HUBSPOT_PORTAL = '44888286';
+    const DOWNLOAD_FILE = '/linkedin-targeting/LinkedIn_Targeting_Checklist.xlsx';
+
+    document.getElementById('download-form')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[name="email"]').value;
+        const btn = this.querySelector('button');
+        const originalText = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        try {
+            // Submit to HubSpot (collected form)
+            await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL}/collected-forms`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    fields: [
+                        { objectTypeId: '0-1', name: 'email', value: email }
+                    ],
+                    context: {
+                        pageUri: window.location.href,
+                        pageName: document.title
+                    }
+                })
+            });
+        } catch (err) {
+            console.log('HubSpot submission:', err);
+        }
+
+        // Show success and trigger download
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('success-message').style.display = 'block';
+
+        // Auto-download
+        const link = document.createElement('a');
+        link.href = DOWNLOAD_FILE;
+        link.download = 'LinkedIn_Targeting_Checklist.xlsx';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+    </script>
+</body>
+</html>

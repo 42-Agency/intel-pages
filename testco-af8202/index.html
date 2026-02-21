@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestCo | Campaign Intelligence - 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="TestCo Campaign Intelligence - 42 Agency">
+    <meta property="og:description" content="A preview of paid media opportunities based on live API data.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://intel.42agency.com/testco-af8202">
+
+    <style>
+        :root {
+            --brand-green: #5BD675;
+            --brand-green-dark: #4bc563;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f8f9fa;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-gray);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 3px solid var(--brand-green);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 36px;
+        }
+
+        .header-text {
+            text-align: right;
+        }
+
+        .header-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .header-subtitle {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .intro h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .intro p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* PDF Container */
+        .pdf-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .pdf-header {
+            background: var(--dark);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .pdf-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pdf-title svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--brand-green);
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 80vh;
+            min-height: 600px;
+            border: none;
+            display: block;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--brand-green);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: var(--brand-green-dark);
+            transform: translateY(-1px);
+        }
+
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-section p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--brand-green);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(91, 214, 117, 0.4);
+        }
+
+        /* What's Included */
+        .included-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .included-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .included-item svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--brand-green);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--brand-green);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.75rem 1rem;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .header-text {
+                text-align: center;
+            }
+
+            .main {
+                padding: 1rem;
+            }
+
+            .intro h1 {
+                font-size: 1.5rem;
+            }
+
+            .intro p {
+                font-size: 1rem;
+            }
+
+            .pdf-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .pdf-viewer {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .cta-section {
+                padding: 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.25rem;
+            }
+
+            .cta-btn {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+
+            .included-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .header, .cta-section, .footer {
+                display: none;
+            }
+
+            .pdf-container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </div>
+            <div class="header-text">
+                <div class="header-title">TestCo</div>
+                <div class="header-subtitle">Campaign Intelligence Preview</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="intro">
+            <h1>Campaign Intelligence for TestCo</h1>
+            <p>A preview of paid media opportunities based on live API data.</p>
+        </div>
+
+        <div class="pdf-container">
+            <div class="pdf-header">
+                <span class="pdf-title">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                    </svg>
+                    Campaign Intelligence Report
+                </span>
+                <a href="TestCo_Prospecting_Intel.pdf" download class="download-btn">
+                    <svg viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <!-- PDF Embed with fallback -->
+            <object data="TestCo_Prospecting_Intel.pdf" type="application/pdf" class="pdf-viewer">
+                <iframe src="TestCo_Prospecting_Intel.pdf" class="pdf-viewer">
+                    <p style="padding: 2rem; text-align: center;">
+                        Your browser doesn't support embedded PDFs.<br>
+                        <a href="TestCo_Prospecting_Intel.pdf" style="color: #5BD675;">Download the PDF</a> to view it.
+                    </p>
+                </iframe>
+            </object>
+        </div>
+
+        <div class="cta-section">
+            <h2>Want the Full Campaign Plan?</h2>
+            <p>This preview shows just a fraction of what's possible. Get the complete playbook with ready-to-deploy campaigns.</p>
+
+            <div class="included-list">
+                <div class="included-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>50+ researched keywords</span>
+                </div>
+                <div class="included-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>Full campaign structure</span>
+                </div>
+                <div class="included-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>LinkedIn audience specs</span>
+                </div>
+                <div class="included-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>Ready-to-use ad copy</span>
+                </div>
+                <div class="included-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>Budget allocation</span>
+                </div>
+                <div class="included-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>90-day roadmap</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <a href="https://42agency.com/contact" class="cta-btn">Book a Call</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 <a href="https://42agency.com">42 Agency</a> &middot; B2B Performance Marketing</p>
+    </footer>
+</body>
+</html>

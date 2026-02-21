@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itential Market Intelligence | 42 Agency</title>
+    <meta name="description" content="Market intelligence briefing for Itential - 53K decision-makers on LinkedIn, 3,500 monthly searches in network automation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta property="og:title" content="Itential Market Intelligence - 42 Agency">
+    <meta property="og:description" content="53K decision-makers on LinkedIn + 3,500 monthly searches. Market intelligence for network automation.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+            --blue: #0A66C2;
+            --orange: #F59E0B;
+            --green: #10B981;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-lighter);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 28px; font-weight: 800; color: var(--black); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .header-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-badge img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: 2px solid var(--black);
+        }
+        .header-badge-text {
+            text-align: right;
+        }
+        .header-badge-company {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .header-badge-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 4rem 2rem;
+        }
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--gray-lighter);
+            border: 2px solid var(--black);
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 900px;
+            margin: -2rem auto 0;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        .stat-item {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        .stat-item.highlight {
+            background: var(--accent);
+        }
+        .stat-item.blue {
+            background: var(--blue);
+            color: white;
+        }
+        .stat-item.blue .stat-label { color: rgba(255,255,255,0.8); }
+        .stat-item.green {
+            background: var(--green);
+            color: white;
+        }
+        .stat-item.green .stat-label { color: rgba(255,255,255,0.8); }
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.25rem;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 4rem 2rem 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 1.5rem;
+            background: var(--accent);
+        }
+
+        /* Key Findings */
+        .findings-list {
+            background: var(--white);
+            border: 2px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 3rem;
+        }
+        .finding-item {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 2px solid var(--black);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .finding-item:last-child {
+            border-bottom: none;
+        }
+        .finding-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .finding-text {
+            font-size: 0.95rem;
+        }
+        .finding-text strong {
+            color: var(--black);
+        }
+
+        /* Two Column Grid */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            padding: 1.5rem;
+        }
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--gray-lighter);
+        }
+
+        /* Keyword Table */
+        .kw-table {
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        .kw-table th {
+            text-align: left;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--gray-lighter);
+        }
+        .kw-table td {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-lighter);
+        }
+        .kw-table tr:last-child td {
+            border-bottom: none;
+        }
+        .kw-keyword { font-weight: 500; }
+        .kw-vol { font-weight: 700; }
+        .kw-cpc { color: var(--orange); font-weight: 700; }
+        .kw-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            background: var(--accent);
+            border: 1px solid var(--black);
+            margin-left: 6px;
+            font-weight: 600;
+        }
+
+        /* LinkedIn Box */
+        .linkedin-box {
+            background: var(--blue);
+            color: white;
+            border: 2px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            padding: 1.5rem;
+        }
+        .linkedin-box h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .linkedin-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .linkedin-stat {
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .linkedin-stat strong {
+            font-weight: 700;
+        }
+        .linkedin-targeting {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Revenue Model */
+        .revenue-box {
+            background: var(--green);
+            color: white;
+            border: 2px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .revenue-box h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .revenue-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .revenue-step {
+            background: rgba(255,255,255,0.15);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            min-width: 80px;
+        }
+        .revenue-step .num {
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+        .revenue-step .label {
+            font-size: 0.65rem;
+            opacity: 0.85;
+            text-transform: uppercase;
+        }
+        .revenue-arrow {
+            font-size: 1.25rem;
+            opacity: 0.5;
+        }
+        .revenue-assumptions {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        /* PDF Section */
+        .pdf-section {
+            background: var(--white);
+            border: 2px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+        .pdf-header {
+            background: var(--black);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pdf-title {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .pdf-title svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent);
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: var(--black);
+            padding: 0.6rem 1.2rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 2px solid var(--black);
+            transition: all 0.15s;
+        }
+        .download-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 rgba(255,255,255,0.3);
+        }
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            border: none;
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            box-shadow: 6px 6px 0 var(--black);
+            padding: 3rem;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .cta-section p {
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 1.25rem 2.5rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border: 2px solid var(--black);
+            transition: all 0.15s;
+        }
+        .cta-btn:hover {
+            background: #333;
+        }
+        .cta-subtext {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+        .footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            color: #999;
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+        .footer-bottom {
+            max-width: 900px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+        .footer-bottom p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); margin-top: -1.5rem; }
+            .two-col { grid-template-columns: 1fr; }
+            .revenue-flow { flex-direction: column; }
+            .revenue-arrow { transform: rotate(90deg); }
+            .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .pdf-header { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="https://intel.42agency.com" class="logo">42<span>.</span></a>
+            <div class="header-badge">
+                <img src="https://www.google.com/s2/favicons?domain=itential.com&sz=128" alt="Itential">
+                <div class="header-badge-text">
+                    <div class="header-badge-company">Itential</div>
+                    <div class="header-badge-label">Executive Briefing</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-badge">Market Intelligence</div>
+            <h1>53K Decision-Makers. 3,500 Monthly Searches. Who's Reaching Them?</h1>
+            <p class="hero-subtitle">Your ICP is searching and scrolling. Here's where the demand is.</p>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat-item blue">
+            <div class="stat-value">53K</div>
+            <div class="stat-label">LinkedIn Audience</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">3,500</div>
+            <div class="stat-label">Monthly Searches</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">$21</div>
+            <div class="stat-label">Avg CPC</div>
+        </div>
+        <div class="stat-item green">
+            <div class="stat-value">$2.4M</div>
+            <div class="stat-label">Pipeline Opportunity</div>
+        </div>
+    </div>
+
+    <main class="main">
+        <!-- Key Findings -->
+        <h2 class="section-title">Key Findings</h2>
+        <div class="findings-list">
+            <div class="finding-item">
+                <div class="finding-icon">1</div>
+                <p class="finding-text"><strong>53K+ Director/VP Infrastructure buyers on LinkedIn</strong> — segmented by your 5 key verticals (Service Providers, Financial Services, Healthcare, Manufacturing, Government)</p>
+            </div>
+            <div class="finding-item">
+                <div class="finding-icon">2</div>
+                <p class="finding-text"><strong>3,500+ monthly searches in network automation</strong> — $16-26 CPCs signal enterprise buyers with high intent</p>
+            </div>
+            <div class="finding-item">
+                <div class="finding-icon">3</div>
+                <p class="finding-text"><strong>"Agentic orchestration" is greenfield</strong> — competitors own "network automation" but not the AI narrative. First-mover advantage available.</p>
+            </div>
+        </div>
+
+        <!-- Revenue Model -->
+        <div class="revenue-box">
+            <h3>Revenue Opportunity Model (Annual)</h3>
+            <div class="revenue-flow">
+                <div class="revenue-step">
+                    <div class="num">42K</div>
+                    <div class="label">Searches</div>
+                </div>
+                <div class="revenue-arrow">→</div>
+                <div class="revenue-step">
+                    <div class="num">1,260</div>
+                    <div class="label">Clicks</div>
+                </div>
+                <div class="revenue-arrow">→</div>
+                <div class="revenue-step">
+                    <div class="num">38</div>
+                    <div class="label">Leads</div>
+                </div>
+                <div class="revenue-arrow">→</div>
+                <div class="revenue-step">
+                    <div class="num">10</div>
+                    <div class="label">SQLs</div>
+                </div>
+                <div class="revenue-arrow">→</div>
+                <div class="revenue-step">
+                    <div class="num">$2.4M</div>
+                    <div class="label">Pipeline</div>
+                </div>
+            </div>
+            <div class="revenue-assumptions">
+                3% CTR • 3% conversion • 25% MQL→SQL • $250K ACV
+            </div>
+        </div>
+
+        <!-- Two Column: Keywords + LinkedIn -->
+        <div class="two-col">
+            <div class="card">
+                <h3>Search Demand</h3>
+                <table class="kw-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Vol/mo</th>
+                            <th>CPC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="kw-keyword">network automation<span class="kw-badge">High Intent</span></td>
+                            <td class="kw-vol">1,900</td>
+                            <td class="kw-cpc">$16.42</td>
+                        </tr>
+                        <tr>
+                            <td class="kw-keyword">network orchestration</td>
+                            <td class="kw-vol">480</td>
+                            <td class="kw-cpc">$26.18</td>
+                        </tr>
+                        <tr>
+                            <td class="kw-keyword">network automation tools</td>
+                            <td class="kw-vol">390</td>
+                            <td class="kw-cpc">$19.55</td>
+                        </tr>
+                        <tr>
+                            <td class="kw-keyword">itential<span class="kw-badge">Branded</span></td>
+                            <td class="kw-vol">320</td>
+                            <td class="kw-cpc">$8.24</td>
+                        </tr>
+                        <tr>
+                            <td class="kw-keyword">network automation software</td>
+                            <td class="kw-vol">260</td>
+                            <td class="kw-cpc">$24.30</td>
+                        </tr>
+                        <tr>
+                            <td class="kw-keyword">infrastructure as code networking</td>
+                            <td class="kw-vol">170</td>
+                            <td class="kw-cpc">$18.75</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="linkedin-box">
+                <h3>LinkedIn Audience</h3>
+                <div class="linkedin-stats">
+                    <span class="linkedin-stat"><strong>53K</strong> Total Audience</span>
+                    <span class="linkedin-stat"><strong>Director+</strong> Seniority</span>
+                    <span class="linkedin-stat"><strong>5,000+</strong> Employees</span>
+                </div>
+                <div class="linkedin-targeting">
+                    <strong>Target Titles:</strong> VP Network Engineering, Director Infrastructure, Network Architect, VP IT Operations, CTO
+                </div>
+                <div class="linkedin-targeting" style="margin-top: 0.75rem;">
+                    <strong>Verticals:</strong> Service Providers (Tier 1-3), Financial Services, Healthcare, Manufacturing, Government
+                </div>
+            </div>
+        </div>
+
+        <!-- PDF Viewer -->
+        <h2 class="section-title">Full Intelligence Report</h2>
+        <div class="pdf-section">
+            <div class="pdf-header">
+                <span class="pdf-title">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                    Itential Campaign Intelligence Report
+                </span>
+                <a href="Itential_Prospecting_Intel.pdf" download class="download-btn">
+                    <svg viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
+            <iframe
+                class="pdf-viewer"
+                src="https://docs.google.com/viewer?url=https%3A%2F%2Fintel.42agency.com%2Fitential-1ecc51%2FItential_Prospecting_Intel.pdf&embedded=true"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Building a Demand Gen Team?</h2>
+            <p>While you're ramping your Director of Demand Gen, we can help you move fast. This preview shows a fraction of the opportunity.</p>
+            <a href="https://www.42agency.com/contact-us" class="cta-btn">Schedule a Strategy Call</a>
+            <div class="cta-subtext">15 minutes. We'll walk through the data.</div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="https://intel.42agency.com" style="font-size: 24px; font-weight: 700; color: #fff; text-decoration: none;">42<span style="color: #DFFE68;">.</span></a>
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
+                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
+                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="https://intel.42agency.com">All Resources</a>
+                    <a href="https://intel.42agency.com/zenabm/">ABM Frameworks</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Essays</h4>
+                    <a href="https://42slash.com" target="_blank">42/ Substack</a>
+                    <a href="https://linkedin.com/company/42agency" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

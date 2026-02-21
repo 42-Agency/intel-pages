@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactMonkey | Market Intelligence Briefing</title>
+    <link rel="icon" href="https://www.contactmonkey.com/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-green: #5BD675;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light: #f8f9fa;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--brand-green);
+        }
+        .header img { height: 32px; }
+        .badge {
+            background: var(--brand-green);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .subheadline {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+        .findings {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .findings h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+        .finding {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .finding:last-child { border-bottom: none; }
+        .finding-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--brand-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .finding-icon svg { width: 14px; height: 14px; fill: white; }
+        .finding-text {
+            font-size: 15px;
+        }
+        .finding-text strong { color: var(--dark); }
+
+        /* PDF Embed Section */
+        .pdf-embed-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .pdf-embed-section h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .pdf-embed-section h3 a {
+            font-size: 14px;
+            color: var(--brand-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .pdf-embed-section h3 a:hover {
+            text-decoration: underline;
+        }
+        .pdf-container {
+            width: 100%;
+            height: 800px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .pdf-container object {
+            width: 100%;
+            height: 100%;
+        }
+        .pdf-fallback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: var(--light);
+            text-align: center;
+            padding: 40px;
+        }
+        .pdf-fallback p {
+            margin-bottom: 16px;
+            color: var(--gray);
+        }
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--brand-green);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .pdf-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(91, 214, 117, 0.4);
+        }
+        .pdf-btn svg { width: 18px; height: 18px; fill: white; }
+
+        .cta-section {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            border: 2px solid var(--brand-green);
+        }
+        .cta-section h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .cta-section p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+        .cta-btn:hover { background: #333; }
+        .cta-subtext {
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--gray);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: var(--gray);
+            font-size: 13px;
+        }
+        .footer a { color: var(--brand-green); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://42agency.com/wp-content/uploads/2024/09/42_logo_horizontal.png" alt="42 Agency">
+            <span class="badge">Executive Briefing</span>
+        </div>
+
+        <h1>12K Internal Comms Leaders Are Searching.<br>Who's Capturing That Demand?</h1>
+        <p class="subheadline">We mapped the internal communications software market. Here's what we found.</p>
+
+        <div class="findings">
+            <h3>Key Findings</h3>
+            <div class="finding">
+                <div class="finding-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <div class="finding-text">
+                    <strong>3,590 buyers searching monthly</strong> — real demand for internal comms solutions, but most isn't going to ContactMonkey today.
+                </div>
+            </div>
+            <div class="finding">
+                <div class="finding-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <div class="finding-text">
+                    <strong>Low competition in your category</strong> — the window to own this pipeline is open. Poppulo and Staffbase aren't aggressively capturing it yet.
+                </div>
+            </div>
+            <div class="finding">
+                <div class="finding-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <div class="finding-text">
+                    <strong>12,000 IC leaders on LinkedIn</strong> — your exact buyers at enterprise companies. $15-25K/mo would meaningfully move pipeline.
+                </div>
+            </div>
+        </div>
+
+        <!-- Embedded PDF -->
+        <div class="pdf-embed-section">
+            <h3>
+                Full Briefing
+                <a href="ContactMonkey_Prospecting_Intel.pdf" download>Download PDF ↓</a>
+            </h3>
+            <div class="pdf-container">
+                <object data="ContactMonkey_Prospecting_Intel.pdf" type="application/pdf">
+                    <iframe src="ContactMonkey_Prospecting_Intel.pdf">
+                        <div class="pdf-fallback">
+                            <p>PDF preview not available in your browser.</p>
+                            <a href="ContactMonkey_Prospecting_Intel.pdf" class="pdf-btn" download>
+                                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                                Download PDF
+                            </a>
+                        </div>
+                    </iframe>
+                </object>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Want the Complete Demand Analysis?</h3>
+            <p>This briefing covers the opportunity. The full strategy includes 50+ buyer signals, campaign architecture, and a 90-day roadmap.</p>
+            <a href="https://42agency.com/contact" class="cta-btn">Schedule a Strategy Call</a>
+            <p class="cta-subtext">15 minutes. We'll walk through the specific numbers.</p>
+        </div>
+
+        <div class="footer">
+            <p>Prepared by <a href="https://42agency.com">42 Agency</a> | B2B Performance Marketing</p>
+        </div>
+    </div>
+</body>
+</html>

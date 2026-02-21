@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code Cheatsheet | 42 Agency × Exit Five</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        :root {
+            --green: #DFFE68;
+            --green-dark: #C8E85C;
+            --black: #1a1a1a;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-lighter);
+            color: var(--black);
+            line-height: 1.5;
+            font-size: 10px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background: var(--white);
+        }
+
+        @media print {
+            body {
+                background: white;
+                font-size: 9px;
+            }
+            .page {
+                padding: 0;
+                max-width: none;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--green);
+            margin-bottom: 1rem;
+        }
+
+        .header-logos {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .header-logos img {
+            height: 18px;
+        }
+
+        .header-logos span {
+            color: var(--gray-light);
+            font-size: 1rem;
+        }
+
+        .header h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 1rem;
+        }
+
+        .section h2 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--black);
+            background: var(--green);
+            padding: 0.3rem 0.6rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Code */
+        .code {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.5rem 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            border-left: 3px solid var(--green);
+        }
+
+        .code .comment {
+            color: #888;
+        }
+
+        .code-inline {
+            background: var(--gray-lighter);
+            padding: 0.1rem 0.3rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            border: 1px solid var(--gray-light);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.25rem;
+        }
+
+        li strong {
+            color: var(--black);
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 0.5rem;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            padding: 0.35rem 0.5rem;
+            text-align: left;
+            border: 1px solid var(--gray-light);
+        }
+
+        th {
+            background: var(--green);
+            font-weight: 600;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        tr:nth-child(even) td {
+            background: var(--gray-lighter);
+        }
+
+        /* Grid layouts */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        /* Prompt examples */
+        .prompt {
+            background: var(--gray-lighter);
+            padding: 0.4rem 0.6rem;
+            margin-bottom: 0.4rem;
+            border-left: 3px solid var(--green);
+            font-size: 0.9em;
+        }
+
+        .prompt strong {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: var(--gray);
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        /* Agent card */
+        .agent-card {
+            background: var(--gray-lighter);
+            padding: 0.6rem;
+            border: 1px solid var(--gray-light);
+        }
+
+        .agent-card h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .agent-card p {
+            font-size: 0.8rem;
+            color: var(--gray-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .agent-card .flow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--gray);
+        }
+
+        .agent-card .flow span {
+            color: var(--green-dark);
+        }
+
+        /* Tip */
+        .tip {
+            background: rgba(223, 254, 104, 0.3);
+            border: 1px solid var(--green);
+            padding: 0.4rem 0.6rem;
+            margin-top: 0.4rem;
+            font-size: 0.85em;
+        }
+
+        /* Callout */
+        .callout {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.6rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.9em;
+        }
+
+        .callout strong {
+            color: var(--green);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 2px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        /* Print button */
+        .print-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--green);
+            color: var(--black);
+            border: 2px solid var(--black);
+            padding: 14px 28px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+
+        .print-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--black);
+        }
+
+        p {
+            margin-bottom: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="header-logos">
+                <img src="42_logo_black.png" alt="42 Agency">
+                <span>×</span>
+                <img src="exitfive_logo_black.svg" alt="Exit Five">
+            </div>
+            <h1>Claude Code Cheatsheet for B2B Marketers</h1>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <div class="section">
+                    <h2>Installation (2 minutes)</h2>
+                    <div class="code">
+                        <span class="comment"># 1. Install Node.js from nodejs.org</span><br>
+                        <span class="comment"># 2. Open Terminal and run:</span><br>
+                        npm install -g @anthropic-ai/claude-code<br>
+                        <span class="comment"># 3. Start Claude Code:</span><br>
+                        claude
+                    </div>
+                    <div class="tip">
+                        <strong>Run inside a project folder</strong> so Claude can read your files. Create a folder like <code class="code-inline">~/Projects/campaign-analysis</code> and run <code class="code-inline">claude</code> there.
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Prompts That Actually Work</h2>
+                    <div class="prompt">
+                        <strong>Analyze Performance Data</strong>
+                        "Look at google_ads_export.csv. Which campaigns have CPL above $150? Show me the trend over the last 4 weeks."
+                    </div>
+                    <div class="prompt">
+                        <strong>Competitive Research</strong>
+                        "Go to [competitor.com], analyze their homepage messaging, pricing page, and any case studies. Summarize their positioning."
+                    </div>
+                    <div class="prompt">
+                        <strong>Content Repurposing</strong>
+                        "Turn this blog post into 5 LinkedIn posts. Each should have a hook, one key insight, and end with a question."
+                    </div>
+                    <div class="prompt">
+                        <strong>Build a Report</strong>
+                        "Create an HTML report from this CSV with charts showing spend by channel and CPL trends. Make it look professional."
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Context = Better Output</h2>
+                    <ul>
+                        <li><strong>Be specific:</strong> "Q1 vs Q4 performance" not "analyze this"</li>
+                        <li><strong>Share the goal:</strong> "This is for a QBR with the CMO"</li>
+                        <li><strong>Give examples:</strong> "Format like this: [paste example]"</li>
+                        <li><strong>Set constraints:</strong> "Keep it under 200 words"</li>
+                        <li><strong>Name your files:</strong> Drag files in or "look at data.csv"</li>
+                    </ul>
+                    <div class="tip">
+                        <strong>If output is too generic:</strong> "Be specific. Use actual numbers from the data. Skip the caveats."
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>CLAUDE.md = Project Memory</h2>
+                    <p>Create a <code class="code-inline">CLAUDE.md</code> file in your project folder. Claude reads it automatically every session.</p>
+                    <div class="code">
+                        # Client: Acme Corp<br>
+                        B2B SaaS, Series B, $50k/mo ad spend<br><br>
+                        ## What I'm working on<br>
+                        - Analyzing Q1 Google Ads performance<br>
+                        - Finding budget optimization opportunities<br><br>
+                        ## How I like to work<br>
+                        - Be direct, skip fluff<br>
+                        - Show your math<br>
+                        - Flag anything over $1k/month
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="section">
+                    <h2>Agents We've Built at 42 Agency</h2>
+                    <p style="color: var(--gray); margin-bottom: 0.5rem;">These run on Claude Code. We built them for our client work.</p>
+                    <div class="three-col">
+                        <div class="agent-card">
+                            <h4>Competitive Intel</h4>
+                            <p>Researches a company's website, pulls their ads, analyzes positioning</p>
+                            <div class="flow">Company URL <span>→</span> PDF report</div>
+                        </div>
+                        <div class="agent-card">
+                            <h4>Campaign Planner</h4>
+                            <p>Pulls real CPCs, builds audiences, structures campaigns</p>
+                            <div class="flow">URL + budget <span>→</span> Full plan</div>
+                        </div>
+                        <div class="agent-card">
+                            <h4>Content Atomizer</h4>
+                            <p>Turns long-form into social posts, carousels, email snippets</p>
+                            <div class="flow">Blog post <span>→</span> 10+ assets</div>
+                        </div>
+                        <div class="agent-card">
+                            <h4>Performance Analyst</h4>
+                            <p>Analyzes ad exports, finds trends, flags issues</p>
+                            <div class="flow">CSV export <span>→</span> Insights</div>
+                        </div>
+                        <div class="agent-card">
+                            <h4>Weekly Reporter</h4>
+                            <p>Pulls from multiple sources, generates exec summary</p>
+                            <div class="flow">Connected data <span>→</span> Report</div>
+                        </div>
+                        <div class="agent-card">
+                            <h4>Lead Enrichment</h4>
+                            <p>Cleans lists, enriches with firmographics, scores leads</p>
+                            <div class="flow">Raw list <span>→</span> Enriched CSV</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Essential Commands</h2>
+                    <table>
+                        <tr><td><code class="code-inline">Esc</code></td><td>Stop mid-response</td><td><code class="code-inline">/clear</code></td><td>Fresh conversation</td></tr>
+                        <tr><td><code class="code-inline">Ctrl+C</code></td><td>Cancel action</td><td><code class="code-inline">/help</code></td><td>See all commands</td></tr>
+                        <tr><td><code class="code-inline">↑</code></td><td>Previous prompt</td><td><code class="code-inline">/cost</code></td><td>Check usage</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2>Claude.ai vs Claude Code</h2>
+                    <table>
+                        <thead>
+                            <tr><th>Claude.ai (Browser)</th><th>Claude Code (Terminal)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Quick questions, brainstorming</td><td>Working with files & data</td></tr>
+                            <tr><td>One-off writing tasks</td><td>Multi-step workflows</td></tr>
+                            <tr><td>Copy/paste everything</td><td>Reads files directly</td></tr>
+                            <tr><td>"Help me think"</td><td>"Help me build"</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2>Your First Week</h2>
+                    <table>
+                        <thead>
+                            <tr><th>Day</th><th>What to Do</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Day 1</strong></td><td>Install + try 3 prompts from this sheet</td></tr>
+                            <tr><td><strong>Day 2</strong></td><td>Analyze one of your own CSV exports</td></tr>
+                            <tr><td><strong>Day 3</strong></td><td>Create a CLAUDE.md for a project</td></tr>
+                            <tr><td><strong>Day 4</strong></td><td>Build something: report, analysis, content</td></tr>
+                            <tr><td><strong>Day 5</strong></td><td>Automate one thing you do every week</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <strong>The mindset shift:</strong> You're not coding. You're describing what you want to a very capable assistant that can read your files, browse the web, and build things. Start with tasks you already do manually.
+        </div>
+
+        <div class="footer">
+            <span><strong>42 Agency</strong> × <strong>Exit Five</strong> — 42agency.com</span>
+            <span>Claude Code is $20/month (Pro) or usage-based (API). Worth it.</span>
+        </div>
+    </div>
+
+    <button class="print-btn no-print" onclick="window.print()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download PDF
+    </button>
+</body>
+</html>

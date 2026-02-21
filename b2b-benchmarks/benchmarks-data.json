@@ -1,0 +1,208 @@
+{
+  "metadata": {
+    "source": "42 Agency Client Data",
+    "clients_analyzed": 87,
+    "date_range": "2022-2026",
+    "last_updated": "2026-02-19"
+  },
+  "benchmarks": [
+    {
+      "industry": "Legal Tech",
+      "clients": ["Steno", "DISCO", "Part3"],
+      "metrics": {
+        "linkedin": {
+          "cpl_content": { "range": "$97-$110", "note": "Gated content downloads" },
+          "cpl_guides": { "range": "$300-$350", "note": "High-value guides (AI Guide)" }
+        },
+        "google_search": {
+          "cpl": { "range": "$900-$1,500", "note": "High-intent brand/competitor terms" }
+        }
+      }
+    },
+    {
+      "industry": "Healthcare Tech",
+      "clients": ["WestCX/TeleVox/Mosaicx", "OnCall Health", "HR for Health"],
+      "metrics": {
+        "blended": {
+          "cpl": { "range": "$800-$1,000", "note": "All channels combined" },
+          "cost_per_mql": { "range": "$1,200-$1,500", "note": "Qualified leads" }
+        },
+        "linkedin_inmail": {
+          "open_rate": { "range": "26-30%", "note": "With gift card incentive" },
+          "cpl": { "range": "$400-$600", "note": "InMail with incentive" }
+        }
+      }
+    },
+    {
+      "industry": "Privacy/Security",
+      "clients": ["Ethyca", "Cerby", "Teleport", "Odaseva"],
+      "metrics": {
+        "linkedin": {
+          "cpl_content": { "range": "$130-$180", "note": "Topical content (EU AI Act)" },
+          "cpl_icp": { "range": "$280-$400", "note": "ICP-qualified leads" }
+        }
+      }
+    },
+    {
+      "industry": "FinTech/Payments",
+      "clients": ["PayNearMe", "Float", "A2X", "Metronome", "Passthrough"],
+      "metrics": {
+        "linkedin": {
+          "cpl_enterprise": { "range": "$1,500-$1,800", "note": "50+ employee targets" },
+          "cpl_content": { "range": "$200-$400", "note": "Content downloads" }
+        }
+      }
+    },
+    {
+      "industry": "Logistics/Supply Chain",
+      "clients": ["Transfix", "Rose Rocket", "Afresh", "SVT Robotics"],
+      "metrics": {
+        "google_search": {
+          "cost_per_sql": { "range": "$1,500-$3,000", "note": "Sales qualified leads" }
+        },
+        "linkedin": {
+          "cpl": { "range": "$300-$600", "note": "Content + lead gen" }
+        }
+      }
+    },
+    {
+      "industry": "DevOps/Engineering",
+      "clients": ["Unblocked", "Opsera", "Stainless"],
+      "metrics": {
+        "linkedin_inmail": {
+          "cpl_with_incentive": { "range": "$400-$500", "note": "Gift card offer" },
+          "cpl_no_incentive": { "range": "$1,500-$1,800", "note": "No incentive" },
+          "open_rate_with_gc": { "range": "40-50%", "note": "Gift card offer" },
+          "open_rate_no_gc": { "range": "30-40%", "note": "No incentive" }
+        },
+        "linkedin_infeed": {
+          "cpl": { "range": "$2,000-$2,500", "note": "Lead form ads" }
+        },
+        "blended": {
+          "cost_per_mql": { "range": "$1,500-$2,000", "note": "Marketing qualified" }
+        }
+      }
+    },
+    {
+      "industry": "Digital Workplace/Collaboration",
+      "clients": ["Unily", "Teamwork", "Communo"],
+      "metrics": {
+        "linkedin": {
+          "cpl": { "range": "$500-$800", "note": "Enterprise targets" }
+        },
+        "google_search": {
+          "cpl": { "range": "$1,200-$1,500", "note": "Exact match terms" },
+          "cost_per_mql": { "range": "$2,500-$3,000", "note": "Phrase match" }
+        }
+      }
+    },
+    {
+      "industry": "EdTech/HR Tech",
+      "clients": ["InStride", "Mathison", "Cognota", "Charma", "Guru"],
+      "metrics": {
+        "linkedin": {
+          "cpl": { "range": "$250-$500", "note": "HR decision makers" }
+        }
+      }
+    },
+    {
+      "industry": "Construction Tech",
+      "clients": ["eSUB", "Uptick", "Knowify"],
+      "metrics": {
+        "google_search": {
+          "cpl": { "range": "$150-$300", "note": "Industry-specific terms" }
+        },
+        "linkedin": {
+          "cpl": { "range": "$400-$700", "note": "Owners/GMs" }
+        }
+      }
+    },
+    {
+      "industry": "E-commerce/Retail Tech",
+      "clients": ["TryNow", "Cin7", "Repspark", "QSIC"],
+      "metrics": {
+        "google_ads": {
+          "roas": { "range": "300-500%", "note": "E-commerce campaigns" }
+        },
+        "meta": {
+          "cpl": { "range": "$50-$100", "note": "B2B retail leads" }
+        }
+      }
+    },
+    {
+      "industry": "MarTech/SalesTech",
+      "clients": ["SharpSpring", "Klue", "Pocus", "Knak", "GrowthLoop"],
+      "metrics": {
+        "linkedin": {
+          "cpl": { "range": "$300-$600", "note": "Marketing personas" }
+        }
+      }
+    },
+    {
+      "industry": "Life Sciences/Pharma",
+      "clients": ["Redica", "Cytena", "ACTO"],
+      "metrics": {
+        "linkedin": {
+          "cpl": { "range": "$400-$800", "note": "Pharma/biotech targets" }
+        }
+      }
+    },
+    {
+      "industry": "UCaaS/Telecom",
+      "clients": ["Evolve IP", "PiiComm"],
+      "metrics": {
+        "linkedin": {
+          "cpl": { "range": "$300-$500", "note": "IT decision makers" }
+        },
+        "google_search": {
+          "cpl": { "range": "$200-$400", "note": "Service terms" }
+        }
+      }
+    },
+    {
+      "industry": "Consumer/B2B (Hybrid)",
+      "clients": ["Bissell/Sanitaire"],
+      "metrics": {
+        "google_ads": {
+          "roas": { "range": "450-550%", "note": "Search outperforms PMax" },
+          "cost_per_conversion": { "range": "$50-$60", "note": "E-commerce" }
+        },
+        "meta": {
+          "cpl": { "range": "$80-$100", "note": "B2B commercial leads" }
+        }
+      }
+    }
+  ],
+  "channel_benchmarks": {
+    "linkedin_inmail": {
+      "open_rate_with_incentive": "40-50%",
+      "open_rate_without_incentive": "25-35%",
+      "cpl_with_incentive": "$300-$500",
+      "cpl_without_incentive": "$1,000-$2,000",
+      "note": "Gift cards (Amazon, Spa) significantly improve performance"
+    },
+    "linkedin_infeed": {
+      "ctr_content": "0.4-0.6%",
+      "ctr_lead_gen": "0.3-0.5%",
+      "cpl_content": "$100-$300",
+      "cpl_direct": "$500-$1,500"
+    },
+    "google_search": {
+      "ctr_brand": "8-15%",
+      "ctr_competitor": "3-6%",
+      "ctr_generic": "2-4%",
+      "cpc_b2b": "$8-$25"
+    },
+    "meta": {
+      "cpl_b2b": "$50-$150",
+      "ctr": "0.8-1.5%",
+      "note": "Best for retargeting, limited cold prospecting for B2B"
+    }
+  },
+  "funnel_benchmarks": {
+    "lead_to_mql": "15-30%",
+    "mql_to_sql": "20-40%",
+    "sql_to_opportunity": "30-50%",
+    "opportunity_to_closed": "15-25%"
+  }
+}

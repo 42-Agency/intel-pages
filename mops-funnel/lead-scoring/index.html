@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Lead Scoring Model: Demographic + Behavioral Framework | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta name="description" content="Learn how to build a B2B lead scoring model using demographic fit + behavioral engagement. Includes scoring matrix, point values, and MQL threshold calculation.">
+    <meta property="og:title" content="B2B Lead Scoring Model: Demographic + Behavioral Framework">
+    <meta property="og:description" content="The complete guide to building a lead scoring model that actually predicts conversion.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+            --mops: #8B5CF6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-lighter);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+        }
+        .back-link:hover { background: var(--accent); }
+
+        .container { max-width: 720px; margin: 0 auto; padding: 2rem; }
+
+        .breadcrumb { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--gray-dark); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .article-header { margin-bottom: 2.5rem; }
+        .article-badge {
+            display: inline-block;
+            background: var(--mops);
+            color: white;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--black);
+        }
+        .article-header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .article-meta { font-size: 0.9rem; color: var(--gray); }
+
+        .article-content {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 2.5rem;
+            box-shadow: 4px 4px 0 var(--black);
+            margin-bottom: 2rem;
+        }
+        .article-content h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 2rem 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+        .article-content p { margin-bottom: 1rem; color: var(--gray-dark); }
+        .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .article-content li { margin-bottom: 0.5rem; color: var(--gray-dark); }
+        .article-content strong { color: var(--black); }
+
+        .callout {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .callout-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .callout p { margin: 0; font-size: 0.95rem; }
+
+        .scoring-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .scoring-table th {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 700;
+        }
+        .scoring-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .scoring-table tr:nth-child(even) { background: var(--gray-lighter); }
+        .points {
+            font-weight: 700;
+            color: var(--mops);
+            text-align: center;
+        }
+        .points.negative { color: #dc2626; }
+
+        .formula-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-family: monospace;
+        }
+        .formula-box .formula {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .formula-box .formula span { color: var(--accent); }
+        .formula-box .explanation { font-size: 0.85rem; color: #999; }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .grid-box {
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+            padding: 1.25rem;
+        }
+        .grid-box h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--mops);
+        }
+        .grid-box p { font-size: 0.9rem; margin: 0; }
+
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            padding: 2rem;
+            box-shadow: 4px 4px 0 var(--black);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .cta-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-section p { color: var(--gray-dark); margin-bottom: 1.25rem; }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.875rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--black);
+            transition: all 0.15s;
+        }
+        .cta-btn:hover { background: var(--white); color: var(--black); }
+        .cta-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .related-section { margin-bottom: 2rem; }
+        .related-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .related-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .related-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 3px 3px 0 var(--black);
+            transition: all 0.15s;
+        }
+        .related-card:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--black); }
+        .related-card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.35rem; }
+        .related-card-desc { font-size: 0.85rem; color: var(--gray); }
+
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.75rem; }
+            .article-content { padding: 1.5rem; }
+            .related-cards, .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        .footer { background: var(--black); color: var(--white); padding: 4rem 2rem 1.5rem; margin-top: 2rem; }
+        .footer-top { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 250px 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333; }
+        .footer-logo { height: 28px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a { width: 40px; height: 40px; background: #333; display: flex; align-items: center; justify-content: center; color: #fff; transition: all 0.15s; }
+        .social-links a:hover { background: var(--accent); color: var(--black); }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem; color: var(--accent); }
+        .footer-col a { display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1000px; margin: 0 auto; padding-top: 2rem; text-align: center; }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+        @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo"><img src="/42-logo.png" alt="42 Agency"></div>
+            <a href="/mops-funnel/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                MOPS Funnel
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Resources</a> / <a href="/mops-funnel/">MOPS Funnel</a> / Lead Scoring
+        </div>
+
+        <div class="article-header">
+            <span class="article-badge">MOPS</span>
+            <h1>B2B Lead Scoring: The Demographic + Behavioral Model</h1>
+            <p class="article-meta">How to build a scoring model that actually predicts conversion, not just activity.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>Why Most Lead Scoring Fails</h2>
+            <p>Most B2B lead scoring models fail for one reason: they over-weight behavioral signals. A competitor researching you will look like your best lead. An intern downloading whitepapers will outscore a VP who viewed pricing once.</p>
+            <p>The fix is a <strong>two-axis model</strong>: demographic fit (who they are) combined with behavioral engagement (what they do). Neither alone is sufficient.</p>
+
+            <div class="formula-box">
+                <div class="formula"><span>Grade</span> (Fit) + <span>Score</span> (Behavior) = <span>Qualification</span></div>
+                <div class="explanation">A = ICP fit, F = bad fit | 0-100 points for engagement</div>
+            </div>
+
+            <h2>Axis 1: Demographic Scoring (The Grade)</h2>
+            <p>Demographic scoring answers: <strong>"Is this someone we can actually sell to?"</strong></p>
+            <p>Assign a letter grade (A-F) based on ICP fit:</p>
+
+            <table class="scoring-table">
+                <thead>
+                    <tr>
+                        <th>Grade</th>
+                        <th>Definition</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>A</strong></td>
+                        <td>Perfect ICP match</td>
+                        <td>VP Marketing at 500-5000 employee B2B SaaS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>B</strong></td>
+                        <td>Good fit, minor gaps</td>
+                        <td>Director Marketing at 200-500 employee tech</td>
+                    </tr>
+                    <tr>
+                        <td><strong>C</strong></td>
+                        <td>Possible fit, needs validation</td>
+                        <td>Marketing Manager at enterprise (may not be decision-maker)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>D</strong></td>
+                        <td>Poor fit, low priority</td>
+                        <td>Right title but wrong industry or too small</td>
+                    </tr>
+                    <tr>
+                        <td><strong>F</strong></td>
+                        <td>Never sell to</td>
+                        <td>Students, competitors, personal emails, agencies</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Demographic Criteria to Score</h3>
+            <div class="grid-2">
+                <div class="grid-box">
+                    <h4>Company Fit</h4>
+                    <p>Industry, employee count, revenue, geography, tech stack</p>
+                </div>
+                <div class="grid-box">
+                    <h4>Contact Fit</h4>
+                    <p>Job title, seniority, department, decision-making authority</p>
+                </div>
+            </div>
+
+            <h2>Axis 2: Behavioral Scoring (The Score)</h2>
+            <p>Behavioral scoring answers: <strong>"How engaged are they right now?"</strong></p>
+            <p>Assign points for actions that indicate buying intent:</p>
+
+            <table class="scoring-table">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Points</th>
+                        <th>Rationale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Requested demo/contact</td>
+                        <td class="points">+30</td>
+                        <td>Explicit intent signal</td>
+                    </tr>
+                    <tr>
+                        <td>Viewed pricing page</td>
+                        <td class="points">+20</td>
+                        <td>Evaluating cost = late stage</td>
+                    </tr>
+                    <tr>
+                        <td>Visited 3+ product pages</td>
+                        <td class="points">+15</td>
+                        <td>Active research</td>
+                    </tr>
+                    <tr>
+                        <td>Downloaded case study</td>
+                        <td class="points">+10</td>
+                        <td>Evaluating proof points</td>
+                    </tr>
+                    <tr>
+                        <td>Attended webinar</td>
+                        <td class="points">+10</td>
+                        <td>Time investment</td>
+                    </tr>
+                    <tr>
+                        <td>Opened 3+ emails</td>
+                        <td class="points">+5</td>
+                        <td>Consistent engagement</td>
+                    </tr>
+                    <tr>
+                        <td>Downloaded TOFU content</td>
+                        <td class="points">+5</td>
+                        <td>Early awareness (low weight)</td>
+                    </tr>
+                    <tr>
+                        <td>Unsubscribed</td>
+                        <td class="points negative">-20</td>
+                        <td>Negative signal</td>
+                    </tr>
+                    <tr>
+                        <td>No activity 30+ days</td>
+                        <td class="points negative">-10</td>
+                        <td>Decay for inactivity</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <div class="callout-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Score Decay Matters
+                </div>
+                <p>Points should decay over time. A pricing page visit 6 months ago isn't the same as yesterday. Implement weekly or monthly decay (e.g., -5 points per 30 days of inactivity, cap at -30).</p>
+            </div>
+
+            <h2>Combining Grade + Score into MQL</h2>
+            <p>The magic is in the combination. Here's a qualification matrix:</p>
+
+            <table class="scoring-table">
+                <thead>
+                    <tr>
+                        <th>Grade</th>
+                        <th>Score 0-30</th>
+                        <th>Score 31-60</th>
+                        <th>Score 61+</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>A</strong></td>
+                        <td>Monitor</td>
+                        <td style="background: #d1fae5; font-weight: 700;">MQL</td>
+                        <td style="background: #86efac; font-weight: 700;">Hot MQL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>B</strong></td>
+                        <td>Monitor</td>
+                        <td>Monitor</td>
+                        <td style="background: #d1fae5; font-weight: 700;">MQL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>C</strong></td>
+                        <td>Nurture</td>
+                        <td>Monitor</td>
+                        <td>Monitor</td>
+                    </tr>
+                    <tr>
+                        <td><strong>D/F</strong></td>
+                        <td>Disqualify</td>
+                        <td>Disqualify</td>
+                        <td>Disqualify</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Key insight: <strong>An A-grade lead with moderate activity (31+) should MQL.</strong> They're a perfect fit showing interest. Don't make them jump through hoops.</p>
+            <p>Conversely: <strong>A C-grade with 100 points shouldn't auto-MQL.</strong> High activity from a poor-fit contact is often a competitor, student, or non-buyer.</p>
+
+            <h2>Implementation Tips</h2>
+            <h3>1. Start Simple, Then Iterate</h3>
+            <p>Don't build a 50-criteria model on day one. Start with 5 demographic attributes and 5 behavioral triggers. Add complexity as you learn what predicts conversion.</p>
+
+            <h3>2. Validate Against Closed-Won</h3>
+            <p>Pull your last 50 closed-won deals. What did those contacts look like before they converted? Build your model around that, not theoretical ICPs.</p>
+
+            <h3>3. Review Monthly</h3>
+            <p>Lead scoring isn't "set and forget." Review MQL→SQL conversion rates monthly. If A-grade leads are converting at the same rate as C-grades, your grading is broken.</p>
+
+            <h3>4. Get Sales Buy-In</h3>
+            <p>The best scoring model is useless if sales doesn't trust it. Involve them in defining grades and thresholds. Their feedback on lead quality is your calibration data.</p>
+        </div>
+
+        <div class="cta-section">
+            <h2>Get the Full Scoring Workbook</h2>
+            <p>Our MOPS Funnel workbook includes the complete lead scoring template with demographic criteria, behavioral triggers, and MQL threshold calculator.</p>
+            <a href="/mops-funnel/" class="cta-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download Workbook
+            </a>
+        </div>
+
+        <div class="related-section">
+            <h3 class="related-title">Related Guides</h3>
+            <div class="related-cards">
+                <a href="/mops-funnel/lifecycle-stages/" class="related-card">
+                    <div class="related-card-title">Lifecycle Stage Definitions</div>
+                    <div class="related-card-desc">From subscriber to customer: clear stage definitions</div>
+                </a>
+                <a href="/mops-funnel/mql-definition/" class="related-card">
+                    <div class="related-card-title">MQL Definition Framework</div>
+                    <div class="related-card-desc">When is a lead actually "marketing qualified"?</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/get42agency" target="_blank" aria-label="X/Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
+                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
+                    <a href="https://42agency.com/seo-and-content" target="_blank">SEO & Content</a>
+                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42/ Essays</h4>
+                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
+                    <a href="https://42slash.com/p/the-abm-measurement-problem" target="_blank">The ABM Measurement Problem</a>
+                    <a href="https://42slash.com" target="_blank">All Essays</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">Marvin (LinkedIn Ads AI)</a>
+                </div>
+                <div class="footer-col">
+                    <h4>MOPS Guides</h4>
+                    <a href="/mops-funnel/lead-scoring/">Lead Scoring</a>
+                    <a href="/mops-funnel/lifecycle-stages/">Lifecycle Stages</a>
+                    <a href="/mops-funnel/mql-definition/">MQL Definition</a>
+                    <a href="/mops-funnel/">Full Workbook</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

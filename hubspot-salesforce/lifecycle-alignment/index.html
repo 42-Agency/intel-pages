@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Salesforce Lifecycle Stage Alignment | Stage Mapping Guide</title>
+    <meta name="description" content="How to align HubSpot lifecycle stages with Salesforce lead status and opportunity stages. Mapping frameworks and common alignment mistakes.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/hubspot-salesforce/lifecycle-alignment/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root { --accent: #DFFE68; --accent-dark: #C8E85C; --black: #1a1a1a; --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937; --white: #ffffff; --orange: #ff7a59; --blue: #00a1e0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--black); }
+        .logo span { color: var(--accent); }
+        .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .back-link:hover { color: var(--accent); }
+        .article { padding: 48px 0; }
+        .breadcrumb { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--gray-600); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); }
+        h1 { font-size: 36px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
+        .meta { font-size: 14px; color: var(--gray-600); margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-200); }
+        h2 { font-size: 24px; font-weight: 600; color: var(--black); margin: 48px 0 16px; }
+        h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 32px 0 12px; }
+        p { margin-bottom: 16px; }
+        ul, ol { margin: 0 0 24px 24px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--black); }
+        .table-wrapper { overflow-x: auto; margin: 24px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: var(--black); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); }
+        tr:nth-child(even) { background: var(--gray-50); }
+        .callout { background: var(--gray-50); border-left: 4px solid var(--accent); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .callout-title { font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .callout p { margin: 0; font-size: 15px; }
+        .stage-badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+        .stage-badge.subscriber { background: #dbeafe; color: #1d4ed8; }
+        .stage-badge.lead { background: #fef3c7; color: #92400e; }
+        .stage-badge.mql { background: #d1fae5; color: #065f46; }
+        .stage-badge.sql { background: #ede9fe; color: #5b21b6; }
+        .stage-badge.opp { background: #fee2e2; color: #991b1b; }
+        .stage-badge.customer { background: #f0fdf4; color: #16a34a; }
+        .flow-diagram { background: var(--gray-50); border-radius: 12px; padding: 24px; margin: 24px 0; text-align: center; }
+        .flow-row { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+        .flow-arrow { color: var(--gray-400); font-size: 20px; }
+        .cta-box { background: linear-gradient(135deg, var(--black) 0%, #2d3548 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+        .cta-box h3 { color: var(--white); margin: 0 0 8px; }
+        .cta-box p { color: var(--gray-400); margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: var(--accent); color: var(--black); padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+        .footer { padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 48px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 14px; color: var(--gray-600); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        @media (max-width: 640px) { h1 { font-size: 28px; } .flow-row { flex-direction: column; } .flow-arrow { transform: rotate(90deg); } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                <a href="/hubspot-salesforce/" class="back-link">← Integration Checklist</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Resources</a> → <a href="/hubspot-salesforce/">HubSpot ↔ Salesforce</a> → Lifecycle Alignment
+            </div>
+
+            <h1>HubSpot Salesforce Lifecycle Stage Alignment</h1>
+            <div class="meta">How to map HubSpot lifecycle stages to Salesforce lead status and opportunity stages for consistent funnel reporting.</div>
+
+            <p>HubSpot and Salesforce track lifecycle differently. HubSpot uses a single "Lifecycle Stage" field across all contacts. Salesforce splits this into Lead Status (for Leads) and Opportunity Stage (for Opportunities).</p>
+
+            <p>Aligning these properly is critical for accurate funnel reporting across both systems.</p>
+
+            <h2>The Standard Lifecycle Flow</h2>
+
+            <div class="flow-diagram">
+                <p style="font-size: 12px; color: var(--gray-600); margin-bottom: 16px;">HubSpot Lifecycle Stages</p>
+                <div class="flow-row">
+                    <span class="stage-badge subscriber">Subscriber</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="stage-badge lead">Lead</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="stage-badge mql">MQL</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="stage-badge sql">SQL</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="stage-badge opp">Opportunity</span>
+                    <span class="flow-arrow">→</span>
+                    <span class="stage-badge customer">Customer</span>
+                </div>
+            </div>
+
+            <h2>Mapping Framework: HubSpot ↔ Salesforce</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>HubSpot Lifecycle</th>
+                            <th>Salesforce Object</th>
+                            <th>Salesforce Status/Stage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="stage-badge subscriber">Subscriber</span></td>
+                            <td>Lead</td>
+                            <td>New / Unqualified</td>
+                        </tr>
+                        <tr>
+                            <td><span class="stage-badge lead">Lead</span></td>
+                            <td>Lead</td>
+                            <td>Open / Working</td>
+                        </tr>
+                        <tr>
+                            <td><span class="stage-badge mql">MQL</span></td>
+                            <td>Lead</td>
+                            <td>Marketing Qualified</td>
+                        </tr>
+                        <tr>
+                            <td><span class="stage-badge sql">SQL</span></td>
+                            <td>Lead (or Contact)</td>
+                            <td>Sales Qualified / Converted</td>
+                        </tr>
+                        <tr>
+                            <td><span class="stage-badge opp">Opportunity</span></td>
+                            <td>Opportunity</td>
+                            <td>Discovery / Proposal / Negotiation</td>
+                        </tr>
+                        <tr>
+                            <td><span class="stage-badge customer">Customer</span></td>
+                            <td>Opportunity</td>
+                            <td>Closed Won</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>The Conversion Point Problem</h2>
+
+            <p>The trickiest part of alignment is the Lead → Contact conversion in Salesforce. This happens at different points depending on your process:</p>
+
+            <h3>Option A: Convert at SQL</h3>
+            <p>When sales accepts a lead, they convert it to Contact + Opportunity in Salesforce.</p>
+            <ul>
+                <li><strong>Pros:</strong> Clean handoff, opportunities attached to contacts</li>
+                <li><strong>Cons:</strong> Lose lead-level reporting for SQLs</li>
+            </ul>
+
+            <h3>Option B: Convert at Opportunity Creation</h3>
+            <p>Leads stay as Leads through SQL. Convert only when an Opportunity is created.</p>
+            <ul>
+                <li><strong>Pros:</strong> Full lead funnel visibility</li>
+                <li><strong>Cons:</strong> SQLs may linger as Leads</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-title">Recommendation</div>
+                <p>Most B2B companies should convert at SQL acceptance. This creates a clean handoff point and ensures every Contact has clear sales ownership. Use a Lead Status of "Converted" to mark the transition.</p>
+            </div>
+
+            <h2>Sync Rules for Lifecycle Changes</h2>
+
+            <p>Define what triggers lifecycle changes in each direction:</p>
+
+            <h3>HubSpot → Salesforce Triggers</h3>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>HubSpot Action</th>
+                            <th>Salesforce Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Form submission (content)</td>
+                            <td>Lead created, Status = "New"</td>
+                        </tr>
+                        <tr>
+                            <td>Lead score reaches threshold</td>
+                            <td>Lead Status → "Marketing Qualified"</td>
+                        </tr>
+                        <tr>
+                            <td>Demo/contact form submission</td>
+                            <td>Lead Status → "Marketing Qualified"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Salesforce → HubSpot Triggers</h3>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Salesforce Action</th>
+                            <th>HubSpot Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lead Status → "Sales Qualified"</td>
+                            <td>Lifecycle Stage → SQL</td>
+                        </tr>
+                        <tr>
+                            <td>Lead converted to Contact</td>
+                            <td>Lifecycle Stage → SQL or Opportunity</td>
+                        </tr>
+                        <tr>
+                            <td>Opportunity created</td>
+                            <td>Lifecycle Stage → Opportunity</td>
+                        </tr>
+                        <tr>
+                            <td>Opportunity → Closed Won</td>
+                            <td>Lifecycle Stage → Customer</td>
+                        </tr>
+                        <tr>
+                            <td>Lead Status → "Disqualified"</td>
+                            <td>Lifecycle Stage → Other (or unchanged)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Handling Backward Movement</h2>
+
+            <p>Sometimes leads move backward: SQL disqualified, Opportunity lost, Customer churned. Decide how to handle:</p>
+
+            <h3>Option 1: Never Move Backward</h3>
+            <p>Once someone reaches a stage, they stay there (or move forward only). Lost Opportunities stay "Opportunity" in HubSpot.</p>
+            <p><strong>Pros:</strong> Clean funnel metrics, no negative movement</p>
+            <p><strong>Cons:</strong> Current stage doesn't reflect reality</p>
+
+            <h3>Option 2: Allow Demotion</h3>
+            <p>Disqualified SQLs move back to Lead. Churned customers move to "Evangelist" or "Other."</p>
+            <p><strong>Pros:</strong> Accurate current state</p>
+            <p><strong>Cons:</strong> Complicates funnel reporting</p>
+
+            <div class="callout">
+                <div class="callout-title">Best Practice</div>
+                <p>Keep lifecycle stage as "high-water mark" (no backward movement) and use a separate "Lead Status" or "Current Status" field to track current disposition. This preserves funnel integrity while showing current state.</p>
+            </div>
+
+            <h2>Common Alignment Mistakes</h2>
+
+            <ul>
+                <li><strong>Syncing Lifecycle both directions:</strong> Creates infinite loops. Pick one system as source of truth for each transition.</li>
+                <li><strong>Mismatched stage counts:</strong> HubSpot has 7 default stages; Salesforce may have 15 Lead Statuses. Map many-to-one where needed.</li>
+                <li><strong>Ignoring Closed Lost:</strong> Failing to define what happens to HubSpot lifecycle when Opportunity is lost.</li>
+                <li><strong>No SQL definition alignment:</strong> Marketing and Sales disagree on what "qualified" means, causing stage mismatches.</li>
+            </ul>
+
+            <div class="cta-box">
+                <h3>Get the Full Integration Checklist</h3>
+                <p>Stage mapping template, sync rules documentation, and troubleshooting guides.</p>
+                <a href="/hubspot-salesforce/" class="cta-button">Download Checklist →</a>
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li>Map HubSpot lifecycle stages to Salesforce Lead Status AND Opportunity Stage</li>
+                <li>Define the conversion point (when Leads become Contacts)</li>
+                <li>Set clear triggers for stage changes in both directions</li>
+                <li>Use "high-water mark" lifecycle + separate current status field</li>
+                <li>Align SQL definition between marketing and sales before implementation</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer style="background: #0a0a0a; padding: 2rem; margin-top: 3rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 24px;"></a>
+                <span style="color: #666; font-size: 13px;">© 2026 42 Agency</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/hubspot-salesforce/field-mapping/" style="color: #999; text-decoration: none; font-size: 14px;">← Field Mapping</a>
+                <a href="/hubspot-salesforce/sync-errors/" style="color: #999; text-decoration: none; font-size: 14px;">Sync Errors →</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

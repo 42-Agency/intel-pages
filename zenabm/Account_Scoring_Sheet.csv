@@ -1,0 +1,6 @@
+Account Name,Domain,LI Impressions,LI Clicks,Website Visits,High Intent Page,Email Opens,Email Clicks,Pricing Page,Demo Page,Product Tour,HG Insights Score,ZoomInfo Score,Contacts Engaged,Director+ Engaged,VP+ Engaged,Outbound Reply,Last Activity Date,Engagement Score,High Intent Score,Intent Score,Buying Group Score,Sales Ready Score,RAW SCORE,Decay Multiplier,FINAL SCORE,Stage,Notes
+Example Corp,example.com,150,12,5,Y,Y,Y,Y,N,Y,65,55,3,Y,N,N,2026-02-01,25,25,10,15,10,85,1.0,85,SQA,Ready for AE outreach
+Acme Industries,acme.com,80,6,2,N,Y,N,N,N,N,45,40,2,N,N,N,2026-01-15,15,0,10,5,0,30,1.0,30,Consideration,Multi-channel engagement starting
+TechStart Inc,techstart.io,45,3,1,N,Y,N,N,N,N,25,30,1,N,N,N,2025-12-01,10,0,5,0,0,15,0.7,10.5,Awareness,Basic engagement only
+BigCo Global,bigco.com,200,25,8,Y,Y,Y,Y,Y,Y,75,80,4,Y,Y,Y,2026-02-10,30,25,15,15,15,100,1.0,100,SQA,All signals firing - priority
+MidMarket LLC,midmarket.com,60,4,0,N,N,N,N,N,N,20,15,0,N,N,N,2025-10-15,10,0,0,0,0,10,0.4,4,Identified,Needs nurturing

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Paid Media Calculator | Compare Your Performance | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta property="og:title" content="B2B Paid Media Calculator - See How You Compare">
+    <meta property="og:description" content="Input your LinkedIn & Google Ads metrics. Get instant comparison against 87 B2B client benchmarks.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --light-gray: #f5f5f5;
+            --linkedin: #0A66C2;
+            --google: #4285F4;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            background: white;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img { height: 32px; width: auto; }
+
+        .back-link {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-link:hover { color: var(--black); }
+
+        .main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .calculator-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            margin-bottom: 2rem;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background: white;
+            transition: all 0.2s;
+        }
+
+        .step.active {
+            background: var(--accent);
+        }
+
+        .step.completed {
+            background: var(--green);
+            color: white;
+            border-color: var(--green);
+        }
+
+        .step-line {
+            width: 60px;
+            height: 2px;
+            background: #e0e0e0;
+            align-self: center;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .form-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .platform-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .platform-icon.linkedin { background: var(--linkedin); }
+        .platform-icon.google { background: var(--google); }
+
+        .platform-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        input, select {
+            padding: 0.875rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--black);
+        }
+
+        .input-prefix {
+            position: relative;
+        }
+
+        .input-prefix input {
+            padding-left: 2rem;
+        }
+
+        .input-prefix::before {
+            content: '$';
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .input-suffix {
+            position: relative;
+        }
+
+        .input-suffix input {
+            padding-right: 2.5rem;
+        }
+
+        .input-suffix::after {
+            content: '%';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid var(--black);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--black);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+        }
+
+        /* Results */
+        .results-section {
+            display: none;
+        }
+
+        .results-section.active {
+            display: block !important;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+
+        .metric-name {
+            font-weight: 600;
+        }
+
+        .metric-values {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .your-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .benchmark-value {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .rating-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .rating-badge.excellent {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .rating-badge.good {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .rating-badge.average {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .rating-badge.poor {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-header h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            margin-bottom: 1.5rem;
+        }
+
+        .score-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+
+        .metric-name {
+            font-weight: 600;
+        }
+
+        .metric-values {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .your-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .benchmark-value {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .rating-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .rating-badge.excellent {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .rating-badge.good {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .rating-badge.average {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .rating-badge.poor {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .overall-score {
+            text-align: center;
+            padding: 2rem;
+            background: var(--accent);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .overall-score .label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .overall-score .score {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .overall-score .out-of {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        /* Gate for full report */
+        .report-gate {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+        }
+
+        .report-gate h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .report-gate p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .report-gate .email-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .report-gate input {
+            flex: 1;
+        }
+
+        .report-gate button {
+            background: var(--accent);
+            color: var(--black);
+            border: 2px solid var(--black);
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .trust-text {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .report-gate .email-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <a href="/b2b-benchmarks/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Benchmarks
+            </a>
+        </div>
+    </header>
+
+    <main class="main">
+        <h1>Benchmark Calculator</h1>
+        <p class="subtitle">Input your metrics. See how you compare to 87 B2B campaigns.</p>
+
+        <div class="calculator-card" id="calculatorCard">
+            <div class="step-indicator">
+                <div class="step active" id="step1">1</div>
+                <div class="step-line"></div>
+                <div class="step" id="step2">2</div>
+                <div class="step-line"></div>
+                <div class="step" id="step3">3</div>
+            </div>
+
+            <!-- Step 1: Industry -->
+            <div class="form-section active" id="section1">
+                <h2>Select Your Industry</h2>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="industry">Industry</label>
+                        <select id="industry" required>
+                            <option value="">Choose your industry...</option>
+                            <option value="legal-tech">Legal Tech</option>
+                            <option value="privacy-security">Privacy / Security</option>
+                            <option value="construction-tech">Construction Tech</option>
+                            <option value="edtech-hr">EdTech / HR Tech</option>
+                            <option value="martech">MarTech / SalesTech</option>
+                            <option value="logistics">Logistics / Supply Chain</option>
+                            <option value="ucaas">UCaaS / Telecom</option>
+                            <option value="life-sciences">Life Sciences</option>
+                            <option value="devops">DevOps / Engineering</option>
+                            <option value="digital-workplace">Digital Workplace</option>
+                            <option value="healthcare-tech">Healthcare Tech</option>
+                            <option value="fintech">FinTech / Payments</option>
+                            <option value="ecommerce">E-commerce / Retail Tech</option>
+                            <option value="other">Other B2B</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="nextStep(1)">Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 2: LinkedIn -->
+            <div class="form-section" id="section2">
+                <h2>
+                    <span class="platform-icon linkedin">
+                        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </span>
+                    LinkedIn Ads Metrics
+                </h2>
+                <div class="form-grid">
+                    <div class="form-group input-suffix">
+                        <label for="li_ctr">CTR</label>
+                        <input type="number" id="li_ctr" step="0.01" placeholder="0.65">
+                    </div>
+                    <div class="form-group input-prefix">
+                        <label for="li_cpm">CPM</label>
+                        <input type="number" id="li_cpm" step="0.01" placeholder="60">
+                    </div>
+                    <div class="form-group input-prefix">
+                        <label for="li_cpc">CPC</label>
+                        <input type="number" id="li_cpc" step="0.01" placeholder="10">
+                    </div>
+                    <div class="form-group input-prefix">
+                        <label for="li_cpl">CPL (Cost per Lead)</label>
+                        <input type="number" id="li_cpl" step="0.01" placeholder="250">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep(2)">Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Google -->
+            <div class="form-section" id="section3">
+                <h2>
+                    <span class="platform-icon google">
+                        <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    </span>
+                    Google Ads Metrics
+                </h2>
+                <div class="form-grid">
+                    <div class="form-group input-suffix">
+                        <label for="g_ctr">CTR</label>
+                        <input type="number" id="g_ctr" step="0.01" placeholder="1.30">
+                    </div>
+                    <div class="form-group input-prefix">
+                        <label for="g_cpc">CPC</label>
+                        <input type="number" id="g_cpc" step="0.01" placeholder="6">
+                    </div>
+                    <div class="form-group input-suffix">
+                        <label for="g_cvr">Conversion Rate</label>
+                        <input type="number" id="g_cvr" step="0.01" placeholder="0.30">
+                    </div>
+                    <div class="form-group input-prefix">
+                        <label for="g_cpa">Cost per Conversion</label>
+                        <input type="number" id="g_cpa" step="0.01" placeholder="500">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-secondary" onclick="prevStep(3)">Back</button>
+                    <button class="btn btn-primary" onclick="calculateResults()">See Results</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <div class="results-header">
+                <h2>Your Performance Analysis</h2>
+                <p class="subtitle" id="industryLabel"></p>
+            </div>
+
+            <div class="overall-score">
+                <div class="label">Overall Performance Score</div>
+                <div class="score" id="overallScore">--</div>
+                <div class="out-of">out of 100</div>
+            </div>
+
+            <div class="score-card">
+                <h3>
+                    <span class="platform-icon linkedin">
+                        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </span>
+                    LinkedIn Ads
+                </h3>
+                <div id="linkedinResults"></div>
+            </div>
+
+            <div class="score-card">
+                <h3>
+                    <span class="platform-icon google">
+                        <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    </span>
+                    Google Ads
+                </h3>
+                <div id="googleResults"></div>
+            </div>
+
+            <div class="report-gate" id="reportGate">
+                <h3>Get Your Full Report</h3>
+                <p>Receive detailed recommendations and industry-specific benchmarks in your inbox.</p>
+                <form class="email-form" onsubmit="handleReportSubmit(event)">
+                    <input type="email" name="email" placeholder="you@company.com" required>
+                    <button type="submit">Send Report</button>
+                </form>
+                <p class="trust-text">Includes tactical recommendations based on your metrics.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn btn-secondary" onclick="resetCalculator()" style="max-width: 200px;">
+                    Start Over
+                </button>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 3rem auto; padding: 2.5rem; background: #f5f5f5; border-radius: 16px; max-width: 700px;">
+            <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Want Expert Help?</h3>
+            <p style="color: #4a4a4a; margin-bottom: 1.5rem;">Get a free audit of your campaigns against these benchmarks.</p>
+            <a href="https://42agency.com/contact-us" style="display: inline-block; background: #1a1a1a; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700;">Get Your Free Audit →</a>
+        </div>
+    </main>
+
+    <footer class="footer" style="background: #1a1a1a; color: white; padding: 3rem 2rem 1.5rem;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding-bottom: 2rem; border-bottom: 1px solid #333;">
+                <div>
+                    <img src="/42-logo.png" alt="42 Agency" style="height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem;">
+                    <p style="font-size: 0.85rem; color: #999; line-height: 1.5;">B2B performance marketing for companies that sell to enterprises.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+                    <div>
+                        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem; color: #DFFE68;">Benchmarks</h4>
+                        <a href="/b2b-benchmarks/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">All Benchmarks</a>
+                        <a href="/b2b-benchmarks/calculator/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">Calculator</a>
+                        <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">InMail Benchmarks</a>
+                        <a href="/b2b-benchmarks/meta-ads-benchmarks/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">Meta Ads</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem; color: #DFFE68;">By Industry</h4>
+                        <a href="/b2b-benchmarks/legal-tech-linkedin-ads/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">Legal Tech</a>
+                        <a href="/b2b-benchmarks/healthcare-tech-linkedin-ads/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">Healthcare Tech</a>
+                        <a href="/b2b-benchmarks/devops-linkedin-ads/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">DevOps</a>
+                        <a href="/b2b-benchmarks/fintech-linkedin-ads/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">FinTech</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem; color: #DFFE68;">Audit Templates</h4>
+                        <a href="/google-ads-audit/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">Google Ads Audit</a>
+                        <a href="/linkedin-audit/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">LinkedIn Ads Audit</a>
+                        <a href="/meta-audit/" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">Meta Ads Audit</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem; color: #DFFE68;">42 Agency</h4>
+                        <a href="https://42agency.com" target="_blank" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">Website</a>
+                        <a href="https://42slash.com" target="_blank" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">42/ Essays</a>
+                        <a href="https://linkedin.com/company/42agency" target="_blank" style="display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem;">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top: 1.5rem; text-align: center;">
+                <p style="font-size: 0.8rem; color: #666;">&copy; 2026 42 Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/email-validation.js"></script>
+
+    <script>
+        // Benchmarks data
+        const benchmarks = {
+            linkedin: {
+                ctr: { poor: 0.30, average: 0.60, good: 0.90, excellent: 1.2 },
+                cpm: { excellent: 45, good: 70, average: 100, poor: 150 },
+                cpc: { excellent: 6, good: 10, average: 15, poor: 20 },
+                cpl: { excellent: 150, good: 250, average: 400, poor: 600 }
+            },
+            google: {
+                ctr: { poor: 0.80, average: 1.20, good: 2.00, excellent: 3.0 },
+                cpc: { excellent: 3, good: 7, average: 12, poor: 18 },
+                cvr: { poor: 0.15, average: 0.40, good: 1.00, excellent: 2.0 },
+                cpa: { excellent: 250, good: 500, average: 800, poor: 1200 }
+            }
+        };
+
+        const industryLabels = {
+            'legal-tech': 'Legal Tech',
+            'privacy-security': 'Privacy / Security',
+            'construction-tech': 'Construction Tech',
+            'edtech-hr': 'EdTech / HR Tech',
+            'martech': 'MarTech / SalesTech',
+            'logistics': 'Logistics / Supply Chain',
+            'ucaas': 'UCaaS / Telecom',
+            'life-sciences': 'Life Sciences',
+            'devops': 'DevOps / Engineering',
+            'digital-workplace': 'Digital Workplace',
+            'healthcare-tech': 'Healthcare Tech',
+            'fintech': 'FinTech / Payments',
+            'ecommerce': 'E-commerce / Retail Tech',
+            'other': 'B2B Technology'
+        };
+
+        function nextStep(current) {
+            if (current === 1) {
+                const industry = document.getElementById('industry').value;
+                if (!industry) {
+                    alert('Please select your industry');
+                    return;
+                }
+            }
+
+            document.getElementById('section' + current).classList.remove('active');
+            document.getElementById('section' + (current + 1)).classList.add('active');
+            document.getElementById('step' + current).classList.remove('active');
+            document.getElementById('step' + current).classList.add('completed');
+            document.getElementById('step' + (current + 1)).classList.add('active');
+        }
+
+        function prevStep(current) {
+            document.getElementById('section' + current).classList.remove('active');
+            document.getElementById('section' + (current - 1)).classList.add('active');
+            document.getElementById('step' + current).classList.remove('active');
+            document.getElementById('step' + (current - 1)).classList.remove('completed');
+            document.getElementById('step' + (current - 1)).classList.add('active');
+        }
+
+        function getRating(value, benchmark, isLowerBetter = false) {
+            if (!value) return { rating: 'N/A', class: '' };
+
+            if (isLowerBetter) {
+                if (value <= benchmark.excellent) return { rating: 'Excellent', class: 'excellent' };
+                if (value <= benchmark.good) return { rating: 'Good', class: 'good' };
+                if (value <= benchmark.average) return { rating: 'Average', class: 'average' };
+                return { rating: 'Poor', class: 'poor' };
+            } else {
+                if (value >= benchmark.excellent) return { rating: 'Excellent', class: 'excellent' };
+                if (value >= benchmark.good) return { rating: 'Good', class: 'good' };
+                if (value >= benchmark.average) return { rating: 'Average', class: 'average' };
+                return { rating: 'Poor', class: 'poor' };
+            }
+        }
+
+        function calculateScore(ratings) {
+            const scoreMap = { 'excellent': 100, 'good': 75, 'average': 50, 'poor': 25, '': 0 };
+            let total = 0;
+            let count = 0;
+
+            ratings.forEach(r => {
+                if (r.class) {
+                    total += scoreMap[r.class];
+                    count++;
+                }
+            });
+
+            return count > 0 ? Math.round(total / count) : 0;
+        }
+
+        function createMetricRow(name, value, benchmarkLabel, rating) {
+            return `
+                <div class="metric-row">
+                    <div class="metric-name">${name}</div>
+                    <div class="metric-values">
+                        <span class="your-value">${value || '--'}</span>
+                        <span class="benchmark-value">Benchmark: ${benchmarkLabel}</span>
+                        ${rating.class ? `<span class="rating-badge ${rating.class}">${rating.rating}</span>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculateResults() {
+            const industry = document.getElementById('industry').value;
+
+            // Get values
+            const liCtr = parseFloat(document.getElementById('li_ctr').value);
+            const liCpm = parseFloat(document.getElementById('li_cpm').value);
+            const liCpc = parseFloat(document.getElementById('li_cpc').value);
+            const liCpl = parseFloat(document.getElementById('li_cpl').value);
+
+            const gCtr = parseFloat(document.getElementById('g_ctr').value);
+            const gCpc = parseFloat(document.getElementById('g_cpc').value);
+            const gCvr = parseFloat(document.getElementById('g_cvr').value);
+            const gCpa = parseFloat(document.getElementById('g_cpa').value);
+
+            // Calculate ratings
+            const liCtrRating = getRating(liCtr, benchmarks.linkedin.ctr, false);
+            const liCpmRating = getRating(liCpm, benchmarks.linkedin.cpm, true);
+            const liCpcRating = getRating(liCpc, benchmarks.linkedin.cpc, true);
+            const liCplRating = getRating(liCpl, benchmarks.linkedin.cpl, true);
+
+            const gCtrRating = getRating(gCtr, benchmarks.google.ctr, false);
+            const gCpcRating = getRating(gCpc, benchmarks.google.cpc, true);
+            const gCvrRating = getRating(gCvr, benchmarks.google.cvr, false);
+            const gCpaRating = getRating(gCpa, benchmarks.google.cpa, true);
+
+            // Build LinkedIn results
+            document.getElementById('linkedinResults').innerHTML =
+                createMetricRow('CTR', liCtr ? liCtr + '%' : null, '0.60% - 0.90%', liCtrRating) +
+                createMetricRow('CPM', liCpm ? '$' + liCpm : null, '$45 - $70', liCpmRating) +
+                createMetricRow('CPC', liCpc ? '$' + liCpc : null, '$6 - $10', liCpcRating) +
+                createMetricRow('CPL', liCpl ? '$' + liCpl : null, '$150 - $250', liCplRating);
+
+            // Build Google results
+            document.getElementById('googleResults').innerHTML =
+                createMetricRow('CTR', gCtr ? gCtr + '%' : null, '1.20% - 2.00%', gCtrRating) +
+                createMetricRow('CPC', gCpc ? '$' + gCpc : null, '$3 - $7', gCpcRating) +
+                createMetricRow('Conv Rate', gCvr ? gCvr + '%' : null, '0.40% - 1.00%', gCvrRating) +
+                createMetricRow('Cost/Conv', gCpa ? '$' + gCpa : null, '$250 - $500', gCpaRating);
+
+            // Calculate overall score
+            const allRatings = [liCtrRating, liCpmRating, liCpcRating, liCplRating, gCtrRating, gCpcRating, gCvrRating, gCpaRating];
+            const score = calculateScore(allRatings);
+            document.getElementById('overallScore').textContent = score;
+
+            // Set industry label
+            document.getElementById('industryLabel').textContent = industryLabels[industry] || 'B2B';
+
+            // Show results
+            document.getElementById('calculatorCard').style.display = 'none';
+            document.getElementById('resultsSection').classList.add('active');
+
+            // Track event
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    event: 'calculator_completed',
+                    industry: industry,
+                    score: score
+                });
+            }
+        }
+
+        function resetCalculator() {
+            document.getElementById('calculatorCard').style.display = 'block';
+            document.getElementById('resultsSection').classList.remove('active');
+
+            // Reset steps
+            document.querySelectorAll('.step').forEach((s, i) => {
+                s.classList.remove('active', 'completed');
+                if (i === 0) s.classList.add('active');
+            });
+
+            // Reset sections
+            document.querySelectorAll('.form-section').forEach((s, i) => {
+                s.classList.remove('active');
+                if (i === 0) s.classList.add('active');
+            });
+
+            // Clear inputs
+            document.querySelectorAll('input, select').forEach(el => el.value = '');
+        }
+
+        async function handleReportSubmit(e) {
+            e.preventDefault();
+            const email = e.target.email.value;
+            const button = e.target.querySelector('button');
+            const originalText = button.textContent;
+
+            button.disabled = true;
+            button.textContent = 'Sending...';
+
+            try {
+                await fetch('https://api.hsforms.com/submissions/v3/integration/submit/44888286/collected-forms', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        fields: [{ name: 'email', value: email }],
+                        context: {
+                            pageUri: window.location.href,
+                            pageName: 'B2B Benchmark Calculator Report'
+                        }
+                    })
+                });
+
+                if (window.dataLayer) {
+                    window.dataLayer.push({
+                        event: 'calculator_report_requested',
+                        email: email
+                    });
+                }
+
+                document.getElementById('reportGate').innerHTML = `
+                    <h3 style="color: var(--green);">Report Sent!</h3>
+                    <p>Check your inbox for your personalized benchmark report.</p>
+                `;
+
+            } catch (error) {
+                console.error('Error:', error);
+                button.textContent = 'Try Again';
+                button.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

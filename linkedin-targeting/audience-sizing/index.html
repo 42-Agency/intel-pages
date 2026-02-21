@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Ads Audience Sizing Guide | How Big Should Your Audience Be?</title>
+    <meta name="description" content="LinkedIn audience sizing guide for B2B marketers. Minimum thresholds by campaign objective, budget requirements, and when to go broad vs narrow.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/linkedin-targeting/audience-sizing/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .logo span { color: var(--accent); }
+
+        .back-link {
+            font-size: 14px;
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .back-link:hover { color: var(--accent); }
+
+        /* Article */
+        .article {
+            padding: 48px 0;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            color: var(--gray-400);
+            margin-bottom: 24px;
+        }
+
+        .breadcrumb a {
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover { color: var(--accent); }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .meta {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--black);
+            margin: 48px 0 16px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+            margin: 32px 0 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--gray-800);
+        }
+
+        ul, ol {
+            margin: 0 0 24px 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        tr:nth-child(even) {
+            background: var(--gray-50);
+        }
+
+        /* Callout */
+        .callout {
+            background: var(--gray-50);
+            border-left: 4px solid var(--accent);
+            padding: 20px 24px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout-title {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .callout p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--black) 0%, #2d3548 100%);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 48px 0;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            color: var(--white);
+            margin: 0 0 8px;
+        }
+
+        .cta-box p {
+            color: var(--gray-400);
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--black);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-button:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--gray-200);
+            margin-top: 48px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-brand {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 28px; }
+            h2 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                <a href="/linkedin-targeting/" class="back-link">← LinkedIn Targeting Checklist</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Resources</a> → <a href="/linkedin-targeting/">LinkedIn Targeting</a> → Audience Sizing
+            </div>
+
+            <h1>LinkedIn Ads Audience Sizing: How Big Should Your Audience Be?</h1>
+            <div class="meta">The minimum thresholds that actually matter, by campaign objective.</div>
+
+            <p>The most common mistake in LinkedIn advertising is building audiences that are either too small (no delivery, high CPMs) or too large (wasted spend on irrelevant people).</p>
+
+            <p>This guide covers the actual minimum thresholds LinkedIn needs to deliver effectively, plus strategic considerations for when to go broad vs narrow.</p>
+
+            <h2>Minimum Audience Sizes by Objective</h2>
+
+            <p>LinkedIn's algorithm needs sufficient audience size to optimize delivery. Here are the practical minimums:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Campaign Objective</th>
+                            <th>Minimum Size</th>
+                            <th>Recommended Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Brand Awareness</td>
+                            <td>300,000</td>
+                            <td>500,000+</td>
+                        </tr>
+                        <tr>
+                            <td>Website Visits</td>
+                            <td>100,000</td>
+                            <td>300,000+</td>
+                        </tr>
+                        <tr>
+                            <td>Engagement</td>
+                            <td>100,000</td>
+                            <td>300,000+</td>
+                        </tr>
+                        <tr>
+                            <td>Video Views</td>
+                            <td>100,000</td>
+                            <td>300,000+</td>
+                        </tr>
+                        <tr>
+                            <td>Lead Generation</td>
+                            <td>50,000</td>
+                            <td>100,000+</td>
+                        </tr>
+                        <tr>
+                            <td>Website Conversions</td>
+                            <td>50,000</td>
+                            <td>100,000+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">The 50K Rule</div>
+                <p>Below 50,000 audience members, LinkedIn struggles to optimize delivery. You'll see inconsistent spend, high CPMs, and poor frequency management. The exception is retargeting campaigns where smaller audiences are expected.</p>
+            </div>
+
+            <h2>Why Bigger Audiences Often Perform Better</h2>
+
+            <p>Counter-intuitively, broader audiences frequently outperform hyper-targeted ones on LinkedIn. Here's why:</p>
+
+            <ul>
+                <li><strong>Algorithm optimization:</strong> LinkedIn's algorithm learns faster with more data points</li>
+                <li><strong>Lower CPMs:</strong> More inventory = more auction opportunities = lower costs</li>
+                <li><strong>Better frequency distribution:</strong> Avoids ad fatigue from showing the same ads to a small group</li>
+                <li><strong>Reaches adjacent buyers:</strong> Procurement, finance, and other stakeholders who influence deals</li>
+            </ul>
+
+            <h2>When to Use Smaller Audiences</h2>
+
+            <p>Tight targeting (50K-100K) makes sense in specific scenarios:</p>
+
+            <h3>1. Account-Based Marketing (ABM)</h3>
+            <p>When running against a defined target account list, smaller audiences are expected. Overlay company list targeting with job function to create focused ABM audiences.</p>
+
+            <h3>2. Retargeting Campaigns</h3>
+            <p>Website visitors, video viewers, and lead form openers will naturally be smaller. Audiences as small as 1,000 can work for retargeting.</p>
+
+            <h3>3. High-Intent Bottom-Funnel</h3>
+            <p>For conversion-focused campaigns with significant budget, tighter targeting can work if your daily budget exceeds $200.</p>
+
+            <h2>Audience Size by Budget</h2>
+
+            <p>Your daily budget determines how narrow you can target effectively:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Daily Budget</th>
+                            <th>Minimum Audience</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>$50/day</td>
+                            <td>300,000+</td>
+                            <td>Need broad reach for delivery</td>
+                        </tr>
+                        <tr>
+                            <td>$100/day</td>
+                            <td>150,000+</td>
+                            <td>Can start narrowing</td>
+                        </tr>
+                        <tr>
+                            <td>$200/day</td>
+                            <td>75,000+</td>
+                            <td>Comfortable mid-funnel targeting</td>
+                        </tr>
+                        <tr>
+                            <td>$500+/day</td>
+                            <td>50,000+</td>
+                            <td>Full flexibility on targeting</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>The Layering Problem</h2>
+
+            <p>Each targeting layer you add reduces audience size multiplicatively. Common mistake:</p>
+
+            <ul>
+                <li>Start with 2M (Marketing professionals in US)</li>
+                <li>Add Seniority: Director+ → 400K</li>
+                <li>Add Company Size: 500+ employees → 150K</li>
+                <li>Add Industry: Software → 45K</li>
+                <li>Add Skills: "Demand Generation" → 8K ❌</li>
+            </ul>
+
+            <p>The audience shrank 250x. Each layer compounds. Use 2-3 targeting dimensions maximum.</p>
+
+            <div class="callout">
+                <div class="callout-title">Best Practice: The 3-Layer Rule</div>
+                <p>Limit targeting to 3 dimensions maximum: one for job function/seniority, one for company attributes (size OR industry), and one for geography. More layers create delivery problems.</p>
+            </div>
+
+            <h2>Audience Size Indicators in Campaign Manager</h2>
+
+            <p>LinkedIn shows forecasted results based on audience size. Here's how to interpret them:</p>
+
+            <ul>
+                <li><strong>Red warning:</strong> Audience too small. Expand targeting.</li>
+                <li><strong>"Narrow" indicator:</strong> Will deliver but with limited optimization.</li>
+                <li><strong>"Balanced" indicator:</strong> Sweet spot for most campaigns.</li>
+                <li><strong>"Broad" indicator:</strong> Good for awareness, consider tightening for conversion.</li>
+            </ul>
+
+            <div class="cta-box">
+                <h3>Get the Full Targeting Checklist</h3>
+                <p>Audience sizing benchmarks, job title combinations, company targeting rules, and exclusion strategies.</p>
+                <a href="/linkedin-targeting/" class="cta-button">Download Checklist →</a>
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li>50,000 is the practical minimum for non-retargeting campaigns</li>
+                <li>Awareness campaigns need 300K+ for effective frequency management</li>
+                <li>Budget determines how narrow you can target—less budget = broader audiences</li>
+                <li>Use maximum 3 targeting layers to avoid over-restriction</li>
+                <li>When in doubt, go broader and let LinkedIn optimize</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer style="background: #0a0a0a; padding: 2rem; margin-top: 3rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 24px;"></a>
+                <span style="color: #666; font-size: 13px;">© 2026 42 Agency</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/linkedin-targeting/" style="color: #999; text-decoration: none; font-size: 14px;">← LinkedIn Targeting</a>
+                <a href="/linkedin-targeting/job-title-targeting/" style="color: #999; text-decoration: none; font-size: 14px;">Job Title Targeting →</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta property="og:title" content="B2B Marketing Resources | 42 Agency">
+    <meta property="og:description" content="Free templates, frameworks, and tools for B2B performance marketing. ABM, HubSpot, MOPS, and more.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-lighter);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .header-badge {
+            background: var(--accent);
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 2px solid var(--black);
+        }
+
+        .hero {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .hero-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        .hero h1 span {
+            background: var(--accent);
+            padding: 0 0.25rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: var(--gray-light);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.75rem;
+            box-shadow: 4px 4px 0 var(--black);
+            transition: all 0.15s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+        .resource-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--black);
+        }
+
+        .resource-badge {
+            display: inline-block;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--black);
+            align-self: flex-start;
+        }
+        .resource-badge.toolkit { background: var(--accent); }
+        .resource-badge.assessment { background: #3B82F6; color: white; }
+        .resource-badge.workshop { background: #10B981; color: white; }
+        .resource-badge.template { background: #F59E0B; color: white; }
+
+        .resource-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .resource-desc {
+            font-size: 0.95rem;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+        .resource-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+            border-top: 1px solid var(--gray-light);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+        .resource-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .resource-meta-item svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        .resource-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--black);
+            margin-top: 1rem;
+        }
+        .resource-cta svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            transition: transform 0.15s;
+        }
+        .resource-card:hover .resource-cta svg {
+            transform: translateX(4px);
+        }
+
+        /* Featured Card */
+        .featured-card {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            background: var(--accent);
+        }
+        .featured-content {
+            padding: 1rem 0;
+        }
+        .featured-visual {
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .featured-visual-text {
+            color: var(--white);
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.1;
+        }
+        .featured-visual-text span {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+            .featured-visual {
+                display: none;
+            }
+            .hero h1 { font-size: 2rem; }
+            .resource-grid { grid-template-columns: 1fr; }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--black);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            color: #999;
+            margin-bottom: 2rem;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--black);
+            padding: 1rem 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--accent);
+            transition: all 0.15s;
+        }
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 2rem 1.5rem;
+        }
+        .footer-top {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand { }
+        .footer-logo {
+            height: 28px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.15s;
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--black);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+
+        @media (max-width: 900px) {
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </div>
+            <div class="header-badge">Free Resources</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>B2B Marketing <span>Resources</span></h1>
+            <p>Templates, frameworks, and tools we use with our clients. No fluff, no theory—just what works.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">ABM & Go-to-Market</h2>
+        <div class="resource-grid">
+            <a href="/zenabm/audit.html" class="resource-card">
+                <span class="resource-badge assessment">Assessment</span>
+                <h3 class="resource-title">GTM Maturity Assessment</h3>
+                <p class="resource-desc">Score your enterprise go-to-market across BUILD, ACTIVATE, and MEASURE. Find your weakest link and get specific recommendations.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        3 minutes
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        21 questions
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Take Assessment
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/zenabm/" class="resource-card">
+                <span class="resource-badge toolkit">Toolkit</span>
+                <h3 class="resource-title">ZenABM Toolkit</h3>
+                <p class="resource-desc">Complete ABM resource kit: Account Scoring Template, 30-Day Tier 1 Calendar, and the full GTM System Audit framework.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        3 templates
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Excel + PDF
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Get Templates
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+        </div>
+
+        <h2 class="section-title">Marketing Operations</h2>
+        <div class="resource-grid">
+            <a href="/hubspot-audit/" class="resource-card">
+                <span class="resource-badge template">Template</span>
+                <h3 class="resource-title">HubSpot Audit Template & SOP</h3>
+                <p class="resource-desc">10-sheet comprehensive audit workbook covering properties, objects, workflows, reporting, and admin setup. Includes evaluation criteria and action plans.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        10 sheets
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Excel
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Get Template
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/mops-funnel/" class="resource-card">
+                <span class="resource-badge template">Template</span>
+                <h3 class="resource-title">MOPS Funnel Workbook</h3>
+                <p class="resource-desc">Complete funnel operations framework: demographic + behavioral scoring, lead sources, campaign architecture, lifecycle stages, and DQ reasons.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        7 sheets
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Excel
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Get Workbook
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/hubspot-salesforce/" class="resource-card">
+                <span class="resource-badge template">Template</span>
+                <h3 class="resource-title">HubSpot ↔ Salesforce Integration</h3>
+                <p class="resource-desc">Complete integration checklist: field mapping, sync direction rules, lifecycle alignment, and common sync error troubleshooting.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        Checklist
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Google Doc
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Get Checklist
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+        </div>
+
+        <h2 class="section-title">Paid Media</h2>
+        <div class="resource-grid">
+            <a href="/google-ads-audit/" class="resource-card">
+                <span class="resource-badge template">Template</span>
+                <h3 class="resource-title">Google Ads Audit Template</h3>
+                <p class="resource-desc">9-sheet audit workbook with B2B benchmarks, red flags, and 42 Agency POV. Conversion tracking, keywords, bidding, ad copy, and recommendations.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        9 sheets
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Excel
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Get Template
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/linkedin-audit/" class="resource-card">
+                <span class="resource-badge template">Template</span>
+                <h3 class="resource-title">LinkedIn Ads Audit Template</h3>
+                <p class="resource-desc">9-sheet audit workbook with B2B benchmarks, red flags, and 42 Agency POV. Audience strategy, creative performance, lead gen forms, and recommendations.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        9 sheets
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Excel
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Get Template
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/meta-audit/" class="resource-card">
+                <span class="resource-badge template">Template</span>
+                <h3 class="resource-title">Meta Ads Audit Template</h3>
+                <p class="resource-desc">9-sheet audit workbook with B2B benchmarks, red flags, and 42 Agency POV. Pixel/CAPI, audience strategy, creative analysis, and recommendations.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        9 sheets
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Excel
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Get Template
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/linkedin-targeting/" class="resource-card">
+                <span class="resource-badge template">Template</span>
+                <h3 class="resource-title">LinkedIn Ads Targeting Checklist</h3>
+                <p class="resource-desc">Complete targeting checklist: audience sizing thresholds, job title strategy, company list uploads, and exclusion rules for B2B campaigns.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        Checklist
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Google Sheet
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Get Checklist
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/abm-campaign/" class="resource-card">
+                <span class="resource-badge toolkit">Toolkit</span>
+                <h3 class="resource-title">ABM Campaign Planner</h3>
+                <p class="resource-desc">Complete ABM campaign planning template: account tiering, play design by tier, channel mix, and KPI measurement framework.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        4 tabs
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Google Sheet
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Get Template
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+        </div>
+
+        <h2 class="section-title">B2B Benchmarks</h2>
+        <div class="resource-grid">
+            <a href="/b2b-benchmarks/" class="resource-card featured-card">
+                <div class="featured-content">
+                    <span class="resource-badge assessment">Data</span>
+                    <h3 class="resource-title">B2B Paid Media Benchmarks 2026</h3>
+                    <p class="resource-desc">Real CPL, CPM, and ROAS data from 87 B2B clients across 14 industries. $5M+ ad spend analyzed. LinkedIn, Google, Meta benchmarks by industry and segment.</p>
+                    <div class="resource-meta">
+                        <span class="resource-meta-item">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                            14 industries
+                        </span>
+                        <span class="resource-meta-item">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                            87 clients
+                        </span>
+                    </div>
+                    <span class="resource-cta">
+                        View Benchmarks
+                        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </span>
+                </div>
+                <div class="featured-visual">
+                    <div class="featured-visual-text">
+                        <span>$</span>300<br>
+                        <span>CPL</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/b2b-benchmarks/calculator/" class="resource-card">
+                <span class="resource-badge toolkit">Interactive</span>
+                <h3 class="resource-title">Benchmark Calculator</h3>
+                <p class="resource-desc">Input your LinkedIn or Google metrics and compare against industry benchmarks. Get a performance rating and actionable insights.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        Calculator
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        2 minutes
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Try Calculator
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/" class="resource-card">
+                <span class="resource-badge template">Tactic</span>
+                <h3 class="resource-title">LinkedIn InMail Benchmarks</h3>
+                <p class="resource-desc">InMail with gift cards: 60-70% lower CPL ($400-600 vs $1,500+). Open rates, response rates, and best practices by industry.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        InMail
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Templates
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    View Benchmarks
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/b2b-benchmarks/meta-ads-benchmarks/" class="resource-card">
+                <span class="resource-badge template">Channel</span>
+                <h3 class="resource-title">B2B Meta Ads Benchmarks</h3>
+                <p class="resource-desc">Meta for B2B: Retargeting CPL $50-$150, ROAS 300-500%. When to use Facebook/Instagram vs LinkedIn for B2B.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                        Meta
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Strategy
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    View Benchmarks
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+        </div>
+
+        <h2 class="section-title">AI & Automation</h2>
+        <div class="resource-grid">
+            <a href="/exitfive/" class="resource-card featured-card">
+                <div class="featured-content">
+                    <span class="resource-badge workshop">Workshop</span>
+                    <h3 class="resource-title">Claude Code 101 for B2B Marketers</h3>
+                    <p class="resource-desc">Learn to use Claude Code for competitive research, data analysis, content repurposing, and building reports. Workshop materials from Exit Five.</p>
+                    <div class="resource-meta">
+                        <span class="resource-meta-item">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                            Cheatsheet + Guide
+                        </span>
+                        <span class="resource-meta-item">
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            Self-paced
+                        </span>
+                    </div>
+                    <span class="resource-cta">
+                        Access Workshop
+                        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </span>
+                </div>
+                <div class="featured-visual">
+                    <div class="featured-visual-text">
+                        <span>$</span> claude<br>
+                        <span>&gt;</span> _
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>Need Help Implementing?</h2>
+            <p>We're a B2B performance marketing agency specializing in enterprise GTM, demand gen, and measurement.</p>
+            <a href="https://42agency.com/contact-us" class="cta-btn">Talk to 42 Agency</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/get42agency" target="_blank" aria-label="X/Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@Get42Agency" target="_blank" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
+                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
+                    <a href="https://42agency.com/seo-and-content" target="_blank">SEO & Content</a>
+                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42/ Essays</h4>
+                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
+                    <a href="https://42slash.com/p/the-abm-measurement-problem" target="_blank">The ABM Measurement Problem</a>
+                    <a href="https://42slash.com/p/the-claude-code-essay" target="_blank">The Claude Code Essay</a>
+                    <a href="https://42slash.com/p/demand-gen-is-not-lead-gen" target="_blank">Demand Gen is Not Lead Gen</a>
+                    <a href="https://42slash.com" target="_blank">All Essays →</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Benchmarks</h4>
+                    <a href="/b2b-benchmarks/">All Benchmarks</a>
+                    <a href="/b2b-benchmarks/calculator/">Benchmark Calculator</a>
+                    <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/">InMail Benchmarks</a>
+                    <a href="/b2b-benchmarks/meta-ads-benchmarks/">Meta Ads Benchmarks</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Paid Media Audits</h4>
+                    <a href="/google-ads-audit/">Google Ads Audit</a>
+                    <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
+                    <a href="/meta-audit/">Meta Ads Audit</a>
+                    <a href="/linkedin-targeting/">LinkedIn Targeting</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/hubspot-audit/">HubSpot Audit</a>
+                    <a href="/mops-funnel/">MOPS Funnel</a>
+                    <a href="/abm-campaign/">ABM Campaign</a>
+                    <a href="/zenabm/">ZenABM Toolkit</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

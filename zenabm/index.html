@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM System Resources | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta property="og:title" content="ABM is a System, Not a Sequence | 42 Agency">
+    <meta property="og:description" content="Free resources from the ZenABM workshop: Account Scoring Template, 30-Day Orchestration Calendar, and GTM Maturity Assessment.">
+    <meta property="og:image" content="/42-logo.png">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray-dark: #4a4a4a;
+            --gray: #6b6b6b;
+            --gray-light: #e5e5e5;
+            --gray-lighter: #f5f5f5;
+            --build-color: #10B981;
+            --activate-color: #3B82F6;
+            --measure-color: #F59E0B;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gray-lighter);
+            border: 1px solid var(--gray-light);
+        }
+        .back-link:hover { background: var(--accent); }
+
+        .hero {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .hero-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 2px solid var(--black);
+            box-shadow: 3px 3px 0 var(--black);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+        .hero h1 span {
+            background: var(--accent);
+            padding: 0 0.25rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .framework {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+        }
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .framework-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        .framework-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .framework-card.build .number { color: var(--build-color); }
+        .framework-card.activate .number { color: var(--activate-color); }
+        .framework-card.measure .number { color: var(--measure-color); }
+        .framework-card .label {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+        .framework-card .desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+
+        .main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 1.75rem;
+            box-shadow: 4px 4px 0 var(--black);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .resource-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--black);
+        }
+        .resource-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .resource-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--black);
+        }
+        .resource-tag {
+            display: inline-block;
+            background: var(--gray-lighter);
+            color: var(--gray-dark);
+            padding: 0.25rem 0.6rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+            border: 1px solid var(--gray-light);
+        }
+        .resource-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        .resource-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            flex-grow: 1;
+            margin-bottom: 1.25rem;
+        }
+        .resource-features {
+            margin-bottom: 1.25rem;
+            list-style: none;
+        }
+        .resource-features li {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .resource-features li svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--build-color);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .resource-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: var(--black);
+            padding: 0.75rem 1.25rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 2px solid var(--black);
+            box-shadow: 3px 3px 0 var(--black);
+            transition: all 0.15s ease;
+        }
+        .resource-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+        .resource-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .email-capture {
+            background: var(--gray-lighter);
+            border: 2px solid var(--black);
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .email-capture h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .email-capture p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        .email-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .email-form input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--black);
+            background: var(--white);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .email-form input:focus {
+            outline: none;
+            box-shadow: 3px 3px 0 var(--accent);
+        }
+        .email-form button {
+            background: var(--accent);
+            color: var(--black);
+            padding: 0.875rem 1.5rem;
+            border: 2px solid var(--black);
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: inherit;
+            box-shadow: 3px 3px 0 var(--black);
+            transition: all 0.15s ease;
+        }
+        .email-form button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+        .email-note {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 0.75rem;
+        }
+
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            padding: 3rem;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+        .cta-section p {
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid var(--black);
+            transition: all 0.15s ease;
+        }
+        .cta-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+        .footer-top {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand { }
+        .footer-logo {
+            height: 28px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.15s;
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--black);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+
+        @media (max-width: 900px) {
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 2rem 1rem; }
+            .hero h1 { font-size: 2rem; }
+            .framework-grid { grid-template-columns: 1fr; }
+            .main { padding: 1rem; }
+            .resources-grid { grid-template-columns: 1fr; }
+            .email-form { flex-direction: column; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </div>
+            <a href="/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                All Resources
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-tag">Free Resources</div>
+        <h1>ABM is a <span>System</span>,<br>Not a Sequence</h1>
+        <p>The 3-layer framework for enterprise GTM. Build your audience, orchestrate activation, and measure what actually matters.</p>
+    </section>
+
+    <section class="framework">
+        <div class="framework-grid">
+            <div class="framework-card build">
+                <div class="number">01</div>
+                <div class="label">BUILD</div>
+                <div class="desc">ICP, segmentation, data, Clay</div>
+            </div>
+            <div class="framework-card activate">
+                <div class="number">02</div>
+                <div class="label">ACTIVATE</div>
+                <div class="desc">Events, outbound, CTV, direct mail</div>
+            </div>
+            <div class="framework-card measure">
+                <div class="number">03</div>
+                <div class="label">MEASURE</div>
+                <div class="desc">Account scoring, holdout tests, lift</div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main">
+        <h2 class="section-title">Download the Templates</h2>
+        <p class="section-subtitle">Practical tools you can use today. No fluff.</p>
+
+        <div class="resources-grid">
+            <!-- Account Scoring Template -->
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                </div>
+                <span class="resource-tag">Layer 3: Measure</span>
+                <h3>Account Scoring Template</h3>
+                <p>The exact scoring model we use with enterprise clients. Weighted signals, decay logic, and stage routing.</p>
+                <ul class="resource-features">
+                    <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 5 signal categories with point values</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Score decay by recency</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Excel with formulas</li>
+                </ul>
+                <a href="/zenabm/42_Account_Scoring_Template.xlsx" class="resource-btn" download="42_Account_Scoring_Template.xlsx">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Download Template
+                </a>
+            </div>
+
+            <!-- 30-Day Calendar -->
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                </div>
+                <span class="resource-tag">Layer 2: Activate</span>
+                <h3>Tier 1 30-Day Calendar</h3>
+                <p>Day-by-day orchestration playbook for high-priority accounts. When to run ads, when to send DM, when AE jumps in.</p>
+                <ul class="resource-features">
+                    <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 30-day surround sound sequence</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Channel timing visual</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Decision tree for day 30</li>
+                </ul>
+                <a href="/zenabm/42_Tier1_30Day_Calendar.xlsx" class="resource-btn" download="42_Tier1_30Day_Calendar.xlsx">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Download Calendar
+                </a>
+            </div>
+
+            <!-- GTM System Audit -->
+            <div class="resource-card">
+                <div class="resource-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/></svg>
+                </div>
+                <span class="resource-tag">Interactive Quiz</span>
+                <h3>GTM Maturity Assessment</h3>
+                <p>21-question interactive quiz. Score your maturity across Build, Activate, and Measure. Find your weakest link.</p>
+                <ul class="resource-features">
+                    <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Interactive scoring</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Maturity matrix results</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Personalized recommendations</li>
+                </ul>
+                <a href="/zenabm/audit.html" class="resource-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    Take the Quiz
+                </a>
+            </div>
+        </div>
+
+        <!-- Email Capture -->
+        <div class="email-capture" id="emailCapture">
+            <h2>Get Future Resources</h2>
+            <p>Templates, frameworks, and playbooks for enterprise GTM. No spam, just tools.</p>
+            <form class="email-form" id="subscribeForm" onsubmit="handleSubscribe(event)">
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p class="email-note">Join 3,000+ B2B marketers. Unsubscribe anytime.</p>
+        </div>
+
+        <script>
+        async function handleSubscribe(e) {
+            e.preventDefault();
+            const form = e.target;
+            const email = form.email.value;
+            const button = form.querySelector('button');
+            button.textContent = 'Subscribing...';
+            button.disabled = true;
+
+            // Submit to HubSpot
+            try {
+                await fetch('https://api.hsforms.com/submissions/v3/integration/submit/44888286/collected-forms', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        fields: [{ name: 'email', value: email }],
+                        context: {
+                            pageUri: window.location.href,
+                            pageName: 'ZenABM Toolkit'
+                        }
+                    })
+                });
+            } catch (err) {
+                console.log('HubSpot submission error:', err);
+            }
+
+            // Show success message
+            const container = document.getElementById('emailCapture');
+            container.innerHTML = `
+                <h2 style="color: var(--build-color);">You're In!</h2>
+                <p>Thanks for subscribing. We'll send you our best resources.</p>
+            `;
+        }
+        </script>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Need Help Implementing?</h2>
+            <p>We build ABM systems for enterprise B2B. Strategy, execution, and measurement - all connected.</p>
+            <a href="https://www.42agency.com/contact-us" class="cta-btn">Talk to 42 Agency</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://x.com/get42agency" target="_blank" aria-label="X/Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@Get42Agency" target="_blank" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com/demand-generation" target="_blank">Demand Generation</a>
+                    <a href="https://42agency.com/marketing-operations" target="_blank">Marketing Operations</a>
+                    <a href="https://42agency.com/seo-and-content" target="_blank">SEO & Content</a>
+                    <a href="https://42agency.com/contact-us" target="_blank">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42/ Essays</h4>
+                    <a href="https://42slash.com/p/abm-is-just-good-marketing" target="_blank">ABM is Just Good Marketing</a>
+                    <a href="https://42slash.com/p/the-abm-measurement-problem" target="_blank">The ABM Measurement Problem</a>
+                    <a href="https://42slash.com/p/the-claude-code-essay" target="_blank">The Claude Code Essay</a>
+                    <a href="https://42slash.com" target="_blank">All Essays →</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">Marvin (LinkedIn Ads AI)</a>
+                </div>
+                <div class="footer-col">
+                    <h4>ABM Guides</h4>
+                    <a href="/zenabm/account-scoring/">Account Scoring</a>
+                    <a href="/zenabm/account-tiering/">Account Tiering</a>
+                    <a href="/zenabm/buying-signals/">Buying Signals</a>
+                    <a href="/zenabm/">Full Toolkit</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 42 Agency &middot; All rights reserved</p>
+        </div>
+    </footer>
+    <script src="/js/email-validation.js"></script>
+</body>
+</html>

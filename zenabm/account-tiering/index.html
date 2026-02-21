@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM Account Tiering: Structure Your 1:1, 1:Few, 1:Many Programs | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+    <meta name="description" content="How to structure ABM tiers: Tier 1 (1:1), Tier 2 (1:Few), and Tier 3 (1:Many). Includes account counts, tactics, and resource allocation.">
+    <meta property="og:title" content="ABM Account Tiering: Structure Your 1:1, 1:Few, 1:Many Programs">
+
+    <style>
+        :root { --accent: #DFFE68; --black: #1a1a1a; --white: #ffffff; --gray-dark: #4a4a4a; --gray: #6b6b6b; --gray-light: #e5e5e5; --gray-lighter: #f5f5f5; --abm: #3B82F6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--gray-lighter); color: var(--black); line-height: 1.6; }
+        .header { background: var(--white); border-bottom: 2px solid var(--black); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { flex-shrink: 0; }
+        .logo img { height: 32px; width: auto; }
+        .back-link { color: var(--gray-dark); text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--gray-lighter); border: 1px solid var(--gray-light); }
+        .back-link:hover { background: var(--accent); }
+        .container { max-width: 720px; margin: 0 auto; padding: 2rem; }
+        .breadcrumb { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--gray-dark); text-decoration: none; }
+        .article-header { margin-bottom: 2.5rem; }
+        .article-badge { display: inline-block; background: var(--abm); color: white; padding: 0.3rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; border: 2px solid var(--black); }
+        .article-header h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; line-height: 1.15; }
+        .article-meta { font-size: 0.9rem; color: var(--gray); }
+        .article-content { background: var(--white); border: 2px solid var(--black); padding: 2.5rem; box-shadow: 4px 4px 0 var(--black); margin-bottom: 2rem; }
+        .article-content h2 { font-size: 1.4rem; font-weight: 800; margin: 2rem 0 1rem; }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+        .article-content p { margin-bottom: 1rem; color: var(--gray-dark); }
+        .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .article-content li { margin-bottom: 0.5rem; color: var(--gray-dark); }
+        .article-content strong { color: var(--black); }
+        .callout { background: var(--accent); border: 2px solid var(--black); padding: 1.25rem; margin: 1.5rem 0; }
+        .callout-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .callout p { margin: 0; font-size: 0.95rem; }
+
+        .tier-section { border: 2px solid var(--black); margin: 2rem 0; }
+        .tier-header { padding: 1.25rem; display: flex; justify-content: space-between; align-items: center; }
+        .tier-header.t1 { background: var(--accent); }
+        .tier-header.t2 { background: #93C5FD; }
+        .tier-header.t3 { background: var(--gray-light); }
+        .tier-name { font-size: 1.5rem; font-weight: 800; }
+        .tier-model { font-size: 0.9rem; font-weight: 600; }
+        .tier-body { padding: 1.5rem; background: var(--white); }
+        .tier-meta { display: flex; gap: 2rem; margin-bottom: 1rem; font-size: 0.9rem; }
+        .tier-meta-item { display: flex; flex-direction: column; }
+        .tier-meta-item .label { font-size: 0.75rem; text-transform: uppercase; color: var(--gray); }
+        .tier-meta-item .value { font-weight: 700; }
+
+        .tactics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem; }
+        .tactic { background: var(--gray-lighter); padding: 0.75rem; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+        .tactic svg { width: 16px; height: 16px; fill: var(--abm); flex-shrink: 0; }
+
+        .pyramid { display: flex; flex-direction: column; align-items: center; margin: 2rem 0; }
+        .pyramid-level { display: flex; align-items: center; justify-content: center; border: 2px solid var(--black); font-weight: 700; text-align: center; }
+        .pyramid-level.t1 { width: 150px; height: 60px; background: var(--accent); }
+        .pyramid-level.t2 { width: 250px; height: 60px; background: #93C5FD; margin-top: -2px; }
+        .pyramid-level.t3 { width: 350px; height: 60px; background: var(--gray-light); margin-top: -2px; }
+
+        .resource-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .resource-table th { background: var(--black); color: var(--white); padding: 0.75rem; text-align: left; }
+        .resource-table td { padding: 0.75rem; border-bottom: 1px solid var(--gray-light); }
+        .resource-table tr:nth-child(even) { background: var(--gray-lighter); }
+
+        .cta-section { background: var(--accent); border: 2px solid var(--black); padding: 2rem; box-shadow: 4px 4px 0 var(--black); text-align: center; margin-bottom: 2rem; }
+        .cta-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-section p { color: var(--gray-dark); margin-bottom: 1.25rem; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--black); color: var(--white); padding: 0.875rem 1.75rem; font-size: 1rem; font-weight: 700; text-decoration: none; border: 2px solid var(--black); transition: all 0.15s; }
+        .cta-btn:hover { background: var(--white); color: var(--black); }
+        .cta-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .related-section { margin-bottom: 2rem; }
+        .related-title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--gray); margin-bottom: 1rem; }
+        .related-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .related-card { background: var(--white); border: 2px solid var(--black); padding: 1.25rem; text-decoration: none; color: inherit; box-shadow: 3px 3px 0 var(--black); transition: all 0.15s; }
+        .related-card:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--black); }
+        .related-card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.35rem; }
+        .related-card-desc { font-size: 0.85rem; color: var(--gray); }
+        @media (max-width: 768px) { .article-header h1 { font-size: 1.75rem; } .article-content { padding: 1.5rem; } .related-cards, .tactics-grid { grid-template-columns: 1fr; } .pyramid-level { width: 100% !important; } }
+
+        .footer { background: var(--black); color: var(--white); padding: 4rem 2rem 1.5rem; margin-top: 2rem; }
+        .footer-top { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 250px 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333; }
+        .footer-logo { height: 28px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+        .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.5; margin-bottom: 1.5rem; }
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a { width: 40px; height: 40px; background: #333; display: flex; align-items: center; justify-content: center; color: #fff; transition: all 0.15s; }
+        .social-links a:hover { background: var(--accent); color: var(--black); }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; color: var(--accent); }
+        .footer-col a { display: block; color: #ccc; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1000px; margin: 0 auto; padding-top: 2rem; text-align: center; }
+        .footer-bottom p { font-size: 0.8rem; color: #666; }
+        @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo"><img src="/42-logo.png" alt="42 Agency"></div>
+            <a href="/zenabm/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                ZenABM
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Resources</a> / <a href="/zenabm/">ZenABM</a> / Account Tiering
+        </div>
+
+        <div class="article-header">
+            <span class="article-badge">ABM</span>
+            <h1>ABM Account Tiering: 1:1, 1:Few, 1:Many</h1>
+            <p class="article-meta">How to structure your tiers with the right account counts, tactics, and resource allocation.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>The Tiering Pyramid</h2>
+            <p>Account tiering is about <strong>matching investment to opportunity</strong>. You can't do 1:1 personalization for 1,000 accounts, and you shouldn't do 1:many for your top 10.</p>
+
+            <div class="pyramid">
+                <div class="pyramid-level t1">Tier 1: 1:1 (10-25)</div>
+                <div class="pyramid-level t2">Tier 2: 1:Few (50-150)</div>
+                <div class="pyramid-level t3">Tier 3: 1:Many (200-1000)</div>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">The 10x Rule</div>
+                <p>Each tier down should be roughly 5-10x the size of the tier above. This creates natural resource allocation: if Tier 1 gets 10 hours/account/month, Tier 2 gets 1 hour, Tier 3 gets 10 minutes.</p>
+            </div>
+
+            <div class="tier-section">
+                <div class="tier-header t1">
+                    <span class="tier-name">Tier 1</span>
+                    <span class="tier-model">1:1 Personalization</span>
+                </div>
+                <div class="tier-body">
+                    <div class="tier-meta">
+                        <div class="tier-meta-item">
+                            <span class="label">Account Count</span>
+                            <span class="value">10-25 accounts</span>
+                        </div>
+                        <div class="tier-meta-item">
+                            <span class="label">Typical Deal Size</span>
+                            <span class="value">$100K+ ACV</span>
+                        </div>
+                        <div class="tier-meta-item">
+                            <span class="label">Owner</span>
+                            <span class="value">Named AE + ABM</span>
+                        </div>
+                    </div>
+                    <p>These are your "must-win" accounts. Every tactic is customized to the specific account.</p>
+                    <div class="tactics-grid">
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Custom landing pages</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Executive-to-executive outreach</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Account-specific content</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Custom events/dinners</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Direct mail gifting</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Multi-threaded plays</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tier-section">
+                <div class="tier-header t2">
+                    <span class="tier-name">Tier 2</span>
+                    <span class="tier-model">1:Few (Cluster)</span>
+                </div>
+                <div class="tier-body">
+                    <div class="tier-meta">
+                        <div class="tier-meta-item">
+                            <span class="label">Account Count</span>
+                            <span class="value">50-150 accounts</span>
+                        </div>
+                        <div class="tier-meta-item">
+                            <span class="label">Typical Deal Size</span>
+                            <span class="value">$25K-$100K ACV</span>
+                        </div>
+                        <div class="tier-meta-item">
+                            <span class="label">Owner</span>
+                            <span class="value">SDR pod + ABM</span>
+                        </div>
+                    </div>
+                    <p>Grouped by industry, use case, or persona. Personalization is at the cluster level, not individual account.</p>
+                    <div class="tactics-grid">
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Industry-specific landing pages</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Vertical webinars</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Industry case studies</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> SDR sequences by vertical</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> LinkedIn ads by segment</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Co-marketing with partners</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tier-section">
+                <div class="tier-header t3">
+                    <span class="tier-name">Tier 3</span>
+                    <span class="tier-model">1:Many (Programmatic)</span>
+                </div>
+                <div class="tier-body">
+                    <div class="tier-meta">
+                        <div class="tier-meta-item">
+                            <span class="label">Account Count</span>
+                            <span class="value">200-1000 accounts</span>
+                        </div>
+                        <div class="tier-meta-item">
+                            <span class="label">Typical Deal Size</span>
+                            <span class="value">$10K-$25K ACV</span>
+                        </div>
+                        <div class="tier-meta-item">
+                            <span class="label">Owner</span>
+                            <span class="value">Demand gen team</span>
+                        </div>
+                    </div>
+                    <p>Scaled tactics with light personalization (company name, industry). Automation-heavy.</p>
+                    <div class="tactics-grid">
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Programmatic display ads</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Retargeting campaigns</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Nurture sequences</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Content syndication</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Broad LinkedIn campaigns</div>
+                        <div class="tactic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Website personalization</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Resource Allocation by Tier</h2>
+            <table class="resource-table">
+                <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>Tier 1</th>
+                        <th>Tier 2</th>
+                        <th>Tier 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Marketing spend/account</strong></td>
+                        <td>$5,000-$20,000</td>
+                        <td>$500-$2,000</td>
+                        <td>$50-$200</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sales time/account/month</strong></td>
+                        <td>10+ hours</td>
+                        <td>2-4 hours</td>
+                        <td>Automated + reactive</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Content customization</strong></td>
+                        <td>Account-specific</td>
+                        <td>Segment-specific</td>
+                        <td>Generic + tokens</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Review cadence</strong></td>
+                        <td>Weekly</td>
+                        <td>Bi-weekly</td>
+                        <td>Monthly</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Movement Between Tiers</h2>
+            <p>Tiers aren't permanent. Accounts should move based on signals:</p>
+
+            <h3>Tier Up (Promotion)</h3>
+            <ul>
+                <li>Intent spike detected (researching your category)</li>
+                <li>Multiple contacts engaging</li>
+                <li>Expansion opportunity at existing customer</li>
+                <li>Strategic account added by sales leadership</li>
+            </ul>
+
+            <h3>Tier Down (Demotion)</h3>
+            <ul>
+                <li>No engagement after 6 months of effort</li>
+                <li>Lost deal, needs cooling off period</li>
+                <li>Company situation changed (acquisition, layoffs)</li>
+                <li>Budget constraints require prioritization</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-title">Review Quarterly</div>
+                <p>Lock tier assignments for a quarter, then review. Constant re-tiering creates chaos. Let programs run long enough to measure impact.</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Get the Tiering Calendar</h2>
+            <p>Our ZenABM Toolkit includes a 30-day Tier 1 calendar with specific plays and resource allocation templates.</p>
+            <a href="/zenabm/" class="cta-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download Toolkit
+            </a>
+        </div>
+
+        <div class="related-section">
+            <h3 class="related-title">Related Guides</h3>
+            <div class="related-cards">
+                <a href="/zenabm/account-scoring/" class="related-card">
+                    <div class="related-card-title">Account Scoring Model</div>
+                    <div class="related-card-desc">Fit + intent + engagement scoring</div>
+                </a>
+                <a href="/zenabm/buying-signals/" class="related-card">
+                    <div class="related-card-title">Buying Signals Playbook</div>
+                    <div class="related-card-desc">Signals that indicate purchase readiness</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/42-logo.png" alt="42 Agency" class="footer-logo">
+                <p>B2B performance marketing for companies that sell to enterprises.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/42agency" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="https://x.com/get42agency" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col"><h4>42 Agency</h4><a href="https://42agency.com/demand-generation">Demand Generation</a><a href="https://42agency.com/marketing-operations">Marketing Operations</a><a href="https://42agency.com/seo-and-content">SEO & Content</a><a href="https://42agency.com/contact-us">Contact Us</a></div>
+                <div class="footer-col"><h4>42/ Essays</h4><a href="https://42slash.com/p/abm-is-just-good-marketing">ABM is Just Good Marketing</a><a href="https://42slash.com/p/the-abm-measurement-problem">The ABM Measurement Problem</a><a href="https://42slash.com">All Essays</a></div>
+                <div class="footer-col"><h4>AI Tools</h4><a href="https://copilot.42agency.com">Marvin (LinkedIn Ads AI)</a></div>
+                <div class="footer-col"><h4>ABM Guides</h4><a href="/zenabm/account-scoring/">Account Scoring</a><a href="/zenabm/account-tiering/">Account Tiering</a><a href="/zenabm/buying-signals/">Buying Signals</a><a href="/zenabm/">Full Toolkit</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 42 Agency</p></div>
+    </footer>
+</body>
+</html>

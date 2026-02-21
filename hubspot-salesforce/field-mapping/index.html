@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Salesforce Field Mapping Guide | Sync Direction & Conflict Resolution</title>
+    <meta name="description" content="How to map fields between HubSpot and Salesforce. Sync direction rules, conflict resolution strategies, and which fields should sync which way.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/hubspot-salesforce/field-mapping/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root { --accent: #DFFE68; --accent-dark: #C8E85C; --black: #1a1a1a; --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937; --white: #ffffff; --orange: #ff7a59; --blue: #00a1e0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--black); }
+        .logo span { color: var(--accent); }
+        .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .back-link:hover { color: var(--accent); }
+        .article { padding: 48px 0; }
+        .breadcrumb { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--gray-600); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); }
+        h1 { font-size: 36px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
+        .meta { font-size: 14px; color: var(--gray-600); margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-200); }
+        h2 { font-size: 24px; font-weight: 600; color: var(--black); margin: 48px 0 16px; }
+        h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 32px 0 12px; }
+        p { margin-bottom: 16px; }
+        ul, ol { margin: 0 0 24px 24px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--black); }
+        code { background: var(--gray-100); padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+        .table-wrapper { overflow-x: auto; margin: 24px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: var(--black); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); }
+        tr:nth-child(even) { background: var(--gray-50); }
+        .callout { background: var(--gray-50); border-left: 4px solid var(--accent); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .callout-title { font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .callout p { margin: 0; font-size: 15px; }
+        .warning { border-left-color: #f59e0b; background: #fffbeb; }
+        .direction-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+        .direction-badge.hs { background: #fff3f0; color: var(--orange); }
+        .direction-badge.sf { background: #e6f4fb; color: var(--blue); }
+        .direction-badge.bi { background: #f0fdf4; color: #16a34a; }
+        .cta-box { background: linear-gradient(135deg, var(--black) 0%, #2d3548 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+        .cta-box h3 { color: var(--white); margin: 0 0 8px; }
+        .cta-box p { color: var(--gray-400); margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: var(--accent); color: var(--black); padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+        .cta-button:hover { background: var(--green-dark); }
+        .footer { padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 48px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 14px; color: var(--gray-600); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .footer-links a:hover { color: var(--accent); }
+        @media (max-width: 640px) { h1 { font-size: 28px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                <a href="/hubspot-salesforce/" class="back-link">← Integration Checklist</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Resources</a> → <a href="/hubspot-salesforce/">HubSpot ↔ Salesforce</a> → Field Mapping
+            </div>
+
+            <h1>HubSpot Salesforce Field Mapping: Sync Direction & Conflict Resolution</h1>
+            <div class="meta">Which fields should sync which way, and what happens when values conflict.</div>
+
+            <p>Field mapping is where most HubSpot-Salesforce integrations go wrong. Map the wrong direction and you'll overwrite good data. Skip conflict resolution and you'll create endless sync loops.</p>
+
+            <p>This guide covers the strategic decisions behind field mapping—not just how to click buttons in HubSpot.</p>
+
+            <h2>The Three Sync Directions</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Direction</th>
+                            <th>What It Means</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="direction-badge hs">HubSpot → Salesforce</span></td>
+                            <td>HubSpot is the source of truth. Changes in HubSpot overwrite Salesforce.</td>
+                            <td>Marketing-owned fields: lead source, campaign, form submissions</td>
+                        </tr>
+                        <tr>
+                            <td><span class="direction-badge sf">Salesforce → HubSpot</span></td>
+                            <td>Salesforce is the source of truth. Changes in Salesforce overwrite HubSpot.</td>
+                            <td>Sales-owned fields: deal stage, owner, close date</td>
+                        </tr>
+                        <tr>
+                            <td><span class="direction-badge bi">Bidirectional</span></td>
+                            <td>Most recent change wins. Either system can update the other.</td>
+                            <td>Shared fields: email, phone, company name</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">The Golden Rule</div>
+                <p>The system where data is created or primarily maintained should be the source of truth for that field. Marketing creates lead source → HubSpot wins. Sales updates deal stage → Salesforce wins.</p>
+            </div>
+
+            <h2>Recommended Sync Directions by Field Type</h2>
+
+            <h3>Contact/Lead Identity Fields</h3>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Direction</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Email</td>
+                            <td><span class="direction-badge bi">Bidirectional</span></td>
+                            <td>Either team may update; use most recent</td>
+                        </tr>
+                        <tr>
+                            <td>First Name / Last Name</td>
+                            <td><span class="direction-badge bi">Bidirectional</span></td>
+                            <td>Sales often corrects form typos</td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td><span class="direction-badge bi">Bidirectional</span></td>
+                            <td>Sales may add direct lines</td>
+                        </tr>
+                        <tr>
+                            <td>Job Title</td>
+                            <td><span class="direction-badge bi">Bidirectional</span></td>
+                            <td>Updated in either system</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Marketing-Owned Fields</h3>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Direction</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lead Source</td>
+                            <td><span class="direction-badge hs">HubSpot → Salesforce</span></td>
+                            <td>Marketing creates and owns attribution</td>
+                        </tr>
+                        <tr>
+                            <td>Original Source</td>
+                            <td><span class="direction-badge hs">HubSpot → Salesforce</span></td>
+                            <td>First touch attribution from HubSpot</td>
+                        </tr>
+                        <tr>
+                            <td>Recent Conversion</td>
+                            <td><span class="direction-badge hs">HubSpot → Salesforce</span></td>
+                            <td>Form/landing page data from HubSpot</td>
+                        </tr>
+                        <tr>
+                            <td>Lead Score</td>
+                            <td><span class="direction-badge hs">HubSpot → Salesforce</span></td>
+                            <td>Scoring model lives in HubSpot</td>
+                        </tr>
+                        <tr>
+                            <td>Lifecycle Stage</td>
+                            <td><span class="direction-badge bi">Bidirectional</span></td>
+                            <td>Both systems may advance stages</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Sales-Owned Fields</h3>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Direction</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Contact Owner</td>
+                            <td><span class="direction-badge sf">Salesforce → HubSpot</span></td>
+                            <td>Sales assigns ownership in SFDC</td>
+                        </tr>
+                        <tr>
+                            <td>Deal Stage</td>
+                            <td><span class="direction-badge sf">Salesforce → HubSpot</span></td>
+                            <td>Pipeline managed in Salesforce</td>
+                        </tr>
+                        <tr>
+                            <td>Close Date</td>
+                            <td><span class="direction-badge sf">Salesforce → HubSpot</span></td>
+                            <td>Sales forecasting in Salesforce</td>
+                        </tr>
+                        <tr>
+                            <td>Deal Amount</td>
+                            <td><span class="direction-badge sf">Salesforce → HubSpot</span></td>
+                            <td>Revenue data from Salesforce</td>
+                        </tr>
+                        <tr>
+                            <td>Lead Status</td>
+                            <td><span class="direction-badge sf">Salesforce → HubSpot</span></td>
+                            <td>SDR/Sales qualification in Salesforce</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Conflict Resolution: What Happens When Both Change?</h2>
+
+            <p>For bidirectional fields, you must define what happens when both systems have different values. HubSpot offers two options:</p>
+
+            <h3>Option 1: Most Recent Value Wins</h3>
+            <p>Whichever system was updated most recently overwrites the other. Good for fields that either team may legitimately update.</p>
+            <p><strong>Best for:</strong> Email, phone, job title, company name</p>
+
+            <h3>Option 2: Prefer Salesforce Unless Blank</h3>
+            <p>Salesforce value always wins unless it's empty. Good for fields where sales corrections should stick.</p>
+            <p><strong>Best for:</strong> Fields where sales "cleans up" marketing data</p>
+
+            <div class="callout warning">
+                <div class="callout-title">Warning: Avoid "Always Prefer" Rules</div>
+                <p>"Always prefer HubSpot" or "Always prefer Salesforce" on bidirectional fields causes data to get stuck. If sales fixes a phone number in SFDC and HubSpot always wins, the fix gets overwritten.</p>
+            </div>
+
+            <h2>Fields You Should NOT Sync</h2>
+
+            <p>Not every field needs to sync. These commonly cause problems:</p>
+
+            <ul>
+                <li><strong>System fields:</strong> Created date, last modified date (let each system track its own)</li>
+                <li><strong>Internal notes:</strong> Sales notes in SFDC shouldn't overwrite marketing notes in HubSpot</li>
+                <li><strong>Calculated fields:</strong> Formulas should calculate locally, not sync</li>
+                <li><strong>Temporary flags:</strong> "In campaign X" flags that only matter in one system</li>
+            </ul>
+
+            <h2>Field Mapping Best Practices</h2>
+
+            <ol>
+                <li><strong>Map only what you need.</strong> Start with 20-30 essential fields. Add more later if needed.</li>
+                <li><strong>Document every mapping.</strong> Spreadsheet with field name, direction, and rationale.</li>
+                <li><strong>Use consistent naming.</strong> <code>hs_lead_source</code> in HubSpot maps to <code>Lead_Source__c</code> in Salesforce.</li>
+                <li><strong>Test before going live.</strong> Sync 10 test records. Verify each field mapped correctly.</li>
+                <li><strong>Monitor sync errors.</strong> Review HubSpot's sync health dashboard weekly.</li>
+            </ol>
+
+            <div class="cta-box">
+                <h3>Get the Full Integration Checklist</h3>
+                <p>Complete field mapping template, lifecycle alignment, and sync error troubleshooting.</p>
+                <a href="/hubspot-salesforce/" class="cta-button">Download Checklist →</a>
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li>Choose sync direction based on which team owns the field</li>
+                <li>Use "most recent wins" for shared fields like email and phone</li>
+                <li>Don't sync system fields, notes, or calculated fields</li>
+                <li>Document every mapping decision for future reference</li>
+                <li>Test with a small batch before enabling full sync</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer style="background: #0a0a0a; padding: 2rem; margin-top: 3rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 24px;"></a>
+                <span style="color: #666; font-size: 13px;">© 2026 42 Agency</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/hubspot-salesforce/" style="color: #999; text-decoration: none; font-size: 14px;">← Integration Checklist</a>
+                <a href="/hubspot-salesforce/lifecycle-alignment/" style="color: #999; text-decoration: none; font-size: 14px;">Lifecycle Alignment →</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM Measurement | KPIs and Attribution for Account-Based Marketing</title>
+    <meta name="description" content="How to measure ABM success. Account engagement metrics, pipeline influence, revenue attribution, and KPIs by funnel stage.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://intel.42agency.com/abm-campaign/measurement/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root { --accent: #DFFE68; --black: #1a1a1a; --purple: #8b5cf6; --gray-50: #f9fafb; --gray-200: #e5e7eb; --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--black); }
+        .logo span { color: var(--accent); }
+        .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        .article { padding: 48px 0; }
+        .breadcrumb { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+        .breadcrumb a { color: var(--gray-600); text-decoration: none; }
+        h1 { font-size: 36px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
+        .meta { font-size: 14px; color: var(--gray-600); margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-200); }
+        h2 { font-size: 24px; font-weight: 600; color: var(--black); margin: 48px 0 16px; }
+        h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 32px 0 12px; }
+        p { margin-bottom: 16px; }
+        ul { margin: 0 0 24px 24px; }
+        li { margin-bottom: 8px; }
+        .table-wrapper { overflow-x: auto; margin: 24px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: var(--black); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--gray-200); }
+        tr:nth-child(even) { background: var(--gray-50); }
+        .callout { background: var(--gray-50); border-left: 4px solid var(--purple); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .callout-title { font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .callout p { margin: 0; font-size: 15px; }
+        .metric-card { background: var(--gray-50); border-radius: 8px; padding: 16px 20px; margin: 12px 0; display: flex; justify-content: space-between; align-items: center; }
+        .metric-name { font-weight: 600; color: var(--black); }
+        .metric-formula { font-size: 13px; color: var(--gray-600); font-family: monospace; }
+        .cta-box { background: linear-gradient(135deg, var(--black) 0%, #2d3548 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+        .cta-box h3 { color: var(--white); margin: 0 0 8px; }
+        .cta-box p { color: var(--gray-400); margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: var(--purple); color: var(--white); padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+        .footer { padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 48px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 14px; color: var(--gray-600); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
+        @media (max-width: 640px) { h1 { font-size: 28px; } .metric-card { flex-direction: column; align-items: flex-start; gap: 8px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency" style="height: 28px;"></a>
+                <a href="/abm-campaign/" class="back-link">← ABM Campaign Template</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Resources</a> → <a href="/abm-campaign/">ABM Campaign</a> → Measurement
+            </div>
+
+            <h1>ABM Measurement: KPIs and Attribution</h1>
+            <div class="meta">How to measure what matters in account-based marketing—from engagement to revenue.</div>
+
+            <p>ABM measurement is different from traditional demand gen. You're not optimizing for lead volume—you're optimizing for account engagement, pipeline, and revenue from a defined set of accounts.</p>
+
+            <p>This guide covers the metrics that matter at each stage of the ABM funnel.</p>
+
+            <h2>The ABM Metrics Framework</h2>
+
+            <p>Organize metrics by funnel stage:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>What You're Measuring</th>
+                            <th>Key Metrics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Coverage</strong></td>
+                            <td>Do we have the data to reach accounts?</td>
+                            <td>Contact coverage, data completeness</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Awareness</strong></td>
+                            <td>Are accounts seeing our brand?</td>
+                            <td>Reach, impressions, website visits</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Engagement</strong></td>
+                            <td>Are accounts interacting?</td>
+                            <td>Account engagement score, content consumption</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pipeline</strong></td>
+                            <td>Are we creating opportunities?</td>
+                            <td>Opportunities created, pipeline $ from target accounts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revenue</strong></td>
+                            <td>Are we winning deals?</td>
+                            <td>Closed-won $, win rate, deal size</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Coverage Metrics</h2>
+
+            <p>Before running campaigns, measure your ability to reach target accounts:</p>
+
+            <div class="metric-card">
+                <span class="metric-name">Contact Coverage Rate</span>
+                <span class="metric-formula">Accounts with 3+ contacts / Total accounts</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">Persona Coverage</span>
+                <span class="metric-formula">Accounts with all target personas / Total accounts</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">Email Reachability</span>
+                <span class="metric-formula">Valid emails / Total contacts</span>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">The 3+ Contacts Rule</div>
+                <p>You need at least 3 contacts per account to run effective ABM. With only 1-2, you're vulnerable to job changes and have no buying committee coverage. Measure this before launching campaigns.</p>
+            </div>
+
+            <h2>Engagement Metrics</h2>
+
+            <p>Track how accounts (not individuals) are engaging with your brand:</p>
+
+            <div class="metric-card">
+                <span class="metric-name">Accounts Engaged</span>
+                <span class="metric-formula">Accounts with any engagement / Total target accounts</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">Account Engagement Score</span>
+                <span class="metric-formula">Weighted sum of all engagement activities per account</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">Multi-Threaded Accounts</span>
+                <span class="metric-formula">Accounts with 2+ engaged contacts / Total engaged accounts</span>
+            </div>
+
+            <h3>Engagement Score Components</h3>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>Points</th>
+                            <th>Signal Strength</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Website visit</td>
+                            <td>1</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td>Content download</td>
+                            <td>5</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Email click</td>
+                            <td>3</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Pricing page visit</td>
+                            <td>10</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>Demo request</td>
+                            <td>25</td>
+                            <td>Very high</td>
+                        </tr>
+                        <tr>
+                            <td>Event attendance</td>
+                            <td>15</td>
+                            <td>High</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Pipeline Metrics</h2>
+
+            <p>The metrics that matter most—are you creating and advancing opportunities?</p>
+
+            <div class="metric-card">
+                <span class="metric-name">Target Account Pipeline</span>
+                <span class="metric-formula">Total pipeline $ from target accounts</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">Pipeline Velocity</span>
+                <span class="metric-formula">Days from first engagement to opportunity</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">Account Penetration</span>
+                <span class="metric-formula">Accounts with opportunities / Total target accounts</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">Pipeline Influence</span>
+                <span class="metric-formula">Pipeline $ where ABM touchpoint preceded opportunity</span>
+            </div>
+
+            <h2>Revenue Metrics</h2>
+
+            <p>Ultimate success metrics for ABM:</p>
+
+            <div class="metric-card">
+                <span class="metric-name">Target Account Revenue</span>
+                <span class="metric-formula">Closed-won $ from target accounts</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">Target Account Win Rate</span>
+                <span class="metric-formula">Target account wins / Target account opportunities</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">Average Deal Size (Target vs Non-Target)</span>
+                <span class="metric-formula">Compare ACV for target accounts vs others</span>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-name">ABM ROI</span>
+                <span class="metric-formula">(Revenue - ABM Cost) / ABM Cost</span>
+            </div>
+
+            <h2>Measuring by Tier</h2>
+
+            <p>Different tiers warrant different measurement approaches:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric Focus</th>
+                            <th>Tier 1</th>
+                            <th>Tier 2</th>
+                            <th>Tier 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary metric</td>
+                            <td>Revenue per account</td>
+                            <td>Pipeline created</td>
+                            <td>Engagement rate</td>
+                        </tr>
+                        <tr>
+                            <td>Engagement tracking</td>
+                            <td>Individual account dashboards</td>
+                            <td>Cluster-level reporting</td>
+                            <td>Aggregate metrics</td>
+                        </tr>
+                        <tr>
+                            <td>Review frequency</td>
+                            <td>Weekly</td>
+                            <td>Bi-weekly</td>
+                            <td>Monthly</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">Compare Target vs Non-Target</div>
+                <p>The most powerful ABM proof point is comparison. Track win rate, deal size, and sales cycle for target accounts vs non-target. If ABM is working, target accounts should outperform on all three.</p>
+            </div>
+
+            <h2>Attribution for ABM</h2>
+
+            <p>Traditional lead-based attribution doesn't work for ABM. Use account-based attribution:</p>
+
+            <ul>
+                <li><strong>Account-level first touch:</strong> First marketing touchpoint from any contact at the account</li>
+                <li><strong>Account-level multi-touch:</strong> All touchpoints across all contacts, weighted by recency/importance</li>
+                <li><strong>Pipeline influence:</strong> Did any ABM touchpoint occur before opportunity creation?</li>
+                <li><strong>Engagement correlation:</strong> Compare engagement scores of won vs lost opportunities</li>
+            </ul>
+
+            <div class="cta-box">
+                <h3>Get the ABM Campaign Template</h3>
+                <p>KPI tracking dashboard, engagement scoring model, and attribution framework.</p>
+                <a href="/abm-campaign/" class="cta-button">Download Template →</a>
+            </div>
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li>Measure at the account level, not individual lead level</li>
+                <li>Track metrics across the full funnel: Coverage → Engagement → Pipeline → Revenue</li>
+                <li>Require 3+ contacts per account before running campaigns</li>
+                <li>Compare target account performance vs non-target to prove ABM value</li>
+                <li>Use account-based attribution, not lead-based</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer style="background: #0a0a0a; padding: 2rem; margin-top: 3rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/"><img src="/42-logo.png" alt="42 Agency" style="height: 24px;"></a>
+                <span style="color: #666; font-size: 13px;">© 2026 42 Agency</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/abm-campaign/play-design/" style="color: #999; text-decoration: none; font-size: 14px;">← Play Design</a>
+                <a href="/abm-campaign/" style="color: #999; text-decoration: none; font-size: 14px;">ABM Template →</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
