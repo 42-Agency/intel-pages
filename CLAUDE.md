@@ -530,4 +530,41 @@ intel-pages/
 
 ---
 
-*Last updated: February 21, 2026 - Major restructure: /assess/ hub, consistent nav/footer, lead capture flow*
+---
+
+## LinkedIn Share System (Feb 21, 2026)
+
+### How It Works
+1. User completes assessment → enters email only → sees results
+2. Clicks "Share to LinkedIn" button
+3. Opens LinkedIn share dialog with auto-generated preview
+4. User just clicks "Post"
+
+### Technical Flow
+```
+User clicks Share → generateShareUrl() encodes results in base64 →
+Opens linkedin.com/sharing/share-offsite/?url=[encoded-url] →
+LinkedIn scrapes /api/share?d=[data]&t=[tool] →
+Edge Function returns HTML with dynamic OG meta tags →
+LinkedIn shows preview with actual score in title
+```
+
+### Key Files
+- `/api/share.js` - Dynamic OG meta tag endpoint
+- `/og-share.png` - Static branded image for LinkedIn previews
+- Assessment pages have `shareToLinkedIn()` function
+
+### Data Encoded in Share URL
+**Calculator:** `{ score, industry }`
+**HubSpot:** `{ percentage, grade, criticalIssues, weakestCategory }`
+
+### OG Tags Generated
+```html
+<meta property="og:title" content="B2B Benchmark Score: 72/100">
+<meta property="og:description" content="SaaS - See how your paid media performance compares...">
+<meta property="og:image" content="https://intel.42agency.com/og-share.png">
+```
+
+---
+
+*Last updated: February 21, 2026 - Added LinkedIn share system with dynamic OG meta tags*
