@@ -2,7 +2,25 @@
 
 **URL:** https://intel.42agency.com
 **Hosting:** Vercel (project: `intel-pages`)
-**Deploy:** `cd ~/Documents/Schema\ Agency/web/intel-pages && vercel --prod`
+**Deploy:** `cd /Users/42agency/intel-pages && vercel --prod`
+
+---
+
+## IMPORTANT: This is the Main Hub
+
+**Intel Pages is the central hub for ALL 42 Agency tools, resources, assessments, and diagnostics.**
+
+When building:
+- **New tools** → Build in intel-pages `/tools/`
+- **Lead magnets** → Build in intel-pages with appropriate structure
+- **Assessments/Quizzes** → Build in intel-pages `/assess/` or `/assessments/`
+- **Any interactive content** → Build in intel-pages
+
+**DO NOT** build these in separate Next.js apps or Vercel projects. Use intel-pages to ensure:
+- Consistent design system
+- Discovery paths and interlinking
+- Shared header/footer navigation
+- Unified analytics (GTM + HubSpot)
 
 ---
 
@@ -14,7 +32,7 @@
 |---------|-----|---------|-------------|
 | **Assess** | `/assess/` | Diagnostic tools hub | "How am I doing?" |
 | **Benchmarks** | `/b2b-benchmarks/` | Data & industry benchmarks | "What's good?" |
-| **AI Tools** | copilot.42agency.com | Interactive AI tools | "Help me do it" |
+| **AI Tools** | `/tools/` | Interactive AI-powered tools | "Help me do it" |
 | **Resources** | `/` (main index) | All templates & toolkits | "Give me templates" |
 
 ### URL Structure
@@ -22,6 +40,9 @@
 ```
 intel.42agency.com/
 ├── /                           # Main resources hub
+├── /tools/                     # AI Tools hub
+│   ├── /company-sampler/       # B2B Company Sample Builder
+│   └── /company-resolver/      # Company Name to LinkedIn Resolver
 ├── /assess/                    # Assessments & diagnostics hub
 │   └── /calculator/            # B2B Benchmark Calculator
 ├── /assessments/

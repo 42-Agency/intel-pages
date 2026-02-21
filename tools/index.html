@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assess Your Marketing | Free Audits & Diagnostics | 42 Agency</title>
+    <title>Free AI Tools | B2B Data Tools | 42 Agency</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,8 +18,9 @@
     <!-- HubSpot Tracking -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
 
-    <meta property="og:title" content="Assess Your Marketing | Free Audits & Diagnostics">
-    <meta property="og:description" content="Free self-service diagnostics for B2B marketers. Audit your HubSpot, paid media accounts, and benchmark your performance.">
+    <meta property="og:title" content="Free AI Tools | B2B Data Tools">
+    <meta property="og:description" content="Build LinkedIn audiences and enrich company data with our free AI-powered tools. 623K+ B2B companies database.">
+    <meta property="og:image" content="https://intel.42agency.com/og-share.png">
 
     <style>
         :root {
@@ -106,6 +107,18 @@
             text-align: center;
         }
 
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(26, 26, 26, 0.1);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
         .hero h1 {
             font-size: 2.75rem;
             font-weight: 800;
@@ -154,8 +167,7 @@
             margin-bottom: 3rem;
         }
 
-        @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 
         .card {
             background: white;
@@ -194,9 +206,9 @@
             letter-spacing: 0.5px;
         }
 
-        .badge.interactive { background: var(--green); color: white; }
-        .badge.template { background: var(--blue); color: white; }
-        .badge.calculator { background: var(--orange); color: white; }
+        .badge.free { background: var(--green); color: white; }
+        .badge.data { background: var(--blue); color: white; }
+        .badge.coming { background: #e5e5e5; color: #666; }
 
         .card-body {
             padding: 1.5rem;
@@ -232,6 +244,47 @@
             display: flex;
             align-items: center;
             gap: 0.25rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 3rem;
+        }
+
+        .stats-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--muted);
         }
 
         /* CTA Section */
@@ -286,6 +339,43 @@
         }
 
         .cta-btn.dark:hover { background: #333; }
+
+        /* More Resources */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) { .resources-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .resources-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        .resource-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+            transition: all 0.15s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .resource-card:hover {
+            box-shadow: 4px 4px 0px 0px var(--black);
+            transform: translate(-1px, -1px);
+        }
+
+        .resource-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-card p {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
 
         /* Footer */
         .footer {
@@ -410,142 +500,147 @@
                 <img src="/42-logo.png" alt="42 Agency">
             </a>
             <nav class="nav">
-                <a href="/assess/" class="active">Assess</a>
+                <a href="/assess/">Assess</a>
                 <a href="/b2b-benchmarks/">Benchmarks</a>
-                <a href="/tools/">AI Tools</a>
+                <a href="/tools/" class="active">AI Tools</a>
                 <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <h1>Assess Your Marketing</h1>
-        <p>Free self-service diagnostics built by 42 Agency. Identify gaps, benchmark performance, and get actionable recommendations.</p>
+        <div class="hero-badge">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Free AI-Powered Tools
+        </div>
+        <h1>Free AI Tools</h1>
+        <p>Build LinkedIn audiences, enrich company data, and accelerate your B2B campaigns with our free tools.</p>
     </section>
 
     <main class="main">
-        <!-- Interactive Assessments -->
+        <!-- Stats -->
+        <div class="stats-section">
+            <h3 class="stats-title">Powered by PDL Company Database</h3>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-value">623K+</div>
+                    <div class="stat-label">B2B Companies</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">14+</div>
+                    <div class="stat-label">Industries</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">Company Sizes</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Tools -->
         <h2 class="section-title">
-            <span class="icon" style="background: rgba(16, 185, 129, 0.15);">&#9989;</span>
-            Interactive Assessments
+            <span class="icon" style="background: rgba(223, 254, 104, 0.3);">&#9889;</span>
+            AI-Powered Tools
         </h2>
         <div class="grid">
-            <a href="/assessments/hubspot-health/" class="card">
-                <div class="card-header" style="background: rgba(245, 158, 11, 0.1);">
-                    <span class="card-icon">&#128269;</span>
-                    <span class="badge interactive">Interactive</span>
+            <a href="/tools/company-sampler/" class="card">
+                <div class="card-header" style="background: rgba(223, 254, 104, 0.2);">
+                    <span class="card-icon">&#128451;</span>
+                    <span class="badge free">Free</span>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title">HubSpot CRM Health Assessment</h3>
-                    <p class="card-description">42-point diagnostic covering data hygiene, lifecycle management, lead scoring, attribution, and more. Get a personalized health score.</p>
+                    <h3 class="card-title">B2B Company Sample Builder</h3>
+                    <p class="card-description">Filter by industry, country, and company size. Get random samples of B2B companies for LinkedIn Matched Audiences with instant CSV export.</p>
                     <div class="card-meta">
-                        <span>&#128337; 5 min</span>
-                        <span>&#128202; 42 checks</span>
+                        <span>&#127919; LinkedIn Audiences</span>
+                        <span>&#128196; CSV Export</span>
                     </div>
                 </div>
             </a>
 
-            <a href="/assess/calculator/" class="card">
+            <a href="/tools/company-resolver/" class="card">
                 <div class="card-header" style="background: rgba(59, 130, 246, 0.1);">
-                    <span class="card-icon">&#128200;</span>
-                    <span class="badge calculator">Calculator</span>
+                    <span class="card-icon">&#128269;</span>
+                    <span class="badge data">Data Enrichment</span>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title">B2B Benchmark Calculator</h3>
-                    <p class="card-description">Input your LinkedIn & Google Ads metrics. See how you compare to 87 B2B client benchmarks with instant ratings.</p>
+                    <h3 class="card-title">Company Name to LinkedIn</h3>
+                    <p class="card-description">Paste company names and get their Website + LinkedIn URLs instantly. Perfect for enriching account lists and building matched audiences.</p>
                     <div class="card-meta">
-                        <span>&#128337; 3 min</span>
-                        <span>&#128202; 8 metrics</span>
+                        <span>&#9989; Instant Match</span>
+                        <span>&#128196; CSV Export</span>
                     </div>
                 </div>
             </a>
+        </div>
+
+        <!-- Coming Soon -->
+        <h2 class="section-title">
+            <span class="icon" style="background: rgba(107, 107, 107, 0.15);">&#128640;</span>
+            Coming Soon
+        </h2>
+        <div class="grid">
+            <div class="card" style="opacity: 0.6; pointer-events: none;">
+                <div class="card-header" style="background: rgba(107, 107, 107, 0.1);">
+                    <span class="card-icon">&#129302;</span>
+                    <span class="badge coming">Coming Soon</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">ICP to Audience Builder</h3>
+                    <p class="card-description">Describe your ICP in plain English. AI generates LinkedIn targeting criteria and matched audience lists automatically.</p>
+                    <div class="card-meta">
+                        <span>&#129504; AI-Powered</span>
+                    </div>
+                </div>
+            </div>
 
             <div class="card" style="opacity: 0.6; pointer-events: none;">
                 <div class="card-header" style="background: rgba(107, 107, 107, 0.1);">
-                    <span class="card-icon">&#128203;</span>
-                    <span class="badge" style="background: #e5e5e5; color: #666;">Coming Soon</span>
+                    <span class="card-icon">&#128200;</span>
+                    <span class="badge coming">Coming Soon</span>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title">Demand Gen Maturity Assessment</h3>
-                    <p class="card-description">Evaluate your B2B demand generation capabilities across channels, content, measurement, and operations.</p>
+                    <h3 class="card-title">Competitive Ad Intel</h3>
+                    <p class="card-description">Track competitor LinkedIn ads in real-time. Get alerts when they launch new campaigns and analyze their messaging.</p>
                     <div class="card-meta">
-                        <span>&#128337; 10 min</span>
+                        <span>&#128276; Alerts</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Audit Templates -->
+        <!-- More Resources -->
         <h2 class="section-title">
-            <span class="icon" style="background: rgba(59, 130, 246, 0.15);">&#128196;</span>
-            Audit Templates
+            <span class="icon" style="background: rgba(59, 130, 246, 0.15);">&#128218;</span>
+            More Free Resources
         </h2>
-        <div class="grid">
-            <a href="/linkedin-audit/" class="card">
-                <div class="card-header" style="background: rgba(10, 102, 194, 0.1);">
-                    <span class="card-icon">&#128101;</span>
-                    <span class="badge template">Template</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">LinkedIn Ads Audit</h3>
-                    <p class="card-description">9-sheet audit template covering account structure, targeting, creative performance, bidding, and lead gen forms.</p>
-                    <div class="card-meta">
-                        <span>&#128196; Excel</span>
-                        <span>&#128202; 50+ checks</span>
-                    </div>
-                </div>
+        <div class="resources-grid">
+            <a href="/assess/" class="resource-card">
+                <h3>Assessments</h3>
+                <p>HubSpot CRM Health, Benchmark Calculator, and more diagnostics.</p>
             </a>
-
-            <a href="/google-ads-audit/" class="card">
-                <div class="card-header" style="background: rgba(66, 133, 244, 0.1);">
-                    <span class="card-icon">&#128270;</span>
-                    <span class="badge template">Template</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Google Ads Audit</h3>
-                    <p class="card-description">9-sheet audit template covering conversion tracking, campaign structure, keywords, ad copy, and bidding.</p>
-                    <div class="card-meta">
-                        <span>&#128196; Excel</span>
-                        <span>&#128202; 50+ checks</span>
-                    </div>
-                </div>
+            <a href="/b2b-benchmarks/" class="resource-card">
+                <h3>B2B Benchmarks</h3>
+                <p>LinkedIn, Google, Meta ads benchmarks by industry.</p>
             </a>
-
-            <a href="/meta-audit/" class="card">
-                <div class="card-header" style="background: rgba(6, 104, 225, 0.1);">
-                    <span class="card-icon">&#128247;</span>
-                    <span class="badge template">Template</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Meta Ads Audit</h3>
-                    <p class="card-description">9-sheet audit template covering pixel setup, audience strategy, creative performance, and campaign structure.</p>
-                    <div class="card-meta">
-                        <span>&#128196; Excel</span>
-                        <span>&#128202; 50+ checks</span>
-                    </div>
-                </div>
+            <a href="https://copilot.42agency.com" target="_blank" class="resource-card">
+                <h3>LinkedIn Ads Copilot</h3>
+                <p>AI-powered LinkedIn Ads optimization and automation.</p>
             </a>
-
-            <a href="/hubspot-audit/" class="card">
-                <div class="card-header" style="background: rgba(255, 122, 89, 0.1);">
-                    <span class="card-icon">&#128736;</span>
-                    <span class="badge template">Template</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">HubSpot Audit Workbook</h3>
-                    <p class="card-description">Complete HubSpot audit covering properties, workflows, data quality, and automation best practices.</p>
-                    <div class="card-meta">
-                        <span>&#128196; Excel</span>
-                        <span>&#128202; 40+ checks</span>
-                    </div>
-                </div>
+            <a href="https://copilot.42agency.com/linkedin-ads-targeting" target="_blank" class="resource-card">
+                <h3>Targeting Guide</h3>
+                <p>10,000+ LinkedIn targeting options. Job titles, industries, seniorities.</p>
             </a>
         </div>
 
         <!-- CTA -->
         <div class="cta-section">
-            <h2>Need Expert Help?</h2>
-            <p>Get a professional audit of your marketing stack from the 42 Agency team. We've audited 200+ B2B accounts.</p>
+            <h2>Need Custom Data Solutions?</h2>
+            <p>We build custom audience lists and data enrichment pipelines for B2B companies. Let's talk about your needs.</p>
             <a href="https://42agency.com/contact" target="_blank" class="cta-btn dark">
                 Book a Free Consultation
                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -573,13 +668,19 @@
                 </div>
 
                 <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="/tools/company-sampler/">Company Sampler</a>
+                    <a href="/tools/company-resolver/">Company Resolver</a>
+                    <a href="https://copilot.42agency.com" target="_blank">LinkedIn Ads Copilot</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting" target="_blank">Targeting Guide</a>
+                </div>
+
+                <div class="footer-col">
                     <h4>Assess</h4>
                     <a href="/assessments/hubspot-health/">HubSpot Health Check</a>
                     <a href="/assess/calculator/">Benchmark Calculator</a>
                     <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
                     <a href="/google-ads-audit/">Google Ads Audit</a>
-                    <a href="/meta-audit/">Meta Ads Audit</a>
-                    <a href="/hubspot-audit/">HubSpot Audit</a>
                 </div>
 
                 <div class="footer-col">
@@ -588,23 +689,6 @@
                     <a href="/b2b-benchmarks/linkedin-ads-benchmarks/">LinkedIn Ads</a>
                     <a href="/b2b-benchmarks/google-ads-benchmarks/">Google Ads</a>
                     <a href="/b2b-benchmarks/meta-ads-benchmarks/">Meta Ads</a>
-                    <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/">InMail Benchmarks</a>
-                    <a href="/b2b-benchmarks/legal-tech-linkedin-ads/" class="sublink">Legal Tech</a>
-                    <a href="/b2b-benchmarks/healthcare-tech-linkedin-ads/" class="sublink">Healthcare Tech</a>
-                    <a href="/b2b-benchmarks/fintech-linkedin-ads/" class="sublink">FinTech</a>
-                    <a href="/b2b-benchmarks/devops-linkedin-ads/" class="sublink">DevOps</a>
-                </div>
-
-                <div class="footer-col">
-                    <h4>AI Tools</h4>
-                    <a href="https://copilot.42agency.com" target="_blank">LinkedIn Ads Copilot</a>
-                    <a href="https://copilot.42agency.com/linkedin-ads-targeting" target="_blank">Targeting Guide</a>
-                    <a href="https://copilot.42agency.com/linkedin-ads-targeting/audience-sizing" target="_blank">Audience Sizing</a>
-                    <a href="https://copilot.42agency.com/linkedin-ads-targeting/job-titles" target="_blank">Job Title Targeting</a>
-                    <h4 style="margin-top: 1.5rem;">Resources</h4>
-                    <a href="/zenabm/">ABM Toolkit</a>
-                    <a href="/mops-funnel/">MOPS Funnel Workbook</a>
-                    <a href="/exitfive/">Claude Code 101</a>
                 </div>
 
                 <div class="footer-col">
