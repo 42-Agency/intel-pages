@@ -16,55 +16,89 @@
     <style>
         :root { --accent: #DFFE68; --black: #1a1a1a; --gray: #4a4a4a; --light-gray: #f5f5f5; --green: #10B981; --teal: #14B8A6; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--light-gray); color: var(--black); line-height: 1.6; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--light-gray); color: var(--black); line-height: 1.7; }
         .header { border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; background: white; position: sticky; top: 0; z-index: 50; }
         .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 28px; }
         .nav { display: flex; align-items: center; gap: 0.25rem; }
         .nav a { padding: 0.5rem 1rem; color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; border-radius: 6px; }
         .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav a.active { background: var(--accent); color: var(--black); font-weight: 600; }
         .nav-cta { background: var(--black); color: white !important; font-weight: 600; }
         @media (max-width: 768px) { .nav { display: none; } }
         .breadcrumbs { background: white; border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; }
         .breadcrumbs-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
         .breadcrumbs a { color: var(--gray); text-decoration: none; }
         .breadcrumbs .current { color: var(--black); font-weight: 600; }
+
         .main { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+
+        /* Hero */
         .hero { text-align: center; margin-bottom: 3rem; }
         .hero-badge { display: inline-block; background: var(--teal); color: white; padding: 0.4rem 1rem; font-size: 0.75rem; font-weight: 700; border-radius: 20px; margin-bottom: 1rem; text-transform: uppercase; }
         h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .subtitle { color: var(--gray); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+
+        /* Stats */
+        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0 3rem; }
         .stat-item { text-align: center; padding: 1rem; background: white; border: 2px solid var(--black); border-radius: 12px; box-shadow: 3px 3px 0 var(--black); }
         .stat-value { font-size: 1.75rem; font-weight: 800; color: var(--green); }
         .stat-label { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; }
-        .preview-card { background: white; border: 2px solid var(--black); border-radius: 16px; padding: 2rem; box-shadow: 6px 6px 0 var(--black); margin-bottom: 2rem; }
-        .preview-card h2 { font-size: 1.25rem; font-weight: 800; margin-bottom: 1.5rem; }
-        .preview-list { list-style: none; }
-        .preview-list li { padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0; display: flex; align-items: flex-start; gap: 0.75rem; }
-        .preview-list li:last-child { border-bottom: none; }
-        .preview-list .check { width: 24px; height: 24px; background: var(--accent); border: 2px solid var(--black); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .preview-list .check svg { width: 14px; height: 14px; }
-        .preview-list strong { display: block; margin-bottom: 0.25rem; }
-        .preview-list span { color: var(--gray); font-size: 0.9rem; }
-        .vendor-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin: 1.5rem 0; }
-        .vendor-item { text-align: center; padding: 0.75rem; background: var(--light-gray); border-radius: 8px; font-size: 0.75rem; font-weight: 600; }
-        .gate-card { background: var(--accent); border: 2px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0 var(--black); text-align: center; margin: 2rem 0; }
+
+        /* Content Sections */
+        .content-section { background: white; border: 2px solid var(--black); border-radius: 16px; padding: 2rem; box-shadow: 4px 4px 0 var(--black); margin-bottom: 2rem; }
+        .content-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 3px solid var(--accent); }
+        .content-section h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+        .content-section p { margin-bottom: 1rem; color: #333; }
+        .content-section ul, .content-section ol { margin: 1rem 0 1rem 1.5rem; color: #333; }
+        .content-section li { margin-bottom: 0.5rem; }
+        .content-section table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        .content-section th, .content-section td { padding: 0.6rem 0.75rem; text-align: left; border: 1px solid #ddd; }
+        .content-section th { background: #f5f5f5; font-weight: 700; }
+        .content-section tr:nth-child(even) { background: #fafafa; }
+
+        .callout { background: var(--accent); border-left: 4px solid var(--black); padding: 1rem 1.25rem; margin: 1.25rem 0; border-radius: 0 8px 8px 0; }
+        .callout strong { display: block; margin-bottom: 0.25rem; }
+
+        /* Gated Content */
+        .gated-wrapper { position: relative; }
+        .gated-content { filter: blur(5px); pointer-events: none; user-select: none; }
+        .gated-content.unlocked { filter: none; pointer-events: auto; user-select: auto; }
+
+        .gate-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 15%, rgba(255,255,255,1) 30%); display: flex; align-items: flex-start; justify-content: center; padding-top: 4rem; }
+        .gate-overlay.hidden { display: none; }
+
+        .gate-card { background: var(--accent); border: 2px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0 var(--black); text-align: center; max-width: 450px; margin: 0 1rem; }
         .gate-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
         .gate-card p { color: var(--gray); margin-bottom: 1.5rem; }
-        .email-form { display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto; }
-        .email-form input { flex: 1; padding: 0.875rem; border: 2px solid var(--black); border-radius: 8px; font-size: 1rem; }
-        .email-form button { padding: 0.875rem 1.5rem; background: var(--black); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; }
-        .insight-box { background: #ccfbf1; border: 2px solid var(--teal); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
-        .insight-box strong { color: var(--teal); }
+        .email-form { display: flex; flex-direction: column; gap: 0.75rem; }
+        .email-form input { padding: 0.875rem; border: 2px solid var(--black); border-radius: 8px; font-size: 1rem; text-align: center; }
+        .email-form button { padding: 0.875rem 1.5rem; background: var(--black); color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; }
+        .email-form button:hover { background: #333; }
+        .gate-card .note { font-size: 0.8rem; color: #666; margin-top: 1rem; }
+
+        /* Download Banner */
+        .download-banner { display: none; background: var(--accent); border: 2px solid var(--black); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; text-align: center; box-shadow: 4px 4px 0 var(--black); }
+        .download-banner.visible { display: block; }
+        .download-banner p { margin-bottom: 1rem; font-weight: 600; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--black); color: white; text-decoration: none; border-radius: 8px; font-weight: 700; }
+        .download-btn:hover { background: #333; }
+
+        /* Related */
         .related-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
         .related-link { display: block; padding: 1rem; background: white; border: 2px solid var(--black); border-radius: 8px; text-decoration: none; color: var(--black); font-weight: 600; box-shadow: 3px 3px 0 var(--black); }
         .related-link:hover { background: var(--accent); }
+
         .footer { background: var(--black); color: white; padding: 3rem 2rem 2rem; margin-top: 3rem; }
         .footer-inner { max-width: 900px; margin: 0 auto; text-align: center; }
         .footer img { height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
         .footer p { font-size: 0.85rem; color: #666; }
-        @media (max-width: 768px) { .stats-row { grid-template-columns: 1fr; } .vendor-grid { grid-template-columns: repeat(2, 1fr); } .related-links { grid-template-columns: 1fr; } .email-form { flex-direction: column; } }
+
+        @media (max-width: 768px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .related-links { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
@@ -77,6 +111,7 @@
                 <a href="/assess/">Assess</a>
                 <a href="/b2b-benchmarks/">Benchmarks</a>
                 <a href="/tools/">Tools</a>
+                <a href="/playbooks/" class="active">Playbooks</a>
                 <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
             </nav>
         </div>
@@ -110,54 +145,218 @@
             </div>
         </div>
 
-        <div class="preview-card">
-            <h2>What's Inside</h2>
-            <ul class="preview-list">
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Account Enrichment Framework</strong><span>Firmographics, technographics, and org structure data—what to enrich and from where</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Contact Acquisition Playbook</strong><span>Build buying committees with 5-8 contacts per account using ZoomInfo, Apollo, Cognism, and PDL</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Data Vendor Comparison</strong><span>ZoomInfo vs Apollo vs Cognism vs Lusha vs PDL—costs, coverage, and quality</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Data Hygiene Workflows</strong><span>Ongoing validation, bounce handling, and refresh cadences</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Budget Calculator</strong><span>How much to spend on data enrichment based on target account list size</span></div>
-                </li>
+        <!-- Download Banner (shows after unlock) -->
+        <div class="download-banner" id="downloadBanner">
+            <p>You've unlocked the full playbook. Download the PDF version:</p>
+            <a href="/playbooks/abm-enrichment/abm-enrichment-playbook.pdf" download class="download-btn">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Download PDF
+            </a>
+        </div>
+
+        <!-- UNGATED: Section 1 (30%) -->
+        <div class="content-section">
+            <h2>Why Data Quality Makes or Breaks ABM</h2>
+            <p>ABM fails when you're targeting the wrong people at the right accounts. Most ABM lists have:</p>
+            <ul>
+                <li>Incomplete contacts (1-2 people per account vs. 5-8 needed)</li>
+                <li>Wrong titles (outdated or incorrect)</li>
+                <li>Missing firmographics (can't segment properly)</li>
+                <li>Bad emails (30%+ bounce rates)</li>
             </ul>
+            <div class="callout">
+                <strong>The Standard:</strong> For effective ABM, you need 5-8 contacts per target account across the buying committee, with 85%+ data accuracy.
+            </div>
         </div>
 
-        <div class="vendor-grid">
-            <div class="vendor-item">ZoomInfo</div>
-            <div class="vendor-item">Apollo</div>
-            <div class="vendor-item">Cognism</div>
-            <div class="vendor-item">PDL</div>
-            <div class="vendor-item">Lusha</div>
-            <div class="vendor-item">Clearbit</div>
-            <div class="vendor-item">LeadIQ</div>
-            <div class="vendor-item">Hunter</div>
-        </div>
+        <!-- GATED: Remaining sections (70%) -->
+        <div class="gated-wrapper">
+            <div class="gated-content" id="gatedContent">
 
-        <div class="insight-box">
-            <strong>42 Agency Insight:</strong> Don't try to enrich everything at once. Start with your top 100 target accounts and build full buying committees there (5-8 contacts each). Better to have complete data on 100 accounts than partial data on 1,000.
-        </div>
+                <div class="content-section">
+                    <h2>Account Enrichment Framework</h2>
+                    <p>Enrich these fields for every target account:</p>
+                    <table>
+                        <tr><th>Category</th><th>Fields</th><th>Source</th></tr>
+                        <tr>
+                            <td><strong>Firmographics</strong></td>
+                            <td>Employee count, revenue, industry, sub-industry, HQ location, office locations</td>
+                            <td>ZoomInfo, Clearbit, LinkedIn</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technographics</strong></td>
+                            <td>Tech stack, tools used, platforms</td>
+                            <td>BuiltWith, HG Insights, 6sense</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Org Structure</strong></td>
+                            <td>Reporting structure, department sizes, key executives</td>
+                            <td>LinkedIn Sales Nav, ZoomInfo Org Charts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Intent/Fit Signals</strong></td>
+                            <td>Funding, hiring, news, tech changes</td>
+                            <td>Crunchbase, LinkedIn, Bombora</td>
+                        </tr>
+                    </table>
+                </div>
 
-        <div class="gate-card">
-            <h3>Download the Playbook</h3>
-            <p>Get the complete framework with vendor comparisons, enrichment templates, and budget calculators.</p>
-            <form class="email-form" id="downloadForm" onsubmit="handleSubmit(event)">
-                <input type="email" name="email" placeholder="you@company.com" required>
-                <button type="submit">Get Playbook</button>
-            </form>
+                <div class="content-section">
+                    <h2>Contact Acquisition: Building Buying Committees</h2>
+                    <h3>The 5-8 Contact Rule</h3>
+                    <p>For B2B deals, you typically need to reach:</p>
+                    <table>
+                        <tr><th>Role</th><th>Example Titles</th><th>Why They Matter</th></tr>
+                        <tr><td><strong>Economic Buyer</strong></td><td>CFO, VP Finance, CRO</td><td>Controls budget</td></tr>
+                        <tr><td><strong>Technical Buyer</strong></td><td>CTO, VP Engineering, IT Director</td><td>Evaluates fit</td></tr>
+                        <tr><td><strong>User Buyer</strong></td><td>Director of Ops, Team Lead</td><td>Daily user, adoption</td></tr>
+                        <tr><td><strong>Champion</strong></td><td>Manager, Senior IC</td><td>Internal advocate</td></tr>
+                        <tr><td><strong>Blocker</strong></td><td>Incumbent vendor owner, IT Security</td><td>Can kill deal</td></tr>
+                    </table>
+
+                    <h3>Contact Acquisition Workflow</h3>
+                    <ol>
+                        <li>Export target account list from CRM</li>
+                        <li>Pull org charts from LinkedIn Sales Navigator</li>
+                        <li>Identify 5-8 contacts per buying committee role</li>
+                        <li>Enrich with email + phone via ZoomInfo/Apollo/Clay</li>
+                        <li>Validate emails before loading to CRM (use NeverBounce or ZeroBounce)</li>
+                        <li>Load to CRM with account association</li>
+                    </ol>
+                </div>
+
+                <div class="content-section">
+                    <h2>Data Vendor Comparison</h2>
+                    <table>
+                        <tr><th>Vendor</th><th>Best For</th><th>Email Accuracy</th><th>Price</th></tr>
+                        <tr>
+                            <td><strong>Clay</strong></td>
+                            <td>Multi-provider waterfall, workflows</td>
+                            <td>~90% (waterfall)</td>
+                            <td>$149-720/mo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ZoomInfo</strong></td>
+                            <td>Enterprise, full platform</td>
+                            <td>~85%</td>
+                            <td>$15-50K/year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Apollo</strong></td>
+                            <td>SMB/Mid-market, outbound</td>
+                            <td>~80%</td>
+                            <td>$1-5K/year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cognism</strong></td>
+                            <td>EMEA coverage, GDPR</td>
+                            <td>~85%</td>
+                            <td>$10-30K/year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lusha</strong></td>
+                            <td>Direct dials, quick enrichment</td>
+                            <td>~75%</td>
+                            <td>$3-10K/year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>People Data Labs</strong></td>
+                            <td>API access, large volumes</td>
+                            <td>~80%</td>
+                            <td>Pay per record</td>
+                        </tr>
+                    </table>
+                    <div class="callout">
+                        <strong>42 Agency Recommendation:</strong> Clay is the new gold standard for enrichment—150+ data providers with waterfall logic means higher match rates than any single vendor. Start with Clay for flexibility, use ZoomInfo for org charts, Apollo for budget-friendly prospecting.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Clay: The Enrichment Orchestration Layer</h2>
+                    <p>Clay has changed the enrichment game. Instead of choosing one data vendor, Clay lets you orchestrate 150+ providers through a single interface with <strong>waterfall enrichment</strong>.</p>
+
+                    <h3>How Waterfall Enrichment Works</h3>
+                    <p>Traditional enrichment: Query one provider → get ~80% match rate → accept gaps.</p>
+                    <p>Clay waterfall: Query Provider A → if no match, query Provider B → then C → achieve 90%+ match rates.</p>
+
+                    <h3>Clay Pricing Breakdown</h3>
+                    <table>
+                        <tr><th>Plan</th><th>Monthly</th><th>Credits/Month</th><th>Best For</th></tr>
+                        <tr><td>Free</td><td>$0</td><td>100</td><td>Testing</td></tr>
+                        <tr><td>Starter</td><td>$149</td><td>2,000</td><td>Small teams</td></tr>
+                        <tr><td>Explorer</td><td>$349</td><td>10,000</td><td>Growth teams</td></tr>
+                        <tr><td>Pro</td><td>$720</td><td>50,000</td><td>Scale operations</td></tr>
+                    </table>
+                    <p><em>Credits vary by action: basic verification = 1 credit, full profile enrichment = 5-10 credits.</em></p>
+
+                    <h3>Clay ABM Workflow</h3>
+                    <ol>
+                        <li>Import target account list (CSV or CRM sync)</li>
+                        <li>Enrich accounts with firmographics + technographics</li>
+                        <li>Find 5-8 contacts per account using waterfall</li>
+                        <li>Validate emails with built-in verification</li>
+                        <li>Score/filter based on enriched data</li>
+                        <li>Push to CRM or outbound tool</li>
+                    </ol>
+                </div>
+
+                <div class="content-section">
+                    <h2>Data Hygiene Workflows</h2>
+                    <h3>Ongoing Maintenance (Monthly)</h3>
+                    <ul>
+                        <li><strong>Email validation:</strong> Re-validate emails with >30 days since last engagement</li>
+                        <li><strong>Bounce monitoring:</strong> Auto-suppress after 2 hard bounces</li>
+                        <li><strong>Job change tracking:</strong> LinkedIn Sales Nav alerts for champions</li>
+                        <li><strong>Firmographic refresh:</strong> Re-enrich accounts quarterly for size/revenue changes</li>
+                    </ul>
+
+                    <h3>Data Quality Metrics to Track</h3>
+                    <table>
+                        <tr><th>Metric</th><th>Target</th><th>Red Flag</th></tr>
+                        <tr><td>Email deliverability</td><td>>95%</td><td><85%</td></tr>
+                        <tr><td>Contact-to-account ratio</td><td>5-8 per account</td><td><3 per account</td></tr>
+                        <tr><td>Title accuracy (spot check)</td><td>>90%</td><td><80%</td></tr>
+                        <tr><td>Duplicate rate</td><td><5%</td><td>>10%</td></tr>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h2>Enrichment Budget Calculator</h2>
+                    <p>Use this formula to estimate your enrichment spend:</p>
+                    <div class="callout">
+                        <strong>Annual Enrichment Budget =</strong>
+                        (Target Accounts × Contacts per Account × Cost per Contact) + (Refresh Rate × Records × Refresh Cost)
+                    </div>
+
+                    <h3>Example Calculation</h3>
+                    <table>
+                        <tr><td>Target Accounts</td><td>500</td></tr>
+                        <tr><td>Contacts per Account</td><td>6</td></tr>
+                        <tr><td>Cost per Contact (Apollo)</td><td>$0.50</td></tr>
+                        <tr><td><strong>Initial Build Cost</strong></td><td><strong>$1,500</strong></td></tr>
+                        <tr><td>Quarterly Refresh (20% of records)</td><td>$300 × 4 = $1,200</td></tr>
+                        <tr><td><strong>Total Annual Budget</strong></td><td><strong>$2,700</strong></td></tr>
+                    </table>
+
+                    <div class="callout">
+                        <strong>Pro Tip:</strong> Start with your top 100 accounts. Build complete buying committees there first. Better to have 6 contacts per 100 accounts than 1 contact per 600 accounts.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Gate Overlay -->
+            <div class="gate-overlay" id="gateOverlay">
+                <div class="gate-card">
+                    <h3>Unlock the Full Playbook</h3>
+                    <p>Get vendor comparisons, Clay workflows, data hygiene checklists, and the budget calculator.</p>
+                    <form class="email-form" id="unlockForm" onsubmit="handleUnlock(event)">
+                        <input type="email" name="email" placeholder="you@company.com" required>
+                        <button type="submit">Unlock Full Playbook</button>
+                    </form>
+                    <p class="note">Plus get the PDF version emailed to you</p>
+                </div>
+            </div>
         </div>
 
         <section>
@@ -180,12 +379,20 @@
 
     <script src="/js/email-validation.js"></script>
     <script>
-        async function handleSubmit(e) {
+        // Check if already unlocked
+        if (localStorage.getItem('playbook_unlocked_abm-enrichment')) {
+            document.getElementById('gatedContent').classList.add('unlocked');
+            document.getElementById('gateOverlay').classList.add('hidden');
+            document.getElementById('downloadBanner').classList.add('visible');
+        }
+
+        async function handleUnlock(e) {
             e.preventDefault();
             const email = e.target.email.value;
             const button = e.target.querySelector('button');
             button.disabled = true;
-            button.textContent = 'Sending...';
+            button.textContent = 'Unlocking...';
+
             try {
                 const response = await fetch('/api/playbook-download', {
                     method: 'POST',
@@ -196,16 +403,21 @@
                     })
                 });
                 const data = await response.json();
+
                 if (data.success) {
-                    if (window.dataLayer) window.dataLayer.push({ event: 'playbook_downloaded', playbook: 'abm-enrichment' });
-                    // Trigger download
-                    const link = document.createElement('a');
-                    link.href = data.pdfUrl;
-                    link.download = 'abm-enrichment-playbook.pdf';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    e.target.innerHTML = '<p style="color: var(--green); font-weight: 700;">Download started! Check your email for a copy.</p>';
+                    // Track event
+                    if (window.dataLayer) window.dataLayer.push({ event: 'playbook_unlocked', playbook: 'abm-enrichment' });
+
+                    // Save unlock state
+                    localStorage.setItem('playbook_unlocked_abm-enrichment', 'true');
+
+                    // Reveal content
+                    document.getElementById('gatedContent').classList.add('unlocked');
+                    document.getElementById('gateOverlay').classList.add('hidden');
+                    document.getElementById('downloadBanner').classList.add('visible');
+
+                    // Scroll to content
+                    document.getElementById('gatedContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else {
                     throw new Error('Failed');
                 }
