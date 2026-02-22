@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Ads Budget Calculator | Get Real Pricing Estimates | 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <!-- Chart.js for budget graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <meta property="og:title" content="LinkedIn Ads Budget Calculator - Get Real Pricing Estimates">
+    <meta property="og:description" content="Enter your ICP. Get real LinkedIn audience size and CPM/CPC estimates based on live API data.">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --linkedin: #0A66C2;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo img { height: 28px; width: auto; }
+
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav a.active { color: var(--black); font-weight: 600; background: var(--accent); }
+        .nav a.external { display: flex; align-items: center; gap: 0.25rem; }
+
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--black);
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover { background: #333 !important; }
+
+        /* Breadcrumbs */
+        .breadcrumbs { background: white; border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; }
+        .breadcrumbs-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .breadcrumbs a { color: #6b6b6b; text-decoration: none; }
+        .breadcrumbs a:hover { color: var(--black); }
+        .breadcrumbs span { color: #6b6b6b; }
+        .breadcrumbs .current { color: var(--black); font-weight: 600; }
+
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        .main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .calculator-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            margin-bottom: 2rem;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background: white;
+            transition: all 0.2s;
+        }
+
+        .step.active { background: var(--accent); }
+        .step.completed { background: var(--green); color: white; border-color: var(--green); }
+
+        .step-line {
+            width: 60px;
+            height: 2px;
+            background: #e0e0e0;
+            align-self: center;
+        }
+
+        .form-section { display: none; }
+        .form-section.active { display: block; }
+
+        .form-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .form-section p.hint {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--linkedin);
+        }
+
+        .platform-icon svg { width: 18px; height: 18px; fill: white; }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        input, textarea {
+            padding: 0.875rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--black);
+        }
+
+        .example-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .example-chip {
+            padding: 0.25rem 0.75rem;
+            background: var(--light-gray);
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .example-chip:hover {
+            background: var(--accent);
+            border-color: var(--black);
+            color: var(--black);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:disabled {
+            background: #e0e0e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--black);
+        }
+
+        .btn-secondary:hover { background: var(--light-gray); }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--black);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Results Section */
+        .results-section { display: none; }
+        .results-section.active { display: block !important; }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-header h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .audience-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--linkedin);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .score-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            margin-bottom: 1.5rem;
+        }
+
+        .score-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+
+        .pricing-item {
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .pricing-item .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-item .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        .pricing-item .range {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .budget-recommendations {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .budget-recommendations h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+
+        .budget-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .budget-row:last-child { border-bottom: none; }
+
+        .budget-label {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .budget-label .tier-badge {
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .budget-label .tier-badge.min, .tier-badge.test { background: #fee2e2; color: #991b1b; }
+        .budget-label .tier-badge.ideal, .tier-badge.growth { background: #d1fae5; color: #065f46; }
+        .budget-label .tier-badge.aggressive, .tier-badge.scale { background: #dbeafe; color: #1e40af; }
+
+        /* Objective Tabs */
+        .objective-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .objective-tab {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .objective-tab:hover {
+            border-color: var(--black);
+        }
+
+        .objective-tab.active {
+            background: var(--accent);
+            border-color: var(--black);
+        }
+
+        .objective-content {
+            display: none;
+        }
+
+        .objective-content.active {
+            display: block;
+        }
+
+        .objective-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .objective-metric {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--linkedin);
+            background: rgba(10, 102, 194, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .objective-desc {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .budget-tier {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .budget-tier:last-child {
+            margin-bottom: 0;
+        }
+
+        .budget-tier.recommended {
+            background: var(--accent);
+            border: 2px solid var(--black);
+        }
+
+        .budget-tier-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .budget-tier-right {
+            text-align: right;
+        }
+
+        .budget-tier-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .budget-tier-desc {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .budget-tier-amount {
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .budget-tier-detail {
+            font-size: 0.7rem;
+            color: var(--muted);
+        }
+
+        .budget-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .budget-note {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        /* Shareable Card */
+        .share-section {
+            margin-top: 2rem;
+        }
+
+        .share-section h3 {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        #shareableCard {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .share-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .share-card-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .share-card-title { font-weight: 700; font-size: 14px; }
+        .share-card-subtitle { font-size: 12px; color: var(--muted); }
+
+        .share-card-audience {
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        .share-card-audience .number {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            color: var(--linkedin);
+        }
+
+        .share-card-audience .label {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-top: 0.25rem;
+        }
+
+        .share-card-icp {
+            margin-top: 0.75rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .share-card-pricing {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e5e5e5;
+        }
+
+        .share-card-pricing-item {
+            text-align: center;
+        }
+
+        .share-card-pricing-item .label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .share-card-pricing-item .value {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .share-card-footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid #e5e5e5;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        .share-actions {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn-linkedin {
+            max-width: 300px;
+            background: var(--linkedin);
+            border-color: var(--linkedin);
+            color: white;
+        }
+
+        .btn-linkedin:hover {
+            background: #004182;
+        }
+
+        .share-links {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 0.75rem;
+        }
+
+        .share-links a {
+            color: var(--linkedin);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: var(--light-gray);
+            border-radius: 16px;
+            max-width: 700px;
+        }
+
+        .cta-section h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section a {
+            display: inline-block;
+            background: var(--black);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* Toast */
+        #toast {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--black);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        #toast .title { font-weight: 700; margin-bottom: 0.25rem; }
+        #toast .message { font-size: 0.85rem; color: #ccc; }
+
+        /* Gated Results */
+        .results-wrapper {
+            position: relative;
+        }
+
+        .results-wrapper.locked .gated-section {
+            filter: blur(8px);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .results-wrapper.unlocked .gated-section {
+            filter: none;
+            pointer-events: auto;
+            user-select: auto;
+        }
+
+        .sticky-gate {
+            position: sticky;
+            top: 100px;
+            z-index: 40;
+            display: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-wrapper.locked .sticky-gate {
+            display: block;
+        }
+
+        .results-wrapper.unlocked .sticky-gate {
+            display: none;
+        }
+
+        .gate-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .gate-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .gate-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gate-card input {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .gate-card .btn {
+            width: 100%;
+        }
+
+        /* Chart containers */
+        .chart-container {
+            position: relative;
+            height: 280px;
+            margin: 1.5rem 0;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .chart-card h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: white;
+            padding: 4rem 1.5rem 2rem;
+            border-top: 2px solid var(--black);
+        }
+
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .footer-brand img {
+            height: 24px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: #999;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            color: #999;
+            transition: color 0.15s;
+        }
+
+        .footer-social a:hover { color: var(--accent); }
+
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-col a {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            transition: color 0.15s;
+        }
+
+        .footer-col a:hover { color: white; }
+        .footer-col .sublink { padding-left: 0.75rem; font-size: 0.8rem; color: #666; }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .footer-bottom a { color: #666; text-decoration: none; }
+        .footer-bottom a:hover { color: #999; }
+
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="/tools/" class="active">Tools</a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <a href="/">Home</a><span>/</span><a href="/tools/">Tools</a><span>/</span><span class="current">LinkedIn Budget Calculator</span>
+        </div>
+    </nav>
+
+    <main class="main">
+        <h1>LinkedIn Ads Budget Calculator</h1>
+        <p class="subtitle">Enter your ICP. Get real audience size and CPM/CPC estimates from LinkedIn's API.</p>
+
+        <div class="calculator-card" id="calculatorCard">
+            <div class="step-indicator">
+                <div class="step active" id="step1">1</div>
+                <div class="step-line"></div>
+                <div class="step" id="step2">2</div>
+            </div>
+
+            <!-- Step 1: ICP Input -->
+            <div class="form-section active" id="section1">
+                <h2>
+                    <span class="platform-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </span>
+                    Describe Your Target Audience
+                </h2>
+                <p class="hint">Be specific about job titles, seniority, industries, and company sizes.</p>
+
+                <div class="form-group">
+                    <label for="icpDescription">Ideal Customer Profile (ICP)</label>
+                    <textarea id="icpDescription" placeholder="e.g., VP Marketing at SaaS companies with 500+ employees in North America"></textarea>
+                    <div class="example-chips">
+                        <span class="example-chip" onclick="setExample('VP Marketing at SaaS companies with 500+ employees')">VP Marketing at SaaS</span>
+                        <span class="example-chip" onclick="setExample('CHRO and VP HR at enterprise healthcare companies')">CHRO at Healthcare</span>
+                        <span class="example-chip" onclick="setExample('Engineering leaders at fintech startups Series A-C')">Engineering at Fintech</span>
+                        <span class="example-chip" onclick="setExample('IT Directors at Fortune 500 companies')">IT at Fortune 500</span>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="getEstimates()" id="step1Btn">
+                        <span id="step1BtnText">Get Estimates</span>
+                        <div class="loading-spinner" id="step1Spinner" style="display: none;"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Processing -->
+            <div class="form-section" id="section2">
+                <div style="text-align: center; padding: 2rem;">
+                    <div class="loading-spinner" style="width: 40px; height: 40px; margin: 0 auto 1rem;"></div>
+                    <h2 style="margin-bottom: 0.5rem;">Analyzing Your ICP</h2>
+                    <p style="color: var(--muted);" id="loadingStatus">Parsing targeting criteria...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <div class="results-wrapper locked" id="resultsWrapper">
+                <!-- Sticky Email Gate -->
+                <div class="sticky-gate">
+                    <div class="gate-card">
+                        <h3>Unlock Your Full Budget Analysis</h3>
+                        <p>Enter your email to see detailed budget recommendations and download the full report.</p>
+                        <input type="email" id="gateEmail" placeholder="you@company.com">
+                        <button class="btn btn-primary" onclick="unlockResults()" id="unlockBtn">
+                            <span id="unlockBtnText">Unlock Full Results</span>
+                            <div class="loading-spinner" id="unlockSpinner" style="display: none;"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Preview Section (always visible) -->
+                <div class="results-header">
+                    <h2>Your LinkedIn Budget Estimate</h2>
+                    <div class="audience-badge">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        <span id="audienceSize">--</span> people in your audience
+                    </div>
+                    <p class="subtitle" id="icpLabel"></p>
+                </div>
+
+                <!-- GATED SECTION: Everything below audience size -->
+                <div class="gated-section">
+
+                <div class="score-card">
+                    <h3>
+                        <span class="platform-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </span>
+                        LinkedIn Pricing Estimates
+                    </h3>
+                    <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem;">Real-time estimates from LinkedIn's Marketing API</p>
+
+                    <div class="pricing-grid">
+                        <div class="pricing-item">
+                            <div class="label">Awareness (CPM)</div>
+                            <div class="value" id="cpmValue">--</div>
+                            <div class="range" id="cpmRange">--</div>
+                        </div>
+                        <div class="pricing-item">
+                            <div class="label">Lead Gen (CPM)</div>
+                            <div class="value" id="leadGenValue">--</div>
+                            <div class="range" id="leadGenRange">--</div>
+                        </div>
+                        <div class="pricing-item">
+                            <div class="label">Traffic (CPC)</div>
+                            <div class="value" id="cpcValue">--</div>
+                            <div class="range" id="cpcRange">--</div>
+                        </div>
+                        <div class="pricing-item">
+                            <div class="label">Video (CPV)</div>
+                            <div class="value" id="cpvValue">--</div>
+                            <div class="range" id="cpvRange">--</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            <!-- Budget Charts -->
+            <div class="score-card" style="margin-top: 1.5rem;">
+                <h3 style="margin-bottom: 0.5rem;">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-right: 0.5rem;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    Budget vs Outcomes
+                </h3>
+                <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Visual comparison of Test, Growth, and Scale budget tiers.</p>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h4>Awareness: Budget vs Reach</h4>
+                        <div class="chart-container">
+                            <canvas id="awarenessChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h4>Traffic: Budget vs Clicks</h4>
+                        <div class="chart-container">
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h4>Lead Gen: Budget vs Leads</h4>
+                        <div class="chart-container">
+                            <canvas id="leadGenChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h4>Video: Budget vs Views</h4>
+                        <div class="chart-container">
+                            <canvas id="videoChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Budget by Objective -->
+            <div class="score-card" style="margin-top: 1.5rem;">
+                <h3 style="margin-bottom: 0.5rem;">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-right: 0.5rem;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Budget by Campaign Objective
+                </h3>
+                <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Based on B2B benchmarks. LinkedIn max reach is ~40% of audience per month.</p>
+
+                <!-- Objective Tabs -->
+                <div class="objective-tabs">
+                    <button class="objective-tab active" onclick="showObjective('awareness')">Awareness</button>
+                    <button class="objective-tab" onclick="showObjective('traffic')">Website Traffic</button>
+                    <button class="objective-tab" onclick="showObjective('leadGen')">Lead Gen</button>
+                    <button class="objective-tab" onclick="showObjective('video')">Video Views</button>
+                </div>
+
+                <!-- Awareness -->
+                <div class="objective-content active" id="objective-awareness">
+                    <div class="objective-header">
+                        <span class="objective-metric">CPM-based</span>
+                        <span class="objective-desc">Brand awareness & impressions</span>
+                    </div>
+                    <div id="awareness-budgets"></div>
+                </div>
+
+                <!-- Traffic -->
+                <div class="objective-content" id="objective-traffic">
+                    <div class="objective-header">
+                        <span class="objective-metric">CPC-based</span>
+                        <span class="objective-desc">Drive website visits</span>
+                    </div>
+                    <div id="traffic-budgets"></div>
+                </div>
+
+                <!-- Lead Gen -->
+                <div class="objective-content" id="objective-leadGen">
+                    <div class="objective-header">
+                        <span class="objective-metric">CPM-based</span>
+                        <span class="objective-desc">Generate leads with forms</span>
+                    </div>
+                    <div id="leadGen-budgets"></div>
+                </div>
+
+                <!-- Video -->
+                <div class="objective-content" id="objective-video">
+                    <div class="objective-header">
+                        <span class="objective-metric">CPV-based</span>
+                        <span class="objective-desc">Video views & engagement</span>
+                    </div>
+                    <div id="video-budgets"></div>
+                </div>
+            </div>
+
+                <!-- Actions Section (inside gated) -->
+                <div class="actions-section" style="margin-top: 2rem;">
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="exportToExcel()" class="btn btn-primary" style="max-width: 220px;">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            Export to Excel
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetCalculator()" style="max-width: 180px;">
+                            Start Over
+                        </button>
+                    </div>
+                </div>
+                </div><!-- end gated-section -->
+            </div><!-- end results-wrapper -->
+        </div>
+
+        <!-- Marvin CTA -->
+        <div class="cta-section" style="background: var(--accent); border: 2px solid var(--black); box-shadow: 6px 6px 0px 0px var(--black);">
+            <h3>Ready to Build & Deploy This Audience?</h3>
+            <p style="color: var(--black);">Use Marvin, our AI-powered LinkedIn Ads Copilot, to build targeting criteria and push directly to your LinkedIn ad account.</p>
+            <a href="https://copilot.42agency.com?utm_source=linkedin_budget_calculator&utm_medium=intel" target="_blank" style="background: var(--black);">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: inline; vertical-align: middle; margin-right: 0.5rem;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Open Marvin
+            </a>
+        </div>
+
+        <div class="cta-section">
+            <h3>Want Expert Help?</h3>
+            <p>Get a free LinkedIn Ads audit from our team.</p>
+            <a href="https://42agency.com/contact?utm_source=linkedin_budget_calculator&utm_medium=intel">Get Your Free Audit</a>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast">
+        <div class="title">Success!</div>
+        <div class="message">Your results have been unlocked.</div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/42-logo.png" alt="42 Agency">
+                    <p>B2B performance marketing for companies that sell to enterprises.</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/company/42agency" target="_blank">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://x.com/42aboratory" target="_blank">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@Get42Agency" target="_blank">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Assess</h4>
+                    <a href="/assessments/hubspot-health/">HubSpot Health Check</a>
+                    <a href="/assess/calculator/">Benchmark Calculator</a>
+                    <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
+                    <a href="/google-ads-audit/">Google Ads Audit</a>
+                    <a href="/meta-audit/">Meta Ads Audit</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Benchmarks</h4>
+                    <a href="/b2b-benchmarks/">All B2B Benchmarks</a>
+                    <a href="/b2b-benchmarks/linkedin-ads-benchmarks/">LinkedIn Ads</a>
+                    <a href="/b2b-benchmarks/google-ads-benchmarks/">Google Ads</a>
+                    <a href="/b2b-benchmarks/meta-ads-benchmarks/">Meta Ads</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Tools</h4>
+                    <a href="/tools/linkedin-budget-calculator/">LinkedIn Budget Calculator</a>
+                    <a href="/tools/google-ads-budget-calculator/">Google Ads Budget Calculator</a>
+                    <a href="/tools/company-sampler/">Company Sampler</a>
+                    <a href="/tools/company-resolver/">Company Resolver</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com" target="_blank">Website</a>
+                    <a href="https://42agency.com/contact" target="_blank">Contact Us</a>
+                    <a href="https://42agency.com/case-studies" target="_blank">Case Studies</a>
+                    <a href="https://42slash.com" target="_blank">42/ Essays</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 42 Agency. All rights reserved.</p>
+                <p>
+                    <a href="https://42agency.com/privacy">Privacy</a>
+                    <span>&nbsp;·&nbsp;</span>
+                    <a href="https://42agency.com/terms">Terms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/email-validation.js"></script>
+
+    <script>
+        // Store results globally
+        let calculatorResults = null;
+        let isLoading = false;
+        let isUnlocked = false;
+        let chartInstances = {};
+
+        function setExample(text) {
+            document.getElementById('icpDescription').value = text;
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
+            return num.toLocaleString();
+        }
+
+        function formatCurrency(num) {
+            return '$' + num.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        }
+
+        // New flow: Get estimates without email first
+        async function getEstimates() {
+            if (isLoading) return;
+
+            const icp = document.getElementById('icpDescription').value.trim();
+            if (!icp) {
+                alert('Please describe your target audience');
+                return;
+            }
+
+            isLoading = true;
+            document.getElementById('step1BtnText').textContent = 'Analyzing...';
+            document.getElementById('step1Spinner').style.display = 'block';
+            document.getElementById('step1Btn').disabled = true;
+
+            // Move to loading step
+            document.getElementById('section1').classList.remove('active');
+            document.getElementById('section2').classList.add('active');
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step1').classList.add('completed');
+            document.getElementById('step2').classList.add('active');
+
+            // Simulate loading messages
+            const loadingMessages = [
+                'Parsing targeting criteria...',
+                'Querying LinkedIn Marketing API...',
+                'Calculating budget recommendations...',
+                'Generating your report...'
+            ];
+            let msgIndex = 0;
+            const msgInterval = setInterval(() => {
+                msgIndex++;
+                if (msgIndex < loadingMessages.length) {
+                    document.getElementById('loadingStatus').textContent = loadingMessages[msgIndex];
+                }
+            }, 1200);
+
+            try {
+                // Call API with placeholder email - we'll update HubSpot when they unlock
+                const response = await fetch('/api/linkedin-budget', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: 'preview@temp.local', icp })
+                });
+
+                const data = await response.json();
+                clearInterval(msgInterval);
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to get estimates');
+                }
+
+                calculatorResults = data;
+                displayResults(data);
+
+                // Track preview event
+                if (window.dataLayer) {
+                    window.dataLayer.push({
+                        event: 'linkedin_budget_preview',
+                        audience_size: data.audienceCount,
+                        cpm: data.pricing?.awareness?.suggested
+                    });
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                clearInterval(msgInterval);
+                alert('Error getting estimates: ' + error.message);
+                // Go back to step 1
+                document.getElementById('section2').classList.remove('active');
+                document.getElementById('section1').classList.add('active');
+                document.getElementById('step2').classList.remove('active');
+                document.getElementById('step1').classList.remove('completed');
+                document.getElementById('step1').classList.add('active');
+            } finally {
+                isLoading = false;
+                document.getElementById('step1BtnText').textContent = 'Get Estimates';
+                document.getElementById('step1Spinner').style.display = 'none';
+                document.getElementById('step1Btn').disabled = false;
+            }
+        }
+
+        // Unlock results with email
+        async function unlockResults() {
+            const email = document.getElementById('gateEmail').value.trim();
+            if (!email) {
+                alert('Please enter your email');
+                return;
+            }
+
+            // Basic email validation
+            if (!email.includes('@') || !email.includes('.')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            document.getElementById('unlockBtnText').textContent = 'Unlocking...';
+            document.getElementById('unlockSpinner').style.display = 'block';
+            document.getElementById('unlockBtn').disabled = true;
+
+            try {
+                // Call API again with real email to trigger HubSpot + Resend
+                const icp = document.getElementById('icpDescription').value.trim();
+                const response = await fetch('/api/linkedin-budget', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, icp })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to unlock');
+                }
+
+                // Unlock the results
+                isUnlocked = true;
+                document.getElementById('resultsWrapper').classList.remove('locked');
+                document.getElementById('resultsWrapper').classList.add('unlocked');
+
+                // Track unlock event
+                if (window.dataLayer) {
+                    window.dataLayer.push({
+                        event: 'linkedin_budget_unlocked',
+                        audience_size: data.audienceCount
+                    });
+                }
+
+                // Show toast
+                showToast('Results Unlocked!', 'Check your email for a copy of your budget estimate.');
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error unlocking results: ' + error.message);
+            } finally {
+                document.getElementById('unlockBtnText').textContent = 'Unlock Full Results';
+                document.getElementById('unlockSpinner').style.display = 'none';
+                document.getElementById('unlockBtn').disabled = false;
+            }
+        }
+
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            toast.querySelector('.title').textContent = title;
+            toast.querySelector('.message').textContent = message;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 5000);
+        }
+
+        function displayResults(data) {
+            const { audienceCount, pricing, budgets, icp } = data;
+
+            // Hide calculator, show results
+            document.getElementById('calculatorCard').style.display = 'none';
+            document.getElementById('resultsSection').classList.add('active');
+
+            // Ensure results are locked initially
+            document.getElementById('resultsWrapper').classList.add('locked');
+            document.getElementById('resultsWrapper').classList.remove('unlocked');
+
+            // Audience size
+            document.getElementById('audienceSize').textContent = formatNumber(audienceCount || 0);
+            document.getElementById('icpLabel').textContent = icp;
+
+            // Pricing
+            if (pricing?.awareness) {
+                document.getElementById('cpmValue').textContent = '$' + (pricing.awareness.suggested || 0).toFixed(2);
+                document.getElementById('cpmRange').textContent = `$${(pricing.awareness.min || 0).toFixed(2)} - $${(pricing.awareness.max || 0).toFixed(2)}`;
+            }
+
+            if (pricing?.leadGen) {
+                document.getElementById('leadGenValue').textContent = '$' + (pricing.leadGen.suggested || 0).toFixed(2);
+                document.getElementById('leadGenRange').textContent = `$${(pricing.leadGen.min || 0).toFixed(2)} - $${(pricing.leadGen.max || 0).toFixed(2)}`;
+            }
+
+            if (pricing?.traffic) {
+                document.getElementById('cpcValue').textContent = '$' + (pricing.traffic.suggested || 0).toFixed(2);
+                document.getElementById('cpcRange').textContent = `$${(pricing.traffic.min || 0).toFixed(2)} - $${(pricing.traffic.max || 0).toFixed(2)}`;
+            }
+
+            if (pricing?.video) {
+                document.getElementById('cpvValue').textContent = '$' + (pricing.video.suggested || 0).toFixed(4);
+                document.getElementById('cpvRange').textContent = `$${(pricing.video.min || 0).toFixed(4)} - $${(pricing.video.max || 0).toFixed(4)}`;
+            }
+
+            // Budget by objective
+            if (budgets) {
+                renderBudgetTiers('awareness', budgets.awareness, 'peopleReached');
+                renderBudgetTiers('traffic', budgets.traffic, 'clicks');
+                renderBudgetTiers('leadGen', budgets.leadGen, 'leads');
+                renderBudgetTiers('video', budgets.video, 'views');
+
+                // Render charts
+                renderCharts(budgets);
+            }
+        }
+
+        function renderCharts(budgets) {
+            // Destroy existing charts if any
+            Object.values(chartInstances).forEach(chart => chart.destroy());
+            chartInstances = {};
+
+            const chartConfig = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1a1a1a',
+                        titleFont: { family: 'Inter', weight: 'bold' },
+                        bodyFont: { family: 'Inter' },
+                        padding: 12,
+                        cornerRadius: 8
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#e5e5e5' },
+                        ticks: { font: { family: 'Inter', size: 11 } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Inter', size: 11 } }
+                    }
+                }
+            };
+
+            // Awareness Chart: Budget vs People Reached
+            if (budgets.awareness) {
+                const ctx = document.getElementById('awarenessChart').getContext('2d');
+                chartInstances.awareness = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: budgets.awareness.map(t => t.tier),
+                        datasets: [{
+                            label: 'People Reached',
+                            data: budgets.awareness.map(t => t.peopleReached),
+                            backgroundColor: ['#FEF3C7', '#DFFE68', '#0A66C2'],
+                            borderColor: '#1a1a1a',
+                            borderWidth: 2,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        ...chartConfig,
+                        plugins: {
+                            ...chartConfig.plugins,
+                            tooltip: {
+                                ...chartConfig.plugins.tooltip,
+                                callbacks: {
+                                    label: (ctx) => {
+                                        const tier = budgets.awareness[ctx.dataIndex];
+                                        return [
+                                            `${formatNumber(tier.peopleReached)} people`,
+                                            `Budget: ${formatCurrency(tier.budget)}/mo`
+                                        ];
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            ...chartConfig.scales,
+                            y: {
+                                ...chartConfig.scales.y,
+                                ticks: {
+                                    ...chartConfig.scales.y.ticks,
+                                    callback: (val) => formatNumber(val)
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Traffic Chart: Budget vs Clicks
+            if (budgets.traffic) {
+                const ctx = document.getElementById('trafficChart').getContext('2d');
+                chartInstances.traffic = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: budgets.traffic.map(t => t.tier),
+                        datasets: [{
+                            label: 'Clicks',
+                            data: budgets.traffic.map(t => t.clicks),
+                            backgroundColor: ['#FEF3C7', '#DFFE68', '#3B82F6'],
+                            borderColor: '#1a1a1a',
+                            borderWidth: 2,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        ...chartConfig,
+                        plugins: {
+                            ...chartConfig.plugins,
+                            tooltip: {
+                                ...chartConfig.plugins.tooltip,
+                                callbacks: {
+                                    label: (ctx) => {
+                                        const tier = budgets.traffic[ctx.dataIndex];
+                                        return [
+                                            `${formatNumber(tier.clicks)} clicks`,
+                                            `Budget: ${formatCurrency(tier.budget)}/mo`
+                                        ];
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            ...chartConfig.scales,
+                            y: {
+                                ...chartConfig.scales.y,
+                                ticks: {
+                                    ...chartConfig.scales.y.ticks,
+                                    callback: (val) => formatNumber(val)
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Lead Gen Chart: Budget vs Leads
+            if (budgets.leadGen) {
+                const ctx = document.getElementById('leadGenChart').getContext('2d');
+                chartInstances.leadGen = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: budgets.leadGen.map(t => t.tier),
+                        datasets: [{
+                            label: 'Leads',
+                            data: budgets.leadGen.map(t => t.leads),
+                            backgroundColor: ['#FEF3C7', '#DFFE68', '#10B981'],
+                            borderColor: '#1a1a1a',
+                            borderWidth: 2,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        ...chartConfig,
+                        plugins: {
+                            ...chartConfig.plugins,
+                            tooltip: {
+                                ...chartConfig.plugins.tooltip,
+                                callbacks: {
+                                    label: (ctx) => {
+                                        const tier = budgets.leadGen[ctx.dataIndex];
+                                        return [
+                                            `${tier.leads} leads`,
+                                            `Budget: ${formatCurrency(tier.budget)}/mo`
+                                        ];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Video Chart: Budget vs Views
+            if (budgets.video) {
+                const ctx = document.getElementById('videoChart').getContext('2d');
+                chartInstances.video = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: budgets.video.map(t => t.tier),
+                        datasets: [{
+                            label: 'Video Views',
+                            data: budgets.video.map(t => t.views),
+                            backgroundColor: ['#FEF3C7', '#DFFE68', '#F59E0B'],
+                            borderColor: '#1a1a1a',
+                            borderWidth: 2,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        ...chartConfig,
+                        plugins: {
+                            ...chartConfig.plugins,
+                            tooltip: {
+                                ...chartConfig.plugins.tooltip,
+                                callbacks: {
+                                    label: (ctx) => {
+                                        const tier = budgets.video[ctx.dataIndex];
+                                        return [
+                                            `${formatNumber(tier.views)} views`,
+                                            `Budget: ${formatCurrency(tier.budget)}/mo`
+                                        ];
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            ...chartConfig.scales,
+                            y: {
+                                ...chartConfig.scales.y,
+                                ticks: {
+                                    ...chartConfig.scales.y.ticks,
+                                    callback: (val) => formatNumber(val)
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function renderBudgetTiers(objective, tiers, metricKey) {
+            const container = document.getElementById(`${objective}-budgets`);
+            if (!container || !tiers) return;
+
+            const metricLabels = {
+                peopleReached: 'people reached',
+                clicks: 'clicks',
+                leads: 'leads',
+                views: 'video views'
+            };
+
+            container.innerHTML = tiers.map((tier, i) => `
+                <div class="budget-tier ${i === 1 ? 'recommended' : ''}">
+                    <div class="budget-tier-left">
+                        <span class="tier-badge ${tier.tier.toLowerCase()}">${tier.tier.toUpperCase()}</span>
+                        <div>
+                            <div class="budget-tier-name">${tier.description}</div>
+                            <div class="budget-tier-desc">${formatNumber(tier[metricKey] || 0)} ${metricLabels[metricKey]}</div>
+                        </div>
+                    </div>
+                    <div class="budget-tier-right">
+                        <div class="budget-tier-amount">${formatCurrency(tier.budget)}</div>
+                        <div class="budget-tier-detail">/month</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showObjective(objective) {
+            // Update tabs
+            document.querySelectorAll('.objective-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.objective-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(`objective-${objective}`).classList.add('active');
+        }
+
+        function resetCalculator() {
+            document.getElementById('calculatorCard').style.display = 'block';
+            document.getElementById('resultsSection').classList.remove('active');
+
+            // Reset steps
+            document.querySelectorAll('.step').forEach((s, i) => {
+                s.classList.remove('active', 'completed');
+                if (i === 0) s.classList.add('active');
+            });
+
+            // Reset sections
+            document.querySelectorAll('.form-section').forEach((s, i) => {
+                s.classList.remove('active');
+                if (i === 0) s.classList.add('active');
+            });
+
+            // Reset locked state
+            document.getElementById('resultsWrapper').classList.add('locked');
+            document.getElementById('resultsWrapper').classList.remove('unlocked');
+            isUnlocked = false;
+
+            // Clear inputs
+            document.getElementById('icpDescription').value = '';
+            document.getElementById('gateEmail').value = '';
+
+            // Destroy charts
+            Object.values(chartInstances).forEach(chart => chart.destroy());
+            chartInstances = {};
+
+            calculatorResults = null;
+        }
+
+        function exportToExcel() {
+            if (!calculatorResults) {
+                alert('Please complete the calculator first.');
+                return;
+            }
+
+            const { audienceCount, pricing, budgets, icp } = calculatorResults;
+
+            // Create CSV content
+            let csv = 'LinkedIn Budget Estimate\n\n';
+            csv += 'ICP,' + (icp || '').replace(/,/g, ';') + '\n';
+            csv += 'Audience Size,' + (audienceCount || 0) + '\n\n';
+
+            csv += 'Pricing Estimates\n';
+            csv += 'Objective,Bid Type,Suggested,Min,Max\n';
+            if (pricing?.awareness) {
+                csv += `Brand Awareness,CPM,$${pricing.awareness.suggested?.toFixed(2)},$${pricing.awareness.min?.toFixed(2)},$${pricing.awareness.max?.toFixed(2)}\n`;
+            }
+            if (pricing?.leadGen) {
+                csv += `Lead Generation,CPM,$${pricing.leadGen.suggested?.toFixed(2)},$${pricing.leadGen.min?.toFixed(2)},$${pricing.leadGen.max?.toFixed(2)}\n`;
+            }
+            if (pricing?.traffic) {
+                csv += `Website Traffic,CPC,$${pricing.traffic.suggested?.toFixed(2)},$${pricing.traffic.min?.toFixed(2)},$${pricing.traffic.max?.toFixed(2)}\n`;
+            }
+            if (pricing?.video) {
+                csv += `Video Views,CPV,$${pricing.video.suggested?.toFixed(4)},$${pricing.video.min?.toFixed(4)},$${pricing.video.max?.toFixed(4)}\n`;
+            }
+
+            // Budget by Objective
+            csv += '\n--- AWARENESS CAMPAIGNS (CPM) ---\n';
+            csv += 'Tier,Monthly Budget,People Reached,Impressions\n';
+            (budgets?.awareness || []).forEach(tier => {
+                csv += `${tier.tier},$${tier.budget},${tier.peopleReached || ''},${tier.impressions || ''}\n`;
+            });
+
+            csv += '\n--- WEBSITE TRAFFIC (CPC) ---\n';
+            csv += 'Tier,Monthly Budget,Clicks,Impressions\n';
+            (budgets?.traffic || []).forEach(tier => {
+                csv += `${tier.tier},$${tier.budget},${tier.clicks || ''},${tier.impressions || ''}\n`;
+            });
+
+            csv += '\n--- LEAD GENERATION ---\n';
+            csv += 'Tier,Monthly Budget,Leads,Impressions\n';
+            (budgets?.leadGen || []).forEach(tier => {
+                csv += `${tier.tier},$${tier.budget},${tier.leads || ''},${tier.impressions || ''}\n`;
+            });
+
+            csv += '\n--- VIDEO VIEWS ---\n';
+            csv += 'Tier,Monthly Budget,Video Views,Impressions\n';
+            (budgets?.video || []).forEach(tier => {
+                csv += `${tier.tier},$${tier.budget},${tier.views || ''},${tier.impressions || ''}\n`;
+            });
+
+            csv += '\n\nNote: LinkedIn max reach is ~40% of audience per month. Estimates based on B2B benchmarks.\n';
+            csv += 'Generated by intel.42agency.com/tools/linkedin-budget-calculator\n';
+
+            // Download
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `linkedin-budget-estimate-${formatNumber(audienceCount || 0)}.csv`;
+            link.click();
+
+            // Track
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    event: 'linkedin_budget_exported',
+                    audience_size: audienceCount
+                });
+            }
+        }
+    </script>
+</body>
+</html>

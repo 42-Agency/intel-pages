@@ -77,6 +77,14 @@
         }
         .back-link:hover { background: var(--accent); }
 
+        /* Breadcrumbs */
+        .breadcrumbs { background: white; border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; }
+        .breadcrumbs-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .breadcrumbs a { color: #6b6b6b; text-decoration: none; }
+        .breadcrumbs a:hover { color: var(--black); }
+        .breadcrumbs span { color: #6b6b6b; }
+        .breadcrumbs .current { color: var(--black); font-weight: 600; }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -424,7 +432,7 @@
     <header class="header">
         <div class="header-inner">
             <div class="logo-group">
-                <img src="42_logo_black.png" alt="42 Agency">
+                <img src="/42-logo.png" alt="42 Agency">
                 <span>×</span>
                 <img src="exitfive_logo_black.svg" alt="Exit Five">
             </div>
@@ -434,6 +442,12 @@
             </a>
         </div>
     </header>
+
+    <nav class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <a href="/">Home</a><span>/</span><span class="current">Claude Code Cheatsheet</span>
+        </div>
+    </nav>
 
     <div class="container">
         <section class="hero">
@@ -542,7 +556,7 @@
             <h3>From the Exit Five Workshop</h3>
             <p>This cheatsheet was created for a live session with Exit Five on using Claude Code for B2B marketing. The full workshop covered hands-on examples for competitive research, data analysis, and building automated workflows.</p>
             <div class="context-logos">
-                <img src="42_logo_black.png" alt="42 Agency">
+                <img src="/42-logo.png" alt="42 Agency">
                 <img src="exitfive_logo_black.svg" alt="Exit Five">
             </div>
         </div>

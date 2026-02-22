@@ -86,6 +86,14 @@
             color: var(--accent);
         }
 
+        /* Breadcrumbs */
+        .breadcrumbs { background: white; border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; }
+        .breadcrumbs-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .breadcrumbs a { color: #6b6b6b; text-decoration: none; }
+        .breadcrumbs a:hover { color: var(--black); }
+        .breadcrumbs span { color: #6b6b6b; }
+        .breadcrumbs .current { color: var(--black); font-weight: 600; }
+
         /* Hero */
         .hero {
             padding: 64px 0 48px;
@@ -415,6 +423,12 @@
             </div>
         </div>
     </header>
+
+    <nav class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <a href="/">Home</a><span>/</span><span class="current">LinkedIn Targeting Checklist</span>
+        </div>
+    </nav>
 
     <main>
         <section class="hero">

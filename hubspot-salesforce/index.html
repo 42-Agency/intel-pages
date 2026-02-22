@@ -37,6 +37,13 @@
         .logo span { color: var(--accent); }
         .back-link { font-size: 14px; color: var(--gray-600); text-decoration: none; }
         .back-link:hover { color: var(--accent); }
+        /* Breadcrumbs */
+        .breadcrumbs { background: white; border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; }
+        .breadcrumbs-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .breadcrumbs a { color: #6b6b6b; text-decoration: none; }
+        .breadcrumbs a:hover { color: var(--black); }
+        .breadcrumbs span { color: #6b6b6b; }
+        .breadcrumbs .current { color: var(--black); font-weight: 600; }
         .hero { padding: 64px 0 48px; text-align: center; }
         .badge { display: inline-block; background: var(--accent); color: var(--black); font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 20px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.5px; }
         h1 { font-size: 42px; font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.2; }
@@ -103,6 +110,12 @@
             </div>
         </div>
     </header>
+
+    <nav class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <a href="/">Home</a><span>/</span><span class="current">HubSpot Salesforce Integration</span>
+        </div>
+    </nav>
 
     <main>
         <section class="hero">

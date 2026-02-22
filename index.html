@@ -82,6 +82,14 @@
         .nav-cta:hover { background: #333 !important; }
         @media (max-width: 768px) { .nav { display: none; } }
 
+        /* Breadcrumbs */
+        .breadcrumbs { background: white; border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; }
+        .breadcrumbs-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .breadcrumbs a { color: #6b6b6b; text-decoration: none; }
+        .breadcrumbs a:hover { color: var(--black); }
+        .breadcrumbs span { color: #6b6b6b; }
+        .breadcrumbs .current { color: var(--black); font-weight: 600; }
+
         .hero {
             background: var(--white);
             border-bottom: 2px solid var(--black);
@@ -394,6 +402,12 @@
             </nav>
         </div>
     </header>
+
+    <nav class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <span class="current">Home</span>
+        </div>
+    </nav>
 
     <section class="hero">
         <div class="hero-inner">
@@ -744,6 +758,46 @@
 
         <h2 class="section-title">AI Tools</h2>
         <div class="resource-grid">
+            <a href="/tools/linkedin-budget-calculator/" class="resource-card">
+                <span class="resource-badge toolkit">Calculator</span>
+                <h3 class="resource-title">LinkedIn Ads Budget Calculator</h3>
+                <p class="resource-desc">Enter your ICP, get real-time audience size and CPM/CPC estimates from LinkedIn's API. Calculate your recommended monthly budget.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        2 minutes
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        Live API Data
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Calculate Budget
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
+            <a href="/tools/google-ads-budget-calculator/" class="resource-card">
+                <span class="resource-badge assessment">Calculator</span>
+                <h3 class="resource-title">Google Ads Budget Calculator</h3>
+                <p class="resource-desc">Enter your product or service, get AI-generated keywords with real search volumes and CPCs. Calculate your Search Ads budget.</p>
+                <div class="resource-meta">
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        2 minutes
+                    </span>
+                    <span class="resource-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        Keyword Research
+                    </span>
+                </div>
+                <span class="resource-cta">
+                    Calculate Budget
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+            </a>
+
             <a href="/tools/company-sampler/" class="resource-card">
                 <span class="resource-badge toolkit">Free Tool</span>
                 <h3 class="resource-title">B2B Company Sample Builder</h3>
@@ -791,7 +845,7 @@
                 <div class="resource-meta">
                     <span class="resource-meta-item">
                         <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
-                        2+ tools
+                        4+ tools
                     </span>
                 </div>
                 <span class="resource-cta">
@@ -881,9 +935,10 @@
                 <div class="footer-col">
                     <h4>AI Tools</h4>
                     <a href="/tools/">All Tools</a>
+                    <a href="/tools/linkedin-budget-calculator/">LinkedIn Budget Calculator</a>
+                    <a href="/tools/google-ads-budget-calculator/">Google Ads Budget Calculator</a>
                     <a href="/tools/company-sampler/">Company Sampler</a>
                     <a href="/tools/company-resolver/">Company Resolver</a>
-                    <a href="https://copilot.42agency.com" target="_blank">LinkedIn Ads Copilot</a>
                     <h4 style="margin-top: 1.5rem;">Resources</h4>
                     <a href="/zenabm/">ABM Toolkit</a>
                     <a href="/mops-funnel/">MOPS Funnel Workbook</a>

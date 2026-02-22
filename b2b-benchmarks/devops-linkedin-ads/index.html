@@ -23,8 +23,34 @@
         .header { border-bottom: 2px solid var(--black); padding: 1rem 2rem; background: white; }
         .header-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 32px; }
-        .breadcrumb { font-size: 0.85rem; color: var(--gray); }
-        .breadcrumb a { color: var(--gray); text-decoration: none; }
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background: white;
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 2rem;
+        }
+        .breadcrumbs-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+        .breadcrumbs a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            color: var(--black);
+        }
+        .breadcrumbs span {
+            color: var(--gray);
+        }
+        .breadcrumbs .current {
+            color: var(--black);
+            font-weight: 600;
+        }
         .hero { background: var(--devops); color: white; padding: 4rem 2rem; }
         .hero-inner { max-width: 900px; margin: 0 auto; }
         .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
@@ -73,9 +99,14 @@
     <header class="header">
         <div class="header-inner">
             <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency"></a>
-            <nav class="breadcrumb"><a href="/b2b-benchmarks/">Benchmarks</a> / DevOps</nav>
         </div>
     </header>
+
+    <nav class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <a href="/">Home</a><span>/</span><a href="/b2b-benchmarks/">Benchmarks</a><span>/</span><span class="current">DevOps</span>
+        </div>
+    </nav>
 
     <section class="hero">
         <div class="hero-inner">

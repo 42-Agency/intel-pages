@@ -502,6 +502,35 @@
             font-weight: 600;
         }
 
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background: white;
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 2rem;
+        }
+        .breadcrumbs-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+        .breadcrumbs a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            color: var(--black);
+        }
+        .breadcrumbs span {
+            color: var(--gray);
+        }
+        .breadcrumbs .current {
+            color: var(--black);
+            font-weight: 600;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -581,6 +610,12 @@
             </div>
         </div>
     </header>
+
+    <nav class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <a href="/">Home</a><span>/</span><span class="current">Benchmarks</span>
+        </div>
+    </nav>
 
     <section class="hero">
         <div class="hero-inner">
