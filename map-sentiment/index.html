@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Automation Vendor Sentiment Analysis | 42 Agency Intel</title>
+    <meta name="description" content="Multi-source sentiment analysis of Marketing Automation platforms including HubSpot, Marketo, Pardot, ActiveCampaign. Balanced data from Reddit, G2, Substack, TrustRadius.">
+
+    <!-- OG Tags -->
+    <meta property="og:title" content="Marketing Automation Vendor Sentiment Analysis">
+    <meta property="og:description" content="Multi-source sentiment analysis: HubSpot polarizing on pricing, Marketo powerful but complex, ActiveCampaign the automation king, Pardot most criticized.">
+    <meta property="og:image" content="https://intel.42agency.com/og-share.png">
+    <meta property="og:url" content="https://intel.42agency.com/map-sentiment/">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+            --purple: #8B5CF6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Global Header */
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav a.active { color: var(--black); font-weight: 600; background: var(--accent); }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem !important;
+            background: var(--black) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover { background: #333 !important; }
+        .external svg { margin-left: 4px; vertical-align: middle; }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        .hero {
+            background: #ffffff;
+            border-bottom: 2px solid var(--black);
+            padding: 3rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .summary {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 800px;
+        }
+
+        .methodology {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+        }
+
+        .methodology-title {
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .methodology p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .source-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .source-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 350px;
+        }
+
+        .quotes-section {
+            margin-bottom: 2rem;
+        }
+
+        .quotes-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .quotes-subtitle {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quote-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .quote-card.negative {
+            box-shadow: 4px 4px 0px 0px var(--red);
+        }
+
+        .quote-card.positive {
+            box-shadow: 4px 4px 0px 0px var(--green);
+        }
+
+        .quote-card.neutral {
+            box-shadow: 4px 4px 0px 0px var(--orange);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .quote-vendor {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: var(--light-gray);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quote-text {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--black);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .quote-source {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .quote-source-badge {
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-reddit { background: #FF4500; color: white; }
+        .badge-g2 { background: #FF492C; color: white; }
+        .badge-substack { background: #FF6719; color: white; }
+        .badge-trustradius { background: #00B67A; color: white; }
+        .badge-linkedin { background: #0A66C2; color: white; }
+        .badge-gartner { background: #004B87; color: white; }
+
+        .legend-section {
+            margin-top: 2rem;
+        }
+
+        .legend-items {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            border: 2px solid var(--black);
+        }
+
+        .legend-negative { background: var(--red); }
+        .legend-neutral { background: #9CA3AF; }
+        .legend-positive { background: var(--green); }
+
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--black);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #333;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .stat-value.negative { color: var(--red); }
+        .stat-value.neutral { color: var(--muted); }
+        .stat-value.positive { color: var(--green); }
+
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .g2-ratings {
+            margin-bottom: 2rem;
+        }
+
+        .g2-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .g2-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--blue);
+            text-align: center;
+        }
+
+        .g2-vendor {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .g2-rating {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        .g2-reviews {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        /* Global Footer */
+        .footer {
+            border-top: 2px solid var(--black);
+            background: var(--black);
+            padding: 4rem 1.5rem 2rem;
+            margin-top: 2rem;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand img { height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.85rem; color: #999; line-height: 1.6; }
+        .footer-social { margin-top: 1rem; display: flex; gap: 1rem; }
+        .footer-social a { color: #999; text-decoration: none; display: flex; align-items: center; }
+        .footer-social a:hover { color: white; }
+        .footer-social svg { width: 20px; height: 20px; }
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+        .footer-col a:hover { color: white; }
+        .footer-col .sublink { padding-left: 0.75rem; font-size: 0.8rem; color: #666; }
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .footer-bottom a { color: #666; text-decoration: none; }
+        .footer-bottom a:hover { color: #999; }
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <!-- GTM noscript -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="https://copilot.42agency.com" target="_blank" class="external">
+                    AI Tools
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Marketing Automation Vendor Sentiment Analysis</h1>
+            <p class="summary">
+                Multi-source sentiment analysis reveals HubSpot as polarizing (loved for CRM, criticized for pricing), ActiveCampaign as the automation favorite, and Pardot as the most criticized platform.
+            </p>
+
+            <div class="methodology">
+                <div class="methodology-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                    Methodology: Balanced Sentiment Collection
+                </div>
+                <p>
+                    This analysis includes <strong>both positive and negative sentiment</strong> from multiple sources to provide an unbiased view. We searched for praise, recommendations, and success stories alongside complaints and criticisms. G2 ratings represent aggregated review scores.
+                </p>
+                <div class="source-tags">
+                    <span class="source-tag"><span class="quote-source-badge badge-reddit">Reddit</span> r/salesforce, r/marketing, r/hubspot</span>
+                    <span class="source-tag"><span class="quote-source-badge badge-g2">G2</span> Verified reviews</span>
+                    <span class="source-tag"><span class="quote-source-badge badge-substack">Substack</span> Industry newsletters</span>
+                    <span class="source-tag"><span class="quote-source-badge badge-trustradius">TrustRadius</span> B2B reviews</span>
+                    <span class="source-tag"><span class="quote-source-badge badge-linkedin">LinkedIn</span> Practitioner posts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main">
+        <!-- G2 Ratings Row -->
+        <section class="g2-ratings">
+            <h2 class="quotes-title">G2 Review Ratings</h2>
+            <p class="quotes-subtitle">Aggregated scores from verified G2 reviews</p>
+            <div class="g2-grid">
+                <div class="g2-card">
+                    <div class="g2-vendor">HubSpot Marketing Hub</div>
+                    <div class="g2-rating">4.5/5</div>
+                    <div class="g2-reviews">14,286 reviews</div>
+                </div>
+                <div class="g2-card">
+                    <div class="g2-vendor">Adobe Marketo Engage</div>
+                    <div class="g2-rating">4.1/5</div>
+                    <div class="g2-reviews">2,935 reviews</div>
+                </div>
+                <div class="g2-card">
+                    <div class="g2-vendor">ActiveCampaign</div>
+                    <div class="g2-rating">4.5/5</div>
+                    <div class="g2-reviews">14,000+ reviews</div>
+                </div>
+                <div class="g2-card">
+                    <div class="g2-vendor">Salesforce Marketing Cloud</div>
+                    <div class="g2-rating">4.0/5</div>
+                    <div class="g2-reviews">1,465 reviews</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Sources Analyzed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Vendors Compared</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value negative">2</div>
+                <div class="stat-label">Net Negative</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value positive">2</div>
+                <div class="stat-label">Net Positive</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="card">
+                <h2 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 20V10M12 20V4M6 20v-6"/>
+                    </svg>
+                    Net Sentiment Score by Vendor
+                </h2>
+                <div class="chart-container">
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    Discussion Volume vs Sentiment
+                </h2>
+                <div class="chart-container">
+                    <canvas id="bubbleChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend-section card" style="margin-bottom: 2rem;">
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-color legend-negative"></div>
+                    <span>Net Negative (more criticism than praise)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-neutral"></div>
+                    <span>Mixed/Balanced (similar praise and criticism)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-positive"></div>
+                    <span>Net Positive (more praise than criticism)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Positive Sentiment Section -->
+        <section class="quotes-section">
+            <h2 class="quotes-title">What People Love</h2>
+            <p class="quotes-subtitle">Positive sentiment from practitioners across platforms</p>
+            <div class="quotes-grid">
+                <div class="quote-card positive">
+                    <div class="quote-icon">+</div>
+                    <div class="quote-vendor">HubSpot</div>
+                    <p class="quote-text">"I spent 30 days deep-diving into HubSpot CRM—and now I get the hype. As someone working across SEO, PPC, and LinkedIn marketing, I needed a CRM that could keep up with my workflow."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-linkedin">LinkedIn</span>
+                        Adeel Tarique
+                    </div>
+                </div>
+
+                <div class="quote-card positive">
+                    <div class="quote-icon">+</div>
+                    <div class="quote-vendor">ActiveCampaign</div>
+                    <p class="quote-text">"ActiveCampaign is fantastic and a great alternative to people looking for a cheaper alternative to HubSpot."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-reddit">Reddit</span>
+                        r/marketing
+                    </div>
+                </div>
+
+                <div class="quote-card positive">
+                    <div class="quote-icon">+</div>
+                    <div class="quote-vendor">Marketo</div>
+                    <p class="quote-text">"Why Adobe Marketo is the trusted choice for enterprise marketing. 4.5/5 rating with 45% giving 5 stars."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-gartner">Gartner</span>
+                        Peer Insights
+                    </div>
+                </div>
+
+                <div class="quote-card positive">
+                    <div class="quote-icon">+</div>
+                    <div class="quote-vendor">HubSpot</div>
+                    <p class="quote-text">"HubSpot is a fine solution. It's generally a better fit for orgs that have less complexity, are smaller, and have fewer sales ops resources."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-reddit">Reddit</span>
+                        r/sales
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Negative Sentiment Section -->
+        <section class="quotes-section">
+            <h2 class="quotes-title">Common Criticisms</h2>
+            <p class="quotes-subtitle">Pain points and frustrations from real users</p>
+            <div class="quotes-grid">
+                <div class="quote-card negative">
+                    <div class="quote-icon">-</div>
+                    <div class="quote-vendor">Pardot</div>
+                    <p class="quote-text">"Let's make an 'Everyone hates Pardot' forum. We got sold a dream, Pardot is a disaster. Most expensive item in our tech stack."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-reddit">Reddit</span>
+                        r/salesforce (86 upvotes)
+                    </div>
+                </div>
+
+                <div class="quote-card negative">
+                    <div class="quote-icon">-</div>
+                    <div class="quote-vendor">HubSpot</div>
+                    <p class="quote-text">"HubSpot's jump from Starter to Pro pricing is utterly absurd. $17,500/year—a massive leap from our current $250/year Starter plan."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-reddit">Reddit</span>
+                        r/hubspot
+                    </div>
+                </div>
+
+                <div class="quote-card negative">
+                    <div class="quote-icon">-</div>
+                    <div class="quote-vendor">Marketo</div>
+                    <p class="quote-text">"Every problem causes more problems, each solution needs a team of consultants. The biggest advantage is it's a job creator."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-reddit">Reddit</span>
+                        r/marketing
+                    </div>
+                </div>
+
+                <div class="quote-card negative">
+                    <div class="quote-icon">-</div>
+                    <div class="quote-vendor">Salesforce MC</div>
+                    <p class="quote-text">"It's incredibly buggy, feels duck-taped together and massively oversold by Salesforce and Consultancies."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-reddit">Reddit</span>
+                        r/salesforce
+                    </div>
+                </div>
+
+                <div class="quote-card negative">
+                    <div class="quote-icon">-</div>
+                    <div class="quote-vendor">HubSpot</div>
+                    <p class="quote-text">"HubSpot is one of the worst tools in SaaS. It can't decide what it wants to be: CRM or Marketing Automation Platform. You can't be both and do them both well."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-substack">Substack</span>
+                        Tracy's Tidbits
+                    </div>
+                </div>
+
+                <div class="quote-card negative">
+                    <div class="quote-icon">-</div>
+                    <div class="quote-vendor">Pardot</div>
+                    <p class="quote-text">"Dealt with Pardot, DocuSign, and other integrations... there should be zero excuses for some of the recklessness and incompetence."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-reddit">Reddit</span>
+                        r/salesforce
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mixed/Nuanced Section -->
+        <section class="quotes-section">
+            <h2 class="quotes-title">Nuanced Takes</h2>
+            <p class="quotes-subtitle">Balanced perspectives acknowledging tradeoffs</p>
+            <div class="quotes-grid">
+                <div class="quote-card neutral">
+                    <div class="quote-icon">=</div>
+                    <div class="quote-vendor">Marketo</div>
+                    <p class="quote-text">"Why is it so damn expensive? How did something so clunky, that requires so many people to run it, get to become the Enterprise marketing platform of choice?"</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-reddit">Reddit</span>
+                        r/marketing
+                    </div>
+                </div>
+
+                <div class="quote-card neutral">
+                    <div class="quote-icon">=</div>
+                    <div class="quote-vendor">HubSpot</div>
+                    <p class="quote-text">"About 88% of reviewers rate HubSpot 8/10 or higher when asked if they'd recommend it, and 70%+ mention ease of use. The friction kicks in around pricing."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-g2">G2</span>
+                        G2 Analysis
+                    </div>
+                </div>
+
+                <div class="quote-card neutral">
+                    <div class="quote-icon">=</div>
+                    <div class="quote-vendor">ActiveCampaign</div>
+                    <p class="quote-text">"I have an ActiveCampaign plan for 5k contacts but I'm unable to deliver content to all 50k leads because the platforms are simply too expensive at scale."</p>
+                    <div class="quote-source">
+                        <span class="quote-source-badge badge-reddit">Reddit</span>
+                        r/Emailmarketing
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3 class="cta-title">Need Help Choosing a Marketing Automation Platform?</h3>
+            <p class="cta-text">Our team can help you navigate the crowded marketing automation landscape and find the right fit for your GTM strategy.</p>
+            <a href="https://42agency.com/contact" target="_blank" class="cta-button">Get in Touch</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/42-logo.png" alt="42 Agency">
+                    <p>B2B performance marketing for companies that sell to enterprises. We've managed $50M+ in ad spend across 200+ accounts.</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://x.com/42aboratory" target="_blank" aria-label="X/Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@Get42Agency" target="_blank" aria-label="YouTube">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Assess</h4>
+                    <a href="/assessments/hubspot-health/">HubSpot Health Check</a>
+                    <a href="/assess/calculator/">Benchmark Calculator</a>
+                    <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
+                    <a href="/google-ads-audit/">Google Ads Audit</a>
+                    <a href="/meta-audit/">Meta Ads Audit</a>
+                    <a href="/hubspot-audit/">HubSpot Audit</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Benchmarks</h4>
+                    <a href="/b2b-benchmarks/">All B2B Benchmarks</a>
+                    <a href="/b2b-benchmarks/linkedin-ads-benchmarks/">LinkedIn Ads</a>
+                    <a href="/b2b-benchmarks/google-ads-benchmarks/">Google Ads</a>
+                    <a href="/b2b-benchmarks/meta-ads-benchmarks/">Meta Ads</a>
+                    <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/">InMail Benchmarks</a>
+                    <a href="/b2b-benchmarks/legal-tech-linkedin-ads/" class="sublink">Legal Tech</a>
+                    <a href="/b2b-benchmarks/healthcare-tech-linkedin-ads/" class="sublink">Healthcare Tech</a>
+                    <a href="/b2b-benchmarks/fintech-linkedin-ads/" class="sublink">FinTech</a>
+                    <a href="/b2b-benchmarks/devops-linkedin-ads/" class="sublink">DevOps</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">LinkedIn Ads Copilot</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting" target="_blank">Targeting Guide</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting/audience-sizing" target="_blank">Audience Sizing</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting/job-titles" target="_blank">Job Title Targeting</a>
+                    <h4 style="margin-top: 1.5rem;">Resources</h4>
+                    <a href="/playbooks/">B2B Playbooks</a>
+                    <a href="/zenabm/">ABM Toolkit</a>
+                    <a href="/mops-funnel/">MOPS Funnel Workbook</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com" target="_blank">Website</a>
+                    <a href="https://42agency.com/contact" target="_blank">Contact Us</a>
+                    <a href="https://42agency.com/case-studies" target="_blank">Case Studies</a>
+                    <a href="https://42slash.com" target="_blank">42/ Essays</a>
+                    <a href="https://42agency.com/careers" target="_blank">Careers</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 42 Agency. All rights reserved.</p>
+                <p>
+                    <a href="https://42agency.com/privacy" target="_blank">Privacy</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="https://42agency.com/terms" target="_blank">Terms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const colors = {
+            negative: '#EF4444',
+            neutral: '#9CA3AF',
+            positive: '#10B981',
+            accent: '#DFFE68',
+            dark: '#1a1a1a'
+        };
+
+        // Updated with balanced sentiment scores
+        // Scores now reflect both positive and negative sentiment combined
+        const vendors = [
+            { name: 'Pardot', mentions: 8, sentiment: -0.55, g2: 'N/A (part of SFMC)' },
+            { name: 'Salesforce MC', mentions: 6, sentiment: -0.25, g2: '4.0' },
+            { name: 'Marketo', mentions: 10, sentiment: -0.1, g2: '4.1' },
+            { name: 'HubSpot', mentions: 20, sentiment: 0.15, g2: '4.5' },
+            { name: 'Mailchimp', mentions: 5, sentiment: 0.2, g2: '4.3' },
+            { name: 'ActiveCampaign', mentions: 12, sentiment: 0.5, g2: '4.5' }
+        ];
+
+        const sortedVendors = [...vendors].sort((a, b) => a.sentiment - b.sentiment);
+
+        function getColor(sentiment) {
+            if (sentiment < -0.2) return colors.negative;
+            if (sentiment > 0.2) return colors.positive;
+            return colors.neutral;
+        }
+
+        const sentimentCtx = document.getElementById('sentimentChart').getContext('2d');
+        new Chart(sentimentCtx, {
+            type: 'bar',
+            data: {
+                labels: sortedVendors.map(v => v.name),
+                datasets: [{
+                    label: 'Net Sentiment Score',
+                    data: sortedVendors.map(v => v.sentiment),
+                    backgroundColor: sortedVendors.map(v => getColor(v.sentiment)),
+                    borderColor: colors.dark,
+                    borderWidth: 2,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: colors.dark,
+                        titleFont: { family: 'Inter', weight: '700' },
+                        bodyFont: { family: 'Inter' },
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                const sentiment = context.raw;
+                                let label = sentiment > 0 ? '+' + sentiment.toFixed(2) : sentiment.toFixed(2);
+                                return 'Net Sentiment: ' + label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        min: -1,
+                        max: 1,
+                        grid: { color: '#e5e5e5' },
+                        ticks: {
+                            font: { family: 'Inter', weight: '500' },
+                            callback: function(value) {
+                                return value > 0 ? '+' + value : value;
+                            }
+                        }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Inter', weight: '600' } }
+                    }
+                }
+            }
+        });
+
+        const bubbleCtx = document.getElementById('bubbleChart').getContext('2d');
+        new Chart(bubbleCtx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Vendors',
+                    data: vendors.map(v => ({
+                        x: v.sentiment,
+                        y: v.mentions,
+                        r: Math.max(8, v.mentions * 2.5),
+                        vendor: v.name
+                    })),
+                    backgroundColor: vendors.map(v => {
+                        const color = getColor(v.sentiment);
+                        return color + 'CC';
+                    }),
+                    borderColor: colors.dark,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: colors.dark,
+                        titleFont: { family: 'Inter', weight: '700' },
+                        bodyFont: { family: 'Inter' },
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            title: function(context) {
+                                return context[0].raw.vendor;
+                            },
+                            label: function(context) {
+                                const data = context.raw;
+                                const sentimentLabel = data.x > 0 ? '+' + data.x.toFixed(2) : data.x.toFixed(2);
+                                return [
+                                    'Net Sentiment: ' + sentimentLabel,
+                                    'Total Mentions: ' + data.y
+                                ];
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        min: -1,
+                        max: 1,
+                        title: {
+                            display: true,
+                            text: 'Net Sentiment Score',
+                            font: { family: 'Inter', weight: '600' }
+                        },
+                        grid: { color: '#e5e5e5' },
+                        ticks: {
+                            font: { family: 'Inter', weight: '500' },
+                            callback: function(value) {
+                                return value > 0 ? '+' + value : value;
+                            }
+                        }
+                    },
+                    y: {
+                        min: 0,
+                        max: 25,
+                        title: {
+                            display: true,
+                            text: 'Discussion Volume',
+                            font: { family: 'Inter', weight: '600' }
+                        },
+                        grid: { color: '#e5e5e5' },
+                        ticks: {
+                            font: { family: 'Inter', weight: '500' },
+                            stepSize: 5
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
