@@ -149,8 +149,8 @@ export default async function handler(request) {
     // Push to Resend Audience
     resultPromises.push(pushToResendAudience(email).catch(err => console.error('Resend Audience error:', err)));
 
-    // Don't await these - let them run in background
-    Promise.all(resultPromises);
+    // Wait for all background tasks to complete
+    await Promise.all(resultPromises);
 
     return new Response(JSON.stringify({
       success: true,
@@ -589,25 +589,28 @@ async function pushToHubSpot(email, result) {
     const searchData = await searchResponse.json();
     const existingContactId = searchData.results?.[0]?.id;
 
-    // Enhanced HubSpot payload with all budget data
+    // HubSpot payload - using simple property names
+    // Note: Custom properties must exist in HubSpot first
     const properties = {
       email,
-      linkedin_budget_icp: (result.rawIcp || result.icp || '').substring(0, 500),
-      linkedin_budget_audience_size: result.audienceCount?.toString() || '',
-      linkedin_budget_cpm: result.pricing?.awareness?.suggested?.toFixed(2) || '',
-      linkedin_budget_cpc: result.pricing?.traffic?.suggested?.toFixed(2) || '',
-      linkedin_budget_cpv: result.pricing?.video?.suggested?.toFixed(4) || '',
-      linkedin_budget_leadgen_cpm: result.pricing?.leadGen?.suggested?.toFixed(2) || '',
-      linkedin_budget_awareness: result.budgets?.awareness?.[1]?.budget?.toString() || '',
-      linkedin_budget_traffic: result.budgets?.traffic?.[1]?.budget?.toString() || '',
-      linkedin_budget_leadgen: result.budgets?.leadGen?.[1]?.budget?.toString() || '',
-      linkedin_budget_date: new Date().toISOString().split('T')[0],
-      linkedin_budget_targeting: JSON.stringify(result.targeting || {}).substring(0, 1000),
       lifecyclestage: 'lead',
     };
 
+    // Try to add custom properties (will be ignored if they don't exist)
+    const customProps = {
+      linkedin_budget_icp: (result.rawIcp || result.icp || '').substring(0, 500),
+      linkedin_budget_audience: result.audienceCount?.toString() || '',
+      linkedin_budget_cpm: result.pricing?.awareness?.suggested?.toFixed(2) || '',
+      linkedin_budget_date: new Date().toISOString().split('T')[0],
+    };
+
+    // Merge custom props
+    Object.assign(properties, customProps);
+
+    let response;
     if (existingContactId) {
-      await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${existingContactId}`, {
+      console.log('Updating existing HubSpot contact:', existingContactId);
+      response = await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${existingContactId}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${accessToken}`,
@@ -616,7 +619,8 @@ async function pushToHubSpot(email, result) {
         body: JSON.stringify({ properties }),
       });
     } else {
-      await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
+      console.log('Creating new HubSpot contact for:', email);
+      response = await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${accessToken}`,
@@ -626,6 +630,13 @@ async function pushToHubSpot(email, result) {
       });
     }
 
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('HubSpot API error response:', JSON.stringify(errorData));
+      return { success: false, error: errorData };
+    }
+
+    console.log('HubSpot contact saved successfully');
     return { success: true };
   } catch (error) {
     console.error('HubSpot API error:', error);

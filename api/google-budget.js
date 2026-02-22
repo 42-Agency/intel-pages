@@ -115,8 +115,8 @@ export default async function handler(request) {
     // Push to Resend Audience
     resultPromises.push(pushToResendAudience(email).catch(err => console.error('Resend Audience error:', err)));
 
-    // Don't await these - let them run in background
-    Promise.all(resultPromises);
+    // Wait for all background tasks to complete
+    await Promise.all(resultPromises);
 
     return new Response(JSON.stringify({
       success: true,
@@ -427,24 +427,27 @@ async function pushToHubSpot(email, result) {
     const searchData = await searchResponse.json();
     const existingContactId = searchData.results?.[0]?.id;
 
-    // Enhanced HubSpot payload with all budget data
-    const topKeywords = (result.keywords || []).slice(0, 5).map(k => k.keyword).join(', ');
+    // HubSpot payload - using simple property names
     const properties = {
       email,
-      google_budget_target: (result.target || '').substring(0, 500),
-      google_budget_keyword_count: result.keywordCount?.toString() || '',
-      google_budget_total_searches: result.totalSearches?.toString() || '',
-      google_budget_avg_cpc: result.avgCpc?.toFixed(2) || '',
-      google_budget_min: result.budgets?.min?.toString() || '',
-      google_budget_ideal: result.budgets?.ideal?.toString() || '',
-      google_budget_aggressive: result.budgets?.aggressive?.toString() || '',
-      google_budget_top_keywords: topKeywords.substring(0, 500),
-      google_budget_date: new Date().toISOString().split('T')[0],
       lifecyclestage: 'lead',
     };
 
+    // Try to add custom properties (will be ignored if they don't exist)
+    const customProps = {
+      google_budget_target: (result.target || '').substring(0, 255),
+      google_budget_keywords: result.keywordCount?.toString() || '',
+      google_budget_avg_cpc: result.avgCpc?.toFixed(2) || '',
+      google_budget_date: new Date().toISOString().split('T')[0],
+    };
+
+    // Merge custom props
+    Object.assign(properties, customProps);
+
+    let response;
     if (existingContactId) {
-      await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${existingContactId}`, {
+      console.log('Updating existing HubSpot contact:', existingContactId);
+      response = await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${existingContactId}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${accessToken}`,
@@ -453,7 +456,8 @@ async function pushToHubSpot(email, result) {
         body: JSON.stringify({ properties }),
       });
     } else {
-      await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
+      console.log('Creating new HubSpot contact for:', email);
+      response = await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${accessToken}`,
@@ -463,6 +467,13 @@ async function pushToHubSpot(email, result) {
       });
     }
 
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('HubSpot API error response:', JSON.stringify(errorData));
+      return { success: false, error: errorData };
+    }
+
+    console.log('HubSpot contact saved successfully');
     return { success: true };
   } catch (error) {
     console.error('HubSpot API error:', error);
