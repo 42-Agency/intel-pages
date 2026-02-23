@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Weakness Map: Cloud Cost Tools | ProsperOps</title>
+    <meta name="description" content="Conquest campaign intelligence for ProsperOps. Real practitioner complaints about CloudHealth, Spot.io, Cloudability, and native AWS tools from Hacker News, G2, and FinOps communities.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Global Header */
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem !important;
+            background: var(--black) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        /* Hero */
+        .hero {
+            background: #ffffff;
+            border-bottom: 2px solid var(--black);
+            padding: 3rem 2rem;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .prepared-for {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+        }
+        .prepared-for img { height: 24px; }
+        .prepared-for span { font-size: 0.85rem; color: var(--muted); }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .date { font-size: 0.875rem; color: var(--muted); }
+
+        .methodology {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+        }
+        .methodology-title {
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        .methodology p { font-size: 0.85rem; color: var(--gray); }
+        .source-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .source-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Quote Cards */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .quote-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--red);
+        }
+        .quote-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .quote-theme::before { content: ""; }
+        .quote-text {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+            padding-left: 0.75rem;
+            border-left: 3px solid var(--red);
+        }
+        .quote-source {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-align: right;
+        }
+        .badge-hn {
+            display: inline-block;
+            background: #FF6600;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-g2 {
+            display: inline-block;
+            background: #FF492C;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-finops {
+            display: inline-block;
+            background: #3B82F6;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-gartner {
+            display: inline-block;
+            background: #6366F1;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .competitor-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+            background: var(--light-gray);
+            color: var(--gray);
+            border: 1px solid #ddd;
+        }
+
+        /* Opportunity Card */
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 2rem;
+        }
+        .card-accent {
+            background: var(--accent);
+            box-shadow: 6px 6px 0px 0px var(--black);
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 600px) { .stat-grid { grid-template-columns: 1fr; } }
+        .stat-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+        .campaign-concept {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .campaign-concept h4 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .campaign-concept li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .campaign-concept li:last-child { border-bottom: none; }
+        .campaign-concept .label { font-weight: 600; min-width: 60px; }
+
+        /* Messaging Angles */
+        .angles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .angle-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+        }
+        .angle-card strong { display: block; margin-bottom: 0.25rem; }
+        .angle-card span { color: var(--gray); font-size: 0.9rem; }
+
+        /* CTA */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .cta-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--black);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cta-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid var(--black);
+            padding: 3rem 1.5rem;
+            background: var(--black);
+            margin-top: 2rem;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer img { height: 24px; filter: brightness(0) invert(1); }
+        .footer p { color: #999; font-size: 0.85rem; }
+        @media (max-width: 600px) {
+            .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="/tools/">Tools</a>
+                <a href="/playbooks/">Playbooks</a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="prepared-for">
+                <img src="https://cdn.brandfetch.io/idR2jzK0a0/w/380/h/69/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1740710283405" alt="ProsperOps">
+                <span>Prepared for ProsperOps</span>
+            </div>
+            <h1>Competitor Weakness Map</h1>
+            <p class="subtitle">CloudHealth, Cloudability, Spot.io & Native AWS Tools</p>
+            <p class="date">February 2026</p>
+
+            <div class="methodology">
+                <div class="methodology-title">Why This Matters</div>
+                <p>Manual cloud cost optimization tools dominate the market, but FinOps teams are frustrated with complexity, slow interfaces, and savings that never materialize. These pain points become your messaging angles for conquest campaigns targeting dissatisfied users of legacy tools on LinkedIn.</p>
+                <div class="source-tags">
+                    <span class="source-tag">Hacker News</span>
+                    <span class="source-tag">G2</span>
+                    <span class="source-tag">Gartner Peer Insights</span>
+                    <span class="source-tag">TrustRadius</span>
+                    <span class="source-tag">FinOps Foundation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main">
+        <section style="margin-bottom: 2rem;">
+            <h2 class="section-title">What Practitioners Are Saying</h2>
+            <p class="section-subtitle">Real complaints from FinOps teams, Cloud Engineers, and Infrastructure Directors</p>
+
+            <div class="quotes-grid">
+                <div class="quote-card">
+                    <div class="quote-theme">Manual Work Never Ends<span class="competitor-tag">CloudHealth</span></div>
+                    <p class="quote-text">"The interface can be slow and unintuitive, making it difficult to build complex, multidimensional reports and extract actionable insights quickly."</p>
+                    <p class="quote-text">"Screens occasionally lag or freeze. Navigation and notifications are unintuitive, leading to a steeper learning curve than expected."</p>
+                    <p class="quote-source"><span class="badge-g2">G2</span> CloudHealth User Reviews</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Commitments = Lock-In Risk<span class="competitor-tag">AWS Native</span></div>
+                    <p class="quote-text">"Once committed to a Savings Plan, you are stuck with it. You risk that your instance type would get cheaper over the term of the reservation."</p>
+                    <p class="quote-text">"Many businesses don't use reserved instances because they don't have the capacity to figure out how best to use them."</p>
+                    <p class="quote-source"><span class="badge-hn">HN</span> Hacker News - AWS Savings Plans Discussion</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Savings Never Materialize<span class="competitor-tag">FinOps Tools</span></div>
+                    <p class="quote-text">"Cloud migration was supposed to deliver cost savings, those cost savings are now an increasingly distant dream."</p>
+                    <p class="quote-text">"Even when cost-saving opportunities are identified, FinOps teams often struggle to capture savings because engineers lack incentives or access to act."</p>
+                    <p class="quote-source"><span class="badge-finops">FinOps</span> FinOps Foundation / McKinsey Analysis</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Detection & Automation Gaps<span class="competitor-tag">Cloudability</span></div>
+                    <p class="quote-text">"Cost anomalies detection is nowhere near what it should be compared to native AWS tools."</p>
+                    <p class="quote-text">"No option to automate optimisation opportunities. Product updates have been chaotic post-acquisition with previously announced features still pending."</p>
+                    <p class="quote-source"><span class="badge-gartner">Gartner</span> TrustRadius / Gartner Peer Insights</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 2rem;">
+            <h2 class="section-title">The Opportunity</h2>
+            <p class="section-subtitle">Targetable FinOps & Cloud practitioners on LinkedIn</p>
+
+            <div class="card card-accent">
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">85K+</div>
+                        <div class="stat-label">FinOps / Cloud Cost professionals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">120K+</div>
+                        <div class="stat-label">Cloud Engineers at $10M+ AWS spend companies</div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--gray);">
+                    <strong>Targeting:</strong> Skills (AWS, FinOps, Cloud Cost Optimization) + Seniority (Director+) + Company Size ($5M+ cloud spend) + Tech stack signals (CloudHealth, Cloudability, Spot.io users)
+                </p>
+
+                <div class="campaign-concept">
+                    <h4>Conquest Campaign Concept</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li><span class="label">Hook:</span> "Your FinOps tool shows savings. Your CFO sees costs rising."</li>
+                        <li><span class="label">Pain:</span> Target manual work, lock-in risk, savings that don't materialize</li>
+                        <li><span class="label">Proof:</span> ProsperOps autonomous optimization, 50%+ savings increase for 3 of 4 customers</li>
+                        <li><span class="label">CTA:</span> "See your actual Effective Savings Rate in 15 minutes"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Messaging Angles</h2>
+            <p class="section-subtitle">Ad copy directions based on competitor weaknesses</p>
+
+            <div class="angles-grid">
+                <div class="angle-card">
+                    <strong>Against "Manual FinOps"</strong>
+                    <span>"Your cloud costs optimize themselves. Your team focuses on engineering."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against "Lock-In Fear"</strong>
+                    <span>"Maximum savings. Zero commitment risk. Fully autonomous."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against "Slow, Clunky Tools"</strong>
+                    <span>"10,000+ optimization actions per month. All hands-free."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against "Savings That Don't Show"</strong>
+                    <span>"3 out of 4 customers see 50%+ increase in savings. Not dashboards. Real dollars."</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3 class="cta-title">Ready to Build This Campaign?</h3>
+            <p class="cta-text">15 minutes to walk through the targeting, messaging, and budget.</p>
+            <a href="https://42agency.com/contact" class="cta-button">Schedule a Strategy Call</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <img src="/42-logo.png" alt="42 Agency">
+            <p>B2B Performance Marketing</p>
+        </div>
+    </footer>
+</body>
+</html>
