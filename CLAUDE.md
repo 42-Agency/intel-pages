@@ -37,7 +37,7 @@ When building:
 - Consistent design system
 - Discovery paths and interlinking
 - Shared header/footer navigation
-- Unified analytics (GTM + HubSpot)
+- Unified analytics (GTM + HubSpot + Vercel Analytics)
 
 ---
 
@@ -115,10 +115,19 @@ intel.42agency.com/
 
 - Static HTML/CSS (no framework)
 - Vercel Edge Functions for APIs
+- Vercel Web Analytics (free tier: 50k events/month)
 - HubSpot CRM API + Collected Forms API
 - Resend for transactional email + Audiences
 - GTM Container: `GTM-MM5BTNS`
 - HubSpot Portal: `44888286`
+
+### Analytics
+
+**Vercel Web Analytics** enabled on all 105 HTML pages (Feb 2026).
+- Script: `/_vercel/insights/script.js` (auto-served by Vercel)
+- Dashboard: https://vercel.com/42agency/intel-pages/analytics
+- Free tier: 50k events/month, 1 month retention
+- No npm package needed for static HTML - just the script tag before `</body>`
 
 ### API Endpoints
 
@@ -800,4 +809,88 @@ Key insight: Best-of-breed point solutions winning over monolithic ABM platforms
 
 ---
 
-*Last updated: February 21, 2026 - Added soft-gated playbooks with PDF generation and vendor sentiment*
+---
+
+## HubSpot CRM Health Assessment (Feb 2026)
+
+**URL:** `/assessments/hubspot-health/`
+**API:** `/api/assessment-results.js`
+
+### Format (Refactored Feb 22, 2026)
+- **20 questions total** (reduced from 42)
+- **Multi-option answers** (3-4 options per question with partial credit scoring)
+- **Weighted scoring** - Questions have weights 1-3 based on impact
+
+### Question Structure
+Each question has:
+```javascript
+{
+  id: "rd-1",
+  text: "Question text here",
+  weight: 3,  // 1 = Nice to have, 2 = Important, 3 = Critical
+  options: [
+    { label: "Full answer", score: 3, desc: "Description of what this means" },
+    { label: "Partial answer", score: 2, desc: "Description" },
+    { label: "Minimal answer", score: 1, desc: "Description" },
+    { label: "Not at all", score: 0, desc: "Description" }
+  ]
+}
+```
+
+### 7 Categories (Priority Order)
+
+| # | Category | Questions | Focus |
+|---|----------|-----------|-------|
+| 1 | **Reporting & Dashboards** | 3 | Pipeline dashboards, revenue reporting, cross-system data |
+| 2 | **Lifecycle Management** | 3 | Automated lifecycle stages, definitions, SLAs |
+| 3 | **Attribution & Tracking** | 3 | Multi-touch attribution, UTM parameters, offline tracking |
+| 4 | **System Integrations** | 3 | Salesforce sync, outbound tools (Outreach/Salesloft/Apollo), data enrichment |
+| 5 | **Data Hygiene** | 3 | Deduplication, data standardization, decay management |
+| 6 | **Lead Scoring** | 2 | Scoring model, threshold calibration |
+| 7 | **Sales & Marketing Alignment** | 3 | Lead routing, SLAs, feedback loops |
+
+### Scoring System
+
+**Option Colors:**
+- Green (`#10B981`) - Full credit (score = weight)
+- Orange (`#F59E0B`) - Partial credit (mid-range scores)
+- Red (`#EF4444`) - No credit (score = 0)
+
+**Grade Thresholds:**
+| Grade | Percentage | Status |
+|-------|------------|--------|
+| A | 90-100% | Excellent |
+| B | 75-89% | Good |
+| C | 60-74% | Average |
+| D | 40-59% | Below Average |
+| F | 0-39% | Critical |
+
+### Category Scoring
+Each category shows individual percentage with status indicator:
+- **Critical** (< 50%) - Red badge
+- **Needs Work** (50-74%) - Orange badge
+- **Good** (≥ 75%) - Green badge
+
+### User Flow
+```
+1. Landing page → Click "Start Assessment"
+2. Answer 20 questions across 7 categories
+3. Progress bar shows current position
+4. After all questions → Email gate (required)
+5. Enter email → See full results
+6. Results show: Overall grade, percentage, category breakdown
+7. Option to "Share to LinkedIn"
+```
+
+### HubSpot CRM Properties
+| Property | Type | Description |
+|----------|------|-------------|
+| `hubspot_health_score` | Number | Total percentage (0-100) |
+| `hubspot_health_grade` | Dropdown | A, B, C, D, F |
+| `hubspot_health_assessment_date` | Date | Completion date |
+| `hubspot_health_critical_issues` | Number | Count of categories < 50% |
+| `hubspot_health_weakest_category` | Text | Lowest scoring category name |
+
+---
+
+*Last updated: February 22, 2026 - Refactored HubSpot Assessment to 20 questions with multi-option answers*
