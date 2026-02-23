@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HubSpot CRM Health Assessment | 42-Point Diagnostic | 42 Agency</title>
+    <title>HubSpot CRM Health Assessment | 20-Question Diagnostic | 42 Agency</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,8 +21,8 @@
     <!-- html-to-image for PNG export -->
     <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
 
-    <meta property="og:title" content="HubSpot CRM Health Assessment - 42-Point Diagnostic">
-    <meta property="og:description" content="Answer 42 questions about your HubSpot setup. Get a personalized health score with recommendations.">
+    <meta property="og:title" content="HubSpot CRM Health Assessment - 20-Question Diagnostic">
+    <meta property="og:description" content="Answer 20 questions about your HubSpot setup. Get a personalized health score with recommendations.">
 
     <style>
         :root {
@@ -314,48 +314,63 @@
             line-height: 1.4;
         }
 
-        .answer-buttons {
+        .answer-options {
             display: flex;
-            gap: 1rem;
-            justify-content: center;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .answer-btn {
-            flex: 1;
-            max-width: 200px;
-            padding: 1rem 2rem;
+        .answer-option {
+            width: 100%;
+            padding: 1rem 1.25rem;
             border: 2px solid var(--black);
             border-radius: 12px;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.15s ease;
             box-shadow: 3px 3px 0px 0px var(--black);
+            background: white;
+            color: var(--black);
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .answer-btn.yes {
-            background: var(--green-bg);
-            color: var(--green);
+        .answer-option:hover {
+            background: var(--light-gray);
+            box-shadow: 4px 4px 0px 0px var(--black);
+            transform: translate(-1px, -1px);
         }
 
-        .answer-btn.yes:hover {
+        .answer-option.selected-green {
             background: var(--green);
             color: white;
-            box-shadow: 4px 4px 0px 0px var(--black);
-            transform: translate(-1px, -1px);
+            border-color: var(--green);
+            box-shadow: 3px 3px 0px 0px #059669;
         }
 
-        .answer-btn.no {
-            background: var(--red-bg);
-            color: var(--red);
+        .answer-option.selected-orange {
+            background: var(--orange);
+            color: white;
+            border-color: var(--orange);
+            box-shadow: 3px 3px 0px 0px #D97706;
         }
 
-        .answer-btn.no:hover {
+        .answer-option.selected-red {
             background: var(--red);
             color: white;
-            box-shadow: 4px 4px 0px 0px var(--black);
-            transform: translate(-1px, -1px);
+            border-color: var(--red);
+            box-shadow: 3px 3px 0px 0px #DC2626;
         }
+
+        .option-label { font-weight: 700; }
+        .option-desc { font-size: 0.85rem; opacity: 0.8; margin-top: 0.25rem; font-weight: 400; }
+        .option-check { display: none; }
+        .answer-option.selected-green .option-check,
+        .answer-option.selected-orange .option-check,
+        .answer-option.selected-red .option-check { display: block; }
 
         .back-btn {
             margin-top: 1.5rem;
@@ -975,7 +990,7 @@
                 <div class="divider"></div>
                 <div class="assessment-title">
                     <div class="title">HubSpot CRM Health</div>
-                    <div class="subtitle">42-Point Diagnostic</div>
+                    <div class="subtitle">20-Question Diagnostic</div>
                 </div>
             </div>
             <div class="header-right">
@@ -1007,35 +1022,39 @@
         <div class="intro-screen" id="introScreen">
             <div class="intro-icon">🔍</div>
             <h1>HubSpot CRM Health Assessment</h1>
-            <p class="intro-description">Answer 42 questions about your HubSpot setup. Get a personalized health score with specific recommendations to improve your CRM operations.</p>
+            <p class="intro-description">Answer 20 questions about your HubSpot setup. Get a personalized health score with specific recommendations to improve your CRM operations.</p>
             <button class="start-btn" onclick="startAssessment()">
                 Start Assessment
                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </button>
             <div class="categories-preview">
                 <div class="category-card">
-                    <div class="category-icon">🧹</div>
-                    <div class="category-name">Data Hygiene</div>
+                    <div class="category-icon">📈</div>
+                    <div class="category-name">Reporting</div>
                 </div>
                 <div class="category-card">
                     <div class="category-icon">🔄</div>
-                    <div class="category-name">Lifecycle Management</div>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">🎯</div>
-                    <div class="category-name">Lead Scoring</div>
+                    <div class="category-name">Lifecycle</div>
                 </div>
                 <div class="category-card">
                     <div class="category-icon">📊</div>
                     <div class="category-name">Attribution</div>
                 </div>
                 <div class="category-card">
-                    <div class="category-icon">🤝</div>
-                    <div class="category-name">Sales Alignment</div>
+                    <div class="category-icon">🔗</div>
+                    <div class="category-name">Integrations</div>
                 </div>
                 <div class="category-card">
-                    <div class="category-icon">📈</div>
-                    <div class="category-name">Reporting</div>
+                    <div class="category-icon">🧹</div>
+                    <div class="category-name">Data Hygiene</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">⭐</div>
+                    <div class="category-name">Lead Scoring</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🤝</div>
+                    <div class="category-name">Alignment</div>
                 </div>
             </div>
         </div>
@@ -1048,9 +1067,8 @@
                     <span id="categoryName"></span>
                 </div>
                 <div class="question-text" id="questionText"></div>
-                <div class="answer-buttons">
-                    <button class="answer-btn yes" onclick="answerQuestion(true)">✓ Yes</button>
-                    <button class="answer-btn no" onclick="answerQuestion(false)">✗ No</button>
+                <div class="answer-options" id="answerOptions">
+                    <!-- Options populated by JS -->
                 </div>
             </div>
             <button class="back-btn" id="backBtn" onclick="goBack()">
@@ -1084,7 +1102,7 @@
                         <div class="share-card-logo-icon">42</div>
                         <div class="share-card-logo-text">
                             <div class="title">HubSpot CRM Health</div>
-                            <div class="subtitle">42-Point Diagnostic</div>
+                            <div class="subtitle">20-Question Diagnostic</div>
                         </div>
                     </div>
                     <div class="share-card-company" id="companyDisplay" style="display: none;">
@@ -1242,20 +1260,47 @@
     </footer>
 
     <script>
-    // Assessment Questions Data
+    // Assessment Questions Data - 20 Questions, Multi-Option Answers
+    // Categories in priority order: Reporting, Lifecycle, Attribution, Integrations, Data, Scoring, Alignment
+
     const CATEGORIES = [
         {
-            id: 'data-hygiene',
-            name: 'Data Hygiene',
-            icon: '🧹',
+            id: 'reporting',
+            name: 'Reporting & Dashboards',
+            icon: '📈',
             questions: [
-                { id: 'dh-1', text: 'Do you have a consistent naming convention for contacts, companies, and deals?', weight: 2 },
-                { id: 'dh-2', text: 'Are duplicate records regularly identified and merged?', weight: 3 },
-                { id: 'dh-3', text: 'Do you have required fields on key objects (contacts, deals)?', weight: 2 },
-                { id: 'dh-4', text: 'Is there a process to clean up bounced emails and invalid contacts?', weight: 2, criticalIssue: 'Bounced emails hurt deliverability' },
-                { id: 'dh-5', text: 'Are picklist/dropdown values standardized and regularly audited?', weight: 1 },
-                { id: 'dh-6', text: 'Do you have data validation rules in place?', weight: 2 },
-                { id: 'dh-7', text: 'Is there ownership assigned to all active records?', weight: 2, criticalIssue: 'Unowned records = lost opportunities' },
+                {
+                    id: 'rd-1',
+                    text: 'Do you have dashboards for marketing performance (leads, MQLs, pipeline)?',
+                    weight: 3,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Real-time dashboards leadership can check anytime', score: 3 },
+                        { label: 'Partially done', desc: 'Some dashboards exist but incomplete', score: 2 },
+                        { label: 'Planning to', desc: 'On our roadmap but not started', score: 1 },
+                        { label: 'Not at all', desc: 'No marketing dashboards', score: 0 }
+                    ]
+                },
+                {
+                    id: 'rd-2',
+                    text: 'Can you report on conversion rates between lifecycle stages?',
+                    weight: 3,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Track Lead→MQL→SQL→Customer rates monthly', score: 3 },
+                        { label: 'Partially done', desc: 'Track some stages but not all', score: 2 },
+                        { label: 'Planning to', desc: 'Know we need this', score: 1 },
+                        { label: 'Not at all', desc: 'Cannot report conversion rates', score: 0 }
+                    ]
+                },
+                {
+                    id: 'rd-3',
+                    text: 'Do you track cost per lead / cost per MQL by channel?',
+                    weight: 2,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Know CPL/CPM by channel, drives budget decisions', score: 2 },
+                        { label: 'Partially done', desc: 'Track for some channels', score: 1 },
+                        { label: 'Not at all', desc: 'Don\'t track cost metrics', score: 0 }
+                    ]
+                }
             ]
         },
         {
@@ -1263,27 +1308,39 @@
             name: 'Lifecycle Management',
             icon: '🔄',
             questions: [
-                { id: 'lc-1', text: 'Are lifecycle stages clearly defined and documented?', weight: 3 },
-                { id: 'lc-2', text: 'Do lifecycle stages automatically update based on actions?', weight: 2 },
-                { id: 'lc-3', text: 'Is there a clear handoff process between marketing and sales stages?', weight: 3, criticalIssue: 'No MQL→SQL handoff process' },
-                { id: 'lc-4', text: 'Are deal stages aligned with your actual sales process?', weight: 2 },
-                { id: 'lc-5', text: 'Do you track time spent in each stage?', weight: 1 },
-                { id: 'lc-6', text: 'Is there a process for recycling or disqualifying stale leads?', weight: 2 },
-                { id: 'lc-7', text: 'Are re-engagement workflows set up for dormant contacts?', weight: 1 },
-            ]
-        },
-        {
-            id: 'lead-scoring',
-            name: 'Lead Scoring',
-            icon: '🎯',
-            questions: [
-                { id: 'ls-1', text: 'Do you have a lead scoring model in place?', weight: 3, criticalIssue: 'No lead scoring model' },
-                { id: 'ls-2', text: 'Does scoring include both demographic (fit) and behavioral (interest) factors?', weight: 2 },
-                { id: 'ls-3', text: 'Is negative scoring used for disqualifying factors?', weight: 1 },
-                { id: 'ls-4', text: 'Are score thresholds aligned with sales feedback?', weight: 2 },
-                { id: 'ls-5', text: 'Is the scoring model reviewed and updated quarterly?', weight: 1 },
-                { id: 'ls-6', text: 'Do high-scoring leads trigger immediate sales notifications?', weight: 2 },
-                { id: 'ls-7', text: 'Can you report on score-to-close conversion rates?', weight: 2 },
+                {
+                    id: 'lm-1',
+                    text: 'Is your Lifecycle Stage property updated automatically via workflows?',
+                    weight: 3,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Workflows auto-update all stages', score: 3 },
+                        { label: 'Partially done', desc: 'Some stages automated', score: 2 },
+                        { label: 'Planning to', desc: 'Currently manual', score: 1 },
+                        { label: 'Not at all', desc: 'All manual updates', score: 0 }
+                    ]
+                },
+                {
+                    id: 'lm-2',
+                    text: 'Do you have clear, documented definitions for each Lifecycle Stage?',
+                    weight: 3,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Documented definitions, sales & marketing aligned', score: 3 },
+                        { label: 'Partially done', desc: 'Some definitions but not all documented', score: 2 },
+                        { label: 'Planning to', desc: 'Know we need to document', score: 1 },
+                        { label: 'Not at all', desc: 'No definitions', score: 0 }
+                    ]
+                },
+                {
+                    id: 'lm-3',
+                    text: 'Is there automation to hand off leads from Marketing to Sales?',
+                    weight: 3,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Auto-assigns owner, creates task, sends notification', score: 3 },
+                        { label: 'Partially done', desc: 'Some automation but gaps exist', score: 2 },
+                        { label: 'Planning to', desc: 'Currently manual handoff', score: 1 },
+                        { label: 'Not at all', desc: 'No handoff process', score: 0 }
+                    ]
+                }
             ]
         },
         {
@@ -1291,13 +1348,142 @@
             name: 'Attribution & Tracking',
             icon: '📊',
             questions: [
-                { id: 'at-1', text: 'Is UTM tracking consistently used across all campaigns?', weight: 2, criticalIssue: 'Inconsistent UTM tracking' },
-                { id: 'at-2', text: 'Are original source and most recent source captured?', weight: 2 },
-                { id: 'at-3', text: 'Can you track multi-touch attribution across channels?', weight: 2 },
-                { id: 'at-4', text: 'Are offline touchpoints (events, calls) logged in HubSpot?', weight: 1 },
-                { id: 'at-5', text: 'Is there a clear process for campaign-to-revenue attribution?', weight: 3, criticalIssue: 'Cannot attribute revenue to campaigns' },
-                { id: 'at-6', text: 'Are ad platform integrations (LinkedIn, Google) properly connected?', weight: 2 },
-                { id: 'at-7', text: 'Can you report on first-touch vs last-touch attribution?', weight: 1 },
+                {
+                    id: 'at-1',
+                    text: 'Is the HubSpot tracking code installed on all pages (including subdomains)?',
+                    weight: 3,
+                    options: [
+                        { label: 'Yes', desc: 'Verified on all pages and subdomains', score: 3 },
+                        { label: 'Somewhat', desc: 'Main site but not all subdomains', score: 2 },
+                        { label: 'No', desc: 'Missing from many pages', score: 0 }
+                    ]
+                },
+                {
+                    id: 'at-2',
+                    text: 'Do you use consistent UTM parameters across all campaigns?',
+                    weight: 3,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Documented UTM system for all campaigns', score: 3 },
+                        { label: 'Partially done', desc: 'Use UTMs but inconsistently', score: 2 },
+                        { label: 'Planning to', desc: 'Know we should standardize', score: 1 },
+                        { label: 'Not at all', desc: 'No UTM tracking', score: 0 }
+                    ]
+                },
+                {
+                    id: 'at-3',
+                    text: 'Can you report on multi-touch attribution (not just first/last touch)?',
+                    weight: 2,
+                    options: [
+                        { label: 'Fully implemented', desc: 'See all touchpoints that influenced deals', score: 2 },
+                        { label: 'Partially done', desc: 'Track some touches but not complete picture', score: 1 },
+                        { label: 'Not at all', desc: 'Only first or last touch', score: 0 }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'integrations',
+            name: 'System Integrations',
+            icon: '🔗',
+            questions: [
+                {
+                    id: 'si-1',
+                    text: 'If you use Salesforce, is there a reliable two-way sync with HubSpot?',
+                    weight: 3,
+                    options: [
+                        { label: 'Yes, fully synced', desc: 'Two-way sync with documented field mappings', score: 3 },
+                        { label: 'One-way only', desc: 'Data flows one direction', score: 2 },
+                        { label: 'Partial/broken', desc: 'Sync exists but has issues', score: 1 },
+                        { label: 'No SF / No sync', desc: 'Don\'t use SF or no integration', score: 0 }
+                    ]
+                },
+                {
+                    id: 'si-2',
+                    text: 'Are your outbound tools (Outreach, Salesloft, Apollo) syncing activities back to HubSpot?',
+                    weight: 3,
+                    options: [
+                        { label: 'Yes, fully synced', desc: 'All outbound activities log to HubSpot', score: 3 },
+                        { label: 'Partial sync', desc: 'Some activities sync but not all', score: 2 },
+                        { label: 'Manual logging', desc: 'Sales manually logs key activities', score: 1 },
+                        { label: 'No sync', desc: 'Outbound activities don\'t reach HubSpot', score: 0 }
+                    ]
+                },
+                {
+                    id: 'si-3',
+                    text: 'Do you have integrations for enrichment, intent data, or other data sources?',
+                    weight: 2,
+                    options: [
+                        { label: 'Yes, automated', desc: 'Clearbit/ZoomInfo/6sense auto-enriches contacts', score: 2 },
+                        { label: 'Manual enrichment', desc: 'Enrich data manually', score: 1 },
+                        { label: 'No enrichment', desc: 'No third-party data', score: 0 }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'data-hygiene',
+            name: 'Data Hygiene',
+            icon: '🧹',
+            questions: [
+                {
+                    id: 'dh-1',
+                    text: 'Do you actively manage duplicate records (merge or prevent)?',
+                    weight: 3,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Monthly checks + prevention workflows', score: 3 },
+                        { label: 'Partially done', desc: 'Occasional cleanup but no prevention', score: 2 },
+                        { label: 'Planning to', desc: 'Know duplicates are a problem', score: 1 },
+                        { label: 'Not at all', desc: 'Duplicates everywhere', score: 0 }
+                    ]
+                },
+                {
+                    id: 'dh-2',
+                    text: 'Have you removed or tagged test/internal contacts?',
+                    weight: 2,
+                    options: [
+                        { label: 'Yes', desc: 'Flagged and excluded from reports', score: 2 },
+                        { label: 'Somewhat', desc: 'Some tagged but not all', score: 1 },
+                        { label: 'No', desc: 'Mixed with real contacts', score: 0 }
+                    ]
+                },
+                {
+                    id: 'dh-3',
+                    text: 'Do you regularly archive or delete stale/inactive contacts?',
+                    weight: 2,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Quarterly cleanup of 12+ month inactive', score: 2 },
+                        { label: 'Partially done', desc: 'Occasional cleanup', score: 1 },
+                        { label: 'Not at all', desc: 'Never cleaned up', score: 0 }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'lead-scoring',
+            name: 'Lead Scoring',
+            icon: '⭐',
+            questions: [
+                {
+                    id: 'ls-1',
+                    text: 'Do you have lead scoring enabled with both fit and behavior criteria?',
+                    weight: 3,
+                    options: [
+                        { label: 'Yes, both fit + behavior', desc: 'Demographic and behavioral scoring', score: 3 },
+                        { label: 'Fit only', desc: 'Score based on who they are', score: 2 },
+                        { label: 'Behavior only', desc: 'Score based on actions only', score: 1 },
+                        { label: 'No scoring', desc: 'Lead scoring not enabled', score: 0 }
+                    ]
+                },
+                {
+                    id: 'ls-2',
+                    text: 'Do you use negative scoring (competitors, students, wrong geo)?',
+                    weight: 2,
+                    options: [
+                        { label: 'Yes', desc: 'Deduct points for bad-fit signals', score: 2 },
+                        { label: 'Somewhat', desc: 'Some negative rules', score: 1 },
+                        { label: 'No', desc: 'Only positive scoring', score: 0 }
+                    ]
+                }
             ]
         },
         {
@@ -1305,27 +1491,36 @@
             name: 'Sales & Marketing Alignment',
             icon: '🤝',
             questions: [
-                { id: 'al-1', text: 'Is there a documented SLA between marketing and sales?', weight: 2 },
-                { id: 'al-2', text: 'Are lead routing rules automated and working correctly?', weight: 3, criticalIssue: 'Leads not routed automatically' },
-                { id: 'al-3', text: 'Can sales easily see marketing engagement history?', weight: 2 },
-                { id: 'al-4', text: 'Is there regular feedback from sales on lead quality?', weight: 2 },
-                { id: 'al-5', text: 'Are marketing emails and sales sequences coordinated?', weight: 1 },
-                { id: 'al-6', text: 'Do sales and marketing share the same dashboards?', weight: 1 },
-                { id: 'al-7', text: 'Is there a formal closed-loop reporting process?', weight: 2 },
-            ]
-        },
-        {
-            id: 'reporting',
-            name: 'Reporting & Dashboards',
-            icon: '📈',
-            questions: [
-                { id: 'rp-1', text: 'Do you have executive-level funnel dashboards?', weight: 2 },
-                { id: 'rp-2', text: 'Can you report on conversion rates between stages?', weight: 2 },
-                { id: 'rp-3', text: 'Is there automated reporting sent to stakeholders?', weight: 1 },
-                { id: 'rp-4', text: 'Can you calculate cost-per-lead by source/campaign?', weight: 2 },
-                { id: 'rp-5', text: 'Are pipeline velocity metrics tracked?', weight: 2 },
-                { id: 'rp-6', text: 'Do you have custom reports for different team needs?', weight: 1 },
-                { id: 'rp-7', text: 'Is there a single source of truth for marketing metrics?', weight: 2, criticalIssue: 'No single source of truth for metrics' },
+                {
+                    id: 'sa-1',
+                    text: 'Is "Closed Lost Reason" a required field when deals are lost?',
+                    weight: 3,
+                    options: [
+                        { label: 'Yes', desc: 'Required field, reviewed monthly', score: 3 },
+                        { label: 'Somewhat', desc: 'Field exists but not always filled', score: 2 },
+                        { label: 'No', desc: 'Not required', score: 0 }
+                    ]
+                },
+                {
+                    id: 'sa-2',
+                    text: 'Do sales and marketing have shared dashboards they both trust?',
+                    weight: 2,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Same dashboards, same numbers', score: 2 },
+                        { label: 'Partially done', desc: 'Some shared but gaps', score: 1 },
+                        { label: 'Not at all', desc: 'Separate reporting', score: 0 }
+                    ]
+                },
+                {
+                    id: 'sa-3',
+                    text: 'Is there a feedback loop for sales to reject bad leads?',
+                    weight: 2,
+                    options: [
+                        { label: 'Fully implemented', desc: 'Rejection process, marketing reviews weekly', score: 2 },
+                        { label: 'Partially done', desc: 'Can reject but no review process', score: 1 },
+                        { label: 'Not at all', desc: 'No feedback loop', score: 0 }
+                    ]
+                }
             ]
         }
     ];
@@ -1359,6 +1554,22 @@
         document.getElementById('categoryName').textContent = category.name;
         document.getElementById('questionText').textContent = question.text;
 
+        // Render answer options
+        const optionsContainer = document.getElementById('answerOptions');
+        optionsContainer.innerHTML = question.options.map((opt, idx) => {
+            const isFirst = idx === 0;
+            const isLast = idx === question.options.length - 1;
+            return `
+                <button class="answer-option" onclick="answerQuestion(${idx})" data-idx="${idx}">
+                    <div>
+                        <div class="option-label">${opt.label}</div>
+                        <div class="option-desc">${opt.desc}</div>
+                    </div>
+                    <span class="option-check">✓</span>
+                </button>
+            `;
+        }).join('');
+
         const answeredCount = Object.keys(answers).length;
         document.getElementById('progressText').textContent = `${answeredCount} / ${TOTAL_QUESTIONS}`;
         document.getElementById('progressFill').style.width = `${(answeredCount / TOTAL_QUESTIONS) * 100}%`;
@@ -1367,10 +1578,23 @@
             (currentCategoryIndex === 0 && currentQuestionIndex === 0) ? 'none' : 'inline-flex';
     }
 
-    function answerQuestion(value) {
+    function answerQuestion(optionIndex) {
         const category = CATEGORIES[currentCategoryIndex];
         const question = category.questions[currentQuestionIndex];
-        answers[question.id] = value;
+        answers[question.id] = optionIndex;
+
+        // Visual feedback
+        const options = document.querySelectorAll('.answer-option');
+        const numOptions = question.options.length;
+        options.forEach((opt, idx) => {
+            opt.classList.remove('selected-green', 'selected-orange', 'selected-red');
+            if (idx === optionIndex) {
+                // Color based on position: first=green, last=red, middle=orange
+                if (idx === 0) opt.classList.add('selected-green');
+                else if (idx === numOptions - 1) opt.classList.add('selected-red');
+                else opt.classList.add('selected-orange');
+            }
+        });
 
         setTimeout(() => {
             if (currentQuestionIndex < category.questions.length - 1) {
@@ -1383,7 +1607,7 @@
                 return;
             }
             showQuestion();
-        }, 200);
+        }, 300);
     }
 
     function goBack() {
@@ -1443,22 +1667,26 @@
                 catMax += q.weight;
                 maxScore += q.weight;
 
-                if (answers[q.id]) {
-                    catScore += q.weight;
-                    totalScore += q.weight;
-                    if (q.weight >= 2) {
+                const selectedIdx = answers[q.id];
+                if (selectedIdx !== undefined && q.options[selectedIdx]) {
+                    const selectedScore = q.options[selectedIdx].score;
+                    catScore += selectedScore;
+                    totalScore += selectedScore;
+
+                    const scoreRatio = selectedScore / q.weight;
+                    if (scoreRatio >= 0.75 && q.weight >= 2) {
                         strengths.push(`${category.name}: ${q.text.replace('?', '')}`);
-                    }
-                } else {
-                    if (q.criticalIssue) {
-                        criticalIssues.push(q.criticalIssue);
-                    } else if (q.weight >= 2) {
+                    } else if (scoreRatio === 0 && q.weight === 3) {
+                        criticalIssues.push(`${category.name}: ${q.text.replace('?', '')}`);
+                    } else if (scoreRatio <= 0.5 && q.weight >= 2) {
                         warnings.push(`${category.name}: ${q.text.replace('?', '')}`);
                     }
+                } else if (q.weight === 3) {
+                    criticalIssues.push(`${category.name}: ${q.text.replace('?', '')}`);
                 }
             });
 
-            const percentage = Math.round((catScore / catMax) * 100);
+            const percentage = catMax > 0 ? Math.round((catScore / catMax) * 100) : 0;
             categoryResults.push({
                 categoryId: category.id,
                 categoryName: category.name,
@@ -1467,7 +1695,7 @@
             });
         });
 
-        const percentage = Math.round((totalScore / maxScore) * 100);
+        const percentage = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
         let grade;
         if (percentage >= 90) grade = 'A';
         else if (percentage >= 75) grade = 'B';
@@ -1475,7 +1703,7 @@
         else if (percentage >= 40) grade = 'D';
         else grade = 'F';
 
-        return { totalScore, maxScore, percentage, grade, categories: categoryResults, criticalIssues, warnings, strengths };
+        return { totalScore, maxScore, percentage, grade, categories: categoryResults, criticalIssues: criticalIssues.slice(0,5), warnings: warnings.slice(0,5), strengths: strengths.slice(0,5) };
     }
 
     async function showResults() {

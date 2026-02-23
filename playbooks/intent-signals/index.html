@@ -16,53 +16,90 @@
     <style>
         :root { --accent: #DFFE68; --black: #1a1a1a; --gray: #4a4a4a; --light-gray: #f5f5f5; --green: #10B981; --red: #EF4444; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--light-gray); color: var(--black); line-height: 1.6; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--light-gray); color: var(--black); line-height: 1.7; }
         .header { border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; background: white; position: sticky; top: 0; z-index: 50; }
         .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 28px; }
         .nav { display: flex; align-items: center; gap: 0.25rem; }
         .nav a { padding: 0.5rem 1rem; color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; border-radius: 6px; }
         .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav a.active { background: var(--accent); color: var(--black); font-weight: 600; }
         .nav-cta { background: var(--black); color: white !important; font-weight: 600; }
         @media (max-width: 768px) { .nav { display: none; } }
         .breadcrumbs { background: white; border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; }
         .breadcrumbs-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
         .breadcrumbs a { color: var(--gray); text-decoration: none; }
         .breadcrumbs .current { color: var(--black); font-weight: 600; }
+
         .main { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+
+        /* Hero */
         .hero { text-align: center; margin-bottom: 3rem; }
         .hero-badge { display: inline-block; background: var(--red); color: white; padding: 0.4rem 1rem; font-size: 0.75rem; font-weight: 700; border-radius: 20px; margin-bottom: 1rem; text-transform: uppercase; }
         h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .subtitle { color: var(--gray); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-        .signal-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+
+        /* Signal Types */
+        .signal-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0 3rem; }
         .signal-type { text-align: center; padding: 1.5rem 1rem; background: white; border: 2px solid var(--black); border-radius: 12px; box-shadow: 3px 3px 0 var(--black); }
         .signal-type h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; }
         .signal-type p { font-size: 0.75rem; color: var(--gray); }
-        .preview-card { background: white; border: 2px solid var(--black); border-radius: 16px; padding: 2rem; box-shadow: 6px 6px 0 var(--black); margin-bottom: 2rem; }
-        .preview-card h2 { font-size: 1.25rem; font-weight: 800; margin-bottom: 1.5rem; }
-        .preview-list { list-style: none; }
-        .preview-list li { padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0; display: flex; align-items: flex-start; gap: 0.75rem; }
-        .preview-list li:last-child { border-bottom: none; }
-        .preview-list .check { width: 24px; height: 24px; background: var(--accent); border: 2px solid var(--black); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .preview-list .check svg { width: 14px; height: 14px; }
-        .preview-list strong { display: block; margin-bottom: 0.25rem; }
-        .preview-list span { color: var(--gray); font-size: 0.9rem; }
-        .gate-card { background: var(--accent); border: 2px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0 var(--black); text-align: center; margin: 2rem 0; }
+
+        /* Content Sections */
+        .content-section { background: white; border: 2px solid var(--black); border-radius: 16px; padding: 2rem; box-shadow: 4px 4px 0 var(--black); margin-bottom: 2rem; }
+        .content-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 3px solid var(--accent); }
+        .content-section h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+        .content-section p { margin-bottom: 1rem; color: #333; }
+        .content-section ul, .content-section ol { margin: 1rem 0 1rem 1.5rem; color: #333; }
+        .content-section li { margin-bottom: 0.5rem; }
+        .content-section table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        .content-section th, .content-section td { padding: 0.6rem 0.75rem; text-align: left; border: 1px solid #ddd; }
+        .content-section th { background: #f5f5f5; font-weight: 700; }
+        .content-section tr:nth-child(even) { background: #fafafa; }
+        .content-section code { background: #f0f0f0; padding: 0.15rem 0.4rem; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 0.85em; }
+
+        .callout { background: var(--accent); border-left: 4px solid var(--black); padding: 1rem 1.25rem; margin: 1.25rem 0; border-radius: 0 8px 8px 0; }
+        .callout strong { display: block; margin-bottom: 0.25rem; }
+
+        /* Gated Content */
+        .gated-wrapper { position: relative; }
+        .gated-content { filter: blur(5px); pointer-events: none; user-select: none; }
+        .gated-content.unlocked { filter: none; pointer-events: auto; user-select: auto; }
+
+        .gate-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 15%, rgba(255,255,255,1) 30%); display: flex; align-items: flex-start; justify-content: center; padding-top: 4rem; }
+        .gate-overlay.hidden { display: none; }
+
+        .gate-card { background: var(--accent); border: 2px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0 var(--black); text-align: center; max-width: 450px; margin: 0 1rem; }
         .gate-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
         .gate-card p { color: var(--gray); margin-bottom: 1.5rem; }
-        .email-form { display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto; }
-        .email-form input { flex: 1; padding: 0.875rem; border: 2px solid var(--black); border-radius: 8px; font-size: 1rem; }
-        .email-form button { padding: 0.875rem 1.5rem; background: var(--black); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; }
-        .insight-box { background: #fee2e2; border: 2px solid var(--red); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
-        .insight-box strong { color: var(--red); }
+        .email-form { display: flex; flex-direction: column; gap: 0.75rem; }
+        .email-form input { padding: 0.875rem; border: 2px solid var(--black); border-radius: 8px; font-size: 1rem; text-align: center; }
+        .email-form button { padding: 0.875rem 1.5rem; background: var(--black); color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; }
+        .email-form button:hover { background: #333; }
+        .gate-card .note { font-size: 0.8rem; color: #666; margin-top: 1rem; }
+
+        /* Download Banner */
+        .download-banner { display: none; background: var(--accent); border: 2px solid var(--black); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; text-align: center; box-shadow: 4px 4px 0 var(--black); }
+        .download-banner.visible { display: block; }
+        .download-banner p { margin-bottom: 1rem; font-weight: 600; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--black); color: white; text-decoration: none; border-radius: 8px; font-weight: 700; }
+        .download-btn:hover { background: #333; }
+
+        /* Related */
         .related-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
         .related-link { display: block; padding: 1rem; background: white; border: 2px solid var(--black); border-radius: 8px; text-decoration: none; color: var(--black); font-weight: 600; box-shadow: 3px 3px 0 var(--black); }
         .related-link:hover { background: var(--accent); }
+
         .footer { background: var(--black); color: white; padding: 3rem 2rem 2rem; margin-top: 3rem; }
         .footer-inner { max-width: 900px; margin: 0 auto; text-align: center; }
         .footer img { height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
         .footer p { font-size: 0.85rem; color: #666; }
-        @media (max-width: 768px) { .signal-types { grid-template-columns: 1fr; } .related-links { grid-template-columns: 1fr; } .email-form { flex-direction: column; } }
+
+        @media (max-width: 768px) {
+            .signal-types { grid-template-columns: 1fr; }
+            .related-links { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
@@ -75,6 +112,7 @@
                 <a href="/assess/">Assess</a>
                 <a href="/b2b-benchmarks/">Benchmarks</a>
                 <a href="/tools/">Tools</a>
+                <a href="/playbooks/" class="active">Playbooks</a>
                 <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
             </nav>
         </div>
@@ -108,43 +146,164 @@
             </div>
         </div>
 
-        <div class="preview-card">
-            <h2>What's Inside</h2>
-            <ul class="preview-list">
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Intent Signal Taxonomy</strong><span>Complete categorization of signals by strength: high (demo request), medium (case study), low (blog)</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>First-Party Setup Guide</strong><span>UTM taxonomy, page scoring, event tracking for GA4 + HubSpot</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Third-Party Vendor Comparison</strong><span>Bombora vs 6sense vs Demandbase vs ZoomInfo—what works for different budgets</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Intent-to-Action Playbook</strong><span>What to do when you detect intent: SDR sequences, ad targeting, content serving</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>ROI Measurement Framework</strong><span>How to prove intent data is actually working</span></div>
-                </li>
-            </ul>
+        <!-- Download Banner (shows after unlock) -->
+        <div class="download-banner" id="downloadBanner">
+            <p>You've unlocked the full playbook. Download the PDF version:</p>
+            <a href="/playbooks/intent-signals/intent-signals-playbook.pdf" download class="download-btn">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Download PDF
+            </a>
         </div>
 
-        <div class="insight-box">
-            <strong>42 Agency Insight:</strong> Third-party intent data is oversold. Most companies should master first-party signals (their own website) before spending $30K+ on Bombora. Start with pricing page visitors + content engagement + demo requesters—that's 80% of the value.
+        <!-- UNGATED: Section 1-2 (30%) -->
+        <div class="content-section">
+            <h2>The Three Types of Intent Data</h2>
+            <table>
+                <tr><th>Type</th><th>Source</th><th>Reliability</th><th>Cost</th></tr>
+                <tr><td><strong>First-Party</strong></td><td>Your own website, product, emails</td><td>Highest</td><td>Free (you own it)</td></tr>
+                <tr><td><strong>Second-Party</strong></td><td>Review sites (G2, Capterra), partner data</td><td>High</td><td>$5K-$30K/year</td></tr>
+                <tr><td><strong>Third-Party</strong></td><td>Bombora, 6sense, Demandbase</td><td>Variable</td><td>$30K-$150K/year</td></tr>
+            </table>
+            <div class="callout">
+                <strong>42 Agency POV:</strong> Most companies should master first-party intent before spending $30K+ on third-party data. Your own website behavior is the highest-signal, lowest-cost intent data you have.
+            </div>
         </div>
 
-        <div class="gate-card">
-            <h3>Download the Playbook</h3>
-            <p>Get the complete framework with signal taxonomy, setup guides, and vendor comparisons.</p>
-            <form class="email-form" id="downloadForm" onsubmit="handleSubmit(event)">
-                <input type="email" name="email" placeholder="you@company.com" required>
-                <button type="submit">Get Playbook</button>
-            </form>
+        <div class="content-section">
+            <h2>Intent Signal Taxonomy</h2>
+            <p>Score signals by buying stage and strength:</p>
+            <table>
+                <tr><th>Signal</th><th>Stage</th><th>Strength</th><th>Response</th></tr>
+                <tr><td><strong>Demo/pricing request</strong></td><td>Decision</td><td>Very High</td><td>Immediate sales outreach</td></tr>
+                <tr><td><strong>Pricing page (2+ visits)</strong></td><td>Decision</td><td>High</td><td>Sales outreach within 24h</td></tr>
+                <tr><td><strong>Competitor comparison page</strong></td><td>Evaluation</td><td>High</td><td>Trigger competitor battle card email</td></tr>
+                <tr><td><strong>Case study download</strong></td><td>Evaluation</td><td>Medium-High</td><td>SDR follow-up + nurture</td></tr>
+                <tr><td><strong>G2/Capterra profile view</strong></td><td>Evaluation</td><td>Medium-High</td><td>Account-based retargeting</td></tr>
+                <tr><td><strong>Product pages (deep)</strong></td><td>Consideration</td><td>Medium</td><td>Nurture + retargeting</td></tr>
+            </table>
+        </div>
+
+        <!-- GATED: Remaining sections (70%) -->
+        <div class="gated-wrapper">
+            <div class="gated-content" id="gatedContent">
+
+                <div class="content-section">
+                    <h2>First-Party Intent Setup Guide</h2>
+                    <h3>1. Page-Level Scoring</h3>
+                    <p>Assign intent scores to key pages:</p>
+                    <ul>
+                        <li><strong>/pricing</strong> → High intent (+15 points)</li>
+                        <li><strong>/demo</strong> → High intent (+20 points)</li>
+                        <li><strong>/vs-competitor</strong> → High intent (+12 points)</li>
+                        <li><strong>/case-studies/*</strong> → Medium intent (+8 points)</li>
+                        <li><strong>/product/*</strong> → Medium intent (+5 points)</li>
+                        <li><strong>/blog/*</strong> → Low intent (+2 points)</li>
+                    </ul>
+
+                    <h3>2. Event Tracking (GA4 + HubSpot)</h3>
+                    <p>Track these custom events:</p>
+                    <ul>
+                        <li><code>pricing_page_time</code> → Time on pricing page (>60s = high intent)</li>
+                        <li><code>video_watch</code> → Product video completion %</li>
+                        <li><code>scroll_depth</code> → Page scroll depth on key pages</li>
+                        <li><code>return_visit</code> → Returning visitor to high-intent pages</li>
+                    </ul>
+
+                    <h3>3. UTM Taxonomy</h3>
+                    <p>Structure UTMs to capture intent by campaign:</p>
+                    <code>utm_source / utm_medium / utm_campaign / utm_content / utm_term</code>
+                    <p>Example: <code>linkedin / paid / demo-cta / video-ad / cfo-targeting</code></p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Third-Party Vendor Comparison</h2>
+                    <table>
+                        <tr><th>Vendor</th><th>Best For</th><th>Price Range</th><th>Pros</th><th>Cons</th></tr>
+                        <tr>
+                            <td><strong>Bombora</strong></td>
+                            <td>Topic-level intent</td>
+                            <td>$30-60K/year</td>
+                            <td>Largest co-op, topic granularity</td>
+                            <td>Requires significant volume</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6sense</strong></td>
+                            <td>Full ABM platform</td>
+                            <td>$60-150K/year</td>
+                            <td>Account ID + intent + orchestration</td>
+                            <td>Expensive, complex</td>
+                        </tr>
+                        <tr>
+                            <td><strong>G2 Buyer Intent</strong></td>
+                            <td>Software companies</td>
+                            <td>$15-40K/year</td>
+                            <td>High-signal review site data</td>
+                            <td>Software/SaaS focused only</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ZoomInfo Intent</strong></td>
+                            <td>Bundled with data</td>
+                            <td>Bundled</td>
+                            <td>Convenient if using ZoomInfo</td>
+                            <td>Intent is add-on, not core</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h2>Intent-to-Action Playbook</h2>
+                    <h3>When You Detect High Intent:</h3>
+                    <ol>
+                        <li><strong>Alert sales immediately</strong> (Slack notification or task)</li>
+                        <li><strong>Enrich the account</strong> with additional contacts</li>
+                        <li><strong>Launch 1:1 retargeting</strong> to the account</li>
+                        <li><strong>SDR outreach within 24 hours</strong> with personalized angle</li>
+                    </ol>
+
+                    <h3>When You Detect Medium Intent:</h3>
+                    <ol>
+                        <li><strong>Add to nurture sequence</strong> specific to their interest</li>
+                        <li><strong>Launch account-based ads</strong> showing case studies</li>
+                        <li><strong>Monitor for escalation</strong> to high-intent behavior</li>
+                    </ol>
+
+                    <h3>When You Detect Low Intent (Awareness):</h3>
+                    <ol>
+                        <li><strong>Add to awareness retargeting pool</strong></li>
+                        <li><strong>Include in broad nurture</strong></li>
+                        <li><strong>Do NOT send to SDR</strong> (waste of time)</li>
+                    </ol>
+                </div>
+
+                <div class="content-section">
+                    <h2>ROI Measurement Framework</h2>
+                    <p>Prove intent data is working with these metrics:</p>
+                    <table>
+                        <tr><th>Metric</th><th>Formula</th><th>Target</th></tr>
+                        <tr><td><strong>Intent-Influenced Pipeline</strong></td><td>Pipeline $ from accounts with intent signals / Total pipeline</td><td>>50%</td></tr>
+                        <tr><td><strong>Speed to Opportunity</strong></td><td>Days from first intent signal to opp created</td><td>Baseline - 20%</td></tr>
+                        <tr><td><strong>Win Rate Lift</strong></td><td>Win rate (intent accounts) / Win rate (non-intent accounts)</td><td>>1.3x</td></tr>
+                        <tr><td><strong>SDR Efficiency</strong></td><td>Meetings booked from intent leads / Total meetings booked</td><td>>40%</td></tr>
+                    </table>
+                    <div class="callout">
+                        <strong>Proving ROI:</strong> Run a controlled test. Give half your SDR team intent data, half without. Measure meeting rates after 90 days.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Gate Overlay -->
+            <div class="gate-overlay" id="gateOverlay">
+                <div class="gate-card">
+                    <h3>Unlock the Full Playbook</h3>
+                    <p>Get first-party setup guides, vendor comparisons, and intent-to-action workflows.</p>
+                    <form class="email-form" id="unlockForm" onsubmit="handleUnlock(event)">
+                        <input type="email" name="email" placeholder="you@company.com" required>
+                        <button type="submit">Unlock Full Playbook</button>
+                    </form>
+                    <p class="note">Plus get the PDF version emailed to you</p>
+                </div>
+            </div>
         </div>
 
         <section>
@@ -167,12 +326,20 @@
 
     <script src="/js/email-validation.js"></script>
     <script>
-        async function handleSubmit(e) {
+        // Check if already unlocked
+        if (localStorage.getItem('playbook_unlocked_intent-signals')) {
+            document.getElementById('gatedContent').classList.add('unlocked');
+            document.getElementById('gateOverlay').classList.add('hidden');
+            document.getElementById('downloadBanner').classList.add('visible');
+        }
+
+        async function handleUnlock(e) {
             e.preventDefault();
             const email = e.target.email.value;
             const button = e.target.querySelector('button');
             button.disabled = true;
-            button.textContent = 'Sending...';
+            button.textContent = 'Unlocking...';
+
             try {
                 const response = await fetch('/api/playbook-download', {
                     method: 'POST',
@@ -183,15 +350,21 @@
                     })
                 });
                 const data = await response.json();
+
                 if (data.success) {
-                    if (window.dataLayer) window.dataLayer.push({ event: 'playbook_downloaded', playbook: 'intent-signals' });
-                    const link = document.createElement('a');
-                    link.href = data.pdfUrl;
-                    link.download = 'intent-signals-playbook.pdf';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    e.target.innerHTML = '<p style="color: var(--green); font-weight: 700;">Download started! Check your email for a copy.</p>';
+                    // Track event
+                    if (window.dataLayer) window.dataLayer.push({ event: 'playbook_unlocked', playbook: 'intent-signals' });
+
+                    // Save unlock state
+                    localStorage.setItem('playbook_unlocked_intent-signals', 'true');
+
+                    // Reveal content
+                    document.getElementById('gatedContent').classList.add('unlocked');
+                    document.getElementById('gateOverlay').classList.add('hidden');
+                    document.getElementById('downloadBanner').classList.add('visible');
+
+                    // Scroll to content
+                    document.getElementById('gatedContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else {
                     throw new Error('Failed');
                 }

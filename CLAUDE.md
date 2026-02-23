@@ -6,6 +6,25 @@
 
 ---
 
+## ⚠️ CRITICAL: intel-pages vs linkedin-ads-intel-v2
+
+**There are TWO projects with "intel" in the name. Don't confuse them:**
+
+| Project | URL | Tech | Purpose |
+|---------|-----|------|---------|
+| **intel-pages** (THIS REPO) | intel.42agency.com | Static HTML/CSS + Edge Functions | Public marketing hub: assessments, benchmarks, tools, playbooks |
+| **linkedin-ads-intel-v2** | linkedin-ads-intel-v2.vercel.app | Next.js + PostgreSQL | Internal app: LinkedIn Ad Library scraper, competitor tracking |
+
+**Key differences:**
+- `intel-pages` = Static site, no database, public lead magnets
+- `linkedin-ads-intel-v2` = Full-stack app with auth, database, LinkedIn API integration
+
+**The HubSpot Health Assessment lives in intel-pages** (`/assessments/hubspot-health/index.html`), NOT in linkedin-ads-intel-v2.
+
+**Domain ownership:** `intel.42agency.com` points to `intel-pages` Vercel project. Do NOT alias it to linkedin-ads-intel-v2.
+
+---
+
 ## IMPORTANT: This is the Main Hub
 
 **Intel Pages is the central hub for ALL 42 Agency tools, resources, assessments, and diagnostics.**
@@ -33,6 +52,7 @@ When building:
 | **Assess** | `/assess/` | Diagnostic tools hub | "How am I doing?" |
 | **Benchmarks** | `/b2b-benchmarks/` | Data & industry benchmarks | "What's good?" |
 | **AI Tools** | `/tools/` | Interactive AI-powered tools | "Help me do it" |
+| **Playbooks** | `/playbooks/` | Soft-gated B2B playbooks | "Show me how" |
 | **Resources** | `/` (main index) | All templates & toolkits | "Give me templates" |
 
 ### URL Structure
@@ -113,6 +133,7 @@ intel.42agency.com/
 | `/api/google-budget` | Google Ads Budget Calculator → Email + HubSpot CRM + Resend |
 | `/api/inmail-calculator` | InMail ROI Calculator → Email + HubSpot CRM + Resend |
 | `/api/meta-budget` | Meta Budget Calculator → Email + HubSpot CRM + Resend |
+| `/api/playbook-download` | Playbook unlock → Email with PDF + HubSpot CRM + Resend |
 
 ### Environment Variables (Vercel)
 
@@ -192,10 +213,8 @@ HUBSPOT_ACCESS_TOKEN=pat-na1-xxx
         <nav class="nav">
             <a href="/assess/">Assess</a>
             <a href="/b2b-benchmarks/">Benchmarks</a>
-            <a href="https://copilot.42agency.com" target="_blank" class="external">
-                AI Tools
-                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </a>
+            <a href="/tools/">Tools</a>
+            <a href="/playbooks/">Playbooks</a>
             <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
         </nav>
     </div>
@@ -546,9 +565,32 @@ intel-pages/
 ├── api/
 │   ├── assessment-results.js    # HubSpot Assessment API
 │   ├── calculator-results.js    # Benchmark Calculator API
+│   ├── linkedin-budget.js       # LinkedIn Budget Calculator API
+│   ├── google-budget.js         # Google Ads Budget Calculator API
+│   ├── inmail-calculator.js     # InMail ROI Calculator API
+│   ├── meta-budget.js           # Meta Budget Calculator API
+│   ├── playbook-download.js     # Playbook unlock + email API
+│   ├── share.js                 # LinkedIn share OG meta endpoint
 │   └── validate-email.js        # Email validation proxy
+├── scripts/
+│   └── generate-playbook-pdfs.js # Puppeteer PDF generator
 ├── js/
 │   └── email-validation.js      # Client-side validation
+├── tools/
+│   ├── index.html               # Tools hub
+│   ├── company-sampler/         # B2B Company Sample Builder
+│   ├── company-resolver/        # Company Name to LinkedIn Resolver
+│   ├── linkedin-budget-calculator/
+│   ├── linkedin-inmail-calculator/
+│   ├── google-ads-budget-calculator/
+│   └── meta-budget-calculator/
+├── playbooks/
+│   ├── index.html               # Playbooks hub
+│   ├── closed-lost-revival/     # Soft-gated playbook + PDF
+│   ├── lead-scoring-framework/  # Soft-gated playbook + PDF
+│   ├── lead-reengagement/       # Soft-gated playbook + PDF
+│   ├── intent-signals/          # Soft-gated playbook + PDF
+│   └── abm-enrichment/          # Soft-gated playbook + PDF
 ├── assess/
 │   ├── index.html               # Assessments hub
 │   └── calculator/index.html    # Benchmark Calculator
@@ -671,4 +713,93 @@ LinkedIn shows preview with actual score in title
 
 ---
 
-*Last updated: February 21, 2026 - Added budget calculators with gated results and charts*
+## Playbooks (Soft-Gated Content) - Feb 21, 2026
+
+### Overview
+B2B marketing playbooks with soft-gated content model: 30% visible ungated, 70% blurred behind email gate.
+
+**URL:** `/playbooks/`
+**API:** `/api/playbook-download.js`
+
+### Available Playbooks
+
+| Playbook | Badge Color | Ungated Content | Gated Content |
+|----------|-------------|-----------------|---------------|
+| **Closed Lost Revival** | Orange | Why closed-lost = gold + benchmarks | Timing triggers, sequences, champion tracking, checklist |
+| **Lead Scoring Framework** | Blue | Why scoring fails + two-axis model | ICP scoring, engagement scoring, decay logic, MQL calibration |
+| **Lead Re-Engagement** | Purple | Hidden cost + segmentation matrix | Multi-channel sequence, messaging frameworks, sunset policy |
+| **Intent Signals** | Red | Three types + signal taxonomy | First-party setup, vendor comparison, intent-to-action |
+| **ABM Enrichment** | Teal | Why data quality matters | Enrichment framework, buying committees, Clay workflows, vendor sentiment |
+
+### Soft-Gate Implementation
+
+**CSS Classes:**
+```css
+.gated-wrapper { position: relative; }
+.gated-content { filter: blur(5px); pointer-events: none; user-select: none; }
+.gated-content.unlocked { filter: none; pointer-events: auto; user-select: auto; }
+.gate-overlay { /* gradient overlay with email form */ }
+.gate-overlay.hidden { display: none; }
+```
+
+**localStorage Persistence:**
+```javascript
+// On page load
+if (localStorage.getItem('playbook_unlocked_[slug]')) {
+    document.getElementById('gatedContent').classList.add('unlocked');
+    document.getElementById('gateOverlay').classList.add('hidden');
+    document.getElementById('downloadBanner').classList.add('visible');
+}
+
+// On unlock
+localStorage.setItem('playbook_unlocked_[slug]', 'true');
+```
+
+### PDF Generation
+
+**Script:** `/scripts/generate-playbook-pdfs.js`
+**Requires:** Puppeteer (`npm install puppeteer`)
+
+```bash
+cd /Users/42agency/intel-pages
+node scripts/generate-playbook-pdfs.js
+```
+
+Generates PDFs to: `/playbooks/[slug]/[slug]-playbook.pdf`
+
+**PDF Structure:**
+- Cover page (dark background, lime accent badge)
+- Content sections with tables, callouts, checklists
+- Footer with 42 Agency branding
+
+### ABM Vendor Sentiment (included in ABM Enrichment)
+
+**Positive Vendors:** Seam AI, UserGems, Mutiny, Clay, Warmly, Common Room
+**Negative/Mixed:** 6sense, Demandbase, Terminus, RollWorks
+
+Key insight: Best-of-breed point solutions winning over monolithic ABM platforms.
+
+### User Flow
+
+```
+1. User sees hero + stats + 30% content (ungated)
+2. Scrolls down → sees blurred content with gradient overlay
+3. Enters email in gate card → clicks "Unlock Full Playbook"
+4. API call to /api/playbook-download
+   → Sends email via Resend with PDF attachment
+   → Pushes contact to HubSpot CRM
+   → Adds to Resend Audience
+5. localStorage set → content revealed → download banner appears
+6. Returning visitors see full content immediately (localStorage check)
+```
+
+### HubSpot Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `playbook_downloaded` | Text | Comma-separated list of playbook slugs |
+| `playbook_download_date` | Date | Most recent download date |
+
+---
+
+*Last updated: February 21, 2026 - Added soft-gated playbooks with PDF generation and vendor sentiment*

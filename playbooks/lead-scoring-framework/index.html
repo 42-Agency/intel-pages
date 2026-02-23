@@ -16,55 +16,89 @@
     <style>
         :root { --accent: #DFFE68; --black: #1a1a1a; --gray: #4a4a4a; --light-gray: #f5f5f5; --green: #10B981; --blue: #3B82F6; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--light-gray); color: var(--black); line-height: 1.6; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--light-gray); color: var(--black); line-height: 1.7; }
         .header { border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; background: white; position: sticky; top: 0; z-index: 50; }
         .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 28px; }
         .nav { display: flex; align-items: center; gap: 0.25rem; }
         .nav a { padding: 0.5rem 1rem; color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; border-radius: 6px; }
         .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav a.active { background: var(--accent); color: var(--black); font-weight: 600; }
         .nav-cta { background: var(--black); color: white !important; font-weight: 600; }
         @media (max-width: 768px) { .nav { display: none; } }
         .breadcrumbs { background: white; border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; }
         .breadcrumbs-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
         .breadcrumbs a { color: var(--gray); text-decoration: none; }
         .breadcrumbs .current { color: var(--black); font-weight: 600; }
+
         .main { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+
+        /* Hero */
         .hero { text-align: center; margin-bottom: 3rem; }
         .hero-badge { display: inline-block; background: var(--blue); color: white; padding: 0.4rem 1rem; font-size: 0.75rem; font-weight: 700; border-radius: 20px; margin-bottom: 1rem; text-transform: uppercase; }
         h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .subtitle { color: var(--gray); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-        .preview-card { background: white; border: 2px solid var(--black); border-radius: 16px; padding: 2rem; box-shadow: 6px 6px 0 var(--black); margin-bottom: 2rem; }
-        .preview-card h2 { font-size: 1.25rem; font-weight: 800; margin-bottom: 1.5rem; }
-        .preview-list { list-style: none; }
-        .preview-list li { padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0; display: flex; align-items: flex-start; gap: 0.75rem; }
-        .preview-list li:last-child { border-bottom: none; }
-        .preview-list .check { width: 24px; height: 24px; background: var(--accent); border: 2px solid var(--black); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .preview-list .check svg { width: 14px; height: 14px; }
-        .preview-list strong { display: block; margin-bottom: 0.25rem; }
-        .preview-list span { color: var(--gray); font-size: 0.9rem; }
-        .scoring-preview { background: var(--light-gray); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
-        .scoring-preview h3 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
-        .score-category { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0; }
-        .score-category:last-child { border-bottom: none; }
-        .score-category .name { font-weight: 600; }
-        .score-category .points { color: var(--green); font-weight: 700; }
-        .gate-card { background: var(--accent); border: 2px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0 var(--black); text-align: center; margin: 2rem 0; }
+
+        /* Stats */
+        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0 3rem; }
+        .stat-item { text-align: center; padding: 1rem; background: white; border: 2px solid var(--black); border-radius: 12px; box-shadow: 3px 3px 0 var(--black); }
+        .stat-value { font-size: 1.75rem; font-weight: 800; color: var(--green); }
+        .stat-label { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; }
+
+        /* Content Sections */
+        .content-section { background: white; border: 2px solid var(--black); border-radius: 16px; padding: 2rem; box-shadow: 4px 4px 0 var(--black); margin-bottom: 2rem; }
+        .content-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 3px solid var(--accent); }
+        .content-section h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+        .content-section p { margin-bottom: 1rem; color: #333; }
+        .content-section ul, .content-section ol { margin: 1rem 0 1rem 1.5rem; color: #333; }
+        .content-section li { margin-bottom: 0.5rem; }
+        .content-section table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        .content-section th, .content-section td { padding: 0.6rem 0.75rem; text-align: left; border: 1px solid #ddd; }
+        .content-section th { background: #f5f5f5; font-weight: 700; }
+        .content-section tr:nth-child(even) { background: #fafafa; }
+
+        .callout { background: var(--accent); border-left: 4px solid var(--black); padding: 1rem 1.25rem; margin: 1.25rem 0; border-radius: 0 8px 8px 0; }
+        .callout strong { display: block; margin-bottom: 0.25rem; }
+
+        /* Gated Content */
+        .gated-wrapper { position: relative; }
+        .gated-content { filter: blur(5px); pointer-events: none; user-select: none; }
+        .gated-content.unlocked { filter: none; pointer-events: auto; user-select: auto; }
+
+        .gate-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 15%, rgba(255,255,255,1) 30%); display: flex; align-items: flex-start; justify-content: center; padding-top: 4rem; }
+        .gate-overlay.hidden { display: none; }
+
+        .gate-card { background: var(--accent); border: 2px solid var(--black); border-radius: 16px; padding: 2.5rem; box-shadow: 6px 6px 0 var(--black); text-align: center; max-width: 450px; margin: 0 1rem; }
         .gate-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
         .gate-card p { color: var(--gray); margin-bottom: 1.5rem; }
-        .email-form { display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto; }
-        .email-form input { flex: 1; padding: 0.875rem; border: 2px solid var(--black); border-radius: 8px; font-size: 1rem; }
-        .email-form button { padding: 0.875rem 1.5rem; background: var(--black); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; }
-        .insight-box { background: #dbeafe; border: 2px solid var(--blue); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
-        .insight-box strong { color: var(--blue); }
+        .email-form { display: flex; flex-direction: column; gap: 0.75rem; }
+        .email-form input { padding: 0.875rem; border: 2px solid var(--black); border-radius: 8px; font-size: 1rem; text-align: center; }
+        .email-form button { padding: 0.875rem 1.5rem; background: var(--black); color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; }
+        .email-form button:hover { background: #333; }
+        .gate-card .note { font-size: 0.8rem; color: #666; margin-top: 1rem; }
+
+        /* Download Banner */
+        .download-banner { display: none; background: var(--accent); border: 2px solid var(--black); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; text-align: center; box-shadow: 4px 4px 0 var(--black); }
+        .download-banner.visible { display: block; }
+        .download-banner p { margin-bottom: 1rem; font-weight: 600; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--black); color: white; text-decoration: none; border-radius: 8px; font-weight: 700; }
+        .download-btn:hover { background: #333; }
+
+        /* Related */
         .related-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
         .related-link { display: block; padding: 1rem; background: white; border: 2px solid var(--black); border-radius: 8px; text-decoration: none; color: var(--black); font-weight: 600; box-shadow: 3px 3px 0 var(--black); }
         .related-link:hover { background: var(--accent); }
+
         .footer { background: var(--black); color: white; padding: 3rem 2rem 2rem; margin-top: 3rem; }
         .footer-inner { max-width: 900px; margin: 0 auto; text-align: center; }
         .footer img { height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
         .footer p { font-size: 0.85rem; color: #666; }
-        @media (max-width: 768px) { .related-links { grid-template-columns: 1fr; } .email-form { flex-direction: column; } }
+
+        @media (max-width: 768px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .related-links { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
@@ -77,6 +111,7 @@
                 <a href="/assess/">Assess</a>
                 <a href="/b2b-benchmarks/">Benchmarks</a>
                 <a href="/tools/">Tools</a>
+                <a href="/playbooks/" class="active">Playbooks</a>
                 <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
             </nav>
         </div>
@@ -95,53 +130,138 @@
             <p class="subtitle">Build an ICP-based lead scoring model that actually predicts conversion. Stop arguing about MQL definitions with a data-driven framework.</p>
         </section>
 
-        <div class="preview-card">
-            <h2>What You'll Build</h2>
-            <ul class="preview-list">
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>ICP Fit Score (Demographic)</strong><span>Company size, industry, job title, geography—weighted by your historical win rates</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Engagement Score (Behavioral)</strong><span>Website visits, content downloads, email engagement, event attendance</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Intent Signals</strong><span>Pricing page visits, demo requests, competitor content, G2/Capterra research</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>Score Decay Logic</strong><span>How to handle inactive leads and refresh scores over time</span></div>
-                </li>
-                <li>
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><strong>MQL Threshold Calculator</strong><span>Set the right threshold based on sales capacity and historical conversion</span></div>
-                </li>
-            </ul>
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-value">2 Axes</div>
+                <div class="stat-label">ICP Fit + Engagement</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">50/50</div>
+                <div class="stat-label">Point Distribution</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">90 Days</div>
+                <div class="stat-label">Calibration Period</div>
+            </div>
         </div>
 
-        <div class="scoring-preview">
-            <h3>Sample Scoring Model Preview</h3>
-            <div class="score-category"><span class="name">ICP Fit: Enterprise (1000+ employees)</span><span class="points">+25 pts</span></div>
-            <div class="score-category"><span class="name">Job Title: VP/Director level</span><span class="points">+20 pts</span></div>
-            <div class="score-category"><span class="name">Behavior: Visited pricing page</span><span class="points">+15 pts</span></div>
-            <div class="score-category"><span class="name">Behavior: Downloaded case study</span><span class="points">+10 pts</span></div>
-            <div class="score-category"><span class="name">Intent: Demo request</span><span class="points">+30 pts</span></div>
-            <div class="score-category"><span class="name">Negative: Personal email</span><span class="points">-15 pts</span></div>
+        <!-- Download Banner (shows after unlock) -->
+        <div class="download-banner" id="downloadBanner">
+            <p>You've unlocked the full framework. Download the PDF version:</p>
+            <a href="/playbooks/lead-scoring-framework/lead-scoring-framework-playbook.pdf" download class="download-btn">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Download PDF
+            </a>
         </div>
 
-        <div class="insight-box">
-            <strong>42 Agency Insight:</strong> The best lead scoring models use a 2-dimensional approach: ICP Fit (are they the right company/person?) + Engagement (are they showing buying intent?). A perfect ICP fit with no engagement shouldn't be an MQL, and high engagement from a poor fit shouldn't be either.
+        <!-- UNGATED: Section 1-2 (30%) -->
+        <div class="content-section">
+            <h2>Why Most Lead Scoring Fails</h2>
+            <p>Most lead scoring models are built backwards. Teams assign arbitrary points to actions (downloaded whitepaper = 10 points!) without validating against actual conversion data.</p>
+            <p><strong>The result:</strong> Sales gets "MQLs" that don't convert, loses trust in marketing, and the model becomes ignored.</p>
+            <div class="callout">
+                <strong>The Fix:</strong> Build your scoring model from <em>closed-won analysis</em>, not guesswork. What do your best customers have in common? What actions did they take before converting?
+            </div>
         </div>
 
-        <div class="gate-card">
-            <h3>Download the Framework</h3>
-            <p>Get the complete spreadsheet with formulas, HubSpot/Salesforce implementation guides, and calibration instructions.</p>
-            <form class="email-form" id="downloadForm" onsubmit="handleSubmit(event)">
-                <input type="email" name="email" placeholder="you@company.com" required>
-                <button type="submit">Get Framework</button>
-            </form>
+        <div class="content-section">
+            <h2>The Two-Axis Scoring Model</h2>
+            <p>Effective lead scoring has two independent components:</p>
+            <table>
+                <tr><th>Axis</th><th>What It Measures</th><th>Max Points</th></tr>
+                <tr><td><strong>ICP Fit Score</strong></td><td>How well does this lead match your ideal customer profile?</td><td>50 points</td></tr>
+                <tr><td><strong>Engagement Score</strong></td><td>How actively is this lead engaging with your content/product?</td><td>50 points</td></tr>
+            </table>
+            <p><strong>Why two axes?</strong> A perfect-fit company with no engagement isn't ready for sales. A highly engaged lead from a bad-fit company will waste sales time. You need <em>both</em> to be high.</p>
+        </div>
+
+        <!-- GATED: Remaining sections (70%) -->
+        <div class="gated-wrapper">
+            <div class="gated-content" id="gatedContent">
+
+                <div class="content-section">
+                    <h2>ICP Fit Scoring (50 points max)</h2>
+                    <p>Score these firmographic and demographic attributes:</p>
+                    <table>
+                        <tr><th>Attribute</th><th>Ideal Match</th><th>Points</th></tr>
+                        <tr><td><strong>Company Size</strong></td><td>Your sweet spot (e.g., 200-2000 employees)</td><td>+15</td></tr>
+                        <tr><td></td><td>Adjacent (e.g., 50-199 or 2001-5000)</td><td>+8</td></tr>
+                        <tr><td></td><td>Outside range</td><td>0</td></tr>
+                        <tr><td><strong>Industry</strong></td><td>Primary target industry</td><td>+15</td></tr>
+                        <tr><td></td><td>Secondary industry</td><td>+8</td></tr>
+                        <tr><td></td><td>Non-target</td><td>0</td></tr>
+                        <tr><td><strong>Job Title/Seniority</strong></td><td>Decision maker (VP+)</td><td>+10</td></tr>
+                        <tr><td></td><td>Influencer (Manager/Director)</td><td>+6</td></tr>
+                        <tr><td></td><td>Individual contributor</td><td>+2</td></tr>
+                        <tr><td><strong>Geography</strong></td><td>Primary market</td><td>+5</td></tr>
+                        <tr><td></td><td>Secondary market</td><td>+2</td></tr>
+                        <tr><td><strong>Tech Stack</strong></td><td>Uses complementary tech</td><td>+5</td></tr>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h2>Engagement Scoring (50 points max)</h2>
+                    <p>Score behavioral signals by intent strength:</p>
+                    <table>
+                        <tr><th>Action</th><th>Intent Level</th><th>Points</th></tr>
+                        <tr><td><strong>Demo/Trial Request</strong></td><td>High</td><td>+25</td></tr>
+                        <tr><td><strong>Pricing Page Visit</strong></td><td>High</td><td>+15</td></tr>
+                        <tr><td><strong>Case Study Download</strong></td><td>High</td><td>+10</td></tr>
+                        <tr><td><strong>Product Page (2+ visits)</strong></td><td>Medium</td><td>+8</td></tr>
+                        <tr><td><strong>Webinar Attendance</strong></td><td>Medium</td><td>+8</td></tr>
+                        <tr><td><strong>Whitepaper/Guide Download</strong></td><td>Medium</td><td>+5</td></tr>
+                        <tr><td><strong>Blog Visit (3+ articles)</strong></td><td>Low</td><td>+3</td></tr>
+                        <tr><td><strong>Email Click</strong></td><td>Low</td><td>+2</td></tr>
+                        <tr><td><strong>Email Open</strong></td><td>Low</td><td>+1</td></tr>
+                    </table>
+                    <div class="callout">
+                        <strong>Important:</strong> Cap engagement score contributions from low-intent actions. Someone who opens 50 emails shouldn't outscore someone who requested a demo.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Score Decay: The Missing Piece</h2>
+                    <p>Engagement scores should decay over time. A demo request from 6 months ago isn't as valuable as one from last week.</p>
+                    <h3>Recommended Decay Schedule</h3>
+                    <table>
+                        <tr><th>Time Since Action</th><th>Score Retention</th></tr>
+                        <tr><td>0-30 days</td><td>100%</td></tr>
+                        <tr><td>31-60 days</td><td>75%</td></tr>
+                        <tr><td>61-90 days</td><td>50%</td></tr>
+                        <tr><td>90+ days</td><td>25%</td></tr>
+                    </table>
+                    <p><strong>Implementation:</strong> Most MAPs support score decay. In HubSpot, use a workflow that reduces engagement score by 25% every 30 days if no new activity.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>MQL Threshold Calibration</h2>
+                    <p>Your MQL threshold should be calibrated against actual conversion data, not arbitrary numbers.</p>
+                    <h3>Calibration Process</h3>
+                    <ol>
+                        <li>Apply your scoring model retroactively to the last 6-12 months of leads</li>
+                        <li>Segment by score ranges (0-25, 26-50, 51-75, 76-100)</li>
+                        <li>Calculate conversion rate to SQL and closed-won for each segment</li>
+                        <li>Set MQL threshold where conversion rate becomes acceptable to sales</li>
+                    </ol>
+                    <div class="callout">
+                        <strong>Example:</strong> If leads scoring 60+ convert to SQL at 25% (vs 5% for leads under 60), set your MQL threshold at 60. Review and adjust quarterly.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Gate Overlay -->
+            <div class="gate-overlay" id="gateOverlay">
+                <div class="gate-card">
+                    <h3>Unlock the Full Framework</h3>
+                    <p>Get ICP scoring templates, engagement tables, decay logic, and MQL calibration guides.</p>
+                    <form class="email-form" id="unlockForm" onsubmit="handleUnlock(event)">
+                        <input type="email" name="email" placeholder="you@company.com" required>
+                        <button type="submit">Unlock Full Framework</button>
+                    </form>
+                    <p class="note">Plus get the PDF version emailed to you</p>
+                </div>
+            </div>
         </div>
 
         <section>
@@ -164,12 +284,20 @@
 
     <script src="/js/email-validation.js"></script>
     <script>
-        async function handleSubmit(e) {
+        // Check if already unlocked
+        if (localStorage.getItem('playbook_unlocked_lead-scoring-framework')) {
+            document.getElementById('gatedContent').classList.add('unlocked');
+            document.getElementById('gateOverlay').classList.add('hidden');
+            document.getElementById('downloadBanner').classList.add('visible');
+        }
+
+        async function handleUnlock(e) {
             e.preventDefault();
             const email = e.target.email.value;
             const button = e.target.querySelector('button');
             button.disabled = true;
-            button.textContent = 'Sending...';
+            button.textContent = 'Unlocking...';
+
             try {
                 const response = await fetch('/api/playbook-download', {
                     method: 'POST',
@@ -180,15 +308,21 @@
                     })
                 });
                 const data = await response.json();
+
                 if (data.success) {
-                    if (window.dataLayer) window.dataLayer.push({ event: 'playbook_downloaded', playbook: 'lead-scoring-framework' });
-                    const link = document.createElement('a');
-                    link.href = data.pdfUrl;
-                    link.download = 'lead-scoring-framework-playbook.pdf';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    e.target.innerHTML = '<p style="color: var(--green); font-weight: 700;">Download started! Check your email for a copy.</p>';
+                    // Track event
+                    if (window.dataLayer) window.dataLayer.push({ event: 'playbook_unlocked', playbook: 'lead-scoring-framework' });
+
+                    // Save unlock state
+                    localStorage.setItem('playbook_unlocked_lead-scoring-framework', 'true');
+
+                    // Reveal content
+                    document.getElementById('gatedContent').classList.add('unlocked');
+                    document.getElementById('gateOverlay').classList.add('hidden');
+                    document.getElementById('downloadBanner').classList.add('visible');
+
+                    // Scroll to content
+                    document.getElementById('gatedContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else {
                     throw new Error('Failed');
                 }

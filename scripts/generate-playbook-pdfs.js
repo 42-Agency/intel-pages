@@ -612,6 +612,43 @@ const playbooks = [
         `
       },
       {
+        title: 'ABM Platform Sentiment: What the Community Says',
+        content: `
+          <p>Based on community discussions and practitioner feedback, here's the current sentiment on ABM and enrichment vendors:</p>
+
+          <h3>Vendors Getting Positive Reviews</h3>
+          <table>
+            <tr><th>Vendor</th><th>Sentiment</th><th>Why People Like It</th></tr>
+            <tr><td><strong>Seam AI</strong></td><td>Very Positive</td><td>New entrant delivering tangible ABM results without legacy complexity</td></tr>
+            <tr><td><strong>UserGems</strong></td><td>Very Positive</td><td>Job change tracking that actually drives pipeline—simple, focused, effective</td></tr>
+            <tr><td><strong>Mutiny</strong></td><td>Positive</td><td>Website personalization that converts; easy to implement</td></tr>
+            <tr><td><strong>Clay</strong></td><td>Positive</td><td>Flexible enrichment orchestration, 150+ data providers</td></tr>
+            <tr><td><strong>Warmly</strong></td><td>Positive</td><td>Visitor identification + real-time alerts; good for SMB/mid-market</td></tr>
+            <tr><td><strong>Common Room</strong></td><td>Positive</td><td>Community signal aggregation; great for PLG companies</td></tr>
+          </table>
+
+          <h3>Vendors with Mixed/Negative Sentiment</h3>
+          <table>
+            <tr><th>Vendor</th><th>Sentiment</th><th>Common Concerns</th></tr>
+            <tr><td><strong>6sense</strong></td><td>Negative</td><td>ROI questions, complex implementation, high cost, technical debt</td></tr>
+            <tr><td><strong>Demandbase</strong></td><td>Negative</td><td>Similar ROI concerns, legacy platform feeling, display ads skepticism</td></tr>
+            <tr><td><strong>Terminus</strong></td><td>Neutral</td><td>Display-focused; declining relevance in modern ABM</td></tr>
+            <tr><td><strong>RollWorks</strong></td><td>Neutral</td><td>HubSpot-native but limited compared to full platforms</td></tr>
+          </table>
+
+          <div class="callout">
+            <strong>42 Agency POV:</strong> The ABM platform market is shifting. Legacy platforms (6sense, Demandbase) are facing criticism for over-promising on intent data ROI. Newer, focused tools (UserGems for job changes, Mutiny for personalization, Clay for enrichment) are winning by doing one thing exceptionally well. Consider a best-of-breed stack over a monolithic platform.
+          </div>
+
+          <h3>Key Community Insights</h3>
+          <ul>
+            <li><em>"Never heard a sales person worth their salt say 'I hit quota and I love 6sense/Demandbase'"</em> — Sales practitioner</li>
+            <li><em>"Anyone that tells you display works for ABM is stuck in 2010"</em> — Marketing leader</li>
+            <li><em>"As an early adopter and then employee of 6sense...I would not go that route again"</em> — Former employee</li>
+          </ul>
+        `
+      },
+      {
         title: 'Data Hygiene Workflows',
         content: `
           <h3>Ongoing Maintenance (Monthly)</h3>

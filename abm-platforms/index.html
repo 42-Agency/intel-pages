@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM Platform Intelligence Report | 42 Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+        .quote-card { position: relative; }
+        .quote-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            font-size: 4rem;
+            color: #DFFE68;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        details[open] summary svg { transform: rotate(180deg); }
+        details summary svg { transition: transform 0.2s; }
+        .pricing-row:nth-child(even) { background: #f9f9f9; }
+    </style>
+</head>
+<body class="bg-white text-[#1a1a1a]">
+    <!-- Header -->
+    <header class="border-b-2 border-[#1a1a1a] bg-white sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-lg shadow-[2px_2px_0px_0px_#1a1a1a] flex items-center justify-center font-extrabold">42</div>
+                <span class="font-bold text-xl">Agency</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-4 text-sm">
+                <a href="#quotes" class="font-medium text-[#4a4a4a] hover:text-[#1a1a1a] transition-colors">Quotes</a>
+                <a href="#pricing" class="font-medium text-[#4a4a4a] hover:text-[#1a1a1a] transition-colors">Pricing</a>
+                <a href="#gotchas" class="font-medium text-[#4a4a4a] hover:text-[#1a1a1a] transition-colors">Gotchas</a>
+                <a href="#comparison" class="font-medium text-[#4a4a4a] hover:text-[#1a1a1a] transition-colors">Comparison</a>
+                <a href="#playbook" class="font-medium text-[#4a4a4a] hover:text-[#1a1a1a] transition-colors">Playbook</a>
+            </nav>
+            <a href="#cta" class="px-4 py-2 bg-[#DFFE68] text-[#1a1a1a] font-bold rounded-lg border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] hover:bg-[#C8E85C] hover:shadow-[4px_4px_0px_0px_#1a1a1a] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all text-sm">Get Intel</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-[#f5f5f5] border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+            <div class="max-w-3xl">
+                <span class="inline-block px-3 py-1 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full text-xs font-bold mb-6">COMPETITIVE INTELLIGENCE</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1a1a1a] mb-4">ABM Platform Intelligence Report</h1>
+                <p class="text-xl text-[#4a4a4a] mb-4">Market Sentiment Analysis: Q1 2026</p>
+                <p class="text-[#6b6b6b]">What practitioners actually say about 6sense, Demandbase, Terminus, and the emerging challengers. Real quotes. Real pricing. Real gotchas.</p>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-5 shadow-[4px_4px_0px_0px_#1a1a1a]">
+                    <div class="text-3xl font-extrabold text-[#1a1a1a]">14</div>
+                    <div class="text-[#6b6b6b] font-medium text-sm">Platforms Analyzed</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-5 shadow-[4px_4px_0px_0px_#1a1a1a]">
+                    <div class="text-3xl font-extrabold text-[#1a1a1a]">5,000+</div>
+                    <div class="text-[#6b6b6b] font-medium text-sm">Reviews Synthesized</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-5 shadow-[4px_4px_0px_0px_#1a1a1a]">
+                    <div class="text-3xl font-extrabold text-[#1a1a1a]">8</div>
+                    <div class="text-[#6b6b6b] font-medium text-sm">Data Sources</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-5 shadow-[4px_4px_0px_0px_#1a1a1a]">
+                    <div class="text-3xl font-extrabold text-[#1a1a1a]">$18K-100K+</div>
+                    <div class="text-[#6b6b6b] font-medium text-sm">Price Range</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary Section -->
+    <section id="summary" class="py-16 px-6 border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-extrabold tracking-tight text-[#1a1a1a] mb-8">Executive Summary</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-6 shadow-[4px_4px_0px_0px_#F59E0B]">
+                    <div class="w-10 h-10 bg-[#F59E0B]/10 border-2 border-[#F59E0B] rounded-lg flex items-center justify-center mb-4">
+                        <span class="font-bold text-[#F59E0B]">1</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1a1a1a] mb-2">Legacy Under Pressure</h3>
+                    <p class="text-[#4a4a4a] text-sm">Legacy players (6sense, Demandbase, Terminus) dominate enterprise but face mounting criticism on pricing opacity, "black box" scoring, and 6+ month implementations.</p>
+                </div>
+
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-6 shadow-[4px_4px_0px_0px_#10B981]">
+                    <div class="w-10 h-10 bg-[#10B981]/10 border-2 border-[#10B981] rounded-lg flex items-center justify-center mb-4">
+                        <span class="font-bold text-[#10B981]">2</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1a1a1a] mb-2">Emerging Momentum</h3>
+                    <p class="text-[#4a4a4a] text-sm">Emerging players (Common Room, Warmly, Propensity, Vector) gaining traction with person-level intent, transparent pricing, and "value in days not months."</p>
+                </div>
+
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-6 shadow-[4px_4px_0px_0px_#3B82F6]">
+                    <div class="w-10 h-10 bg-[#3B82F6]/10 border-2 border-[#3B82F6] rounded-lg flex items-center justify-center mb-4">
+                        <span class="font-bold text-[#3B82F6]">3</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1a1a1a] mb-2">Intent Skepticism Rising</h3>
+                    <p class="text-[#4a4a4a] text-sm">Growing skepticism about 3rd-party intent data. Practitioners questioning the "black box" models and self-fulfilling prophecy of intent testing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Practitioner Quotes Section -->
+    <section id="quotes" class="py-16 px-6 bg-[#1a1a1a] border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-2xl font-extrabold tracking-tight text-white">What Practitioners Actually Say</h2>
+                <span class="px-2 py-1 bg-[#DFFE68] text-[#1a1a1a] text-xs font-bold rounded">VERBATIM QUOTES</span>
+            </div>
+            <p class="text-gray-400 mb-10">Unfiltered feedback from LinkedIn, Reddit, G2, and TrustRadius</p>
+
+            <!-- 6sense Quotes -->
+            <div class="mb-12">
+                <h3 class="text-lg font-bold text-[#DFFE68] mb-6 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-[#DFFE68] text-[#1a1a1a] rounded flex items-center justify-center text-sm font-extrabold">6s</span>
+                    6sense
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"We just churned off 6sense. The blackbox models couldn't be explained, creating friction between marketing and sales. Despite appreciating ABM, stakeholders couldn't defend the data-driven decisions."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">AS</div>
+                            <div>
+                                <div class="font-bold text-sm">Adam Schoenfeld</div>
+                                <div class="text-xs text-[#6b6b6b]">CEO, Keyplay • LinkedIn, Sep 2025</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 py-1 bg-[#EF4444]/10 text-[#EF4444] text-xs font-medium rounded inline-block">CHURN SIGNAL</div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Intent scores feel opaque - users ask 'why does this account show Decision stage?' and can't easily see what signals drove a score. False positives waste SDR time."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">W</div>
+                            <div>
+                                <div class="font-bold text-sm">Warmly Analysis</div>
+                                <div class="text-xs text-[#6b6b6b]">Competitor Review • 2025</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Their UX/UI is described as among the worst users have ever seen."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">C</div>
+                            <div>
+                                <div class="font-bold text-sm">Capterra Reviews</div>
+                                <div class="text-xs text-[#6b6b6b]">Aggregated feedback • 1,288 reviews</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"When you compare the value of what we pay for Letterdrop versus what it would take to implement 6Sense, it's worlds apart."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">JB</div>
+                            <div>
+                                <div class="font-bold text-sm">Joshua Breslin</div>
+                                <div class="text-xs text-[#6b6b6b]">PawaPay • Switched to Letterdrop</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 py-1 bg-[#EF4444]/10 text-[#EF4444] text-xs font-medium rounded inline-block">SWITCH SIGNAL</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demandbase Quotes -->
+            <div class="mb-12">
+                <h3 class="text-lg font-bold text-[#DFFE68] mb-6 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-[#DFFE68] text-[#1a1a1a] rounded flex items-center justify-center text-sm font-extrabold">DB</span>
+                    Demandbase
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Demandbase identifies companies visiting your website, not individual people. You'll know 'someone from Acme Corp visited your pricing page' but not who specifically."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">MB</div>
+                            <div>
+                                <div class="font-bold text-sm">MarketBetter</div>
+                                <div class="text-xs text-[#6b6b6b]">Analyst Review • 2026</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 py-1 bg-[#F59E0B]/10 text-[#F59E0B] text-xs font-medium rounded inline-block">LIMITATION</div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"A frustrating lack of transparency exists around Demandbase pricing. This is the #1 complaint."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">R</div>
+                            <div>
+                                <div class="font-bold text-sm">Reply.io Analysis</div>
+                                <div class="text-xs text-[#6b6b6b]">Pricing Research • 2025</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Glassdoor reviews from former employees paint a concerning picture: the aggressive acquisition strategy (Engagio, InsideView, DemandMatrix) left Demandbase with significant technical debt."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">IA</div>
+                            <div>
+                                <div class="font-bold text-sm">Industry Analysis</div>
+                                <div class="text-xs text-[#6b6b6b]">Glassdoor + Analyst Reports</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"I submitted a ticket to Demandbase on August 30, 2023 about an issue I was having... [resolution took ~6 months]."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">CB</div>
+                            <div>
+                                <div class="font-bold text-sm">Clint Buechler</div>
+                                <div class="text-xs text-[#6b6b6b]">LinkedIn Post • 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZoomInfo Quotes -->
+            <div class="mb-12">
+                <h3 class="text-lg font-bold text-[#DFFE68] mb-6 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-[#DFFE68] text-[#1a1a1a] rounded flex items-center justify-center text-sm font-extrabold">ZI</span>
+                    ZoomInfo
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"PSA: DO NOT PURCHASE ZoomInfo. It is in their contract that you must delete ALL data if you don't renew. They also seed your data with dummy emails for litigation purposes."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">BM</div>
+                            <div>
+                                <div class="font-bold text-sm">Ben Moyer</div>
+                                <div class="text-xs text-[#6b6b6b]">LinkedIn • 342 comments</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 py-1 bg-[#EF4444]/10 text-[#EF4444] text-xs font-medium rounded inline-block">CONTRACT WARNING</div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"ZoomInfo has a 60-day auto-renewal policy. They will email you an invoice almost every week after 60 days, notifying you your price has increased and you've been stuck in another 12-month contract."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">JP</div>
+                            <div>
+                                <div class="font-bold text-sm">John Page</div>
+                                <div class="text-xs text-[#6b6b6b]">LinkedIn • ZoomInfo Policy Analysis</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 py-1 bg-[#EF4444]/10 text-[#EF4444] text-xs font-medium rounded inline-block">RENEWAL TRAP</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intent Data Skepticism -->
+            <div class="mb-12">
+                <h3 class="text-lg font-bold text-[#DFFE68] mb-6 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-[#EF4444] text-white rounded flex items-center justify-center text-sm font-extrabold">?</span>
+                    Intent Data Skepticism
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"I'm pretty skeptical of 3rd party intent data. You have no idea what data goes into the model. It's a black box requiring trust that signals actually indicate intent in YOUR solution."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">CS</div>
+                            <div>
+                                <div class="font-bold text-sm">Charlie Saunders</div>
+                                <div class="text-xs text-[#6b6b6b]">RevOps Leader • LinkedIn, Jan 2024</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Testing intent data creates a self-fulfilling prophecy. Segment B converts higher because sales teams have been TOLD those prospects are in-market, so they sell better."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">CS</div>
+                            <div>
+                                <div class="font-bold text-sm">Charlie Saunders</div>
+                                <div class="text-xs text-[#6b6b6b]">RevOps Leader • LinkedIn</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Intent data positions companies as interested in CATEGORIES rather than specific brands - reducing conversion likelihood."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">PC</div>
+                            <div>
+                                <div class="font-bold text-sm">Patrick Cumming</div>
+                                <div class="text-xs text-[#6b6b6b]">LinkedIn • Comment on 6sense churn</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Testing intent data across paid social from major providers showed insufficient lift. We recommend first-party data combined with lookalike modeling instead."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">KR</div>
+                            <div>
+                                <div class="font-bold text-sm">Kamil Rextin</div>
+                                <div class="text-xs text-[#6b6b6b]">42 Agency • LinkedIn</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Positive Emerging Player Quotes -->
+            <div>
+                <h3 class="text-lg font-bold text-[#DFFE68] mb-6 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-[#10B981] text-white rounded flex items-center justify-center text-sm font-extrabold">+</span>
+                    Emerging Players - What's Working
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Common Room is the Clay of intent data. One prospect had 50,000 contacts aggregated - people who had already engaged with their product. An essentially unlimited source of leads without cold outreach."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">PS</div>
+                            <div>
+                                <div class="font-bold text-sm">Patrick Spychalski</div>
+                                <div class="text-xs text-[#6b6b6b]">Sales Automation Agency • LinkedIn</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-medium rounded inline-block">COMMON ROOM</div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Within 24 hours of installing Warmly, we were getting tons of new information on who was actually visiting our site. In the first few weeks, we booked 5 meetings we would have never seen otherwise."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">W</div>
+                            <div>
+                                <div class="font-bold text-sm">Warmly Customer</div>
+                                <div class="text-xs text-[#6b6b6b]">Customer Testimonial</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-medium rounded inline-block">WARMLY</div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"While I've worked with the giants in ABM, Propensity punches far above its weight, delivers faster, listens more closely, and has become a trusted partner."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">P</div>
+                            <div>
+                                <div class="font-bold text-sm">Propensity Customer</div>
+                                <div class="text-xs text-[#6b6b6b]">Software Advice Review</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-medium rounded inline-block">PROPENSITY</div>
+                    </div>
+
+                    <div class="quote-card bg-white border-2 border-[#1a1a1a] rounded-xl p-6 pt-10">
+                        <p class="text-[#4a4a4a] mb-4 italic">"Vector shines when you want to activate ads based on real-time buyer behavior rather than waiting for form fills. Match rates up to 90% on LinkedIn."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f5f5f5] rounded-full flex items-center justify-center font-bold text-sm">CI</div>
+                            <div>
+                                <div class="font-bold text-sm">ColdIQ</div>
+                                <div class="text-xs text-[#6b6b6b]">Tool Review • 2025</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-medium rounded inline-block">VECTOR</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Intelligence Section -->
+    <section id="pricing" class="py-16 px-6 border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-2xl font-extrabold tracking-tight text-[#1a1a1a]">Pricing Intelligence</h2>
+                <span class="px-2 py-1 bg-[#DFFE68] border-2 border-[#1a1a1a] text-[#1a1a1a] text-xs font-bold rounded">ACTUAL NUMBERS</span>
+            </div>
+            <p class="text-[#6b6b6b] mb-8">What companies actually pay (not what sales decks say)</p>
+
+            <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-[#1a1a1a] text-white">
+                            <tr>
+                                <th class="text-left px-6 py-4 font-bold">Platform</th>
+                                <th class="text-left px-6 py-4 font-bold">Tier</th>
+                                <th class="text-left px-6 py-4 font-bold">Annual Cost</th>
+                                <th class="text-left px-6 py-4 font-bold">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y-2 divide-[#e5e5e5]">
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4 font-bold" rowspan="2">6sense</td>
+                                <td class="px-6 py-4">Team</td>
+                                <td class="px-6 py-4 font-medium">$30,000 - $50,000</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">No transparent pricing</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4">Enterprise</td>
+                                <td class="px-6 py-4 font-medium">$75,000 - $150,000+</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Multi-year commitments common</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4 font-bold" rowspan="2">Demandbase</td>
+                                <td class="px-6 py-4">Mid-Market</td>
+                                <td class="px-6 py-4 font-medium">$18,000 - $40,000</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Median contract: $65K</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4">Enterprise</td>
+                                <td class="px-6 py-4 font-medium">$65,000 - $150,000+</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Complex pricing, opaque</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4 font-bold">Terminus</td>
+                                <td class="px-6 py-4">Standard</td>
+                                <td class="px-6 py-4 font-medium">$30,000 - $60,000</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Merged with DemandScience</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4 font-bold" rowspan="2">ZoomInfo</td>
+                                <td class="px-6 py-4">Professional</td>
+                                <td class="px-6 py-4 font-medium">$15,000 - $25,000</td>
+                                <td class="px-6 py-4 text-sm text-[#EF4444]">60-day auto-renewal trap</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4">Advanced+</td>
+                                <td class="px-6 py-4 font-medium">$40,000 - $100,000+</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">10-20% annual increases</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4 font-bold">Common Room</td>
+                                <td class="px-6 py-4">Business</td>
+                                <td class="px-6 py-4 font-medium">$12,000 - $24,000</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">$999+/mo, up 50-60% from 2024</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4 font-bold" rowspan="2">Warmly</td>
+                                <td class="px-6 py-4">Free</td>
+                                <td class="px-6 py-4 font-medium text-[#10B981]">$0</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">500 visitors/month</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4">Business</td>
+                                <td class="px-6 py-4 font-medium">$8,400 - $17,400</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">~$700-$1,450/mo</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4 font-bold">Propensity</td>
+                                <td class="px-6 py-4">GTM Bundle</td>
+                                <td class="px-6 py-4 font-medium text-[#10B981]">$30,000</td>
+                                <td class="px-6 py-4 text-sm text-[#10B981]">No annual commitment, unlimited intent</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4 font-bold">Metadata.io</td>
+                                <td class="px-6 py-4">Standard</td>
+                                <td class="px-6 py-4 font-medium">$60,000</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">$600K annual spend limit</td>
+                            </tr>
+                            <tr class="pricing-row">
+                                <td class="px-6 py-4 font-bold">Madison Logic</td>
+                                <td class="px-6 py-4">Platform</td>
+                                <td class="px-6 py-4 font-medium">$36,000+</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">~$3K/mo + CPM/CPL costs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pricing Insights -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div class="bg-[#EF4444]/5 border-2 border-[#EF4444] rounded-xl p-5">
+                    <div class="font-bold text-[#EF4444] mb-2">Hidden Costs to Watch</div>
+                    <ul class="text-sm text-[#4a4a4a] space-y-1">
+                        <li>• Credit overages (ZoomInfo, Demandbase)</li>
+                        <li>• Implementation services ($10-50K)</li>
+                        <li>• Annual price increases (10-20%)</li>
+                        <li>• Seat-based add-ons</li>
+                    </ul>
+                </div>
+                <div class="bg-[#F59E0B]/5 border-2 border-[#F59E0B] rounded-xl p-5">
+                    <div class="font-bold text-[#F59E0B] mb-2">Negotiation Leverage</div>
+                    <ul class="text-sm text-[#4a4a4a] space-y-1">
+                        <li>• Q4 discounts (20-40% possible)</li>
+                        <li>• Multi-year = bigger discount</li>
+                        <li>• Ask for pilot periods</li>
+                        <li>• Competitor quotes help</li>
+                    </ul>
+                </div>
+                <div class="bg-[#10B981]/5 border-2 border-[#10B981] rounded-xl p-5">
+                    <div class="font-bold text-[#10B981] mb-2">Best Value Plays</div>
+                    <ul class="text-sm text-[#4a4a4a] space-y-1">
+                        <li>• Warmly free tier to start</li>
+                        <li>• Propensity no-commitment model</li>
+                        <li>• Common Room for PLG/community</li>
+                        <li>• Vector for ads-only use case</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contract Gotchas Section -->
+    <section id="gotchas" class="py-16 px-6 bg-[#EF4444]/5 border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-2xl font-extrabold tracking-tight text-[#1a1a1a]">Contract Gotchas</h2>
+                <span class="px-2 py-1 bg-[#EF4444] text-white text-xs font-bold rounded">READ BEFORE SIGNING</span>
+            </div>
+            <p class="text-[#6b6b6b] mb-8">The traps practitioners warn about most</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- ZoomInfo Gotchas -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#EF4444] overflow-hidden">
+                    <div class="bg-[#1a1a1a] text-white px-6 py-4 flex items-center justify-between">
+                        <span class="font-bold">ZoomInfo</span>
+                        <span class="px-2 py-1 bg-[#EF4444] text-xs font-bold rounded">HIGH RISK</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#EF4444] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">1</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">60-Day Cancellation Window</div>
+                                    <p class="text-xs text-[#6b6b6b]">Must notify 60 days before renewal or auto-charged for full year. They email invoices weekly after the window closes.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#EF4444] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">2</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">Data Deletion Requirement</div>
+                                    <p class="text-xs text-[#6b6b6b]">If you don't renew, you must delete ALL ZoomInfo data from your systems. Impossible if you've enriched from multiple sources.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#EF4444] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">3</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">Dummy Email Seeding</div>
+                                    <p class="text-xs text-[#6b6b6b]">Alleged practice of seeding data with fake emails for litigation purposes if you violate terms.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#EF4444] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">4</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">10-20% Annual Increases</div>
+                                    <p class="text-xs text-[#6b6b6b]">Price increases baked into renewals. What starts at $25K becomes $35K by year 3.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6sense Gotchas -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#F59E0B] overflow-hidden">
+                    <div class="bg-[#1a1a1a] text-white px-6 py-4 flex items-center justify-between">
+                        <span class="font-bold">6sense</span>
+                        <span class="px-2 py-1 bg-[#F59E0B] text-xs font-bold rounded">MEDIUM RISK</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#F59E0B] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">1</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">Annual Model Refresh Only</div>
+                                    <p class="text-xs text-[#6b6b6b]">Intent models update annually. If your market moves fast (AI, for example), you're stuck with stale predictions.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#F59E0B] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">2</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">Multi-Year Lock-ins</div>
+                                    <p class="text-xs text-[#6b6b6b]">Best pricing requires 2-3 year commitments. Hard to exit if it's not working.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#F59E0B] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">3</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">Implementation Timeline</div>
+                                    <p class="text-xs text-[#6b6b6b]">6+ months to full value. You're paying before you know if it works.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demandbase Gotchas -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#F59E0B] overflow-hidden">
+                    <div class="bg-[#1a1a1a] text-white px-6 py-4 flex items-center justify-between">
+                        <span class="font-bold">Demandbase</span>
+                        <span class="px-2 py-1 bg-[#F59E0B] text-xs font-bold rounded">MEDIUM RISK</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#F59E0B] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">1</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">6-Week Sales Process</div>
+                                    <p class="text-xs text-[#6b6b6b]">Can't even get pricing without extensive discovery. Sign of complex negotiation ahead.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#F59E0B] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">2</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">Account-Level Only</div>
+                                    <p class="text-xs text-[#6b6b6b]">No person-level identification. You'll need additional tools to know WHO at the account is engaging.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 bg-[#F59E0B] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-white text-xs font-bold">3</span>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">Technical Debt Concerns</div>
+                                    <p class="text-xs text-[#6b6b6b]">Multiple acquisitions (Engagio, InsideView, DemandMatrix) = integration complexity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Advice -->
+                <div class="bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                    <div class="bg-[#1a1a1a] text-white px-6 py-4">
+                        <span class="font-bold">Before You Sign Any Contract</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#1a1a1a] font-bold">✓</span>
+                                <span class="text-sm"><strong>Get renewal terms in writing</strong> - cancellation windows, auto-renewal, price increase caps</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#1a1a1a] font-bold">✓</span>
+                                <span class="text-sm"><strong>Ask about data ownership</strong> - what happens to enriched data if you leave?</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#1a1a1a] font-bold">✓</span>
+                                <span class="text-sm"><strong>Negotiate pilot periods</strong> - 60-90 days to prove value before full commitment</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#1a1a1a] font-bold">✓</span>
+                                <span class="text-sm"><strong>Cap annual increases</strong> - get 5% max increase written into contract</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#1a1a1a] font-bold">✓</span>
+                                <span class="text-sm"><strong>Calendar the cancellation date</strong> - set reminders 90 days before renewal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison Section -->
+    <section class="py-16 px-6 border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-extrabold tracking-tight text-[#1a1a1a] mb-2">Feature Comparison</h2>
+            <p class="text-[#6b6b6b] mb-8">What each platform actually does well (and doesn't)</p>
+
+            <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-[#1a1a1a] text-white">
+                            <tr>
+                                <th class="text-left px-4 py-3 font-bold">Capability</th>
+                                <th class="text-center px-4 py-3 font-bold">6sense</th>
+                                <th class="text-center px-4 py-3 font-bold">Demandbase</th>
+                                <th class="text-center px-4 py-3 font-bold">Common Room</th>
+                                <th class="text-center px-4 py-3 font-bold">Warmly</th>
+                                <th class="text-center px-4 py-3 font-bold">Propensity</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#e5e5e5]">
+                            <tr>
+                                <td class="px-4 py-3 font-medium">Intent Data Level</td>
+                                <td class="px-4 py-3 text-center"><span class="px-2 py-1 bg-[#F59E0B]/10 text-[#F59E0B] text-xs font-bold rounded">Account</span></td>
+                                <td class="px-4 py-3 text-center"><span class="px-2 py-1 bg-[#F59E0B]/10 text-[#F59E0B] text-xs font-bold rounded">Account</span></td>
+                                <td class="px-4 py-3 text-center"><span class="px-2 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-bold rounded">Person</span></td>
+                                <td class="px-4 py-3 text-center"><span class="px-2 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-bold rounded">Person</span></td>
+                                <td class="px-4 py-3 text-center"><span class="px-2 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-bold rounded">Contact</span></td>
+                            </tr>
+                            <tr class="bg-[#f9f9f9]">
+                                <td class="px-4 py-3 font-medium">Website Visitor ID</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981] font-bold">✓✓</span></td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium">3rd Party Intent</td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981] font-bold">✓✓</span></td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981] font-bold">✓✓</span></td>
+                                <td class="px-4 py-3 text-center">✓ (Bombora)</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                            </tr>
+                            <tr class="bg-[#f9f9f9]">
+                                <td class="px-4 py-3 font-medium">Ad Platform Activation</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">Limited</td>
+                                <td class="px-4 py-3 text-center">Limited</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium">Implementation Time</td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#EF4444]">3-6 months</span></td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#EF4444]">2-4 months</span></td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981]">1-2 weeks</span></td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981]">24 hours</span></td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981]">1-2 weeks</span></td>
+                            </tr>
+                            <tr class="bg-[#f9f9f9]">
+                                <td class="px-4 py-3 font-medium">Salesforce Integration</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981] font-bold">✓✓</span></td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium">HubSpot Integration</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center">✓</td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981] font-bold">✓✓</span></td>
+                            </tr>
+                            <tr class="bg-[#f9f9f9]">
+                                <td class="px-4 py-3 font-medium">Community Signals</td>
+                                <td class="px-4 py-3 text-center text-[#6b6b6b]">—</td>
+                                <td class="px-4 py-3 text-center text-[#6b6b6b]">—</td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981] font-bold">✓✓</span></td>
+                                <td class="px-4 py-3 text-center text-[#6b6b6b]">—</td>
+                                <td class="px-4 py-3 text-center text-[#6b6b6b]">—</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium">Free Tier</td>
+                                <td class="px-4 py-3 text-center text-[#6b6b6b]">—</td>
+                                <td class="px-4 py-3 text-center text-[#6b6b6b]">—</td>
+                                <td class="px-4 py-3 text-center text-[#6b6b6b]">—</td>
+                                <td class="px-4 py-3 text-center"><span class="text-[#10B981] font-bold">✓</span></td>
+                                <td class="px-4 py-3 text-center text-[#6b6b6b]">—</td>
+                            </tr>
+                            <tr class="bg-[#f9f9f9]">
+                                <td class="px-4 py-3 font-medium">Best For</td>
+                                <td class="px-4 py-3 text-center text-xs">Enterprise ABM</td>
+                                <td class="px-4 py-3 text-center text-xs">Enterprise ABM</td>
+                                <td class="px-4 py-3 text-center text-xs">PLG/Community</td>
+                                <td class="px-4 py-3 text-center text-xs">SMB/Mid-market</td>
+                                <td class="px-4 py-3 text-center text-xs">SMB/Salesforce</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buyer's Guide Section -->
+    <section class="py-16 px-6 bg-[#f5f5f5] border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-extrabold tracking-tight text-[#1a1a1a] mb-2">Buyer's Guide</h2>
+            <p class="text-[#6b6b6b] mb-8">Match your situation to the right platform</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Enterprise, Big Budget -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                    <div class="bg-[#1a1a1a] text-white px-6 py-4">
+                        <div class="text-xs text-[#DFFE68] font-medium">IF YOU ARE</div>
+                        <div class="font-bold">Enterprise, $75K+ Budget</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-xs text-[#6b6b6b] mb-1">CONSIDER</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full text-xs font-bold">6sense</span>
+                                <span class="px-3 py-1 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full text-xs font-bold">Demandbase</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-[#4a4a4a]">You need deep intent signals across thousands of accounts, multi-region support, and have dedicated ops resources for 6-month implementation.</p>
+                    </div>
+                </div>
+
+                <!-- Mid-market, Lean Team -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                    <div class="bg-[#3B82F6] text-white px-6 py-4">
+                        <div class="text-xs text-white/70 font-medium">IF YOU ARE</div>
+                        <div class="font-bold">Mid-market, $20-50K Budget</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-xs text-[#6b6b6b] mb-1">CONSIDER</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-[#3B82F6]/10 border-2 border-[#3B82F6] rounded-full text-xs font-bold text-[#3B82F6]">Common Room</span>
+                                <span class="px-3 py-1 bg-[#3B82F6]/10 border-2 border-[#3B82F6] rounded-full text-xs font-bold text-[#3B82F6]">RollWorks</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-[#4a4a4a]">You want person-level signals, faster implementation (weeks not months), and don't need enterprise-grade complexity.</p>
+                    </div>
+                </div>
+
+                <!-- SMB, Fast Results -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                    <div class="bg-[#10B981] text-white px-6 py-4">
+                        <div class="text-xs text-white/70 font-medium">IF YOU ARE</div>
+                        <div class="font-bold">SMB, &lt;$20K Budget</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-xs text-[#6b6b6b] mb-1">CONSIDER</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-[#10B981]/10 border-2 border-[#10B981] rounded-full text-xs font-bold text-[#10B981]">Warmly</span>
+                                <span class="px-3 py-1 bg-[#10B981]/10 border-2 border-[#10B981] rounded-full text-xs font-bold text-[#10B981]">Propensity</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-[#4a4a4a]">Start with Warmly's free tier. Graduate to Propensity when you need more. Both offer value in days, not months.</p>
+                    </div>
+                </div>
+
+                <!-- PLG / Developer-led -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                    <div class="bg-[#8B5CF6] text-white px-6 py-4">
+                        <div class="text-xs text-white/70 font-medium">IF YOU ARE</div>
+                        <div class="font-bold">PLG or Developer-Led</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-xs text-[#6b6b6b] mb-1">CONSIDER</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-[#8B5CF6]/10 border-2 border-[#8B5CF6] rounded-full text-xs font-bold text-[#8B5CF6]">Common Room</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-[#4a4a4a]">Common Room excels at aggregating GitHub, Slack, Discord community signals. 72% of community-led deals close within 90 days.</p>
+                    </div>
+                </div>
+
+                <!-- Ads-Focused -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                    <div class="bg-[#EC4899] text-white px-6 py-4">
+                        <div class="text-xs text-white/70 font-medium">IF YOU WANT</div>
+                        <div class="font-bold">Intent-Driven Ads Only</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-xs text-[#6b6b6b] mb-1">CONSIDER</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-[#EC4899]/10 border-2 border-[#EC4899] rounded-full text-xs font-bold text-[#EC4899]">Vector</span>
+                                <span class="px-3 py-1 bg-[#EC4899]/10 border-2 border-[#EC4899] rounded-full text-xs font-bold text-[#EC4899]">Metadata.io</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-[#4a4a4a]">Vector for contact-level LinkedIn audiences (90% match rates). Metadata.io for paid campaign automation across channels.</p>
+                    </div>
+                </div>
+
+                <!-- Salesforce-First -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                    <div class="bg-[#0EA5E9] text-white px-6 py-4">
+                        <div class="text-xs text-white/70 font-medium">IF YOU ARE</div>
+                        <div class="font-bold">Salesforce-First Team</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-xs text-[#6b6b6b] mb-1">CONSIDER</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-[#0EA5E9]/10 border-2 border-[#0EA5E9] rounded-full text-xs font-bold text-[#0EA5E9]">Propensity</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-[#4a4a4a]">"Unmatched Salesforce integration" according to users. Native HubSpot app also available. No annual commitment required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sentiment Comparison Table -->
+    <section id="sentiment" class="py-16 px-6 border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-extrabold tracking-tight text-[#1a1a1a] mb-2">Sentiment Scores</h2>
+            <p class="text-[#6b6b6b] mb-8">Net sentiment based on 5,000+ reviews across G2, TrustRadius, Gartner, Reddit, and LinkedIn</p>
+
+            <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-[#1a1a1a] text-white">
+                            <tr>
+                                <th class="text-left px-6 py-4 font-bold">Platform</th>
+                                <th class="text-left px-6 py-4 font-bold">Net Sentiment</th>
+                                <th class="text-left px-6 py-4 font-bold">G2 Rating</th>
+                                <th class="text-left px-6 py-4 font-bold">Review Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y-2 divide-[#e5e5e5]">
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">Propensity</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#10B981]/10 border border-[#10B981] rounded text-sm font-medium text-[#10B981]">+0.45 Highly Positive</span></td>
+                                <td class="px-6 py-4 font-medium">5.0/5</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Limited (emerging)</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">Warmly</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#10B981]/10 border border-[#10B981] rounded text-sm font-medium text-[#10B981]">+0.40 Highly Positive</span></td>
+                                <td class="px-6 py-4 font-medium text-[#6b6b6b]">N/A</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Growing</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">Common Room</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#10B981]/10 border border-[#10B981] rounded text-sm font-medium text-[#10B981]">+0.35 Positive</span></td>
+                                <td class="px-6 py-4 font-medium">4.97/5</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Moderate</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">N.Rich</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#10B981]/10 border border-[#10B981] rounded text-sm font-medium text-[#10B981]">+0.35 Positive</span></td>
+                                <td class="px-6 py-4 font-medium">4.7/5</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">99 reviews</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">Vector</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#10B981]/10 border border-[#10B981] rounded text-sm font-medium text-[#10B981]">+0.30 Positive</span></td>
+                                <td class="px-6 py-4 font-medium text-[#6b6b6b]">N/A</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Limited</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">Metadata.io</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#10B981]/10 border border-[#10B981] rounded text-sm font-medium text-[#10B981]">+0.30 Positive</span></td>
+                                <td class="px-6 py-4 font-medium">G2 Leader</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Moderate</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">Demandbase</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#10B981]/10 border border-[#10B981] rounded text-sm font-medium text-[#10B981]">+0.25 Positive</span></td>
+                                <td class="px-6 py-4 font-medium">4.4/5</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">1,900+ reviews</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">ZoomInfo</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#10B981]/10 border border-[#10B981] rounded text-sm font-medium text-[#10B981]">+0.25 Positive</span></td>
+                                <td class="px-6 py-4 font-medium">4.7/5</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">84 reviews (Marketing)</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">RollWorks</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#10B981]/10 border border-[#10B981] rounded text-sm font-medium text-[#10B981]">+0.20 Positive</span></td>
+                                <td class="px-6 py-4 font-medium">8.0/10</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">TrustRadius</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">6sense</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#F59E0B]/10 border border-[#F59E0B] rounded text-sm font-medium text-[#F59E0B]">+0.15 Mixed-Positive</span></td>
+                                <td class="px-6 py-4 font-medium">4.3/5</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">1,288 reviews</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">Foundry ABM</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#F59E0B]/10 border border-[#F59E0B] rounded text-sm font-medium text-[#F59E0B]">+0.15 Mixed</span></td>
+                                <td class="px-6 py-4 font-medium text-[#6b6b6b]">N/A</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">Limited</td>
+                            </tr>
+                            <tr class="hover:bg-[#f5f5f5] transition-colors">
+                                <td class="px-6 py-4 font-bold">Terminus</td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 px-2 py-1 bg-[#F59E0B]/10 border border-[#F59E0B] rounded text-sm font-medium text-[#F59E0B]">+0.10 Mixed</span></td>
+                                <td class="px-6 py-4 font-medium">3.7/5</td>
+                                <td class="px-6 py-4 text-sm text-[#6b6b6b]">144 reviews</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Positioning Playbook -->
+    <section id="playbook" class="py-16 px-6 bg-[#f5f5f5] border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-extrabold tracking-tight text-[#1a1a1a] mb-2">Competitive Positioning Playbook</h2>
+            <p class="text-[#6b6b6b] mb-8">Battle cards for positioning against major players</p>
+
+            <div class="space-y-4">
+                <!-- 6sense -->
+                <details class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] group">
+                    <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-[#f5f5f5] transition-colors rounded-xl">
+                        <div class="flex items-center gap-4">
+                            <span class="px-3 py-1 bg-[#F59E0B]/10 border-2 border-[#F59E0B] rounded-full text-xs font-bold text-[#F59E0B]">LEGACY</span>
+                            <span class="font-bold text-lg">Against 6sense</span>
+                        </div>
+                        <svg class="w-5 h-5 text-[#6b6b6b] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 border-t-2 border-[#e5e5e5] pt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <h4 class="font-bold text-[#10B981] mb-3">Lead With</h4>
+                                <ul class="space-y-2 text-sm text-[#4a4a4a]">
+                                    <li><span class="font-bold">Transparency:</span> "No black box intent scores - see exactly why accounts are flagged"</li>
+                                    <li><span class="font-bold">Speed:</span> "Value in days, not months of implementation"</li>
+                                    <li><span class="font-bold">Pricing:</span> "Enterprise-grade intent without $50K+ contracts"</li>
+                                    <li><span class="font-bold">Person-level:</span> "Know the actual person, not just the company"</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#EF4444] mb-3">Attack Points</h4>
+                                <ul class="space-y-1 text-sm text-[#4a4a4a]">
+                                    <li>• "Blackbox models couldn't be explained" - CEO quote</li>
+                                    <li>• Annual model refresh only (stale in fast markets)</li>
+                                    <li>• 6+ month implementation timelines</li>
+                                    <li>• UI/UX "among the worst ever seen"</li>
+                                    <li>• Multi-year lock-in contracts</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#3B82F6] mb-3">Proof Points</h4>
+                                <ul class="space-y-1 text-sm text-[#4a4a4a]">
+                                    <li>• Adam Schoenfeld (Keyplay CEO) churned publicly</li>
+                                    <li>• PawaPay switched to Letterdrop - "worlds apart"</li>
+                                    <li>• G2 rating: 4.3/5 (lower than emerging players)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Demandbase -->
+                <details class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] group">
+                    <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-[#f5f5f5] transition-colors rounded-xl">
+                        <div class="flex items-center gap-4">
+                            <span class="px-3 py-1 bg-[#F59E0B]/10 border-2 border-[#F59E0B] rounded-full text-xs font-bold text-[#F59E0B]">LEGACY</span>
+                            <span class="font-bold text-lg">Against Demandbase</span>
+                        </div>
+                        <svg class="w-5 h-5 text-[#6b6b6b] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 border-t-2 border-[#e5e5e5] pt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <h4 class="font-bold text-[#10B981] mb-3">Lead With</h4>
+                                <ul class="space-y-2 text-sm text-[#4a4a4a]">
+                                    <li><span class="font-bold">Person-level:</span> "Know WHO visited, not just which company"</li>
+                                    <li><span class="font-bold">Simplicity:</span> "No 6-week sales process just to get pricing"</li>
+                                    <li><span class="font-bold">Agility:</span> "Built for mid-market speed, not enterprise bureaucracy"</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#EF4444] mb-3">Attack Points</h4>
+                                <ul class="space-y-1 text-sm text-[#4a4a4a]">
+                                    <li>• Account-level only - no person identification</li>
+                                    <li>• $65K median contract value</li>
+                                    <li>• Technical debt from acquisitions</li>
+                                    <li>• Support tickets can take 6 months</li>
+                                    <li>• Pricing opacity is "#1 complaint"</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#3B82F6] mb-3">Proof Points</h4>
+                                <ul class="space-y-1 text-sm text-[#4a4a4a]">
+                                    <li>• Companies switching to Dealfront for simpler pricing</li>
+                                    <li>• Glassdoor reviews cite tech debt concerns</li>
+                                    <li>• Multiple acquisitions = integration complexity</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- ZoomInfo -->
+                <details class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] group">
+                    <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-[#f5f5f5] transition-colors rounded-xl">
+                        <div class="flex items-center gap-4">
+                            <span class="px-3 py-1 bg-[#EF4444]/10 border-2 border-[#EF4444] rounded-full text-xs font-bold text-[#EF4444]">DATA</span>
+                            <span class="font-bold text-lg">Against ZoomInfo</span>
+                        </div>
+                        <svg class="w-5 h-5 text-[#6b6b6b] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 border-t-2 border-[#e5e5e5] pt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <h4 class="font-bold text-[#10B981] mb-3">Lead With</h4>
+                                <ul class="space-y-2 text-sm text-[#4a4a4a]">
+                                    <li><span class="font-bold">Flexibility:</span> "No predatory auto-renewals - cancel anytime"</li>
+                                    <li><span class="font-bold">Accuracy:</span> "Fresh data, not ghost profiles of departed employees"</li>
+                                    <li><span class="font-bold">Transparency:</span> "No dummy emails seeded for litigation"</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#EF4444] mb-3">Attack Points</h4>
+                                <ul class="space-y-1 text-sm text-[#4a4a4a]">
+                                    <li>• 60-day cancellation window trap</li>
+                                    <li>• Must delete ALL data if you leave</li>
+                                    <li>• 10-20% annual price increases</li>
+                                    <li>• Dummy email seeding allegations</li>
+                                    <li>• Data staleness issues</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#3B82F6] mb-3">Proof Points</h4>
+                                <ul class="space-y-1 text-sm text-[#4a4a4a]">
+                                    <li>• Ben Moyer's viral LinkedIn post (342 comments)</li>
+                                    <li>• Multiple LinkedIn warnings about contracts</li>
+                                    <li>• WA State AG complaints filed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Terminus -->
+                <details class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] group">
+                    <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-[#f5f5f5] transition-colors rounded-xl">
+                        <div class="flex items-center gap-4">
+                            <span class="px-3 py-1 bg-[#F59E0B]/10 border-2 border-[#F59E0B] rounded-full text-xs font-bold text-[#F59E0B]">LEGACY</span>
+                            <span class="font-bold text-lg">Against Terminus</span>
+                        </div>
+                        <svg class="w-5 h-5 text-[#6b6b6b] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 border-t-2 border-[#e5e5e5] pt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <h4 class="font-bold text-[#10B981] mb-3">Lead With</h4>
+                                <ul class="space-y-2 text-sm text-[#4a4a4a]">
+                                    <li><span class="font-bold">Product maturity:</span> "Purpose-built, not stitched together"</li>
+                                    <li><span class="font-bold">Reporting:</span> "Full-funnel attribution out of the box"</li>
+                                    <li><span class="font-bold">Stability:</span> "Independent roadmap, not merger uncertainty"</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#EF4444] mb-3">Attack Points</h4>
+                                <ul class="space-y-1 text-sm text-[#4a4a4a]">
+                                    <li>• "Weaving together multiple softwares"</li>
+                                    <li>• Limited reporting capabilities</li>
+                                    <li>• DemandScience merger uncertainty</li>
+                                    <li>• UI clunkiness</li>
+                                    <li>• Lowest G2 rating of legacy players (3.7)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#3B82F6] mb-3">Proof Points</h4>
+                                <ul class="space-y-1 text-sm text-[#4a4a4a]">
+                                    <li>• G2 score: 3.7/5 vs 4.3+ for others</li>
+                                    <li>• "A couple years away from a great product"</li>
+                                    <li>• 144 reviews (much lower volume)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Switching Signals -->
+    <section class="py-16 px-6 border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-extrabold tracking-tight text-[#1a1a1a] mb-8">Switching Signals</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Documented Switches Table -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] overflow-hidden">
+                    <div class="bg-[#1a1a1a] text-white px-6 py-4">
+                        <h3 class="font-bold">Documented Platform Switches</h3>
+                    </div>
+                    <table class="w-full">
+                        <thead class="bg-[#f5f5f5] border-b-2 border-[#e5e5e5]">
+                            <tr>
+                                <th class="text-left px-4 py-3 text-sm font-bold">From</th>
+                                <th class="text-left px-4 py-3 text-sm font-bold">To</th>
+                                <th class="text-left px-4 py-3 text-sm font-bold">Driver</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#e5e5e5]">
+                            <tr>
+                                <td class="px-4 py-3 text-sm font-medium">6sense</td>
+                                <td class="px-4 py-3 text-sm">Keyplay</td>
+                                <td class="px-4 py-3 text-sm text-[#6b6b6b]">Black box, annual refresh cycle</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-sm font-medium">6sense</td>
+                                <td class="px-4 py-3 text-sm">Letterdrop</td>
+                                <td class="px-4 py-3 text-sm text-[#6b6b6b]">Cost - "value worlds apart"</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-sm font-medium">6sense</td>
+                                <td class="px-4 py-3 text-sm">Warmly</td>
+                                <td class="px-4 py-3 text-sm text-[#6b6b6b]">Simpler, faster, cheaper</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-sm font-medium">Demandbase</td>
+                                <td class="px-4 py-3 text-sm">Dealfront</td>
+                                <td class="px-4 py-3 text-sm text-[#6b6b6b]">Flexible pricing, simpler</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-sm font-medium">ZoomInfo</td>
+                                <td class="px-4 py-3 text-sm">Seamless.ai</td>
+                                <td class="px-4 py-3 text-sm text-[#6b6b6b]">Avoid auto-renewal trap</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Primary Switch Drivers -->
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl shadow-[4px_4px_0px_0px_#1a1a1a] p-6">
+                    <h3 class="font-bold text-lg mb-6">Primary Switch Drivers</h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Cost Reduction</span>
+                                <span class="text-sm font-bold text-[#10B981]">60%+</span>
+                            </div>
+                            <div class="h-4 bg-[#f5f5f5] border-2 border-[#1a1a1a] rounded-full overflow-hidden">
+                                <div class="h-full bg-[#10B981]" style="width: 60%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Implementation Fatigue</span>
+                                <span class="text-sm font-bold text-[#3B82F6]">45%</span>
+                            </div>
+                            <div class="h-4 bg-[#f5f5f5] border-2 border-[#1a1a1a] rounded-full overflow-hidden">
+                                <div class="h-full bg-[#3B82F6]" style="width: 45%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Data Quality Issues</span>
+                                <span class="text-sm font-bold text-[#F59E0B]">38%</span>
+                            </div>
+                            <div class="h-4 bg-[#f5f5f5] border-2 border-[#1a1a1a] rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F59E0B]" style="width: 38%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Black Box Frustration</span>
+                                <span class="text-sm font-bold text-[#8B5CF6]">32%</span>
+                            </div>
+                            <div class="h-4 bg-[#f5f5f5] border-2 border-[#1a1a1a] rounded-full overflow-hidden">
+                                <div class="h-full bg-[#8B5CF6]" style="width: 32%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Renewal/Contract Issues</span>
+                                <span class="text-sm font-bold text-[#EF4444]">25%</span>
+                            </div>
+                            <div class="h-4 bg-[#f5f5f5] border-2 border-[#1a1a1a] rounded-full overflow-hidden">
+                                <div class="h-full bg-[#EF4444]" style="width: 25%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Sources Section -->
+    <section class="py-16 px-6 bg-[#f5f5f5] border-b-2 border-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-extrabold tracking-tight text-[#1a1a1a] mb-8">Data Sources & Methodology</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+                    <div class="text-2xl font-extrabold text-[#1a1a1a]">G2</div>
+                    <div class="text-sm text-[#6b6b6b]">3,500+ reviews analyzed</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+                    <div class="text-2xl font-extrabold text-[#1a1a1a]">TrustRadius</div>
+                    <div class="text-sm text-[#6b6b6b]">500+ reviews analyzed</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+                    <div class="text-2xl font-extrabold text-[#1a1a1a]">LinkedIn</div>
+                    <div class="text-sm text-[#6b6b6b]">100+ posts analyzed</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+                    <div class="text-2xl font-extrabold text-[#1a1a1a]">Reddit</div>
+                    <div class="text-sm text-[#6b6b6b]">r/sales, r/marketing, r/demandgen</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+                    <div class="text-2xl font-extrabold text-[#1a1a1a]">Gartner</div>
+                    <div class="text-sm text-[#6b6b6b]">Peer Insights + Magic Quadrant</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+                    <div class="text-2xl font-extrabold text-[#1a1a1a]">Capterra</div>
+                    <div class="text-sm text-[#6b6b6b]">200+ reviews analyzed</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+                    <div class="text-2xl font-extrabold text-[#1a1a1a]">Substack</div>
+                    <div class="text-sm text-[#6b6b6b]">B2B practitioner newsletters</div>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+                    <div class="text-2xl font-extrabold text-[#1a1a1a]">X/Twitter</div>
+                    <div class="text-sm text-[#6b6b6b]">B2B marketing discussions</div>
+                </div>
+            </div>
+
+            <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-6 shadow-[4px_4px_0px_0px_#1a1a1a]">
+                <h3 class="font-bold mb-3">Methodology</h3>
+                <p class="text-sm text-[#4a4a4a] mb-4">Net sentiment scores derived from NLP analysis of 5,000+ reviews, forum discussions, LinkedIn posts, and analyst reports. Sentiment calculated as positive mentions minus negative mentions, normalized to -1 to +1 scale. Analysis period: Q4 2025 - Q1 2026.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-bold rounded">+0.3 to +0.5 = Highly Positive</span>
+                    <span class="px-2 py-1 bg-[#10B981]/10 text-[#10B981] text-xs font-bold rounded">+0.1 to +0.3 = Positive</span>
+                    <span class="px-2 py-1 bg-[#F59E0B]/10 text-[#F59E0B] text-xs font-bold rounded">0 to +0.1 = Mixed</span>
+                    <span class="px-2 py-1 bg-[#EF4444]/10 text-[#EF4444] text-xs font-bold rounded">&lt;0 = Negative</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-16 px-6 border-b-2 border-[#1a1a1a]">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-2xl p-8 md:p-12 shadow-[6px_6px_0px_0px_#1a1a1a] text-center">
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1a1a1a] mb-4">Want deeper analysis for your specific competitive situation?</h2>
+                <p class="text-[#4a4a4a] mb-8 max-w-xl mx-auto">Get a custom intel report tailored to your target accounts, competitive landscape, and go-to-market strategy.</p>
+                <a href="https://www.42agency.com/contact-us" class="inline-flex items-center gap-2 px-8 py-4 bg-[#1a1a1a] text-white font-bold rounded-lg hover:bg-[#333] transition-colors">
+                    Get Custom Intel Report
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t-2 border-[#1a1a1a] py-12 px-6 bg-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-[#DFFE68] border-2 border-[#DFFE68] rounded-lg flex items-center justify-center font-extrabold text-[#1a1a1a]">42</div>
+                        <span class="font-bold text-xl text-white">Agency</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">B2B performance marketing for companies that sell to enterprises.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-[#DFFE68] mb-4">Report Details</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>Published: February 2026</li>
+                        <li>Analysis Period: Q4 2025 - Q1 2026</li>
+                        <li>Platforms: 14 analyzed</li>
+                        <li>Reviews: 5,000+ synthesized</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-[#DFFE68] mb-4">Data Sources</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>G2, TrustRadius, Capterra</li>
+                        <li>Gartner Peer Insights</li>
+                        <li>LinkedIn, Reddit, X</li>
+                        <li>Substack newsletters</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-[#DFFE68] mb-4">42 Agency</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://42agency.com" class="text-gray-400 hover:text-white transition-colors">Website</a></li>
+                        <li><a href="https://www.42agency.com/contact-us" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="https://42slash.com" class="text-gray-400 hover:text-white transition-colors">42/ Essays</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <span class="text-gray-400 text-sm">© 2026 42 Agency. All rights reserved.</span>
+                <div class="flex items-center gap-6">
+                    <a href="https://42agency.com/privacy" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy</a>
+                    <a href="https://42agency.com/terms" class="text-gray-400 hover:text-white transition-colors text-sm">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
