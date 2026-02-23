@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Weakness Map: Ansible Tower | Itential</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .header {
+            border-bottom: 2px solid #1a1a1a;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; width: auto; }
+        .badge {
+            background: #EF4444;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero {
+            background: #f5f5f5;
+            border-bottom: 2px solid #1a1a1a;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .hero .subtitle {
+            color: #6b6b6b;
+            font-size: 1.1rem;
+        }
+        .hero .date {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #9a9a9a;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .complaint-card {
+            background: white;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 4px 4px 0px 0px #EF4444;
+        }
+        .complaint-card .theme {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .complaint-card .theme::before {
+            content: "⚠️";
+        }
+        .complaint-card blockquote {
+            background: #fef2f2;
+            border-left: 3px solid #EF4444;
+            padding: 1rem;
+            margin: 0.75rem 0;
+            font-style: italic;
+            color: #4a4a4a;
+            border-radius: 0 8px 8px 0;
+        }
+        .complaint-card .source {
+            font-size: 0.85rem;
+            color: #6b6b6b;
+            text-align: right;
+        }
+
+        .opportunity-box {
+            background: #DFFE68;
+            border: 2px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px #1a1a1a;
+        }
+        .opportunity-box h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .stat-card {
+            background: white;
+            border: 2px solid #1a1a1a;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: #6b6b6b;
+        }
+
+        .campaign-concept {
+            background: white;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .campaign-concept h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .campaign-concept ul {
+            list-style: none;
+            padding: 0;
+        }
+        .campaign-concept li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .campaign-concept li:last-child {
+            border-bottom: none;
+        }
+        .campaign-concept .label {
+            font-weight: 600;
+            min-width: 80px;
+        }
+
+        .cta-section {
+            background: #1a1a1a;
+            border: 2px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+        }
+        .cta-section h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .cta-section p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #DFFE68;
+            color: #1a1a1a;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid #1a1a1a;
+            transition: all 0.2s;
+        }
+        .cta-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px 0px #DFFE68;
+        }
+
+        .footer {
+            border-top: 2px solid #1a1a1a;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            background: #f5f5f5;
+        }
+        .footer img {
+            height: 24px;
+            margin-bottom: 0.5rem;
+        }
+        .footer p {
+            color: #6b6b6b;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.75rem; }
+            .stat-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <span class="badge">Conquest Intel</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Competitor Weakness Map</h1>
+        <p class="subtitle">Ansible Tower / Red Hat Automation Platform</p>
+        <p class="date">Prepared for Itential • February 2026</p>
+    </section>
+
+    <div class="container">
+        <section class="section">
+            <h2>What Users Are Saying</h2>
+
+            <div class="complaint-card">
+                <div class="theme">Expensive Licensing</div>
+                <blockquote>
+                    "Ansible Tower is expensive, especially for small and mid-sized businesses."
+                </blockquote>
+                <blockquote>
+                    "Tower has a licensing fee, making it more suitable for enterprise environments with advanced requirements and support needs."
+                </blockquote>
+                <p class="source">— Spacelift, Capterra Reviews</p>
+            </div>
+
+            <div class="complaint-card">
+                <div class="theme">Steep Learning Curve</div>
+                <blockquote>
+                    "Your engineers will need time to get up to speed with it."
+                </blockquote>
+                <blockquote>
+                    "Mastering advanced features and best practices may require some learning—concepts such as Jinja templating, roles, and playbooks' intricacies requiring time for beginners."
+                </blockquote>
+                <p class="source">— Spacelift, UpGuard</p>
+            </div>
+
+            <div class="complaint-card">
+                <div class="theme">Limited Flexibility</div>
+                <blockquote>
+                    "Ansible Tower is not very flexible, and many alternatives offer higher levels of customization."
+                </blockquote>
+                <blockquote>
+                    "It can only help you with your Ansible workflows—preventing unified management of other infrastructure tools like Terraform or Kubernetes in one platform."
+                </blockquote>
+                <p class="source">— Spacelift Analysis</p>
+            </div>
+
+            <div class="complaint-card">
+                <div class="theme">UI & State Management Issues</div>
+                <blockquote>
+                    "Only 85% of what can be done from the command line can be accomplished via the UI."
+                </blockquote>
+                <blockquote>
+                    "Unlike competitors, Ansible doesn't maintain awareness of system dependencies. It simply executes tasks sequentially and stops upon completion or failure."
+                </blockquote>
+                <p class="source">— UpGuard</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The Opportunity</h2>
+
+            <div class="opportunity-box">
+                <h3>Targetable Ansible Users on LinkedIn</h3>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="number">45K+</div>
+                        <div class="label">Network Engineers with Ansible skills</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">12K+</div>
+                        <div class="label">Infrastructure Directors at Enterprise</div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.9rem; color: #4a4a4a; margin-top: 1rem;">
+                    <strong>Targeting approach:</strong> Skills-based targeting (Ansible, Automation, Network Engineering) + Enterprise company size (1,000+) + Senior/Director seniority
+                </p>
+
+                <div class="campaign-concept">
+                    <h4>Conquest Campaign Concept</h4>
+                    <ul>
+                        <li>
+                            <span class="label">Hook:</span>
+                            <span>"Network automation doesn't have to be this complex."</span>
+                        </li>
+                        <li>
+                            <span class="label">Pain:</span>
+                            <span>Target Ansible's learning curve + licensing costs</span>
+                        </li>
+                        <li>
+                            <span class="label">Proof:</span>
+                            <span>Itential's unified orchestration + faster TTV</span>
+                        </li>
+                        <li>
+                            <span class="label">CTA:</span>
+                            <span>"See the difference in 15 minutes"</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Messaging Angles</h2>
+
+            <div style="display: grid; gap: 1rem;">
+                <div style="background: white; border: 2px solid #1a1a1a; border-radius: 8px; padding: 1rem; box-shadow: 3px 3px 0px 0px #1a1a1a;">
+                    <strong>Against "Expensive Licensing":</strong><br>
+                    <span style="color: #4a4a4a;">"Enterprise orchestration without enterprise pricing headaches."</span>
+                </div>
+                <div style="background: white; border: 2px solid #1a1a1a; border-radius: 8px; padding: 1rem; box-shadow: 3px 3px 0px 0px #1a1a1a;">
+                    <strong>Against "Steep Learning Curve":</strong><br>
+                    <span style="color: #4a4a4a;">"Your team automates in days, not months."</span>
+                </div>
+                <div style="background: white; border: 2px solid #1a1a1a; border-radius: 8px; padding: 1rem; box-shadow: 3px 3px 0px 0px #1a1a1a;">
+                    <strong>Against "Limited Flexibility":</strong><br>
+                    <span style="color: #4a4a4a;">"One platform for Ansible, Terraform, and everything else."</span>
+                </div>
+                <div style="background: white; border: 2px solid #1a1a1a; border-radius: 8px; padding: 1rem; box-shadow: 3px 3px 0px 0px #1a1a1a;">
+                    <strong>Against "UI Issues":</strong><br>
+                    <span style="color: #4a4a4a;">"100% of CLI power in a UI your team will actually use."</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3>Ready to Build This Campaign?</h3>
+            <p>15 minutes to walk through the targeting, messaging, and budget.</p>
+            <a href="https://42agency.com/contact" class="cta-button">Schedule a Strategy Call →</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <img src="/42-logo.png" alt="42 Agency">
+        <p>B2B Performance Marketing</p>
+    </footer>
+</body>
+</html>
