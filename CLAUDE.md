@@ -6,22 +6,20 @@
 
 ---
 
-## ⚠️ CRITICAL: intel-pages vs linkedin-ads-intel-v2
+## ⚠️ intel-pages vs ads-tracker
 
-**There are TWO projects with "intel" in the name. Don't confuse them:**
-
-| Project | URL | Tech | Purpose |
-|---------|-----|------|---------|
-| **intel-pages** (THIS REPO) | intel.42agency.com | Static HTML/CSS + Edge Functions | Public marketing hub: assessments, benchmarks, tools, playbooks |
-| **linkedin-ads-intel-v2** | linkedin-ads-intel-v2.vercel.app | Next.js + PostgreSQL | Internal app: LinkedIn Ad Library scraper, competitor tracking |
+| Project | URL | Purpose |
+|---------|-----|---------|
+| **intel-pages** (THIS REPO) | intel.42agency.com | Public: assessments, benchmarks, tools, playbooks |
+| **ads-tracker** | linkedin-ads-intel-v2.vercel.app | Internal: LinkedIn Ad Library scraper |
 
 **Key differences:**
 - `intel-pages` = Static site, no database, public lead magnets
-- `linkedin-ads-intel-v2` = Full-stack app with auth, database, LinkedIn API integration
+- `ads-tracker` = Full-stack Next.js app with auth, database, LinkedIn API
 
-**The HubSpot Health Assessment lives in intel-pages** (`/assessments/hubspot-health/index.html`), NOT in linkedin-ads-intel-v2.
+**The HubSpot Health Assessment lives here** (`/assessments/hubspot-health/index.html`).
 
-**Domain ownership:** `intel.42agency.com` points to `intel-pages` Vercel project. Do NOT alias it to linkedin-ads-intel-v2.
+**Domain:** `intel.42agency.com` → `intel-pages`. Do NOT alias to ads-tracker.
 
 ---
 
