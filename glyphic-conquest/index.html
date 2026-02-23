@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Weakness Map: Gong | Glyphic</title>
+    <meta name="description" content="Conquest campaign intelligence for Glyphic. Real practitioner complaints about Gong from G2, TrustPilot, Hacker News, and RevOps communities.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Global Header */
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem !important;
+            background: var(--black) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        /* Hero */
+        .hero {
+            background: #ffffff;
+            border-bottom: 2px solid var(--black);
+            padding: 3rem 2rem;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .prepared-for {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--black);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+        }
+        .prepared-for img { height: 24px; }
+        .prepared-for span { font-size: 0.85rem; color: #ccc; }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .date { font-size: 0.875rem; color: var(--muted); }
+
+        .methodology {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+        }
+        .methodology-title {
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        .methodology p { font-size: 0.85rem; color: var(--gray); }
+        .source-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .source-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Quote Cards */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .quote-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--red);
+        }
+        .quote-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .quote-theme::before { content: ""; }
+        .quote-text {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+            padding-left: 0.75rem;
+            border-left: 3px solid var(--red);
+        }
+        .quote-source {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-align: right;
+        }
+        .badge-g2 {
+            display: inline-block;
+            background: #FF492C;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-trustpilot {
+            display: inline-block;
+            background: #00B67A;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-review {
+            display: inline-block;
+            background: #6366F1;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Opportunity Card */
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 2rem;
+        }
+        .card-accent {
+            background: var(--accent);
+            box-shadow: 6px 6px 0px 0px var(--black);
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 600px) { .stat-grid { grid-template-columns: 1fr; } }
+        .stat-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+        .campaign-concept {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .campaign-concept h4 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .campaign-concept li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .campaign-concept li:last-child { border-bottom: none; }
+        .campaign-concept .label { font-weight: 600; min-width: 60px; }
+
+        /* Messaging Angles */
+        .angles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .angle-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+        }
+        .angle-card strong { display: block; margin-bottom: 0.25rem; }
+        .angle-card span { color: var(--gray); font-size: 0.9rem; }
+
+        /* CTA */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .cta-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--black);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cta-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid var(--black);
+            padding: 3rem 1.5rem;
+            background: var(--black);
+            margin-top: 2rem;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer img { height: 24px; filter: brightness(0) invert(1); }
+        .footer p { color: #999; font-size: 0.85rem; }
+        @media (max-width: 600px) {
+            .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="/tools/">Tools</a>
+                <a href="/playbooks/">Playbooks</a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="prepared-for">
+                <img src="https://cdn.prod.website-files.com/66ab57eb9a13567f4e2a1a82/66c34e78b3c47d7b08ba286e_glyphic-logo-white.svg" alt="Glyphic">
+                <span>Prepared for Glyphic</span>
+            </div>
+            <h1>Competitor Weakness Map</h1>
+            <p class="subtitle">Gong.io Revenue Intelligence Platform</p>
+            <p class="date">February 2026</p>
+
+            <div class="methodology">
+                <div class="methodology-title">Why This Matters</div>
+                <p>Gong dominates the conversation intelligence market with 4.7/5 on G2 and thousands of enterprise customers. But with 73% of 2025 platform searches driven by pricing transparency issues and a 2.3/5 TrustPilot score, frustrated users represent your highest-intent conquest audience. These pain points become your messaging angles for LinkedIn campaigns.</p>
+                <div class="source-tags">
+                    <span class="source-tag">G2 Reviews (600+)</span>
+                    <span class="source-tag">TrustPilot</span>
+                    <span class="source-tag">TrustRadius</span>
+                    <span class="source-tag">Reddit r/sales</span>
+                    <span class="source-tag">Hacker News</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main">
+        <section style="margin-bottom: 2rem;">
+            <h2 class="section-title">What Practitioners Are Saying</h2>
+            <p class="section-subtitle">Real complaints from Sales Leaders, RevOps, and Account Executives</p>
+
+            <div class="quotes-grid">
+                <div class="quote-card">
+                    <div class="quote-theme">Pricing Shock & Hidden Fees</div>
+                    <p class="quote-text">"We planned for $100K. Ended up spending closer to $140K once we factored in services and team training."</p>
+                    <p class="quote-text">"It was a big mistake on our part to commit to a two year term... friends have been fine using a lower cost alternative."</p>
+                    <p class="quote-source"><span class="badge-g2">G2</span> Head of Marketing</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Complex & Hard to Use</div>
+                    <p class="quote-text">"It's too complicated, and not intuitive at all. Searching for calls is not easy, moving around in the calls is not easy."</p>
+                    <p class="quote-text">"Most reps just fumble through. The dashboard overwhelms new users with excessive data points."</p>
+                    <p class="quote-source"><span class="badge-g2">G2</span> Senior Account Executive</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Data Lock-In & CRM Issues</div>
+                    <p class="quote-text">"We had four years of calls recorded in Gong and no idea how to extract insights. You're locked into their UI."</p>
+                    <p class="quote-text">"It requires downloading calls individually... We had to engage our development team at additional cost."</p>
+                    <p class="quote-source"><span class="badge-review">Review</span> Sales Operations Manager</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Rep Resistance & Low Adoption</div>
+                    <p class="quote-text">"It felt like surveillance. Reps stopped tagging their meetings properly, and usage dropped after onboarding."</p>
+                    <p class="quote-text">"There's so much in Gong, that we don't use everything. Gong's deal forecasting we don't use."</p>
+                    <p class="quote-source"><span class="badge-trustpilot">TrustPilot</span> Head of Sales</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 2rem;">
+            <h2 class="section-title">The Opportunity</h2>
+            <p class="section-subtitle">Targetable Gong users and conversation intelligence buyers on LinkedIn</p>
+
+            <div class="card card-accent">
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">85K+</div>
+                        <div class="stat-label">Sales Leaders with "Gong" skills/experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">120K+</div>
+                        <div class="stat-label">RevOps & Sales Ops at Mid-Market+</div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--gray);">
+                    <strong>Targeting:</strong> Skills-based (Gong, Conversation Intelligence, Revenue Intelligence) + Mid-Market/Enterprise (200+ employees) + Director+ seniority + Sales/RevOps functions
+                </p>
+
+                <div class="campaign-concept">
+                    <h4>Conquest Campaign Concept</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li><span class="label">Hook:</span> "Your reps shouldn't need a 3-month certification to use their sales tools."</li>
+                        <li><span class="label">Pain:</span> Target Gong's complexity + $140K+ TCO + low rep adoption</li>
+                        <li><span class="label">Proof:</span> Glyphic's automated CRM updates + instant value without training</li>
+                        <li><span class="label">CTA:</span> "See 10x faster ROI in 15 minutes"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Messaging Angles</h2>
+            <p class="section-subtitle">Ad copy directions based on competitor weaknesses</p>
+
+            <div class="angles-grid">
+                <div class="angle-card">
+                    <strong>Against "Pricing Opacity"</strong>
+                    <span>"Conversation intelligence without the $50K platform fee surprise."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against "Complexity"</strong>
+                    <span>"Your reps automate CRM in minutes, not months of training."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against "Low Adoption"</strong>
+                    <span>"AI that works for reps, not just managers watching them."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against "Data Lock-In"</strong>
+                    <span>"Your call insights live in your CRM, not trapped in another platform."</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3 class="cta-title">Ready to Build This Campaign?</h3>
+            <p class="cta-text">15 minutes to walk through the targeting, messaging, and budget.</p>
+            <a href="https://42agency.com/contact" class="cta-button">Schedule a Strategy Call</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <img src="/42-logo.png" alt="42 Agency">
+            <p>B2B Performance Marketing</p>
+        </div>
+    </footer>
+</body>
+</html>
