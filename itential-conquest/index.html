@@ -4,19 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competitor Weakness Map: Ansible Tower | Itential</title>
+    <meta name="description" content="Conquest campaign intelligence for Itential. Real practitioner complaints about Ansible Tower from Hacker News, G2, and DevOps communities.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
     <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #ffffff;
-            color: #1a1a1a;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--black);
             line-height: 1.6;
         }
 
+        /* Global Header */
         .header {
-            border-bottom: 2px solid #1a1a1a;
+            border-bottom: 2px solid var(--black);
             padding: 0.75rem 1.5rem;
             background: white;
             position: sticky;
@@ -24,108 +53,192 @@
             z-index: 50;
         }
         .header-inner {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .logo img { height: 28px; width: auto; }
-        .badge {
-            background: #EF4444;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
         }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem !important;
+            background: var(--black) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        @media (max-width: 768px) { .nav { display: none; } }
 
+        /* Hero */
         .hero {
             background: #ffffff;
-            border-bottom: 2px solid #1a1a1a;
-            padding: 3rem 1.5rem;
-            text-align: center;
+            border-bottom: 2px solid var(--black);
+            padding: 3rem 2rem;
         }
-        .hero h1 {
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .prepared-for {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+        }
+        .prepared-for img { height: 24px; }
+        .prepared-for span { font-size: 0.85rem; color: var(--muted); }
+        h1 {
             font-size: 2.5rem;
             font-weight: 800;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .date { font-size: 0.875rem; color: var(--muted); }
+
+        .methodology {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+        }
+        .methodology-title {
+            font-weight: 700;
+            font-size: 0.875rem;
             margin-bottom: 0.5rem;
         }
-        .hero .subtitle {
-            color: #6b6b6b;
-            font-size: 1.1rem;
+        .methodology p { font-size: 0.85rem; color: var(--gray); }
+        .source-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
         }
-        .hero .date {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: #9a9a9a;
+        .source-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gray);
         }
 
-        .container {
-            max-width: 900px;
+        /* Main Content */
+        .main {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 2rem;
         }
 
-        .section {
-            margin-bottom: 3rem;
-        }
-        .section h2 {
+        .section-title {
             font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--muted);
             margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #1a1a1a;
         }
 
-        .complaint-card {
-            background: white;
-            border: 2px solid #1a1a1a;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 4px 4px 0px 0px #EF4444;
+        /* Quote Cards */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
-        .complaint-card .theme {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
+        .quote-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--red);
+        }
+        .quote-theme {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
         }
-        .complaint-card .theme::before {
-            content: "⚠️";
-        }
-        .complaint-card blockquote {
-            background: #fef2f2;
-            border-left: 3px solid #EF4444;
-            padding: 1rem;
-            margin: 0.75rem 0;
+        .quote-theme::before { content: "⚠️"; }
+        .quote-text {
+            font-size: 0.95rem;
             font-style: italic;
-            color: #4a4a4a;
-            border-radius: 0 8px 8px 0;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+            padding-left: 0.75rem;
+            border-left: 3px solid var(--red);
         }
-        .complaint-card .source {
-            font-size: 0.85rem;
-            color: #6b6b6b;
+        .quote-source {
+            font-size: 0.8rem;
+            color: var(--muted);
             text-align: right;
         }
-
-        .opportunity-box {
-            background: #DFFE68;
-            border: 2px solid #1a1a1a;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 6px 6px 0px 0px #1a1a1a;
+        .badge-hn {
+            display: inline-block;
+            background: #FF6600;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
         }
-        .opportunity-box h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
+        .badge-capterra {
+            display: inline-block;
+            background: #FF492C;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Opportunity Card */
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 2rem;
+        }
+        .card-accent {
+            background: var(--accent);
+            box-shadow: 6px 6px 0px 0px var(--black);
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
             margin-bottom: 1rem;
         }
         .stat-grid {
@@ -134,105 +247,111 @@
             gap: 1rem;
             margin: 1.5rem 0;
         }
+        @media (max-width: 600px) { .stat-grid { grid-template-columns: 1fr; } }
         .stat-card {
             background: white;
-            border: 2px solid #1a1a1a;
+            border: 2px solid var(--black);
             border-radius: 8px;
             padding: 1rem;
             text-align: center;
         }
-        .stat-card .number {
-            font-size: 1.75rem;
+        .stat-number {
+            font-size: 2rem;
             font-weight: 800;
-            color: #1a1a1a;
+            color: var(--black);
         }
-        .stat-card .label {
+        .stat-label {
             font-size: 0.85rem;
-            color: #6b6b6b;
+            color: var(--muted);
         }
-
         .campaign-concept {
             background: white;
-            border: 2px solid #1a1a1a;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
         }
         .campaign-concept h4 {
             font-weight: 700;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        .campaign-concept ul {
-            list-style: none;
-            padding: 0;
+            margin-bottom: 0.75rem;
         }
         .campaign-concept li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #eee;
             display: flex;
             gap: 0.5rem;
         }
-        .campaign-concept li:last-child {
-            border-bottom: none;
-        }
-        .campaign-concept .label {
-            font-weight: 600;
-            min-width: 80px;
-        }
+        .campaign-concept li:last-child { border-bottom: none; }
+        .campaign-concept .label { font-weight: 600; min-width: 60px; }
 
-        .cta-section {
-            background: #1a1a1a;
-            border: 2px solid #1a1a1a;
-            border-radius: 16px;
-            padding: 2.5rem;
-            text-align: center;
-            color: white;
-            margin-top: 3rem;
+        /* Messaging Angles */
+        .angles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
         }
-        .cta-section h3 {
+        .angle-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+        }
+        .angle-card strong { display: block; margin-bottom: 0.25rem; }
+        .angle-card span { color: var(--gray); font-size: 0.9rem; }
+
+        /* CTA */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .cta-title {
             font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
         }
-        .cta-section p {
-            color: #ccc;
+        .cta-text {
+            color: var(--gray);
             margin-bottom: 1.5rem;
         }
         .cta-button {
             display: inline-block;
-            background: #DFFE68;
-            color: #1a1a1a;
+            background: var(--black);
+            color: white;
             padding: 0.875rem 2rem;
             border-radius: 8px;
             font-weight: 700;
             text-decoration: none;
-            border: 2px solid #1a1a1a;
             transition: all 0.2s;
         }
         .cta-button:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 4px 4px 0px 0px #DFFE68;
+            box-shadow: 4px 4px 0px 0px var(--black);
         }
 
+        /* Footer */
         .footer {
-            border-top: 2px solid #1a1a1a;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            background: #f5f5f5;
+            border-top: 2px solid var(--black);
+            padding: 3rem 1.5rem;
+            background: var(--black);
+            margin-top: 2rem;
         }
-        .footer img {
-            height: 24px;
-            margin-bottom: 0.5rem;
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .footer p {
-            color: #6b6b6b;
-            font-size: 0.85rem;
-        }
-
+        .footer img { height: 24px; filter: brightness(0) invert(1); }
+        .footer p { color: #999; font-size: 0.85rem; }
         @media (max-width: 600px) {
-            .hero h1 { font-size: 1.75rem; }
-            .stat-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
         }
     </style>
 </head>
@@ -242,165 +361,144 @@
             <a href="/" class="logo">
                 <img src="/42-logo.png" alt="42 Agency">
             </a>
-            <span class="badge">Conquest Intel</span>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="/tools/">Tools</a>
+                <a href="/playbooks/">Playbooks</a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div style="margin-bottom: 1.5rem;">
-            <img src="https://www.itential.com/wp-content/uploads/2024/10/itential-logo-dark-hp.svg" alt="Itential" style="height: 36px;">
+        <div class="hero-content">
+            <div class="prepared-for">
+                <img src="https://www.itential.com/wp-content/uploads/2024/10/itential-logo-dark-hp.svg" alt="Itential">
+                <span>Prepared for Itential</span>
+            </div>
+            <h1>Competitor Weakness Map</h1>
+            <p class="subtitle">Ansible Tower / Red Hat Automation Platform</p>
+            <p class="date">February 2026</p>
+
+            <div class="methodology">
+                <div class="methodology-title">Why This Matters</div>
+                <p>Ansible Tower is the most widely deployed network automation tool in enterprise — which means there's a large pool of users experiencing its limitations daily. These pain points become your messaging angles for conquest campaigns targeting Ansible users on LinkedIn.</p>
+                <div class="source-tags">
+                    <span class="source-tag">Hacker News</span>
+                    <span class="source-tag">Reddit</span>
+                    <span class="source-tag">G2</span>
+                    <span class="source-tag">Capterra</span>
+                    <span class="source-tag">UpGuard</span>
+                </div>
+            </div>
         </div>
-        <h1>Competitor Weakness Map</h1>
-        <p class="subtitle">Ansible Tower / Red Hat Automation Platform</p>
-        <p class="date">Prepared for Itential • February 2026</p>
     </section>
 
-    <div class="container">
-        <section class="section" style="margin-bottom: 2rem;">
-            <div style="background: white; border: 2px solid #1a1a1a; border-radius: 12px; padding: 1.5rem; box-shadow: 4px 4px 0px 0px #3B82F6;">
-                <p style="font-size: 1.05rem; color: #4a4a4a; margin: 0;">
-                    <strong style="color: #1a1a1a;">Why this matters:</strong> Ansible Tower is the most widely deployed network automation tool in enterprise — which means there's a large pool of users experiencing its limitations daily. We scanned Hacker News, Reddit, G2, Capterra, and DevOps publications to surface the specific complaints practitioners have. These pain points become your messaging angles for conquest campaigns targeting Ansible users on LinkedIn.
-                </p>
+    <main class="main">
+        <section style="margin-bottom: 2rem;">
+            <h2 class="section-title">What Practitioners Are Saying</h2>
+            <p class="section-subtitle">Real complaints from DevOps engineers and network teams</p>
+
+            <div class="quotes-grid">
+                <div class="quote-card">
+                    <div class="quote-theme">YAML Hell & Complexity</div>
+                    <p class="quote-text">"It's a mess of YAML and what feels like a million YAML files that is always extremely hard to follow."</p>
+                    <p class="quote-text">"I've yet to start a job where people haven't regretted going towards Ansible."</p>
+                    <p class="quote-source"><span class="badge-hn">HN</span> Hacker News</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Idempotency is Broken</div>
+                    <p class="quote-text">"Writing idempotent Ansible takes as much discipline and intentionality as any other language."</p>
+                    <p class="quote-text">"The tool is fundamentally procedural rather than declarative, making idempotency harder by design."</p>
+                    <p class="quote-source"><span class="badge-hn">HN</span> Hacker News</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Easy to Convince Teams to Leave</div>
+                    <p class="quote-text">"Colleagues were not hard to convince to move away from Ansible once I show the competition."</p>
+                    <p class="quote-text">"Maintaining roles is a pain no one can alleviate."</p>
+                    <p class="quote-source"><span class="badge-hn">HN</span> DevOps Engineer (3 companies)</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Expensive + Limited Scope</div>
+                    <p class="quote-text">"Ansible Tower is expensive, especially for small and mid-sized businesses."</p>
+                    <p class="quote-text">"It can only help you with your Ansible workflows—preventing unified management of Terraform or Kubernetes."</p>
+                    <p class="quote-source"><span class="badge-capterra">Capterra</span> Spacelift</p>
+                </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2>What Users Are Saying</h2>
+        <section style="margin-bottom: 2rem;">
+            <h2 class="section-title">The Opportunity</h2>
+            <p class="section-subtitle">Targetable Ansible users on LinkedIn</p>
 
-            <div class="complaint-card">
-                <div class="theme">YAML Hell & Complexity</div>
-                <blockquote>
-                    "It's a mess of YAML and what feels like a million YAML files that is always extremely hard to follow."
-                </blockquote>
-                <blockquote>
-                    "I've yet to start a job where people haven't regretted going towards Ansible."
-                </blockquote>
-                <p class="source">— Hacker News</p>
-            </div>
-
-            <div class="complaint-card">
-                <div class="theme">Idempotency is Broken by Design</div>
-                <blockquote>
-                    "Writing idempotent Ansible takes as much discipline and intentionality as any other language."
-                </blockquote>
-                <blockquote>
-                    "The tool is fundamentally procedural rather than declarative, making idempotency harder by design."
-                </blockquote>
-                <p class="source">— Hacker News</p>
-            </div>
-
-            <div class="complaint-card">
-                <div class="theme">Easy to Convince Teams to Leave</div>
-                <blockquote>
-                    "Colleagues were not hard to convince to move away from Ansible once I show the competition."
-                </blockquote>
-                <blockquote>
-                    "Maintaining roles is a pain no one can alleviate."
-                </blockquote>
-                <p class="source">— Hacker News (DevOps engineer, 3 companies)</p>
-            </div>
-
-            <div class="complaint-card">
-                <div class="theme">Expensive + Limited to Ansible Only</div>
-                <blockquote>
-                    "Ansible Tower is expensive, especially for small and mid-sized businesses."
-                </blockquote>
-                <blockquote>
-                    "It can only help you with your Ansible workflows—preventing unified management of other infrastructure tools like Terraform or Kubernetes in one platform."
-                </blockquote>
-                <p class="source">— Spacelift Analysis</p>
-            </div>
-
-            <div class="complaint-card">
-                <div class="theme">UI & State Management Issues</div>
-                <blockquote>
-                    "Only 85% of what can be done from the command line can be accomplished via the UI."
-                </blockquote>
-                <blockquote>
-                    "Unlike competitors, Ansible doesn't maintain awareness of system dependencies. It simply executes tasks sequentially and stops upon completion or failure."
-                </blockquote>
-                <p class="source">— UpGuard</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>The Opportunity</h2>
-
-            <div class="opportunity-box">
-                <h3>Targetable Ansible Users on LinkedIn</h3>
-
+            <div class="card card-accent">
                 <div class="stat-grid">
                     <div class="stat-card">
-                        <div class="number">45K+</div>
-                        <div class="label">Network Engineers with Ansible skills</div>
+                        <div class="stat-number">45K+</div>
+                        <div class="stat-label">Network Engineers with Ansible skills</div>
                     </div>
                     <div class="stat-card">
-                        <div class="number">12K+</div>
-                        <div class="label">Infrastructure Directors at Enterprise</div>
+                        <div class="stat-number">12K+</div>
+                        <div class="stat-label">Infrastructure Directors at Enterprise</div>
                     </div>
                 </div>
 
-                <p style="font-size: 0.9rem; color: #4a4a4a; margin-top: 1rem;">
-                    <strong>Targeting approach:</strong> Skills-based targeting (Ansible, Automation, Network Engineering) + Enterprise company size (1,000+) + Senior/Director seniority
+                <p style="font-size: 0.9rem; color: var(--gray);">
+                    <strong>Targeting:</strong> Skills-based (Ansible, Automation, Network Engineering) + Enterprise (1,000+ employees) + Senior/Director seniority
                 </p>
 
                 <div class="campaign-concept">
                     <h4>Conquest Campaign Concept</h4>
-                    <ul>
-                        <li>
-                            <span class="label">Hook:</span>
-                            <span>"Network automation doesn't have to be this complex."</span>
-                        </li>
-                        <li>
-                            <span class="label">Pain:</span>
-                            <span>Target Ansible's learning curve + licensing costs</span>
-                        </li>
-                        <li>
-                            <span class="label">Proof:</span>
-                            <span>Itential's unified orchestration + faster TTV</span>
-                        </li>
-                        <li>
-                            <span class="label">CTA:</span>
-                            <span>"See the difference in 15 minutes"</span>
-                        </li>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li><span class="label">Hook:</span> "Network automation doesn't have to be this complex."</li>
+                        <li><span class="label">Pain:</span> Target Ansible's learning curve + licensing costs</li>
+                        <li><span class="label">Proof:</span> Itential's unified orchestration + faster TTV</li>
+                        <li><span class="label">CTA:</span> "See the difference in 15 minutes"</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2>Messaging Angles</h2>
+        <section>
+            <h2 class="section-title">Messaging Angles</h2>
+            <p class="section-subtitle">Ad copy directions based on competitor weaknesses</p>
 
-            <div style="display: grid; gap: 1rem;">
-                <div style="background: white; border: 2px solid #1a1a1a; border-radius: 8px; padding: 1rem; box-shadow: 3px 3px 0px 0px #1a1a1a;">
-                    <strong>Against "Expensive Licensing":</strong><br>
-                    <span style="color: #4a4a4a;">"Enterprise orchestration without enterprise pricing headaches."</span>
+            <div class="angles-grid">
+                <div class="angle-card">
+                    <strong>Against "YAML Hell"</strong>
+                    <span>"Network automation without the million-file nightmare."</span>
                 </div>
-                <div style="background: white; border: 2px solid #1a1a1a; border-radius: 8px; padding: 1rem; box-shadow: 3px 3px 0px 0px #1a1a1a;">
-                    <strong>Against "Steep Learning Curve":</strong><br>
-                    <span style="color: #4a4a4a;">"Your team automates in days, not months."</span>
+                <div class="angle-card">
+                    <strong>Against "Steep Learning Curve"</strong>
+                    <span>"Your team automates in days, not months."</span>
                 </div>
-                <div style="background: white; border: 2px solid #1a1a1a; border-radius: 8px; padding: 1rem; box-shadow: 3px 3px 0px 0px #1a1a1a;">
-                    <strong>Against "Limited Flexibility":</strong><br>
-                    <span style="color: #4a4a4a;">"One platform for Ansible, Terraform, and everything else."</span>
+                <div class="angle-card">
+                    <strong>Against "Expensive Licensing"</strong>
+                    <span>"Enterprise orchestration without the enterprise headache."</span>
                 </div>
-                <div style="background: white; border: 2px solid #1a1a1a; border-radius: 8px; padding: 1rem; box-shadow: 3px 3px 0px 0px #1a1a1a;">
-                    <strong>Against "UI Issues":</strong><br>
-                    <span style="color: #4a4a4a;">"100% of CLI power in a UI your team will actually use."</span>
+                <div class="angle-card">
+                    <strong>Against "Limited Scope"</strong>
+                    <span>"One platform for Ansible, Terraform, and everything else."</span>
                 </div>
             </div>
         </section>
 
         <div class="cta-section">
-            <h3>Ready to Build This Campaign?</h3>
-            <p>15 minutes to walk through the targeting, messaging, and budget.</p>
+            <h3 class="cta-title">Ready to Build This Campaign?</h3>
+            <p class="cta-text">15 minutes to walk through the targeting, messaging, and budget.</p>
             <a href="https://42agency.com/contact" class="cta-button">Schedule a Strategy Call →</a>
         </div>
-    </div>
+    </main>
 
     <footer class="footer">
-        <img src="/42-logo.png" alt="42 Agency">
-        <p>B2B Performance Marketing</p>
+        <div class="footer-inner">
+            <img src="/42-logo.png" alt="42 Agency">
+            <p>B2B Performance Marketing</p>
+        </div>
     </footer>
 </body>
 </html>
