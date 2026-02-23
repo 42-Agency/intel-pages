@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Weakness Map: Webflow & Squarespace | Wix</title>
+    <meta name="description" content="Conquest campaign intelligence for Wix. Real practitioner complaints about Webflow and Squarespace from Hacker News, G2, Reddit, and industry forums.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Global Header */
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem !important;
+            background: var(--black) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        /* Hero */
+        .hero {
+            background: #ffffff;
+            border-bottom: 2px solid var(--black);
+            padding: 3rem 2rem;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .prepared-for {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+        }
+        .prepared-for img { height: 28px; }
+        .prepared-for span { font-size: 0.85rem; color: var(--muted); }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .date { font-size: 0.875rem; color: var(--muted); }
+
+        .methodology {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+        }
+        .methodology-title {
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        .methodology p { font-size: 0.85rem; color: var(--gray); }
+        .source-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .source-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Competitor Tabs */
+        .competitor-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .competitor-tab {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .competitor-tab:hover {
+            background: var(--light-gray);
+        }
+        .competitor-tab.active {
+            background: var(--accent);
+        }
+        .competitor-tab .logo-small {
+            height: 16px;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* Quote Cards */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .quote-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--red);
+        }
+        .quote-theme {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .quote-theme::before { content: ""; }
+        .quote-text {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+            padding-left: 0.75rem;
+            border-left: 3px solid var(--red);
+        }
+        .quote-source {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-align: right;
+        }
+        .badge-hn {
+            display: inline-block;
+            background: #FF6600;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-g2 {
+            display: inline-block;
+            background: #FF492C;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-reddit {
+            display: inline-block;
+            background: #FF4500;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-forum {
+            display: inline-block;
+            background: #3B82F6;
+            color: white;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Competitor Section */
+        .competitor-section {
+            margin-bottom: 3rem;
+        }
+        .competitor-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--black);
+        }
+        .competitor-header img {
+            height: 32px;
+        }
+        .competitor-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        /* Opportunity Card */
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 2rem;
+        }
+        .card-accent {
+            background: var(--accent);
+            box-shadow: 6px 6px 0px 0px var(--black);
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 600px) { .stat-grid { grid-template-columns: 1fr; } }
+        .stat-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+        .campaign-concept {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .campaign-concept h4 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .campaign-concept li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .campaign-concept li:last-child { border-bottom: none; }
+        .campaign-concept .label { font-weight: 600; min-width: 60px; }
+
+        /* Messaging Angles */
+        .angles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .angle-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+        }
+        .angle-card strong { display: block; margin-bottom: 0.25rem; }
+        .angle-card span { color: var(--gray); font-size: 0.9rem; }
+
+        /* CTA */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .cta-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--black);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cta-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid var(--black);
+            padding: 3rem 1.5rem;
+            background: var(--black);
+            margin-top: 2rem;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer img { height: 24px; filter: brightness(0) invert(1); }
+        .footer p { color: #999; font-size: 0.85rem; }
+        @media (max-width: 600px) {
+            .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+
+        /* Pain indicator */
+        .pain-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--red);
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="/tools/">Tools</a>
+                <a href="/playbooks/">Playbooks</a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="prepared-for">
+                <img src="https://static.wixstatic.com/media/9ab0d1_e0ae32a55878420d9f5c777abc06e009~mv2.png/v1/fill/w_200,h_52,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Wix_logo.png" alt="Wix">
+                <span>Prepared for Wix</span>
+            </div>
+            <h1>Competitor Weakness Map</h1>
+            <p class="subtitle">Webflow & Squarespace - B2B/Enterprise Pain Points</p>
+            <p class="date">February 2026</p>
+
+            <div class="methodology">
+                <div class="methodology-title">Methodology</div>
+                <p>We analyzed practitioner sentiment across developer communities, review platforms, and industry forums to identify recurring frustrations with Webflow and Squarespace. These pain points represent conquest campaign opportunities - targeting users actively experiencing limitations with their current website builder.</p>
+                <div class="source-tags">
+                    <span class="source-tag">Hacker News</span>
+                    <span class="source-tag">Reddit</span>
+                    <span class="source-tag">G2</span>
+                    <span class="source-tag">Capterra</span>
+                    <span class="source-tag">Webflow Forum</span>
+                    <span class="source-tag">Industry Blogs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main">
+        <!-- WEBFLOW SECTION -->
+        <section class="competitor-section">
+            <div class="competitor-header">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="6" fill="#4353FF"/>
+                    <path d="M22.4 11.2C22.4 11.2 21.2 15.6 20.8 17.2C20.4 15.6 18.8 11.2 18.8 11.2C18.8 11.2 17.2 11.2 16.4 11.2C16.4 11.2 15.2 15.6 14.8 17.2C14.4 15.6 13.2 11.2 13.2 11.2H9.6L13.6 20.8H16L18 15.2L20 20.8H22.4L26.4 11.2H22.4Z" fill="white"/>
+                </svg>
+                <h3>Webflow</h3>
+                <span class="pain-indicator">High Pain</span>
+            </div>
+
+            <h2 class="section-title">What Practitioners Are Saying</h2>
+            <p class="section-subtitle">Real complaints from marketers, developers, and business owners</p>
+
+            <div class="quotes-grid">
+                <div class="quote-card">
+                    <div class="quote-theme">Vendor Lock-In Nightmare</div>
+                    <p class="quote-text">"This is vendor lock-in 101... I've always steered clear of VC-backed companies that offer all-in-one solutions that can't be migrated easily."</p>
+                    <p class="quote-text">"Webflow CMS data cannot be migrated. That's vendor lock in pure and simple."</p>
+                    <p class="quote-source"><span class="badge-hn">HN</span> Hacker News</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Pricing Shock & Hidden Costs</div>
+                    <p class="quote-text">"It's alllll fun and games until the SaaS you 100% rely on decides to become profitable."</p>
+                    <p class="quote-text">"The Pro plan has jumped from $35 to $60 per month - an extra $360 annually. Does that control need to cost 70% more?"</p>
+                    <p class="quote-source"><span class="badge-forum">Forum</span> Webflow Community</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Enterprise Pricing Trap</div>
+                    <p class="quote-text">"First rule of a dealer: do not bankrupt your customer. Their pricing needs to be more transparent and more gradual."</p>
+                    <p class="quote-text">"Shocking increase from $468/year to $15,000/year for exceeding bandwidth limits."</p>
+                    <p class="quote-source"><span class="badge-hn">HN</span> Hacker News</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Performance & Complexity Issues</div>
+                    <p class="quote-text">"The editor is painfully slow, even on a top-notch machine."</p>
+                    <p class="quote-text">"Many people don't realize how crippling and limiting committing to Webflow can be, and how much you end up hacking around it."</p>
+                    <p class="quote-source"><span class="badge-g2">G2</span> Verified Reviews</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SQUARESPACE SECTION -->
+        <section class="competitor-section">
+            <div class="competitor-header">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="6" fill="#000000"/>
+                    <path d="M16 8L8 16L16 24L24 16L16 8Z" fill="white"/>
+                </svg>
+                <h3>Squarespace</h3>
+                <span class="pain-indicator">Medium-High Pain</span>
+            </div>
+
+            <h2 class="section-title">What Practitioners Are Saying</h2>
+            <p class="section-subtitle">Real complaints from marketers, agencies, and business teams</p>
+
+            <div class="quotes-grid">
+                <div class="quote-card">
+                    <div class="quote-theme">SEO Limitations Kill Growth</div>
+                    <p class="quote-text">"Blog posts lack custom meta title support. You have no option to set a custom meta title for posts."</p>
+                    <p class="quote-text">"Squarespace isn't good for SEO if you're serious about optimizing. Its biggest weakness lies in limited control and technical restrictions."</p>
+                    <p class="quote-source"><span class="badge-g2">G2</span> SEO Professionals</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">No Live Support When You Need It</div>
+                    <p class="quote-text">"SquareSpace has no live support. Even though their chat mentions live support there is no way to obtain it - VERY FRUSTRATING when your website is having an issue."</p>
+                    <p class="quote-text">"Impossible to talk to their support team. Customer service is zero help and purely bots."</p>
+                    <p class="quote-source"><span class="badge-g2">G2</span> Capterra Reviews</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Scalability Ceiling for B2B</div>
+                    <p class="quote-text">"Squarespace is quite user-friendly enough for small enterprises but may not fit the scaling needs of larger organizations."</p>
+                    <p class="quote-text">"The commerce functionalities can be limiting for companies already in a growth phase."</p>
+                    <p class="quote-source"><span class="badge-g2">G2</span> Enterprise Reviews</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-theme">Template Lock-In & Rigidity</div>
+                    <p class="quote-text">"Over 35% of reviews mention that the most significant disadvantage is the limitations to customizing the templates."</p>
+                    <p class="quote-text">"The section-based editor, while structured, restricts design flexibility. You can't switch templates without manual adjustments."</p>
+                    <p class="quote-source"><span class="badge-forum">Forum</span> Design Community</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 2rem;">
+            <h2 class="section-title">The Opportunity</h2>
+            <p class="section-subtitle">Targetable Webflow & Squarespace users on LinkedIn</p>
+
+            <div class="card card-accent">
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">85K+</div>
+                        <div class="stat-label">Marketing Directors at companies using Webflow/Squarespace</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">42K+</div>
+                        <div class="stat-label">Web Developers & Designers seeking alternatives</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">28K+</div>
+                        <div class="stat-label">Agency Owners managing multiple client sites</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15K+</div>
+                        <div class="stat-label">Heads of Digital frustrated with current platform</div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--gray);">
+                    <strong>Targeting Strategy:</strong> Skills-based (Webflow, Squarespace) + Job titles (Marketing Director, Head of Digital, Web Developer) + Company size (50-5,000 employees) + Intent signals (following competitor pages, engaging with "website redesign" content)
+                </p>
+
+                <div class="campaign-concept">
+                    <h4>Conquest Campaign Concept</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li><span class="label">Hook:</span> "Tired of hitting your website builder's ceiling?"</li>
+                        <li><span class="label">Pain:</span> Target Webflow's pricing shock + Squarespace's SEO limits</li>
+                        <li><span class="label">Proof:</span> Wix Studio's enterprise features at predictable pricing</li>
+                        <li><span class="label">CTA:</span> "Migrate in days, not months. See how."</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Messaging Angles</h2>
+            <p class="section-subtitle">Ad copy directions based on competitor weaknesses</p>
+
+            <div class="angles-grid">
+                <div class="angle-card">
+                    <strong>Against Webflow's Pricing</strong>
+                    <span>"Enterprise-grade website builder. Not enterprise-grade invoice."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against Webflow's Lock-In</strong>
+                    <span>"Your website. Your data. Always exportable."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against Squarespace's SEO Limits</strong>
+                    <span>"Full SEO control. Custom meta titles, schema, everything."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against Squarespace's Support</strong>
+                    <span>"24/7 human support. Because bots can't fix production issues."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against Template Rigidity</strong>
+                    <span>"Design freedom without the Webflow learning curve."</span>
+                </div>
+                <div class="angle-card">
+                    <strong>Against Hidden Enterprise Pricing</strong>
+                    <span>"Transparent pricing that scales with your business, not against it."</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3 class="cta-title">Ready to Build This Campaign?</h3>
+            <p class="cta-text">15 minutes to walk through the targeting, creative, and budget allocation.</p>
+            <a href="https://42agency.com/contact" class="cta-button">Schedule a Strategy Call</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <img src="/42-logo.png" alt="42 Agency">
+            <p>B2B Performance Marketing</p>
+        </div>
+    </footer>
+</body>
+</html>
