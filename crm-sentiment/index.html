@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Market Sentiment Analysis 2026 | 42 Agency Intel</title>
+    <meta name="description" content="Comprehensive sentiment analysis of 10 CRM vendors including Attio, Folk, Close, Affinity, Day.ai, Monaco, Copper, Pipedrive, Salesforce, and HubSpot. Based on real practitioner feedback from Reddit, G2, Capterra, and more.">
+
+    <!-- OG Tags -->
+    <meta property="og:title" content="CRM Market Sentiment Analysis 2026">
+    <meta property="og:description" content="AI-native challengers vs legacy incumbents: what practitioners actually say about CRMs. 12 vendors analyzed.">
+    <meta property="og:image" content="https://intel.42agency.com/og-share.png">
+    <meta property="og:url" content="https://intel.42agency.com/crm-sentiment/">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+            --purple: #8B5CF6;
+            --teal: #14B8A6;
+            --pink: #EC4899;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Global Header */
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav a.active { color: var(--black); font-weight: 600; background: var(--accent); }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem !important;
+            background: var(--black) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover { background: #333 !important; }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        .hero {
+            background: #ffffff;
+            border-bottom: 2px solid var(--black);
+            padding: 3rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 999px;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .summary {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 800px;
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .stat-value.negative { color: var(--red); }
+        .stat-value.neutral { color: var(--muted); }
+        .stat-value.positive { color: var(--green); }
+        .stat-value.new { color: var(--purple); }
+
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-container {
+            position: relative;
+            height: 500px;
+        }
+
+        /* Vendor Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .comparison-table th {
+            text-align: left;
+            padding: 0.75rem 0.5rem;
+            border-bottom: 2px solid var(--black);
+            font-weight: 700;
+            background: var(--light-gray);
+            white-space: nowrap;
+        }
+
+        .comparison-table td {
+            padding: 0.75rem 0.5rem;
+            border-bottom: 1px solid #e5e5e5;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:hover td {
+            background: #fafafa;
+        }
+
+        .vendor-name {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .vendor-badge {
+            font-size: 0.6rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 999px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-new { background: var(--purple); color: white; }
+        .badge-rising { background: var(--teal); color: white; }
+        .badge-incumbent { background: var(--gray); color: white; }
+        .badge-adjacent { background: var(--pink); color: white; }
+
+        .rating-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rating-stars {
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        .sentiment-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e5e5;
+            width: 80px;
+            overflow: hidden;
+        }
+
+        .sentiment-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .sentiment-positive { background: var(--green); }
+        .sentiment-mixed { background: var(--orange); }
+        .sentiment-negative { background: var(--red); }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            background: white;
+            transition: all 0.15s;
+        }
+
+        .tab:hover {
+            background: var(--light-gray);
+        }
+
+        .tab.active {
+            background: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Quote Cards */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quote-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .quote-card.positive { box-shadow: 4px 4px 0px 0px var(--green); }
+        .quote-card.negative { box-shadow: 4px 4px 0px 0px var(--red); }
+        .quote-card.neutral { box-shadow: 4px 4px 0px 0px var(--orange); }
+
+        .quote-icon {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .quote-text {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--black);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .quote-source {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .quote-link {
+            font-size: 0.75rem;
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .quote-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Key Insights */
+        .insight-box {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .insight-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .insight-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .insight-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .insight-list li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            font-weight: 800;
+        }
+
+        /* Themes Section */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .theme-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+        }
+
+        .theme-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--black);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #333;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid var(--black);
+            background: var(--black);
+            padding: 4rem 1.5rem 2rem;
+            margin-top: 2rem;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand img { height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.85rem; color: #999; line-height: 1.6; }
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+        .footer-col a:hover { color: white; }
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .footer-bottom a { color: #666; text-decoration: none; }
+        .footer-bottom a:hover { color: #999; }
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+
+        /* Category labels */
+        .category-label {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.25rem;
+        }
+        .cat-ai { background: #F3E8FF; color: #7C3AED; }
+        .cat-smb { background: #DBEAFE; color: #2563EB; }
+        .cat-vc { background: #D1FAE5; color: #059669; }
+        .cat-enrichment { background: #FCE7F3; color: #DB2777; }
+        .cat-enterprise { background: #FEF3C7; color: #D97706; }
+    </style>
+</head>
+<body>
+    <!-- GTM noscript -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="/tools/">Tools</a>
+                <a href="/playbooks/">Playbooks</a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Market Intel - Updated February 2026
+            </div>
+            <h1>CRM Market Sentiment Analysis 2026</h1>
+            <p class="summary">
+                The CRM landscape is fragmenting. AI-native challengers like Attio, Day.ai, and Monaco are positioning against legacy incumbents,
+                while specialized players like Folk (relationship-focused), Close (sales-first), and Affinity (VC/PE) carve out niches.
+                Based on 300+ data points from Reddit, G2, Capterra, TrustRadius, Substack, and LinkedIn.
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b6b6b;">
+                February 2026 | 10 vendors analyzed | 300+ data points collected
+            </p>
+        </div>
+    </section>
+
+    <main class="main">
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value">10</div>
+                <div class="stat-label">Vendors Analyzed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value new">6</div>
+                <div class="stat-label">New-Gen CRMs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value positive">+0.38</div>
+                <div class="stat-label">Avg New-Gen Sentiment</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value neutral">+0.15</div>
+                <div class="stat-label">Avg Incumbent Sentiment</div>
+            </div>
+        </div>
+
+        <!-- Key Insight Box -->
+        <div class="insight-box">
+            <div class="insight-title">Key Market Insight</div>
+            <p style="margin-bottom: 1rem;">
+                The CRM market is splitting into <strong>three tiers</strong>: AI-native platforms built from scratch (Attio, Day.ai, Monaco, Aurasell),
+                specialized point solutions (Close for sales, Folk for relationships, Affinity for dealmakers), and legacy incumbents adding AI bolt-ons.
+                The highest sentiment scores now belong to <strong>Attio (+0.45)</strong> and <strong>Close (+0.42)</strong> - both praised for doing one thing exceptionally well.
+            </p>
+            <ul class="insight-list">
+                <li><strong>Attio</strong> leads with 4.8/5 on G2 - "Notion-like flexibility meets real CRM"</li>
+                <li><strong>Close</strong> dominates sales-focused teams: built-in calling, SMS, highest ease-of-use scores</li>
+                <li><strong>Folk</strong> wins solopreneurs and small teams who outgrew spreadsheets</li>
+                <li><strong>HubSpot</strong> faces pricing backlash: "Starter to Pro jump is insane"</li>
+                <li><strong>Salesforce</strong> lock-in is real: "I haven't heard of a single successful migration away"</li>
+            </ul>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-grid">
+            <div class="card">
+                <h2 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 20V10M12 20V4M6 20v-6"/>
+                    </svg>
+                    Net Sentiment Score by Vendor
+                </h2>
+                <div class="chart-container">
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    G2 Ratings vs Review Volume
+                </h2>
+                <div class="chart-container">
+                    <canvas id="ratingsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="card" style="overflow-x: auto;">
+            <h2 class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="3" y1="9" x2="21" y2="9"/>
+                    <line x1="9" y1="21" x2="9" y2="9"/>
+                </svg>
+                Vendor Comparison Overview
+            </h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Vendor</th>
+                        <th>Type</th>
+                        <th>G2 Rating</th>
+                        <th>Net Sentiment</th>
+                        <th>Top Praise</th>
+                        <th>Top Criticism</th>
+                        <th>Starting Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- NEW-GEN AI-NATIVE -->
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                Attio
+                                <span class="vendor-badge badge-rising">Rising</span>
+                            </div>
+                            <span class="category-label cat-ai">AI-Native</span>
+                        </td>
+                        <td>Object-Based CRM</td>
+                        <td><span class="rating-stars">4.8/5</span> <span style="color: var(--muted); font-size: 0.75rem;">(18)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-positive" style="width: 90%;"></div></div>
+                            <span style="font-weight: 600; color: var(--green);">+0.45</span>
+                        </td>
+                        <td>Notion-like flexibility, auto enrichment</td>
+                        <td>Limited reporting, early integrations</td>
+                        <td>Free / $29/user</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                Day.ai
+                                <span class="vendor-badge badge-new">New</span>
+                            </div>
+                            <span class="category-label cat-ai">AI-Native</span>
+                        </td>
+                        <td>Zero-Entry CRM</td>
+                        <td><span class="rating-stars">N/A</span> <span style="color: var(--muted); font-size: 0.75rem;">(Too new)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-positive" style="width: 80%;"></div></div>
+                            <span style="font-weight: 600; color: var(--green);">+0.40</span>
+                        </td>
+                        <td>Zero manual data entry, auto notes</td>
+                        <td>Limited integrations, startup risk</td>
+                        <td>$40/user/mo</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                Monaco
+                                <span class="vendor-badge badge-new">New</span>
+                            </div>
+                            <span class="category-label cat-ai">AI-Native</span>
+                        </td>
+                        <td>AI Revenue Platform</td>
+                        <td><span class="rating-stars">N/A</span> <span style="color: var(--muted); font-size: 0.75rem;">(Beta)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-positive" style="width: 75%;"></div></div>
+                            <span style="font-weight: 600; color: var(--green);">+0.30</span>
+                        </td>
+                        <td>White-glove onboarding, all-in-one</td>
+                        <td>Startup-only focus, no public reviews</td>
+                        <td>Custom (beta)</td>
+                    </tr>
+                    <!-- SPECIALIZED NEW-GEN -->
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                Close
+                                <span class="vendor-badge badge-rising">Rising</span>
+                            </div>
+                            <span class="category-label cat-smb">Sales-First</span>
+                        </td>
+                        <td>Sales CRM + Dialer</td>
+                        <td><span class="rating-stars">4.7/5</span> <span style="color: var(--muted); font-size: 0.75rem;">(1,698)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-positive" style="width: 85%;"></div></div>
+                            <span style="font-weight: 600; color: var(--green);">+0.42</span>
+                        </td>
+                        <td>Built-in calling/SMS, fast to set up</td>
+                        <td>Limited marketing features, scaling cost</td>
+                        <td>$19/user/mo</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                Folk
+                                <span class="vendor-badge badge-rising">Rising</span>
+                            </div>
+                            <span class="category-label cat-smb">Relationship</span>
+                        </td>
+                        <td>Lightweight CRM</td>
+                        <td><span class="rating-stars">4.7/5</span> <span style="color: var(--muted); font-size: 0.75rem;">(313)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-positive" style="width: 78%;"></div></div>
+                            <span style="font-weight: 600; color: var(--green);">+0.35</span>
+                        </td>
+                        <td>Simple, beautiful UI, easy setup</td>
+                        <td>Limited automation, not for complex sales</td>
+                        <td>Free / $20/user</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                Affinity
+                                <span class="vendor-badge badge-rising">Rising</span>
+                            </div>
+                            <span class="category-label cat-vc">VC/PE</span>
+                        </td>
+                        <td>Relationship Intelligence</td>
+                        <td><span class="rating-stars">4.4/5</span> <span style="color: var(--muted); font-size: 0.75rem;">(67)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-positive" style="width: 72%;"></div></div>
+                            <span style="font-weight: 600; color: var(--green);">+0.32</span>
+                        </td>
+                        <td>Auto data capture, relationship mapping</td>
+                        <td>Premium pricing, niche focus</td>
+                        <td>Custom pricing</td>
+                    </tr>
+                    <!-- INCUMBENTS -->
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                Pipedrive
+                                <span class="vendor-badge badge-incumbent">Incumbent</span>
+                            </div>
+                            <span class="category-label cat-smb">SMB Sales</span>
+                        </td>
+                        <td>Sales CRM</td>
+                        <td><span class="rating-stars">4.3/5</span> <span style="color: var(--muted); font-size: 0.75rem;">(3,000+)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-positive" style="width: 70%;"></div></div>
+                            <span style="font-weight: 600; color: var(--green);">+0.28</span>
+                        </td>
+                        <td>Simple visual pipeline, fast setup</td>
+                        <td>Limited marketing, basic reporting</td>
+                        <td>$24/user/mo</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                Copper
+                                <span class="vendor-badge badge-incumbent">Incumbent</span>
+                            </div>
+                            <span class="category-label cat-smb">Google CRM</span>
+                        </td>
+                        <td>Google Workspace CRM</td>
+                        <td><span class="rating-stars">4.5/5</span> <span style="color: var(--muted); font-size: 0.75rem;">(1,100+)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-positive" style="width: 60%;"></div></div>
+                            <span style="font-weight: 600; color: var(--green);">+0.18</span>
+                        </td>
+                        <td>Deep Google integration</td>
+                        <td>Google-only, limited for complex needs</td>
+                        <td>$9/user/mo</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                HubSpot
+                                <span class="vendor-badge badge-incumbent">Incumbent</span>
+                            </div>
+                            <span class="category-label cat-enterprise">All-in-One</span>
+                        </td>
+                        <td>All-in-One CRM</td>
+                        <td><span class="rating-stars">4.5/5</span> <span style="color: var(--muted); font-size: 0.75rem;">(12,300+)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-mixed" style="width: 55%;"></div></div>
+                            <span style="font-weight: 600; color: var(--orange);">+0.12</span>
+                        </td>
+                        <td>Free tier, marketing integration</td>
+                        <td>Pricing cliff, feature paywalls</td>
+                        <td>Free / $15/user</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="vendor-name">
+                                Salesforce
+                                <span class="vendor-badge badge-incumbent">Incumbent</span>
+                            </div>
+                            <span class="category-label cat-enterprise">Enterprise</span>
+                        </td>
+                        <td>Enterprise CRM</td>
+                        <td><span class="rating-stars">4.4/5</span> <span style="color: var(--muted); font-size: 0.75rem;">(23,000+)</span></td>
+                        <td>
+                            <div class="sentiment-bar"><div class="sentiment-fill sentiment-mixed" style="width: 50%;"></div></div>
+                            <span style="font-weight: 600; color: var(--orange);">+0.05</span>
+                        </td>
+                        <td>Customization, ecosystem, scale</td>
+                        <td>Complexity, requires admin, lock-in</td>
+                        <td>$25/user/mo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Deep Dives by Vendor -->
+        <h2 class="section-title" style="margin-top: 2rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            What Practitioners Are Saying
+        </h2>
+
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('attio')">Attio</div>
+            <div class="tab" onclick="showTab('close')">Close</div>
+            <div class="tab" onclick="showTab('folk')">Folk</div>
+            <div class="tab" onclick="showTab('affinity')">Affinity</div>
+            <div class="tab" onclick="showTab('dayai')">Day.ai</div>
+            <div class="tab" onclick="showTab('monaco')">Monaco</div>
+            <div class="tab" onclick="showTab('pipedrive')">Pipedrive</div>
+            <div class="tab" onclick="showTab('hubspot')">HubSpot</div>
+            <div class="tab" onclick="showTab('salesforce')">Salesforce</div>
+        </div>
+
+        <!-- Attio Tab -->
+        <div id="attio" class="tab-content active">
+            <div class="card">
+                <h3 class="card-title" style="color: var(--teal);">Attio - The Object-Based CRM for Modern GTM Teams</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray);">
+                    <strong>Founded:</strong> 2019 | <strong>Funding:</strong> $52M Series B (Aug 2025) |
+                    <strong>G2:</strong> 4.8/5 (18 reviews) | <strong>TrustRadius:</strong> 8.6/10
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Attio positions itself as the "AI-native CRM for modern GTM teams." Its object-based data model lets you customize everything -
+                    think Notion flexibility meets real CRM functionality. Best for startups under 50 employees who want flexibility without Salesforce complexity.
+                    <strong>Free tier for up to 3 users</strong> makes it easy to try.
+                </p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"GTM operators are builders now. They architect workflows, stitch APIs together. The tools they have today were built for a different era. Attio is built for the person doing the work, not just the person managing it."</p>
+                        <p class="quote-source">Alex (Attio Co-founder) - Reddit AMA</p>
+                        <a href="https://www.reddit.com/r/CRM/comments/1pd8fde/im_the_cofounder_of_attio_crm_we_just_raised_a_50/" target="_blank" class="quote-link">View thread</a>
+                    </div>
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Attio is much more customizable. I really liked it for the sales pipeline visualizations and the automated report builders. I prefer that over HubSpot."</p>
+                        <p class="quote-source">TrustRadius Comparison</p>
+                        <a href="https://www.trustradius.com/compare-products/hubspot-crm-vs-monday-crm" target="_blank" class="quote-link">Read comparison</a>
+                    </div>
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Attio excels for early-stage startups and lean teams (under 50 employees) who prioritize speed, flexibility, and modern UX. Most companies we work with start on Attio and graduate to HubSpot as they scale."</p>
+                        <p class="quote-source">Ziellab RevOps Guide</p>
+                        <a href="https://ziellab.com/post/hubspot-vs-attio-the-honest-2026-comparison-for-revops-growth" target="_blank" class="quote-link">Read analysis</a>
+                    </div>
+                </div>
+
+                <div class="themes-grid" style="margin-top: 1.5rem;">
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--green);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Praised For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Notion-like flexibility</li>
+                            <li>Built-in data enrichment</li>
+                            <li>Beautiful, fast UI</li>
+                            <li>Free tier for 3 users</li>
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--red);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                            Watch Out For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Limited reporting vs HubSpot</li>
+                            <li>Fewer integrations (growing)</li>
+                            <li>May outgrow at 50+ employees</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Close Tab -->
+        <div id="close" class="tab-content">
+            <div class="card">
+                <h3 class="card-title" style="color: var(--blue);">Close - The Sales Team's Favorite CRM</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray);">
+                    <strong>Founded:</strong> 2013 | <strong>G2:</strong> 4.7/5 (1,698 reviews) | <strong>Capterra:</strong> 4.7/5 (163 reviews) |
+                    <strong>TrustRadius:</strong> 9.0/10 | <strong>Pricing:</strong> $19/user/mo
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Close is the CRM built by salespeople, for salespeople. Its killer feature: <strong>built-in VoIP calling and SMS</strong> without
+                    needing separate tools. Highest ease-of-use scores among all CRMs reviewed. Best for SMB sales teams who live on the phone and
+                    want everything in one place.
+                </p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Excellent software to increase sales and follow up with existing and new customers. Email and SMS handling are really easy for the sales team, managing leads is really great, and Close merges duplicate leads automatically."</p>
+                        <p class="quote-source">TrustRadius Review</p>
+                        <a href="https://www.trustradius.com/products/close-crm/reviews" target="_blank" class="quote-link">Read reviews</a>
+                    </div>
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Close is the top CRM for small businesses and startups looking to win more deals in less time. Your team can communicate with prospects using built-in SMS, email, and calling. All calls are automatically logged."</p>
+                        <p class="quote-source">Slashdot Comparison</p>
+                        <a href="https://slashdot.org/software/comparison/Close-vs-Cloze-vs-HubSpot-CRM/" target="_blank" class="quote-link">View comparison</a>
+                    </div>
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"The only real downside is the pricing - once you start scaling and need more advanced features, it can get expensive. Also, some customization options feel limited unless you upgrade to higher tiers."</p>
+                        <p class="quote-source">G2 Review</p>
+                        <a href="https://www.g2.com/compare/close-vs-hubspot-sales-hub" target="_blank" class="quote-link">View comparison</a>
+                    </div>
+                </div>
+
+                <div class="themes-grid" style="margin-top: 1.5rem;">
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--green);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Praised For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Built-in VoIP + SMS</li>
+                            <li>Highest ease-of-use scores</li>
+                            <li>Auto call logging</li>
+                            <li>Power Dialer feature</li>
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--red);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                            Watch Out For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>No marketing automation</li>
+                            <li>Reporting less robust</li>
+                            <li>Call feature needs improvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Folk Tab -->
+        <div id="folk" class="tab-content">
+            <div class="card">
+                <h3 class="card-title" style="color: var(--purple);">Folk - The CRM for Relationship Builders</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray);">
+                    <strong>Founded:</strong> 2020 | <strong>G2:</strong> 4.7/5 (313 reviews) |
+                    <strong>Pricing:</strong> Free tier / $20/user/mo
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Folk is what happens when you want more than a spreadsheet but less than HubSpot. Perfect for solopreneurs, agencies, and small teams
+                    focused on <strong>relationship management over complex sales pipelines</strong>. Used by 600+ agencies worldwide. Often compared to
+                    Notion or Airtable, but with real CRM features like email ingestion.
+                </p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Folk is one of the best CRMs on the market if you are an individual or small team who is heavily focused on relationships and contact management. If you've used Notion or spreadsheets, folk is a perfect introduction into using a specialized CRM."</p>
+                        <p class="quote-source">Efficient App Review</p>
+                        <a href="https://efficient.app/apps/folk" target="_blank" class="quote-link">Read review</a>
+                    </div>
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Do consider folk CRM if you're a solopreneur or small team and want to focus on contact and relationship management. Don't use freebies like Airtable or Notion as a CRM - they won't ingest emails."</p>
+                        <p class="quote-source">Efficient App YouTube</p>
+                        <a href="https://www.youtube.com/watch?v=JTHFTryAwSU" target="_blank" class="quote-link">Watch video</a>
+                    </div>
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"The best alternatives to folk are Coda, Airtable, and Attio. We believe real relationships close winning deals - folk is a CRM to build genuine client connections, simple to use and easy to integrate."</p>
+                        <p class="quote-source">Product Hunt</p>
+                        <a href="https://www.producthunt.com/products/folk-2/alternatives" target="_blank" class="quote-link">View alternatives</a>
+                    </div>
+                </div>
+
+                <div class="themes-grid" style="margin-top: 1.5rem;">
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--green);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Praised For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Beautiful, simple UI</li>
+                            <li>Email ingestion (unlike Notion)</li>
+                            <li>Perfect for agencies</li>
+                            <li>Affordable pricing</li>
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--red);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                            Watch Out For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Limited workflow automation</li>
+                            <li>Not for complex sales cycles</li>
+                            <li>Basic reporting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Affinity Tab -->
+        <div id="affinity" class="tab-content">
+            <div class="card">
+                <h3 class="card-title" style="color: var(--green);">Affinity - The Dealmaker's CRM</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray);">
+                    <strong>Founded:</strong> 2014 | <strong>Funding:</strong> $120M total |
+                    <strong>G2:</strong> 4.4/5 (67 reviews) | <strong>Specialty:</strong> VC, PE, Investment Banking
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Affinity is the CRM purpose-built for relationship-driven dealmakers in VC, private equity, and investment banking.
+                    Its <strong>relationship intelligence</strong> auto-captures interactions from email and calendar, mapping your network automatically.
+                    Premium pricing for a specialized audience. Co-founded by Joe Lonsdale (also co-founded Palantir).
+                </p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"For firms drowning in manual data entry, Affinity promises liberation. Its AI-driven features address the unique pain points of dealmakers - automatically capturing and organizing every interaction."</p>
+                        <p class="quote-source">CRMs Reviewed</p>
+                        <a href="https://crmsreviewed.com/affinity-crm-review-october-2025/" target="_blank" class="quote-link">Read review</a>
+                    </div>
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"We're looking at HubSpot, Affinity, 4Degrees, Attio, and Pipedrive for VC dealflow. Affinity's relationship mapping is unmatched for tracking who knows who in your network."</p>
+                        <p class="quote-source">Reddit r/venturecapital</p>
+                        <a href="https://www.reddit.com/r/venturecapital/comments/rz05zo/best_crms_and_internal_managment_to_use_in_vc/" target="_blank" class="quote-link">View thread</a>
+                    </div>
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Affinity holds a tiny 0.02% share in the broader CRM space but targets relationship-driven industries specifically. For others outside VC/PE, it might feel like an expensive specialization."</p>
+                        <p class="quote-source">CRMs Reviewed Analysis</p>
+                        <a href="https://crmsreviewed.com/affinity-crm-review-october-2025/" target="_blank" class="quote-link">Read analysis</a>
+                    </div>
+                </div>
+
+                <div class="themes-grid" style="margin-top: 1.5rem;">
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--green);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Praised For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Auto relationship mapping</li>
+                            <li>Zero manual data entry</li>
+                            <li>Network visualization</li>
+                            <li>Intro path discovery</li>
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--red);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                            Watch Out For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Premium pricing (custom)</li>
+                            <li>Niche focus (VC/PE only)</li>
+                            <li>Not for traditional sales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day.ai Tab -->
+        <div id="dayai" class="tab-content">
+            <div class="card">
+                <h3 class="card-title" style="color: var(--purple);">Day.ai - AI-Native CRM with Zero Data Entry</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray);">
+                    <strong>Founded:</strong> 2023 | <strong>Funding:</strong> $4M Seed (Sequoia, Pillar VC) |
+                    <strong>Founders:</strong> Ex-HubSpot executives (Christopher O'Donnell, former CPO)
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Day.ai positions itself as "The CRM for AI Native Companies" - combining a meeting assistant, CRM, and
+                    knowledge base into one platform. The core promise: <strong>zero manual data entry</strong>. It automatically
+                    captures conversations, generates meeting summaries, and updates the CRM without user intervention.
+                </p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"For most of us in the sales and marketing trenches, CRM brings on a feeling of dread. It's the digital junk drawer where client notes go to die. Day.ai is a completely different beast."</p>
+                        <p class="quote-source">DeClom Review</p>
+                        <a href="https://declom.com/day.ai" target="_blank" class="quote-link">Read full review</a>
+                    </div>
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Traditional CRMs require rigid, manual data entry. Day.ai replaces outdated CRM models with an adaptive, AI-first approach that automatically captures and organizes customer interactions."</p>
+                        <p class="quote-source">GTM with AI Newsletter</p>
+                        <a href="https://www.gtmwithai.co/p/day-ai" target="_blank" class="quote-link">Read full analysis</a>
+                    </div>
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Day.ai automates tedious workflows, empowering teams to focus on high-impact work. With intelligent task prioritization and automated data entry, it delivers a 25% boost in productivity."</p>
+                        <p class="quote-source">AI Pulse Review</p>
+                        <a href="https://www.aipulse.fyi/review/enterprise-startups/day" target="_blank" class="quote-link">View rating</a>
+                    </div>
+                </div>
+
+                <div class="themes-grid" style="margin-top: 1.5rem;">
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--green);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Praised For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Zero manual data entry</li>
+                            <li>Automatic meeting notes</li>
+                            <li>Ex-HubSpot founder credibility</li>
+                            <li>Knowledge base integration</li>
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--red);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                            Watch Out For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Early stage product</li>
+                            <li>Limited integrations vs incumbents</li>
+                            <li>No public reviews on G2/Capterra yet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monaco Tab -->
+        <div id="monaco" class="tab-content">
+            <div class="card">
+                <h3 class="card-title" style="color: var(--purple);">Monaco - AI Revenue Platform for Startups</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray);">
+                    <strong>Launched:</strong> February 2026 | <strong>Funding:</strong> $35M Series A (Founders Fund) |
+                    <strong>Founders:</strong> Sam Blond (ex-Brex CRO), Abishek Viswanathan (ex-Apollo CPO)
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Monaco emerged from stealth as "the first revenue engine for startups" - an all-in-one platform that replaces
+                    legacy CRM and fragmented sales tools. Unique approach: <strong>human-in-the-loop</strong> where AI agents
+                    work alongside experienced sales professionals who validate and guide the automation.
+                </p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Monaco solves go-to-market risk for founders without sales backgrounds. This is a direct challenge to the legacy CRMs - Salesforce, HubSpot, Zoho, Pipedrive - that have dominated for years."</p>
+                        <p class="quote-source">Garry Tan (Monaco Investor, Y Combinator CEO)</p>
+                        <a href="https://www.monaco.com/" target="_blank" class="quote-link">Visit Monaco</a>
+                    </div>
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Monaco's CRM isn't Salesforce with AI sprinkled on top. It's built from the ground up to be intelligent: auto-logging interactions, surfacing insights, and managing pipeline with minimal manual input."</p>
+                        <p class="quote-source">MarketBetter Review</p>
+                        <a href="https://marketbetter.ai/blog/monaco-sales-platform-review-2026/" target="_blank" class="quote-link">Read full review</a>
+                    </div>
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"The founding team's deep sales pedigree shapes Monaco's core bet: that today's dominant CRM platforms were built for a human-operated world and are ill-suited for one where AI agents execute the work."</p>
+                        <p class="quote-source">Tea4Tech</p>
+                        <a href="https://www.tea4tech.com/saas/monaco-launches-ai-native-crm-to-take-on-salesforce" target="_blank" class="quote-link">Read analysis</a>
+                    </div>
+                </div>
+
+                <div class="themes-grid" style="margin-top: 1.5rem;">
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--green);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Praised For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>White-glove onboarding</li>
+                            <li>All-in-one replaces tool sprawl</li>
+                            <li>Human-in-the-loop quality control</li>
+                            <li>Star-studded investor backing</li>
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--red);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                            Watch Out For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Startup-focused (seed/Series A only)</li>
+                            <li>No public reviews yet</li>
+                            <li>Opaque pricing (demo required)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pipedrive Tab -->
+        <div id="pipedrive" class="tab-content">
+            <div class="card">
+                <h3 class="card-title" style="color: var(--green);">Pipedrive - Highest Rated SMB Incumbent</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray);">
+                    <strong>Founded:</strong> 2010 | <strong>G2:</strong> 4.3/5 (3,000+ reviews) | <strong>Capterra:</strong> 4.5/5 (3,060 reviews) |
+                    <strong>TrustRadius:</strong> 8.3/10
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Pipedrive consistently wins praise for being <strong>simple and sales-focused</strong>. Built by salespeople for salespeople,
+                    it's often recommended as the best CRM for small teams who want to get up and running fast without drowning in features.
+                </p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Pipedrive: Super simple, built for sales teams, and easy to use. We have been able to create properties, link to web forms, and generate automations within the first couple of days."</p>
+                        <p class="quote-source">Reddit r/CRM</p>
+                        <a href="https://www.reddit.com/r/CRM/comments/1jlzpjp/hubspot_vs_salesforce_vs_pipedrive_which_crm_is/" target="_blank" class="quote-link">View thread</a>
+                    </div>
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"We use Pipedrive in our organization to manage customer relationships and track sales. It's very customizable, easy to set up, and we've been using it for over 10 years now."</p>
+                        <p class="quote-source">TrustRadius Review</p>
+                        <a href="https://www.trustradius.com/products/pipedrive/reviews" target="_blank" class="quote-link">Read reviews</a>
+                    </div>
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Pipedrive lacks the automation and reporting depth needed for scaling. But it works significantly better than Monday. We trialed Monday and made a quick switch to Pipedrive."</p>
+                        <p class="quote-source">TrustRadius Comparison</p>
+                        <a href="https://www.trustradius.com/compare-products/monday-vs-pipedrive" target="_blank" class="quote-link">View comparison</a>
+                    </div>
+                </div>
+
+                <div class="themes-grid" style="margin-top: 1.5rem;">
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--green);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Praised For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Visual pipeline management</li>
+                            <li>Fast setup and easy learning curve</li>
+                            <li>Highly customizable</li>
+                            <li>Affordable pricing ($24/mo start)</li>
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--red);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                            Watch Out For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Limited marketing automation</li>
+                            <li>Reporting less robust than competitors</li>
+                            <li>10k/day API rate limit issues</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HubSpot Tab -->
+        <div id="hubspot" class="tab-content">
+            <div class="card">
+                <h3 class="card-title" style="color: var(--orange);">HubSpot CRM - Free Start, Expensive Scale</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray);">
+                    <strong>G2:</strong> 4.5/5 (12,300+ reviews) | <strong>Capterra:</strong> 4.5/5 | <strong>TrustRadius:</strong> 8.4/10 |
+                    <strong>Pricing:</strong> Free tier available, Pro from $800+/mo
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    HubSpot's free CRM is beloved for getting started, but <strong>pricing becomes a major pain point at scale</strong>.
+                    The jump from Starter to Professional pricing is a consistent complaint. Marketing automation integration is a strength,
+                    but the ecosystem is fragmenting as new challengers emerge.
+                </p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"HubSpot: Great for marketing and automation. Free tier is solid. It worked well collaboratively, allowing my team to work together to quickly ascertain the status of a given client."</p>
+                        <p class="quote-source">Reddit r/CRM</p>
+                        <a href="https://www.reddit.com/r/CRM/comments/1jlzpjp/hubspot_vs_salesforce_vs_pipedrive_which_crm_is/" target="_blank" class="quote-link">View thread</a>
+                    </div>
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Am I the only one who finds HubSpot's jump from Starter to Pro pricing utterly absurd? My sales rep quoted $17,500/year - a massive leap from our current $250/year Starter plan."</p>
+                        <p class="quote-source">Reddit r/hubspot</p>
+                        <a href="https://www.reddit.com/r/hubspot/comments/1krc67q/am_i_the_only_one_who_finds_hubspots_jump_from/" target="_blank" class="quote-link">View thread</a>
+                    </div>
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"You do NOT have the infrastructure or team to switch CRM systems. No dedicated admin? You'll have the same issues with HubSpot. No data-quality procedures? Same issues. Moving sales to HubSpot will be a challenge."</p>
+                        <p class="quote-source">Reddit r/hubspot</p>
+                        <a href="https://www.reddit.com/r/hubspot/comments/1iscbx0/anyone_here_switch_crms_after_years_on_one_system/" target="_blank" class="quote-link">View thread</a>
+                    </div>
+                </div>
+
+                <div class="themes-grid" style="margin-top: 1.5rem;">
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--green);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Praised For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Free CRM tier is genuinely useful</li>
+                            <li>Marketing Hub integration</li>
+                            <li>Clean, modern UI</li>
+                            <li>1,500+ integration apps</li>
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--red);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                            Watch Out For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Pricing cliff (Starter to Pro)</li>
+                            <li>Feature paywalls frustrate users</li>
+                            <li>Requires admin for complex setups</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Salesforce Tab -->
+        <div id="salesforce" class="tab-content">
+            <div class="card">
+                <h3 class="card-title" style="color: var(--orange);">Salesforce - Powerful but Complex</h3>
+                <p style="margin-bottom: 1rem; color: var(--gray);">
+                    <strong>G2:</strong> 4.4/5 (23,000+ reviews) | <strong>Capterra:</strong> 4.4/5 (18,886 reviews) |
+                    <strong>TrustRadius:</strong> 8.8/10 | <strong>Pricing:</strong> $25/user/mo (Enterprise from $165)
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Salesforce remains the market leader by far, with unmatched customization and enterprise capabilities.
+                    However, <strong>complexity is a double-edged sword</strong>. Teams praise its power but consistently complain
+                    about needing dedicated admins. The lock-in is real - migrations away are notoriously difficult.
+                </p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Why do most companies prefer Salesforce? Breadth of solutions, top-notch security and reliability, continuous development, and the cachet of a brand name that a wide variety of people know and respect."</p>
+                        <p class="quote-source">Reddit r/salesforce</p>
+                        <a href="https://www.reddit.com/r/salesforce/comments/yxs00f/why_salesforce/" target="_blank" class="quote-link">View thread</a>
+                    </div>
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"I haven't heard of a single successful story of moving out of Salesforce yet. I even saw a customer migrate from Salesforce to Dynamics then migrate BACK because they couldn't get Dynamics to work."</p>
+                        <p class="quote-source">Reddit r/salesforce</p>
+                        <a href="https://www.reddit.com/r/salesforce/comments/1g3twbn/any_successful_stories_with_moving_out_of/" target="_blank" class="quote-link">View thread</a>
+                    </div>
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Salesforce: Extremely powerful and customizable, but can be too much for a small team. The setup and admin work can be a nightmare unless you have a dedicated resource person."</p>
+                        <p class="quote-source">Reddit r/CRM</p>
+                        <a href="https://www.reddit.com/r/CRM/comments/1jlzpjp/hubspot_vs_salesforce_vs_pipedrive_which_crm_is/" target="_blank" class="quote-link">View thread</a>
+                    </div>
+                </div>
+
+                <div class="themes-grid" style="margin-top: 1.5rem;">
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--green);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Praised For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Unmatched customization</li>
+                            <li>Enterprise-grade security</li>
+                            <li>Massive ecosystem (AppExchange)</li>
+                            <li>Reliable performance at scale</li>
+                        </ul>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-title" style="color: var(--red);">
+                            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                            Watch Out For
+                        </div>
+                        <ul style="font-size: 0.85rem; color: var(--gray); padding-left: 1rem;">
+                            <li>Requires dedicated admin</li>
+                            <li>Overkill for small teams</li>
+                            <li>Migration away is extremely difficult</li>
+                            <li>Lock-in is real</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Positioning Opportunities Section -->
+        <h2 class="section-title" style="margin-top: 2rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                <polyline points="2 17 12 22 22 17"/>
+                <polyline points="2 12 12 17 22 12"/>
+            </svg>
+            Market Positioning by Use Case
+        </h2>
+
+        <div class="card">
+            <h3 class="card-title">Choosing the Right CRM in 2026</h3>
+            <p style="margin-bottom: 1.5rem;">
+                The CRM market has fragmented into clear segments. Here's who should use what:
+            </p>
+
+            <div class="themes-grid">
+                <div class="theme-card" style="border-color: var(--purple);">
+                    <div class="theme-title">Early-Stage Startups (1-50 employees)</div>
+                    <p style="font-size: 0.85rem; color: var(--gray);">
+                        <strong>Attio</strong> for flexibility, <strong>Folk</strong> for simplicity, <strong>Close</strong> for sales-heavy teams.
+                        Skip Salesforce - you'll waste months on setup.
+                    </p>
+                </div>
+                <div class="theme-card" style="border-color: var(--blue);">
+                    <div class="theme-title">Scaling Companies (50-300 employees)</div>
+                    <p style="font-size: 0.85rem; color: var(--gray);">
+                        <strong>HubSpot</strong> for marketing-sales alignment, <strong>Pipedrive</strong> for pure sales focus.
+                        Consider graduating from Attio at this stage.
+                    </p>
+                </div>
+                <div class="theme-card" style="border-color: var(--green);">
+                    <div class="theme-title">VC/PE/Investment Firms</div>
+                    <p style="font-size: 0.85rem; color: var(--gray);">
+                        <strong>Affinity</strong> is purpose-built for dealflow and relationship intelligence.
+                        Nothing else comes close for this use case.
+                    </p>
+                </div>
+                <div class="theme-card" style="border-color: var(--pink);">
+                    <div class="theme-title">GTM/RevOps Teams</div>
+                    <p style="font-size: 0.85rem; color: var(--gray);">
+                        <strong>Monaco</strong> or <strong>Day.ai</strong> if you want AI-native from scratch.
+                        <strong>Attio</strong> for flexibility with built-in enrichment.
+                    </p>
+                </div>
+                <div class="theme-card" style="border-color: var(--orange);">
+                    <div class="theme-title">Enterprise (300+ employees)</div>
+                    <p style="font-size: 0.85rem; color: var(--gray);">
+                        <strong>Salesforce</strong> remains the safe choice. Budget for a dedicated admin.
+                        Migrations away are nearly impossible.
+                    </p>
+                </div>
+                <div class="theme-card" style="border-color: var(--teal);">
+                    <div class="theme-title">Agencies & Consultants</div>
+                    <p style="font-size: 0.85rem; color: var(--gray);">
+                        <strong>Folk</strong> for relationship management, <strong>Copper</strong> if you live in Google Workspace.
+                        600+ agencies already use Folk.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 class="cta-title">Need Help Choosing the Right CRM?</h2>
+            <p class="cta-text">
+                We help B2B companies evaluate and implement CRM solutions that actually get used.
+                Let's talk about your specific requirements.
+            </p>
+            <a href="https://42agency.com/contact" class="cta-button" target="_blank">Get in Touch</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/42-logo.png" alt="42 Agency">
+                    <p>B2B performance marketing for companies that sell to enterprises.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Assess</h4>
+                    <a href="/assessments/hubspot-health/">HubSpot Health Check</a>
+                    <a href="/assess/calculator/">Benchmark Calculator</a>
+                    <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Benchmarks</h4>
+                    <a href="/b2b-benchmarks/">All B2B Benchmarks</a>
+                    <a href="/b2b-benchmarks/linkedin-ads-benchmarks/">LinkedIn Ads</a>
+                    <a href="/b2b-benchmarks/google-ads-benchmarks/">Google Ads</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="/tools/">All Tools</a>
+                    <a href="/tools/linkedin-budget-calculator/">LinkedIn Budget Calculator</a>
+                    <a href="/playbooks/">Playbooks</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com" target="_blank">Website</a>
+                    <a href="https://42agency.com/contact" target="_blank">Contact Us</a>
+                    <a href="https://42agency.com/case-studies" target="_blank">Case Studies</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2026 42 Agency. All rights reserved.</p>
+                <p><a href="https://42agency.com/privacy">Privacy</a> | <a href="https://42agency.com/terms">Terms</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Remove active from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            // Add active to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Sentiment Chart
+        const sentimentCtx = document.getElementById('sentimentChart').getContext('2d');
+        new Chart(sentimentCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Attio', 'Close', 'Day.ai', 'Folk', 'Affinity', 'Monaco', 'Pipedrive', 'Copper', 'HubSpot', 'Salesforce'],
+                datasets: [{
+                    label: 'Net Sentiment Score',
+                    data: [0.45, 0.42, 0.40, 0.35, 0.32, 0.30, 0.28, 0.18, 0.12, 0.05],
+                    backgroundColor: [
+                        '#14B8A6', // Attio - teal
+                        '#3B82F6', // Close - blue
+                        '#8B5CF6', // Day.ai - purple
+                        '#8B5CF6', // Folk - purple
+                        '#10B981', // Affinity - green
+                        '#8B5CF6', // Monaco - purple
+                        '#10B981', // Pipedrive - green
+                        '#10B981', // Copper - green
+                        '#F59E0B', // HubSpot - orange
+                        '#F59E0B'  // Salesforce - orange
+                    ],
+                    borderColor: '#1a1a1a',
+                    borderWidth: 2,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = context.raw;
+                                const sentiment = value >= 0.3 ? 'Highly Positive' : value >= 0.2 ? 'Positive' : 'Mixed';
+                                return `${sentiment}: ${value > 0 ? '+' : ''}${value.toFixed(2)}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        min: -0.1,
+                        max: 0.6,
+                        grid: { color: '#e5e5e5' },
+                        ticks: {
+                            callback: function(value) {
+                                return value > 0 ? '+' + value : value;
+                            }
+                        }
+                    },
+                    y: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // Ratings vs Volume Chart
+        const ratingsCtx = document.getElementById('ratingsChart').getContext('2d');
+        new Chart(ratingsCtx, {
+            type: 'bubble',
+            data: {
+                datasets: [
+                    {
+                        label: 'Attio',
+                        data: [{ x: 18, y: 4.8, r: 6 }],
+                        backgroundColor: 'rgba(20, 184, 166, 0.7)',
+                        borderColor: '#1a1a1a',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Close',
+                        data: [{ x: 1698, y: 4.7, r: 14 }],
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                        borderColor: '#1a1a1a',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Folk',
+                        data: [{ x: 313, y: 4.7, r: 10 }],
+                        backgroundColor: 'rgba(139, 92, 246, 0.7)',
+                        borderColor: '#1a1a1a',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Copper',
+                        data: [{ x: 1100, y: 4.5, r: 12 }],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderColor: '#1a1a1a',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'HubSpot',
+                        data: [{ x: 12300, y: 4.5, r: 25 }],
+                        backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                        borderColor: '#1a1a1a',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Affinity',
+                        data: [{ x: 67, y: 4.4, r: 8 }],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderColor: '#1a1a1a',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Salesforce',
+                        data: [{ x: 23000, y: 4.4, r: 35 }],
+                        backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                        borderColor: '#1a1a1a',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Pipedrive',
+                        data: [{ x: 3000, y: 4.3, r: 18 }],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderColor: '#1a1a1a',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 10,
+                            font: { size: 10 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.dataset.label;
+                                const reviews = context.raw.x;
+                                const rating = context.raw.y;
+                                return `${label}: ${rating}/5 (${reviews.toLocaleString()} reviews)`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'logarithmic',
+                        title: {
+                            display: true,
+                            text: 'Number of G2 Reviews (log scale)',
+                            font: { weight: 'bold', size: 11 }
+                        },
+                        grid: { color: '#e5e5e5' },
+                        min: 10,
+                        max: 30000
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'G2 Rating',
+                            font: { weight: 'bold', size: 11 }
+                        },
+                        grid: { color: '#e5e5e5' },
+                        min: 4.0,
+                        max: 5.0
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Vercel Web Analytics -->
+    <script src="/_vercel/insights/script.js" defer></script>
+</body>
+</html>

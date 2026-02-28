@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM Pilot Playbook for 3E | 90-Day Upmarket Strategy | 42 Agency</title>
+    <meta name="description" content="Custom ABM pilot playbook for 3E's upmarket push. Using Zoominfo intent data, LinkedIn ABM tactics, and your existing tech stack to test account-based marketing in 90 days.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="ABM Pilot Playbook for 3E">
+    <meta property="og:description" content="Custom 90-day ABM pilot strategy for moving upmarket with your existing tech stack.">
+    <meta property="og:type" content="article">
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-dark: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --blue: #3B82F6;
+            --red: #EF4444;
+            --teal: #14B8A6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: white; color: var(--black); line-height: 1.7; }
+
+        /* Header */
+        .header { border-bottom: 2px solid var(--black); padding: 0.75rem 1.5rem; background: white; position: sticky; top: 0; z-index: 50; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 28px; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a { padding: 0.5rem 1rem; color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; border-radius: 6px; }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav-cta { background: var(--black); color: white !important; font-weight: 600; }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        /* Hero */
+        .hero { background: var(--light-gray); border-bottom: 2px solid var(--black); padding: 3rem 1.5rem; }
+        .hero-inner { max-width: 800px; margin: 0 auto; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal); color: white; padding: 0.4rem 1rem; font-size: 0.75rem; font-weight: 700; border-radius: 20px; margin-bottom: 1rem; text-transform: uppercase; }
+        .hero-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.85rem; color: var(--muted); }
+        h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-subtitle { font-size: 1.15rem; color: var(--gray); max-width: 650px; margin-bottom: 1.5rem; }
+        .hero-context { background: white; border: 2px solid var(--black); border-radius: 12px; padding: 1.25rem; box-shadow: 3px 3px 0 var(--black); }
+        .hero-context-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tech-tag { background: var(--light-gray); border: 1px solid #ddd; padding: 0.35rem 0.75rem; border-radius: 6px; font-size: 0.8rem; font-weight: 500; }
+        .tech-tag.highlight { background: var(--accent); border-color: var(--black); }
+
+        /* Main */
+        .main { max-width: 800px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+        /* TOC */
+        .toc { background: white; border: 2px solid var(--black); border-radius: 16px; padding: 1.5rem 2rem; box-shadow: 4px 4px 0 var(--black); margin-bottom: 2.5rem; }
+        .toc h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); }
+        .toc-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+        .toc-list a { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--gray); font-size: 0.9rem; padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+        .toc-list a:hover { color: var(--black); }
+        .toc-num { background: var(--accent); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; }
+        @media (max-width: 600px) { .toc-list { grid-template-columns: 1fr; } }
+
+        /* Sections */
+        .section { margin-bottom: 3rem; scroll-margin-top: 80px; }
+        .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 3px solid var(--accent); }
+        .section-num { background: var(--black); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 800; flex-shrink: 0; }
+        .section h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; }
+
+        /* Content Cards */
+        .content-card { background: white; border: 2px solid var(--black); border-radius: 16px; padding: 1.75rem; box-shadow: 4px 4px 0 var(--black); margin-bottom: 1.5rem; }
+        .content-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; }
+        .content-card h4 { font-size: 1rem; font-weight: 700; margin: 1.25rem 0 0.75rem; color: var(--black); }
+        .content-card p { color: var(--gray); margin-bottom: 1rem; }
+        .content-card ul, .content-card ol { margin: 1rem 0 1rem 1.25rem; color: var(--gray); }
+        .content-card li { margin-bottom: 0.5rem; }
+        .content-card li strong { color: var(--black); }
+
+        /* Callout */
+        .callout { background: var(--accent); border-left: 4px solid var(--black); padding: 1rem 1.25rem; margin: 1.25rem 0; border-radius: 0 8px 8px 0; }
+        .callout strong { display: block; margin-bottom: 0.25rem; color: var(--black); }
+        .callout p { margin: 0; color: var(--black); }
+
+        .callout-warning { background: #FEF3C7; border-left-color: var(--orange); }
+        .callout-info { background: #DBEAFE; border-left-color: var(--blue); }
+        .callout-success { background: #D1FAE5; border-left-color: var(--green); }
+
+        /* Tables */
+        .table-wrapper { overflow-x: auto; margin: 1rem 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th, td { padding: 0.75rem; text-align: left; border: 2px solid var(--black); }
+        th { background: var(--light-gray); font-weight: 700; }
+        tr:nth-child(even) { background: #fafafa; }
+
+        /* Tier Cards */
+        .tier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1rem 0; }
+        .tier-card { border: 2px solid var(--black); border-radius: 12px; padding: 1.25rem; }
+        .tier-card.tier-1 { background: var(--accent); }
+        .tier-card.tier-2 { background: white; }
+        .tier-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .tier-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .tier-card p { font-size: 0.9rem; color: var(--gray); margin: 0; }
+        @media (max-width: 600px) { .tier-grid { grid-template-columns: 1fr; } }
+
+        /* Stats Row */
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .stat-box { text-align: center; padding: 1rem; background: var(--light-gray); border: 2px solid var(--black); border-radius: 12px; }
+        .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--green); }
+        .stat-value.orange { color: var(--orange); }
+        .stat-value.blue { color: var(--blue); }
+        .stat-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; margin-top: 0.25rem; }
+        @media (max-width: 700px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+        /* Timeline */
+        .timeline { margin: 1.5rem 0; }
+        .timeline-phase { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .timeline-marker { display: flex; flex-direction: column; align-items: center; }
+        .timeline-dot { width: 16px; height: 16px; background: var(--accent); border: 2px solid var(--black); border-radius: 50%; }
+        .timeline-line { flex: 1; width: 2px; background: var(--black); margin: 4px 0; }
+        .timeline-content { flex: 1; background: white; border: 2px solid var(--black); border-radius: 12px; padding: 1.25rem; box-shadow: 3px 3px 0 var(--black); }
+        .timeline-week { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 0.5rem; }
+        .timeline-title { font-weight: 700; margin-bottom: 0.5rem; }
+        .timeline-content ul { margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; color: var(--gray); }
+        .timeline-content li { margin-bottom: 0.35rem; }
+
+        /* Checklist */
+        .checklist { background: var(--light-gray); border: 2px solid var(--black); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+        .checklist h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; }
+        .checklist-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .checklist-box { width: 20px; height: 20px; border: 2px solid var(--black); border-radius: 4px; flex-shrink: 0; background: white; }
+        .checklist-text { font-size: 0.9rem; color: var(--gray); }
+
+        /* Metric Cards */
+        .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem 0; }
+        .metric-card { border: 2px solid var(--black); border-radius: 12px; padding: 1rem; background: white; }
+        .metric-card.primary { background: var(--accent); }
+        .metric-type { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+        .metric-card.primary .metric-type { color: var(--black); }
+        .metric-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .metric-desc { font-size: 0.8rem; color: var(--gray); }
+        .metric-card.primary .metric-desc { color: var(--black); }
+        @media (max-width: 700px) { .metric-grid { grid-template-columns: 1fr; } }
+
+        /* Sequence */
+        .sequence-block { background: #fafafa; border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 0.75rem 0; }
+        .sequence-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+        .sequence-step { background: var(--blue); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; }
+        .sequence-channel { font-size: 0.75rem; color: var(--muted); }
+        .sequence-title { font-weight: 600; font-size: 0.9rem; }
+
+        /* Budget Breakdown */
+        .budget-bar { background: var(--light-gray); border: 2px solid var(--black); border-radius: 8px; height: 40px; display: flex; overflow: hidden; margin: 1rem 0; }
+        .budget-segment { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: white; }
+        .budget-segment.awareness { background: var(--blue); }
+        .budget-segment.engagement { background: var(--green); }
+        .budget-segment.conversion { background: var(--orange); }
+        .budget-legend { display: flex; gap: 1.5rem; font-size: 0.85rem; margin-top: 0.5rem; }
+        .budget-legend-item { display: flex; align-items: center; gap: 0.5rem; }
+        .budget-legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+        /* Go/No-Go */
+        .decision-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1rem 0; }
+        .decision-card { border: 2px solid var(--black); border-radius: 12px; padding: 1.25rem; }
+        .decision-card.go { background: #D1FAE5; }
+        .decision-card.nogo { background: #FEE2E2; }
+        .decision-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .decision-card.go .decision-label { color: var(--green); }
+        .decision-card.nogo .decision-label { color: var(--red); }
+        .decision-card ul { margin: 0 0 0 1rem; font-size: 0.9rem; }
+        .decision-card li { margin-bottom: 0.5rem; }
+
+        /* CTA Section */
+        .cta-section { background: var(--accent); border: 2px solid var(--black); border-radius: 20px; padding: 2.5rem; box-shadow: 6px 6px 0 var(--black); text-align: center; margin: 3rem 0; }
+        .cta-section h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.75rem; }
+        .cta-section p { color: var(--gray); margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.5rem; background: var(--black); color: white; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; }
+        .btn-primary:hover { background: #333; }
+        .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.5rem; background: white; color: var(--black); text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1rem; border: 2px solid var(--black); }
+        .btn-secondary:hover { background: var(--light-gray); }
+
+        /* Footer */
+        .footer { background: var(--black); color: white; padding: 3rem 1.5rem 2rem; border-top: 2px solid var(--black); }
+        .footer-inner { max-width: 800px; margin: 0 auto; }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #333; }
+        .footer-brand img { height: 24px; filter: brightness(0) invert(1); margin-bottom: 0.75rem; }
+        .footer-brand p { font-size: 0.85rem; color: #888; max-width: 280px; }
+        .footer-contact p { font-size: 0.9rem; color: #888; margin-bottom: 0.25rem; }
+        .footer-contact a { color: var(--accent); text-decoration: none; }
+        .footer-bottom { font-size: 0.8rem; color: #666; }
+
+        /* Print */
+        @media print {
+            .header, .footer { display: none; }
+            .content-card, .toc { box-shadow: none; border: 1px solid #ddd; }
+            body { font-size: 11pt; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo"><img src="/42-logo.png" alt="42 Agency"></a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="/tools/">Tools</a>
+                <a href="/playbooks/">Playbooks</a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <span class="hero-badge">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                Custom Strategy Document
+            </span>
+            <div class="hero-meta">
+                <span>Prepared for 3E (3eco.com)</span>
+                <span>|</span>
+                <span>February 2026</span>
+            </div>
+            <h1>ABM Pilot Playbook: Moving Upmarket with Account-Based Marketing</h1>
+            <p class="hero-subtitle">A 90-day pilot framework to test ABM for enterprise EHS deals using your existing Zoominfo intent data, LinkedIn infrastructure, and Marketo automation.</p>
+
+            <div class="hero-context">
+                <div class="hero-context-title">Your Current Tech Stack</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Marketo</span>
+                    <span class="tech-tag">Salesforce (internal)</span>
+                    <span class="tech-tag">Power BI</span>
+                    <span class="tech-tag highlight">Zoominfo + Intent Data</span>
+                    <span class="tech-tag">LinkedIn Lead Gen Forms</span>
+                    <span class="tech-tag">LinkedIn Paid Ads</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main">
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h2>What's Inside</h2>
+            <ol class="toc-list">
+                <li><a href="#section-1"><span class="toc-num">1</span> Why ABM for 3E's Upmarket Push</a></li>
+                <li><a href="#section-2"><span class="toc-num">2</span> Pilot Account Selection</a></li>
+                <li><a href="#section-3"><span class="toc-num">3</span> LinkedIn ABM Tactics</a></li>
+                <li><a href="#section-4"><span class="toc-num">4</span> Sales-Marketing Coordination</a></li>
+                <li><a href="#section-5"><span class="toc-num">5</span> Measurement Framework</a></li>
+                <li><a href="#section-6"><span class="toc-num">6</span> 90-Day Pilot Timeline</a></li>
+            </ol>
+        </nav>
+
+        <!-- Section 1: Why ABM -->
+        <section class="section" id="section-1">
+            <div class="section-header">
+                <span class="section-num">1</span>
+                <h2>Why ABM for 3E's Upmarket Push</h2>
+            </div>
+
+            <div class="content-card">
+                <h3>The Mid-Market to Enterprise Gap</h3>
+                <p>You're currently winning deals at ~$50K ACV with a 6-month sales cycle. Enterprise deals ($150K+ ACV) behave differently:</p>
+
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="stat-value">5-8</div>
+                        <div class="stat-label">Buying Committee Size</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value orange">9-12mo</div>
+                        <div class="stat-label">Typical Sales Cycle</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value blue">3-5x</div>
+                        <div class="stat-label">More Touchpoints</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">60%</div>
+                        <div class="stat-label">Decided Pre-Sales</div>
+                    </div>
+                </div>
+
+                <p>Traditional lead-gen (capture a form fill, hand to sales) breaks down when:</p>
+                <ul>
+                    <li><strong>Multiple stakeholders</strong> need to be influenced, not just one "lead"</li>
+                    <li><strong>Longer evaluation cycles</strong> mean you need sustained presence, not one-time campaigns</li>
+                    <li><strong>Higher deal values</strong> justify personalized, multi-channel engagement</li>
+                </ul>
+
+                <div class="callout">
+                    <strong>Why ABM Works for EHS Software:</strong>
+                    <p>Your ICP (chemical manufacturers, retailers, pharma) have specific compliance triggers and regulatory timelines. ABM lets you identify accounts facing these triggers and engage them before they start formal RFPs.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>Realistic Expectations for a Crawl-Stage Pilot</h3>
+                <p>You mentioned you're at "crawl stage" with ABM. Here's what success actually looks like for a 90-day pilot:</p>
+
+                <table>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Realistic Target</th>
+                        <th>Stretch Goal</th>
+                    </tr>
+                    <tr>
+                        <td>Account engagement rate</td>
+                        <td>30-40% of target accounts</td>
+                        <td>50%+</td>
+                    </tr>
+                    <tr>
+                        <td>Qualified meetings from pilot</td>
+                        <td>5-8 meetings</td>
+                        <td>12+ meetings</td>
+                    </tr>
+                    <tr>
+                        <td>Pipeline generated</td>
+                        <td>$500K-$750K</td>
+                        <td>$1M+</td>
+                    </tr>
+                    <tr>
+                        <td>Sales cycle acceleration</td>
+                        <td>Baseline established</td>
+                        <td>15%+ faster</td>
+                    </tr>
+                </table>
+
+                <div class="callout callout-warning">
+                    <strong>Setting Leadership Expectations:</strong>
+                    <p>A 90-day pilot won't show closed-won revenue (your cycle is 6+ months). Focus metrics on leading indicators: account engagement, pipeline created, and sales feedback quality.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Account Selection -->
+        <section class="section" id="section-2">
+            <div class="section-header">
+                <span class="section-num">2</span>
+                <h2>Pilot Account Selection (Using Zoominfo)</h2>
+            </div>
+
+            <div class="content-card">
+                <h3>Unlocking Your Unused Zoominfo Intent Data</h3>
+                <p>You're paying for Zoominfo intent data but not using it. Here's how to activate it for ABM:</p>
+
+                <h4>Step 1: Configure Intent Topics</h4>
+                <p>In Zoominfo, set up intent monitoring for topics that signal EHS buying activity:</p>
+                <ul>
+                    <li><strong>Primary Topics:</strong> EHS software, environmental compliance software, safety management systems, chemical inventory management, SDS management</li>
+                    <li><strong>Regulatory Triggers:</strong> OSHA compliance, EPA regulations, REACH compliance, GHS labeling, hazmat transportation</li>
+                    <li><strong>Competitor Research:</strong> [Your top 3 competitors], EHS platform comparison, chemical management vendors</li>
+                </ul>
+
+                <h4>Step 2: Build Your Initial Account List</h4>
+                <p>Export accounts showing intent in the last 90 days with these filters:</p>
+
+                <table>
+                    <tr>
+                        <th>Filter</th>
+                        <th>Criteria</th>
+                    </tr>
+                    <tr>
+                        <td>Industry</td>
+                        <td>Chemical Manufacturing, Pharmaceutical, Retail (with chemical handling)</td>
+                    </tr>
+                    <tr>
+                        <td>Revenue</td>
+                        <td>$500M - $10B (enterprise sweet spot)</td>
+                    </tr>
+                    <tr>
+                        <td>Employee Count</td>
+                        <td>2,000 - 50,000</td>
+                    </tr>
+                    <tr>
+                        <td>Intent Score</td>
+                        <td>Medium or High (exclude Low)</td>
+                    </tr>
+                    <tr>
+                        <td>Geography</td>
+                        <td>US, Canada, UK, EU (your serviceable regions)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="content-card">
+                <h3>Tier Your Accounts (25-50 Total for Pilot)</h3>
+                <p>Not all accounts get the same treatment. Split your list based on fit score + intent score:</p>
+
+                <div class="tier-grid">
+                    <div class="tier-card tier-1">
+                        <div class="tier-label">Tier 1: High-Touch (10-15 accounts)</div>
+                        <h4>Best-Fit + High Intent</h4>
+                        <p>Sales + Marketing coordinated outreach. Custom content. 1:1 or 1:few ads. Personal sales sequences.</p>
+                    </div>
+                    <div class="tier-card tier-2">
+                        <div class="tier-label">Tier 2: Programmatic (15-35 accounts)</div>
+                        <h4>Good-Fit + Medium Intent</h4>
+                        <p>Automated Marketo nurtures. Account-list LinkedIn ads. Standardized content. Sales monitors engagement.</p>
+                    </div>
+                </div>
+
+                <h4>Tier 1 Qualification Criteria</h4>
+                <ul>
+                    <li>Revenue >$1B OR employee count >5,000</li>
+                    <li>Intent score: High in Zoominfo</li>
+                    <li>Multiple intent topics showing (not just one)</li>
+                    <li>Existing relationship (past demo, event attendee, content download) OR</li>
+                    <li>Strategic fit (logo value, industry vertical leader)</li>
+                </ul>
+
+                <div class="callout callout-info">
+                    <strong>Pilot Account Mix Recommendation:</strong>
+                    <p>12 Tier 1 accounts + 30 Tier 2 accounts = 42 total accounts. This gives you enough volume for statistical validity while keeping Tier 1 workload manageable.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>Buying Committee Mapping (Tier 1 Only)</h3>
+                <p>For each Tier 1 account, use Zoominfo to identify and map the buying committee:</p>
+
+                <table>
+                    <tr>
+                        <th>Role</th>
+                        <th>Typical Title</th>
+                        <th>What They Care About</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Economic Buyer</strong></td>
+                        <td>VP/SVP of EHS, Chief Safety Officer</td>
+                        <td>TCO, risk reduction, compliance liability</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Technical Buyer</strong></td>
+                        <td>Director of EHS, EHS Manager</td>
+                        <td>Features, integrations, implementation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>User Buyer</strong></td>
+                        <td>EHS Specialists, Safety Coordinators</td>
+                        <td>Ease of use, daily workflows, training</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IT/Security</strong></td>
+                        <td>IT Director, Security Analyst</td>
+                        <td>Data security, SSO, compliance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Procurement</strong></td>
+                        <td>Strategic Sourcing Manager</td>
+                        <td>Pricing, contracts, vendor risk</td>
+                    </tr>
+                </table>
+
+                <p style="margin-top: 1rem;"><strong>Target coverage:</strong> Identify at least 3-5 contacts per Tier 1 account before launching campaigns.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: LinkedIn ABM Tactics -->
+        <section class="section" id="section-3">
+            <div class="section-header">
+                <span class="section-num">3</span>
+                <h2>LinkedIn ABM Tactics</h2>
+            </div>
+
+            <div class="content-card">
+                <h3>Account List Targeting Setup</h3>
+                <p>LinkedIn's Company List targeting is the foundation of your ABM campaigns. Here's how to set it up:</p>
+
+                <h4>Creating Your ABM Audiences</h4>
+                <ol>
+                    <li><strong>Export from Zoominfo:</strong> Company names + LinkedIn Company URLs (if available) + domains</li>
+                    <li><strong>Upload to LinkedIn:</strong> Campaign Manager > Plan > Audiences > Create Audience > Company List</li>
+                    <li><strong>Create separate lists:</strong> "3E ABM - Tier 1" and "3E ABM - Tier 2"</li>
+                    <li><strong>Add job function targeting:</strong> Layer with EHS, Operations, IT titles</li>
+                </ol>
+
+                <div class="callout">
+                    <strong>Match Rate Reality Check:</strong>
+                    <p>LinkedIn typically matches 60-80% of uploaded companies. For 42 accounts, expect 25-35 to be targetable. This is why you want 40+ accounts, not just 10.</p>
+                </div>
+
+                <h4>Audience Layering Strategy</h4>
+                <table>
+                    <tr>
+                        <th>Layer</th>
+                        <th>Tier 1</th>
+                        <th>Tier 2</th>
+                    </tr>
+                    <tr>
+                        <td>Company List</td>
+                        <td>Tier 1 list only</td>
+                        <td>Tier 2 list only</td>
+                    </tr>
+                    <tr>
+                        <td>Job Function</td>
+                        <td>EHS, Operations, Engineering</td>
+                        <td>Same</td>
+                    </tr>
+                    <tr>
+                        <td>Seniority</td>
+                        <td>Director and above</td>
+                        <td>Manager and above</td>
+                    </tr>
+                    <tr>
+                        <td>Expected reach</td>
+                        <td>500-2,000</td>
+                        <td>2,000-5,000</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="content-card">
+                <h3>Ad Formats That Work for ABM</h3>
+                <p>Lead gen forms are fine for mid-market, but enterprise ABM needs a different approach:</p>
+
+                <h4>Recommended Format Mix</h4>
+                <table>
+                    <tr>
+                        <th>Format</th>
+                        <th>Use Case</th>
+                        <th>% of Budget</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Single Image Ads</strong></td>
+                        <td>Awareness (thought leadership, industry POV)</td>
+                        <td>40%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Document Ads</strong></td>
+                        <td>Education (reports, guides, case studies)</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Video Ads</strong></td>
+                        <td>Trust building (customer stories, product demos)</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conversation Ads</strong></td>
+                        <td>Conversion (meeting requests, demos)</td>
+                        <td>15%</td>
+                    </tr>
+                </table>
+
+                <div class="callout callout-warning">
+                    <strong>Why NOT Lead Gen Forms for Enterprise:</strong>
+                    <p>Enterprise buyers don't convert on first touch. Lead gen forms optimize for quick captures, which attracts lower-intent mid-market leads. For ABM, focus on engagement and education first.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>Campaign Sequence: Awareness > Engagement > Conversion</h3>
+                <p>Run these campaigns simultaneously, using frequency capping to control exposure:</p>
+
+                <div class="sequence-block">
+                    <div class="sequence-header">
+                        <span class="sequence-step" style="background: var(--blue);">AWARENESS</span>
+                        <span class="sequence-channel">Weeks 1-12 | Single Image + Video</span>
+                    </div>
+                    <div class="sequence-title">Build Recognition and Trust</div>
+                    <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem;">
+                        <li>Industry POV content ("The future of EHS compliance in [industry]")</li>
+                        <li>Regulatory update summaries (OSHA, EPA changes)</li>
+                        <li>30-60 second video clips (customer testimonials, exec insights)</li>
+                        <li><strong>CTA:</strong> None or soft ("Learn more" to blog)</li>
+                    </ul>
+                </div>
+
+                <div class="sequence-block">
+                    <div class="sequence-header">
+                        <span class="sequence-step" style="background: var(--green);">ENGAGEMENT</span>
+                        <span class="sequence-channel">Weeks 3-12 | Document Ads + Website Retargeting</span>
+                    </div>
+                    <div class="sequence-title">Educate with Valuable Content</div>
+                    <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem;">
+                        <li>Industry benchmark reports (ungated Document Ads)</li>
+                        <li>Case studies from similar companies (ungated)</li>
+                        <li>Compliance checklists and frameworks</li>
+                        <li><strong>CTA:</strong> "Download" or "Read the case study"</li>
+                    </ul>
+                </div>
+
+                <div class="sequence-block">
+                    <div class="sequence-header">
+                        <span class="sequence-step" style="background: var(--orange);">CONVERSION</span>
+                        <span class="sequence-channel">Weeks 6-12 | Conversation Ads + Retargeting</span>
+                    </div>
+                    <div class="sequence-title">Drive to Sales Conversation</div>
+                    <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem;">
+                        <li>Target only engaged accounts (website visitors, content consumers)</li>
+                        <li>Conversation Ads with personalized paths</li>
+                        <li>Retarget case study viewers with demo offer</li>
+                        <li><strong>CTA:</strong> "Talk to an expert" or "See it in action"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>Budget Allocation for Pilot</h3>
+                <p>We recommend dedicating 20-25% of your $60K monthly spend to the ABM pilot:</p>
+
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="stat-value">$12-15K</div>
+                        <div class="stat-label">Monthly ABM Budget</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value orange">$36-45K</div>
+                        <div class="stat-label">90-Day Total</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value blue">$45-48K</div>
+                        <div class="stat-label">Continues for Demand Gen</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Target Accounts</div>
+                    </div>
+                </div>
+
+                <h4>Budget Distribution by Stage</h4>
+                <div class="budget-bar">
+                    <div class="budget-segment awareness" style="width: 45%;">45%</div>
+                    <div class="budget-segment engagement" style="width: 35%;">35%</div>
+                    <div class="budget-segment conversion" style="width: 20%;">20%</div>
+                </div>
+                <div class="budget-legend">
+                    <span class="budget-legend-item"><span class="budget-legend-dot" style="background: var(--blue);"></span> Awareness ($5.4K-6.75K/mo)</span>
+                    <span class="budget-legend-item"><span class="budget-legend-dot" style="background: var(--green);"></span> Engagement ($4.2K-5.25K/mo)</span>
+                    <span class="budget-legend-item"><span class="budget-legend-dot" style="background: var(--orange);"></span> Conversion ($2.4K-3K/mo)</span>
+                </div>
+
+                <div class="callout callout-info" style="margin-top: 1.5rem;">
+                    <strong>Why Heavy on Awareness:</strong>
+                    <p>Enterprise accounts need 15-20+ touchpoints before they're ready to engage sales. Front-load awareness to build recognition, then shift budget toward conversion in months 2-3 as accounts warm up.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Sales-Marketing Coordination -->
+        <section class="section" id="section-4">
+            <div class="section-header">
+                <span class="section-num">4</span>
+                <h2>Sales-Marketing Coordination</h2>
+            </div>
+
+            <div class="content-card">
+                <h3>Simple SLA for the Pilot</h3>
+                <p>Keep the SLA simple for a pilot. You can add complexity later once you've proven the model.</p>
+
+                <h4>Marketing Commits To:</h4>
+                <ul>
+                    <li>Weekly account engagement report (which accounts are interacting)</li>
+                    <li>Intent signal alerts within 24 hours of spike</li>
+                    <li>Buying committee contact enrichment for Tier 1 accounts</li>
+                    <li>Campaign performance review every 2 weeks</li>
+                </ul>
+
+                <h4>Sales Commits To:</h4>
+                <ul>
+                    <li>Outreach to Tier 1 accounts showing engagement within 48 hours</li>
+                    <li>Log all account activity in Salesforce (even if no access externally)</li>
+                    <li>Provide feedback on account list quality weekly</li>
+                    <li>Attend bi-weekly alignment call</li>
+                </ul>
+
+                <div class="callout">
+                    <strong>Account Ownership:</strong>
+                    <p>Assign each Tier 1 account to a specific AE. They own the relationship even if marketing generated the activity. This clarity prevents "whose lead is it" debates.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>How Sales Should Engage Intent-Showing Accounts</h3>
+                <p>When an account shows intent signals or engages with campaigns, here's the playbook:</p>
+
+                <h4>Intent Signal Response Matrix</h4>
+                <table>
+                    <tr>
+                        <th>Signal Strength</th>
+                        <th>Example</th>
+                        <th>Sales Action</th>
+                        <th>Timeline</th>
+                    </tr>
+                    <tr>
+                        <td><strong>High Intent Spike</strong></td>
+                        <td>Zoominfo shows "High" + multiple topics</td>
+                        <td>Personalized outreach to champion + 2 others</td>
+                        <td>Within 24 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Content Engagement</strong></td>
+                        <td>Case study download, webinar registration</td>
+                        <td>Connect on LinkedIn, send relevant follow-up</td>
+                        <td>Within 48 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Website Visit</strong></td>
+                        <td>Pricing page, product pages (via Marketo)</td>
+                        <td>Trigger Marketo nurture + sales email</td>
+                        <td>Within 48 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ad Engagement</strong></td>
+                        <td>High click-through, video completion</td>
+                        <td>Add to sales sequence, monitor for more signals</td>
+                        <td>Within 1 week</td>
+                    </tr>
+                </table>
+
+                <h4>Sample Outreach Template (High Intent)</h4>
+                <div class="sequence-block">
+                    <p style="font-style: italic; color: var(--gray); margin: 0;">"Hi [Name], I noticed [Company] has been researching EHS compliance solutions. Given your role leading [department], you might be evaluating how to [specific pain point related to their industry]. We recently helped [similar company] reduce compliance audit prep time by 60%. Would a 20-minute call to share what they did be useful?"</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>Feedback Loop Without Salesforce Access</h3>
+                <p>Since external partners can't access your Salesforce, build a reporting workflow using Marketo + Power BI:</p>
+
+                <h4>Weekly Sync Process</h4>
+                <ol>
+                    <li><strong>Marketing exports from Marketo:</strong> All engagement by target accounts (email opens, clicks, form fills, web visits)</li>
+                    <li><strong>Sales exports from Salesforce:</strong> Pipeline changes, meeting notes, deal stage updates for pilot accounts</li>
+                    <li><strong>Combine in Power BI:</strong> Single dashboard showing account engagement + pipeline status</li>
+                    <li><strong>Share weekly:</strong> 15-minute call to review, adjust priorities</li>
+                </ol>
+
+                <div class="checklist">
+                    <h4>Minimum Dashboard Views</h4>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">Account engagement score (rolling 30 days)</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">Accounts by stage (No Touch / Engaged / Meeting Held / Opportunity)</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">Pipeline created from pilot accounts</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">Content performance by account tier</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-box"></div>
+                        <span class="checklist-text">Intent signal trend by account</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Measurement Framework -->
+        <section class="section" id="section-5">
+            <div class="section-header">
+                <span class="section-num">5</span>
+                <h2>Measurement Framework</h2>
+            </div>
+
+            <div class="content-card">
+                <h3>Account-Level vs. Lead-Level Metrics</h3>
+                <p>Traditional demand gen measures <em>leads</em>. ABM measures <em>accounts</em>. Here's the shift:</p>
+
+                <table>
+                    <tr>
+                        <th>Traditional (Lead-Level)</th>
+                        <th>ABM (Account-Level)</th>
+                    </tr>
+                    <tr>
+                        <td>Number of MQLs generated</td>
+                        <td>% of target accounts engaged</td>
+                    </tr>
+                    <tr>
+                        <td>Cost per lead (CPL)</td>
+                        <td>Cost per engaged account</td>
+                    </tr>
+                    <tr>
+                        <td>Lead-to-opportunity rate</td>
+                        <td>Account-to-opportunity rate</td>
+                    </tr>
+                    <tr>
+                        <td>Pipeline from leads</td>
+                        <td>Pipeline from target accounts</td>
+                    </tr>
+                    <tr>
+                        <td>CAC</td>
+                        <td>CAC for enterprise segment</td>
+                    </tr>
+                </table>
+
+                <div class="callout callout-info">
+                    <strong>Why This Matters:</strong>
+                    <p>One enterprise account might have 5 people engaging with your content. Lead-level metrics would show 5 MQLs. Account-level shows 1 engaged account with buying committee penetration. The latter is more meaningful for enterprise deals.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>Metrics to Track in Your Stack</h3>
+                <p>Here's exactly what to measure using Marketo + Power BI + LinkedIn:</p>
+
+                <div class="metric-grid">
+                    <div class="metric-card primary">
+                        <div class="metric-type">Primary KPI</div>
+                        <div class="metric-name">Account Engagement Rate</div>
+                        <div class="metric-desc">% of target accounts with any interaction (ad click, content download, website visit) in past 30 days</div>
+                    </div>
+                    <div class="metric-card primary">
+                        <div class="metric-type">Primary KPI</div>
+                        <div class="metric-name">Pipeline Generated</div>
+                        <div class="metric-desc">Total $ value of opportunities from pilot accounts</div>
+                    </div>
+                    <div class="metric-card primary">
+                        <div class="metric-type">Primary KPI</div>
+                        <div class="metric-name">Meetings Booked</div>
+                        <div class="metric-desc">First meetings with target accounts attributed to ABM campaigns</div>
+                    </div>
+                </div>
+
+                <div class="metric-grid" style="margin-top: 1rem;">
+                    <div class="metric-card">
+                        <div class="metric-type">Secondary</div>
+                        <div class="metric-name">Buying Committee Reach</div>
+                        <div class="metric-desc">Avg. contacts engaged per Tier 1 account</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-type">Secondary</div>
+                        <div class="metric-name">Cost per Engaged Account</div>
+                        <div class="metric-desc">Total spend / engaged accounts</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-type">Secondary</div>
+                        <div class="metric-name">Intent Score Trend</div>
+                        <div class="metric-desc">Are target accounts' Zoominfo scores rising?</div>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 1.5rem;">Where to Track Each Metric</h4>
+                <table>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Source</th>
+                        <th>How to Extract</th>
+                    </tr>
+                    <tr>
+                        <td>Account engagement</td>
+                        <td>Marketo + LinkedIn</td>
+                        <td>Marketo: activity log by company. LinkedIn: Campaign Manager > Demographics</td>
+                    </tr>
+                    <tr>
+                        <td>Pipeline/Meetings</td>
+                        <td>Salesforce (via sales)</td>
+                        <td>Weekly export filtered to pilot account list</td>
+                    </tr>
+                    <tr>
+                        <td>Intent score</td>
+                        <td>Zoominfo</td>
+                        <td>Weekly export of target accounts' intent scores</td>
+                    </tr>
+                    <tr>
+                        <td>Ad performance</td>
+                        <td>LinkedIn Campaign Manager</td>
+                        <td>Standard campaign reporting, segment by account list</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="content-card">
+                <h3>What "Success" Looks Like for a 90-Day Pilot</h3>
+
+                <div class="decision-grid">
+                    <div class="decision-card go">
+                        <div class="decision-label">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Green Light to Scale
+                        </div>
+                        <ul>
+                            <li>40%+ of target accounts engaged</li>
+                            <li>8+ qualified meetings booked</li>
+                            <li>$750K+ pipeline created</li>
+                            <li>Sales feedback: "quality accounts"</li>
+                            <li>Tier 1 outperforms Tier 2</li>
+                        </ul>
+                    </div>
+                    <div class="decision-card nogo">
+                        <div class="decision-label">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+                            Pause and Reevaluate
+                        </div>
+                        <ul>
+                            <li><20% of accounts engaged</li>
+                            <li><3 meetings from pilot</li>
+                            <li>Minimal pipeline attribution</li>
+                            <li>Sales feedback: "no different from cold"</li>
+                            <li>No discernible tier performance difference</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="callout" style="margin-top: 1.5rem;">
+                    <strong>The Yellow Zone:</strong>
+                    <p>Results between these extremes suggest tweaking, not abandoning. Common fixes: refine account selection criteria, adjust content mix, increase Tier 1 personalization, extend timeline to 120 days.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: 90-Day Timeline -->
+        <section class="section" id="section-6">
+            <div class="section-header">
+                <span class="section-num">6</span>
+                <h2>90-Day Pilot Timeline</h2>
+            </div>
+
+            <div class="content-card">
+                <h3>Week-by-Week Breakdown</h3>
+
+                <div class="timeline">
+                    <div class="timeline-phase">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-week">Weeks 1-2: Foundation</div>
+                            <div class="timeline-title">Account Selection & Setup</div>
+                            <ul>
+                                <li>Configure Zoominfo intent topics for EHS</li>
+                                <li>Build initial account list (42 accounts)</li>
+                                <li>Tier accounts into Tier 1 (12) and Tier 2 (30)</li>
+                                <li>Map buying committees for Tier 1</li>
+                                <li>Upload company lists to LinkedIn Campaign Manager</li>
+                                <li>Create Power BI dashboard structure</li>
+                                <li>Align with sales on account ownership</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-week">Weeks 3-4: Launch</div>
+                            <div class="timeline-title">Campaign Go-Live</div>
+                            <ul>
+                                <li>Launch awareness campaigns (Single Image + Video)</li>
+                                <li>Set up Marketo nurture for engaged contacts</li>
+                                <li>Sales begins LinkedIn connection requests to Tier 1</li>
+                                <li>First weekly sync meeting</li>
+                                <li>Monitor delivery and reach, adjust targeting if needed</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-week">Weeks 5-8: Engage</div>
+                            <div class="timeline-title">Layer in Engagement Content</div>
+                            <ul>
+                                <li>Add Document Ads (case studies, industry reports)</li>
+                                <li>Begin website retargeting for engaged accounts</li>
+                                <li>Sales outreach to accounts showing engagement</li>
+                                <li>First intent spike responses</li>
+                                <li>Bi-weekly review: adjust creative, budget allocation</li>
+                                <li>Mid-pilot health check at week 6</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-week">Weeks 9-12: Convert</div>
+                            <div class="timeline-title">Conversion Push & Analysis</div>
+                            <ul>
+                                <li>Launch Conversation Ads to engaged accounts</li>
+                                <li>Heavy sales outreach to high-engagement accounts</li>
+                                <li>Retarget content consumers with demo offers</li>
+                                <li>Final data collection and cleanup</li>
+                                <li>Compile pilot results report</li>
+                                <li>Go/no-go decision meeting with leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-content" style="background: var(--accent);">
+                            <div class="timeline-week">Week 13: Decision</div>
+                            <div class="timeline-title">Pilot Review & Scale Decision</div>
+                            <ul>
+                                <li>Present results to leadership</li>
+                                <li>Compare to success criteria</li>
+                                <li>If green: Plan expansion (100+ accounts, larger budget)</li>
+                                <li>If yellow: Identify adjustments, extend pilot 30 days</li>
+                                <li>If red: Document learnings, reallocate budget</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>Key Milestones & Check-ins</h3>
+
+                <table>
+                    <tr>
+                        <th>Milestone</th>
+                        <th>When</th>
+                        <th>Decision Point</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Account list finalized</strong></td>
+                        <td>End of Week 2</td>
+                        <td>Are we confident in account selection?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>First engagement data</strong></td>
+                        <td>End of Week 4</td>
+                        <td>Are campaigns delivering? Any targeting issues?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mid-pilot review</strong></td>
+                        <td>Week 6</td>
+                        <td>Engagement trending up? Need creative refresh?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>First meetings from ABM</strong></td>
+                        <td>Weeks 6-8</td>
+                        <td>Are these better quality than average inbound?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pipeline creation</strong></td>
+                        <td>Weeks 8-12</td>
+                        <td>Are meetings converting to opportunities?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Final pilot report</strong></td>
+                        <td>Week 12</td>
+                        <td>Go/no-go on scale?</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Run This Pilot?</h2>
+            <p>This playbook is designed to run internally, but if you want help with execution, strategy refinement, or just a sounding board, we're here.</p>
+            <div class="cta-buttons">
+                <a href="mailto:hello@42agency.com?subject=3E%20ABM%20Pilot%20Discussion" class="btn-primary">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Let's Talk ABM
+                </a>
+                <button onclick="window.print()" class="btn-secondary">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    Print / Save PDF
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/42-logo.png" alt="42 Agency">
+                    <p>B2B performance marketing for companies that sell to enterprises. We help ambitious marketing teams move upmarket.</p>
+                </div>
+                <div class="footer-contact">
+                    <p>Questions about this playbook?</p>
+                    <p><a href="mailto:hello@42agency.com">hello@42agency.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 42 Agency. This document was prepared specifically for 3E and is not intended for redistribution.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

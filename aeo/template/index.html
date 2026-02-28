@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Visibility Analysis: {{COMPANY}} | 42 Agency Intel</title>
+    <meta name="description" content="How AI answer engines (ChatGPT, Perplexity, Gemini, Grok) position {{COMPANY}} vs competitors. AI Visibility Score, Share of Voice, and citation analysis.">
+
+    <!-- OG Tags -->
+    <meta property="og:title" content="AI Visibility Analysis: {{COMPANY}}">
+    <meta property="og:description" content="AI Visibility Score: {{SCORE}}/100 | See how ChatGPT, Perplexity, and Gemini position {{COMPANY}} in the {{CATEGORY}} market.">
+    <meta property="og:image" content="https://intel.42agency.com/og-share.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://intel.42agency.com/aeo/{{SLUG}}/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Visibility Analysis: {{COMPANY}}">
+    <meta name="twitter:description" content="AI Visibility Score: {{SCORE}}/100 | How AI engines position {{COMPANY}} vs competitors.">
+    <meta name="twitter:image" content="https://intel.42agency.com/og-share.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+            --purple: #8B5CF6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav a.active { color: var(--black); font-weight: 600; background: var(--accent); }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem !important;
+            background: var(--black) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover { background: #333 !important; }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        /* Hero */
+        .hero {
+            background: #ffffff;
+            border-bottom: 2px solid var(--black);
+            padding: 3rem 2rem;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+        .meta {
+            font-size: 0.875rem;
+            color: var(--muted);
+        }
+
+        /* Main */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 900px) {
+            .stats-row { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+        .stat-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            margin-top: 0.25rem;
+        }
+        .stat-value.excellent { color: var(--green); }
+        .stat-value.good { color: var(--blue); }
+        .stat-value.average { color: var(--orange); }
+        .stat-value.poor { color: var(--red); }
+        .stat-value.positive { color: var(--green); }
+        .stat-value.negative { color: var(--red); }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 1.5rem;
+        }
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Engine Grid */
+        .engine-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 768px) {
+            .engine-grid { grid-template-columns: 1fr; }
+        }
+        .engine-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            text-align: center;
+        }
+        .engine-name {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+        }
+        .engine-score {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+        .engine-chart {
+            height: 120px;
+            margin: 1rem 0;
+        }
+        .engine-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+        }
+        .engine-stat {
+            background: var(--light-gray);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+        .engine-stat-value {
+            font-weight: 700;
+        }
+
+        /* Competitor Chart */
+        .competitor-chart {
+            height: 300px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        th {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            background: var(--light-gray);
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .citation-domain {
+            font-weight: 600;
+        }
+        .citation-type {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .citation-type.review { background: #E0F2FE; color: #0369A1; }
+        .citation-type.analyst { background: #FEF3C7; color: #92400E; }
+        .citation-type.social { background: #FCE7F3; color: #9D174D; }
+        .citation-type.news { background: #E0E7FF; color: #4338CA; }
+        .citation-type.official { background: #D1FAE5; color: #065F46; }
+
+        /* Sample Responses */
+        .response-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .response-header {
+            padding: 1rem 1.25rem;
+            background: var(--light-gray);
+            border-bottom: 2px solid var(--black);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .response-query {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .response-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+        .response-body {
+            padding: 1.25rem;
+            display: none;
+        }
+        .response-body.open {
+            display: block;
+        }
+        .response-text {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .response-citations {
+            font-size: 0.85rem;
+        }
+        .response-citations strong {
+            color: var(--muted);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        .chevron {
+            transition: transform 0.2s;
+        }
+        .response-header.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        /* Recommendations */
+        .rec-list {
+            list-style: none;
+        }
+        .rec-item {
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .rec-number {
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .rec-content h4 {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .rec-content p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .cta-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+        .cta-text {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--black);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            transition: background 0.2s;
+        }
+        .cta-button:hover {
+            background: #333;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid var(--black);
+            background: var(--black);
+            padding: 3rem 1.5rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            gap: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+        .footer-brand img {
+            height: 24px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 1rem;
+        }
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: #999;
+            line-height: 1.6;
+        }
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+        .footer-col a:hover { color: white; }
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .footer-bottom a { color: #666; text-decoration: none; }
+        .footer-bottom a:hover { color: #999; }
+    </style>
+</head>
+<body>
+    <!-- GTM noscript -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="/tools/" class="active">Tools</a>
+                <a href="/playbooks/">Playbooks</a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">AEO / GEO Intelligence</span>
+            <h1>AI Visibility Analysis: {{COMPANY}}</h1>
+            <p class="subtitle">How AI answer engines position {{COMPANY}} in the {{CATEGORY}} market</p>
+            <p class="meta">Last updated: {{DATE}} | Competitors: {{COMPETITORS}}</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value {{SCORE_CLASS}}" id="visibilityScore">{{SCORE}}</div>
+                <div class="stat-label">AI Visibility Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="shareOfVoice">{{SOV}}%</div>
+                <div class="stat-label">Share of Voice</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgPosition">#{{POSITION}}</div>
+                <div class="stat-label">Avg Position</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value positive" id="sentiment">{{SENTIMENT}}%</div>
+                <div class="stat-label">Positive Sentiment</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value {{GAP_CLASS}}" id="competitorGap">{{GAP}}</div>
+                <div class="stat-label">vs Competitors</div>
+            </div>
+        </div>
+
+        <!-- Engine Breakdown -->
+        <h2 class="section-title">Engine-by-Engine Results</h2>
+        <div class="engine-grid">
+            <!-- ChatGPT -->
+            <div class="engine-card">
+                <div class="engine-name">ChatGPT</div>
+                <div class="engine-score {{CHATGPT_CLASS}}">{{CHATGPT_SCORE}}</div>
+                <div class="engine-chart">
+                    <canvas id="chatgptChart"></canvas>
+                </div>
+                <div class="engine-stats">
+                    <div class="engine-stat">
+                        <div class="engine-stat-value">{{CHATGPT_MENTIONS}}</div>
+                        <div>Mentions</div>
+                    </div>
+                    <div class="engine-stat">
+                        <div class="engine-stat-value">#{{CHATGPT_POSITION}}</div>
+                        <div>Avg Position</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perplexity -->
+            <div class="engine-card">
+                <div class="engine-name">Perplexity</div>
+                <div class="engine-score {{PERPLEXITY_CLASS}}">{{PERPLEXITY_SCORE}}</div>
+                <div class="engine-chart">
+                    <canvas id="perplexityChart"></canvas>
+                </div>
+                <div class="engine-stats">
+                    <div class="engine-stat">
+                        <div class="engine-stat-value">{{PERPLEXITY_MENTIONS}}</div>
+                        <div>Mentions</div>
+                    </div>
+                    <div class="engine-stat">
+                        <div class="engine-stat-value">#{{PERPLEXITY_POSITION}}</div>
+                        <div>Avg Position</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gemini -->
+            <div class="engine-card">
+                <div class="engine-name">Gemini</div>
+                <div class="engine-score {{GEMINI_CLASS}}">{{GEMINI_SCORE}}</div>
+                <div class="engine-chart">
+                    <canvas id="geminiChart"></canvas>
+                </div>
+                <div class="engine-stats">
+                    <div class="engine-stat">
+                        <div class="engine-stat-value">{{GEMINI_MENTIONS}}</div>
+                        <div>Mentions</div>
+                    </div>
+                    <div class="engine-stat">
+                        <div class="engine-stat-value">#{{GEMINI_POSITION}}</div>
+                        <div>Avg Position</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Competitor Comparison -->
+        <div class="card">
+            <h3 class="card-title">Competitor Visibility Comparison</h3>
+            <div class="competitor-chart">
+                <canvas id="competitorChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Citation Sources -->
+        <div class="card">
+            <h3 class="card-title">Top Citation Sources</h3>
+            <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem;">
+                Which domains are AI engines citing when discussing {{CATEGORY}}?
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Domain</th>
+                        <th>Times Cited</th>
+                        <th>Type</th>
+                        <th>Your Content?</th>
+                    </tr>
+                </thead>
+                <tbody id="citationTable">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sample Responses -->
+        <h2 class="section-title">Sample AI Responses</h2>
+        <div id="sampleResponses">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Recommendations -->
+        <div class="card">
+            <h3 class="card-title">Recommendations</h3>
+            <ul class="rec-list" id="recommendations">
+                <!-- Populated by JS -->
+            </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h3 class="cta-title">Want a full competitive analysis?</h3>
+            <p class="cta-text">Get ad intelligence, sentiment analysis, and AI visibility tracking for your brand and competitors.</p>
+            <a href="https://42agency.com/contact" class="cta-button">Get Started →</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/42-logo.png" alt="42 Agency">
+                    <p>B2B performance marketing for companies that sell to enterprises.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Assess</h4>
+                    <a href="/assessments/hubspot-health/">HubSpot Health Check</a>
+                    <a href="/assess/calculator/">Benchmark Calculator</a>
+                    <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Benchmarks</h4>
+                    <a href="/b2b-benchmarks/">All B2B Benchmarks</a>
+                    <a href="/b2b-benchmarks/linkedin-ads-benchmarks/">LinkedIn Ads</a>
+                    <a href="/b2b-benchmarks/google-ads-benchmarks/">Google Ads</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="/tools/">All Tools</a>
+                    <a href="/tools/linkedin-budget-calculator/">LinkedIn Budget Calculator</a>
+                    <a href="/tools/google-ads-budget-calculator/">Google Ads Calculator</a>
+                </div>
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com" target="_blank">Website</a>
+                    <a href="https://42agency.com/contact" target="_blank">Contact Us</a>
+                    <a href="https://42slash.com" target="_blank">42/ Essays</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 42 Agency. All rights reserved.</p>
+                <p><a href="https://42agency.com/privacy">Privacy</a> · <a href="https://42agency.com/terms">Terms</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data - replace with actual data from JSON
+        const aeoData = {
+            company: "{{COMPANY}}",
+            category: "{{CATEGORY}}",
+            competitors: {{COMPETITORS_JSON}},
+            visibility: {
+                score: {{SCORE}},
+                sov: {{SOV}},
+                position: {{POSITION}},
+                sentiment: {{SENTIMENT}},
+                gap: {{GAP}}
+            },
+            engines: {
+                chatgpt: { score: {{CHATGPT_SCORE}}, mentions: "{{CHATGPT_MENTIONS}}", position: {{CHATGPT_POSITION}}, mentioned: {{CHATGPT_MENTIONED}}, total: {{CHATGPT_TOTAL}} },
+                perplexity: { score: {{PERPLEXITY_SCORE}}, mentions: "{{PERPLEXITY_MENTIONS}}", position: {{PERPLEXITY_POSITION}}, mentioned: {{PERPLEXITY_MENTIONED}}, total: {{PERPLEXITY_TOTAL}} },
+                gemini: { score: {{GEMINI_SCORE}}, mentions: "{{GEMINI_MENTIONS}}", position: {{GEMINI_POSITION}}, mentioned: {{GEMINI_MENTIONED}}, total: {{GEMINI_TOTAL}} }
+            },
+            competitorScores: {{COMPETITOR_SCORES_JSON}},
+            citations: {{CITATIONS_JSON}},
+            sampleResponses: {{RESPONSES_JSON}},
+            recommendations: {{RECOMMENDATIONS_JSON}}
+        };
+
+        // Initialize Charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Engine donut charts
+            const engineChartConfig = (mentioned, total, color) => ({
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [mentioned, total - mentioned],
+                        backgroundColor: [color, '#e5e5e5'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            new Chart(document.getElementById('chatgptChart'),
+                engineChartConfig(aeoData.engines.chatgpt.mentioned, aeoData.engines.chatgpt.total, '#10B981'));
+            new Chart(document.getElementById('perplexityChart'),
+                engineChartConfig(aeoData.engines.perplexity.mentioned, aeoData.engines.perplexity.total, '#3B82F6'));
+            new Chart(document.getElementById('geminiChart'),
+                engineChartConfig(aeoData.engines.gemini.mentioned, aeoData.engines.gemini.total, '#8B5CF6'));
+
+            // Competitor comparison chart
+            const compLabels = [aeoData.company, ...aeoData.competitors];
+            const compScores = [aeoData.visibility.score, ...Object.values(aeoData.competitorScores).map(c => c.score)];
+            const compColors = compLabels.map((_, i) => i === 0 ? '#DFFE68' : '#e5e5e5');
+            const compBorders = compLabels.map(() => '#1a1a1a');
+
+            new Chart(document.getElementById('competitorChart'), {
+                type: 'bar',
+                data: {
+                    labels: compLabels,
+                    datasets: [{
+                        data: compScores,
+                        backgroundColor: compColors,
+                        borderColor: compBorders,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: {
+                            max: 100,
+                            grid: { display: false },
+                            ticks: { font: { weight: 'bold' } }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { font: { weight: 'bold' } }
+                        }
+                    }
+                }
+            });
+
+            // Populate citation table
+            const citationTable = document.getElementById('citationTable');
+            aeoData.citations.forEach(cite => {
+                const row = document.createElement('tr');
+                const typeClass = cite.type.toLowerCase().replace('_', '');
+                row.innerHTML = `
+                    <td class="citation-domain">${cite.domain}</td>
+                    <td>${cite.count}</td>
+                    <td><span class="citation-type ${typeClass}">${cite.type}</span></td>
+                    <td>${cite.isOwned ? '✅ Yes' : '—'}</td>
+                `;
+                citationTable.appendChild(row);
+            });
+
+            // Populate sample responses
+            const responsesContainer = document.getElementById('sampleResponses');
+            aeoData.sampleResponses.forEach((resp, i) => {
+                const card = document.createElement('div');
+                card.className = 'response-card';
+                card.innerHTML = `
+                    <div class="response-header" onclick="toggleResponse(${i})">
+                        <span class="response-query">"${resp.query}"</span>
+                        <div class="response-meta">
+                            <span>${resp.engine}</span>
+                            <span>Position: #${resp.position || 'N/A'}</span>
+                            <span>${resp.sentiment}</span>
+                            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="response-body" id="response-${i}">
+                        <div class="response-text">${resp.text}</div>
+                        <div class="response-citations">
+                            <strong>Citations:</strong> ${resp.citations.join(', ')}
+                        </div>
+                    </div>
+                `;
+                responsesContainer.appendChild(card);
+            });
+
+            // Populate recommendations
+            const recList = document.getElementById('recommendations');
+            aeoData.recommendations.forEach((rec, i) => {
+                const item = document.createElement('li');
+                item.className = 'rec-item';
+                item.innerHTML = `
+                    <div class="rec-number">${i + 1}</div>
+                    <div class="rec-content">
+                        <h4>${rec.title}</h4>
+                        <p>${rec.description}</p>
+                    </div>
+                `;
+                recList.appendChild(item);
+            });
+        });
+
+        function toggleResponse(index) {
+            const body = document.getElementById(`response-${index}`);
+            const header = body.previousElementSibling;
+            body.classList.toggle('open');
+            header.classList.toggle('open');
+        }
+    </script>
+
+    <!-- Vercel Analytics -->
+    <script src="/_vercel/insights/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Marketing Hub Sentiment Analysis | 42 Agency Intel</title>
+    <meta name="description" content="Comprehensive sentiment analysis of HubSpot Marketing Hub vs Marketo, ActiveCampaign, Salesforce Marketing Cloud, and Klaviyo. Based on real practitioner feedback from Reddit, G2, TrustRadius, and more.">
+
+    <!-- OG Tags -->
+    <meta property="og:title" content="HubSpot Marketing Hub Sentiment Analysis">
+    <meta property="og:description" content="What practitioners actually say about HubSpot Marketing Hub vs competitors. Real opinions from Reddit, G2, TrustRadius, and LinkedIn.">
+    <meta property="og:image" content="https://intel.42agency.com/og-share.png">
+    <meta property="og:url" content="https://intel.42agency.com/hubspot-marketing-hub-sentiment/">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+            --purple: #8B5CF6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Global Header */
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav a.active { color: var(--black); font-weight: 600; background: var(--accent); }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem !important;
+            background: var(--black) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover { background: #333 !important; }
+        .external svg { margin-left: 4px; vertical-align: middle; }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        .hero {
+            background: #ffffff;
+            border-bottom: 2px solid var(--black);
+            padding: 3rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .summary {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 800px;
+        }
+
+        .meta-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .stat-value.negative { color: var(--red); }
+        .stat-value.neutral { color: var(--muted); }
+        .stat-value.positive { color: var(--green); }
+        .stat-value.hubspot { color: #FF7A59; }
+
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .comparison-table th {
+            background: var(--light-gray);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table tr:hover {
+            background: #fafafa;
+        }
+
+        .vendor-name {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .vendor-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .rating-badge.high { background: #D1FAE5; color: #065F46; }
+        .rating-badge.medium { background: #FEF3C7; color: #92400E; }
+        .rating-badge.low { background: #FEE2E2; color: #991B1B; }
+
+        .sentiment-bar {
+            display: flex;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #e5e5e5;
+        }
+
+        .sentiment-positive { background: var(--green); }
+        .sentiment-neutral { background: #9CA3AF; }
+        .sentiment-negative { background: var(--red); }
+
+        /* Tab System */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            background: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .tab-btn:hover {
+            background: var(--light-gray);
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            box-shadow: 2px 2px 0px 0px var(--black);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Quote Cards */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .quote-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .quote-card.positive { box-shadow: 4px 4px 0px 0px var(--green); }
+        .quote-card.negative { box-shadow: 4px 4px 0px 0px var(--red); }
+        .quote-card.neutral { box-shadow: 4px 4px 0px 0px var(--orange); }
+
+        .quote-icon {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .quote-text {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--black);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .quote-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quote-source {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .quote-link {
+            font-size: 0.75rem;
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .quote-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Theme Pills */
+        .themes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .theme-pill {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 2px solid var(--black);
+        }
+
+        .theme-pill.praise { background: #D1FAE5; }
+        .theme-pill.criticism { background: #FEE2E2; }
+        .theme-pill.mixed { background: #FEF3C7; }
+
+        /* Positioning Section */
+        .positioning-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 1.5rem;
+        }
+
+        .positioning-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .positioning-list {
+            list-style: none;
+        }
+
+        .positioning-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .positioning-list li:last-child {
+            border-bottom: none;
+        }
+
+        .positioning-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--black);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #333;
+        }
+
+        /* Source Pills */
+        .source-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .source-pill {
+            padding: 0.25rem 0.75rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid var(--black);
+            background: var(--black);
+            padding: 4rem 1.5rem 2rem;
+            margin-top: 2rem;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand img { height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.85rem; color: #999; line-height: 1.6; }
+        .footer-social { margin-top: 1rem; display: flex; gap: 1rem; }
+        .footer-social a { color: #999; text-decoration: none; display: flex; align-items: center; }
+        .footer-social a:hover { color: white; }
+        .footer-social svg { width: 20px; height: 20px; }
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+        .footer-col a:hover { color: white; }
+        .footer-col .sublink { padding-left: 0.75rem; font-size: 0.8rem; color: #666; }
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .footer-bottom a { color: #666; text-decoration: none; }
+        .footer-bottom a:hover { color: #999; }
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+
+        /* Executive Summary */
+        .exec-summary {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 4px 4px 0px 0px var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .exec-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .exec-summary p {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .key-findings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .finding-item {
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .finding-item h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .finding-item p {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- GTM noscript -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="https://copilot.42agency.com" target="_blank" class="external">
+                    AI Tools
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+                <a href="https://42agency.com/contact" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Market Intelligence</span>
+            <h1>HubSpot Marketing Hub Sentiment Analysis</h1>
+            <p class="summary">
+                What practitioners actually say about HubSpot Marketing Hub vs Adobe Marketo Engage, ActiveCampaign, Salesforce Marketing Cloud, and Klaviyo. Based on real feedback from Reddit, G2, Capterra, TrustRadius, LinkedIn, and Twitter.
+            </p>
+            <p class="meta-info">
+                February 2026 | 5 vendors analyzed | 150+ data points across 8 sources
+            </p>
+        </div>
+    </section>
+
+    <main class="main">
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value hubspot">4.5</div>
+                <div class="stat-label">HubSpot G2 Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: #8B5CF6;">4.1</div>
+                <div class="stat-label">Marketo G2 Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: #3B82F6;">4.6</div>
+                <div class="stat-label">ActiveCampaign G2</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: #00A1E0;">4.0</div>
+                <div class="stat-label">SFMC G2 Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: #10B981;">8.6</div>
+                <div class="stat-label">Klaviyo TrustRadius</div>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="exec-summary">
+            <h2>Executive Summary</h2>
+            <p>
+                <strong>HubSpot Marketing Hub dominates mid-market sentiment</strong> with the highest G2 rating (4.5/5 from 14,286 reviews), but faces growing backlash around aggressive pricing tactics and the jump from Starter to Pro tiers. Practitioners praise its ease of use and all-in-one approach, but increasingly voice frustration with feature paywalls and "forced upgrade" billing.
+            </p>
+            <p>
+                <strong>Marketo remains the enterprise default</strong> but sentiment is decidedly mixed. Users praise its robust automation capabilities while lamenting its complexity, dated UI, and the significant staffing overhead required to operate it effectively. The common refrain: "I hated HubSpot until I used Marketo."
+            </p>
+            <p>
+                <strong>ActiveCampaign emerges as the value leader</strong> for automation-focused teams, with practitioners consistently recommending it as "advanced but affordable." Klaviyo owns ecommerce email with near-universal praise for Shopify integration, while Salesforce Marketing Cloud struggles with usability despite its enterprise integration story.
+            </p>
+
+            <div class="key-findings">
+                <div class="finding-item">
+                    <h4>Top Praise for HubSpot</h4>
+                    <p>"All-in-one platform, easy to use, great for inbound marketing"</p>
+                </div>
+                <div class="finding-item">
+                    <h4>Top Criticism for HubSpot</h4>
+                    <p>"Pricing is predatory, Starter to Pro jump is absurd ($250 to $17,500/yr)"</p>
+                </div>
+                <div class="finding-item">
+                    <h4>Switching Patterns</h4>
+                    <p>Users leaving HubSpot for Attio + Apollo (CRM/prospecting) or ActiveCampaign (automation)</p>
+                </div>
+                <div class="finding-item">
+                    <h4>Best-in-Class For</h4>
+                    <p>Klaviyo: Ecommerce | ActiveCampaign: Automation | HubSpot: All-in-one SMB</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sentiment Comparison Chart -->
+        <div class="charts-grid">
+            <div class="card">
+                <h2 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 20V10M12 20V4M6 20v-6"/>
+                    </svg>
+                    G2 Ratings Comparison
+                </h2>
+                <div class="chart-container">
+                    <canvas id="ratingsChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    Review Volume vs Rating
+                </h2>
+                <div class="chart-container">
+                    <canvas id="bubbleChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="card">
+            <h2 class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 10h18M3 6h18M3 14h18M3 18h18"/>
+                </svg>
+                Platform Comparison at a Glance
+            </h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>G2 Rating</th>
+                        <th>Reviews</th>
+                        <th>Best For</th>
+                        <th>Biggest Weakness</th>
+                        <th>Reddit Sentiment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="vendor-name">
+                            <span style="color: #FF7A59; font-size: 1.25rem;">&#9679;</span>
+                            HubSpot Marketing Hub
+                        </td>
+                        <td><span class="rating-badge high">4.5/5</span></td>
+                        <td>14,286</td>
+                        <td>SMB all-in-one, inbound marketing</td>
+                        <td>Pricing jumps, feature paywalls</td>
+                        <td>
+                            <div class="sentiment-bar" style="width: 120px;">
+                                <div class="sentiment-positive" style="width: 45%;"></div>
+                                <div class="sentiment-neutral" style="width: 20%;"></div>
+                                <div class="sentiment-negative" style="width: 35%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="vendor-name">
+                            <span style="color: #8B5CF6; font-size: 1.25rem;">&#9679;</span>
+                            Adobe Marketo Engage
+                        </td>
+                        <td><span class="rating-badge medium">4.1/5</span></td>
+                        <td>2,935</td>
+                        <td>Enterprise B2B, complex workflows</td>
+                        <td>Complexity, needs dedicated staff</td>
+                        <td>
+                            <div class="sentiment-bar" style="width: 120px;">
+                                <div class="sentiment-positive" style="width: 30%;"></div>
+                                <div class="sentiment-neutral" style="width: 25%;"></div>
+                                <div class="sentiment-negative" style="width: 45%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="vendor-name">
+                            <span style="color: #3B82F6; font-size: 1.25rem;">&#9679;</span>
+                            ActiveCampaign
+                        </td>
+                        <td><span class="rating-badge high">4.6/5</span></td>
+                        <td>14,616</td>
+                        <td>Automation, email marketing</td>
+                        <td>Learning curve, no visual CRM</td>
+                        <td>
+                            <div class="sentiment-bar" style="width: 120px;">
+                                <div class="sentiment-positive" style="width: 70%;"></div>
+                                <div class="sentiment-neutral" style="width: 20%;"></div>
+                                <div class="sentiment-negative" style="width: 10%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="vendor-name">
+                            <span style="color: #00A1E0; font-size: 1.25rem;">&#9679;</span>
+                            Salesforce Marketing Cloud
+                        </td>
+                        <td><span class="rating-badge medium">4.0/5</span></td>
+                        <td>4,634</td>
+                        <td>Enterprise, Salesforce ecosystem</td>
+                        <td>Complexity, requires IT support</td>
+                        <td>
+                            <div class="sentiment-bar" style="width: 120px;">
+                                <div class="sentiment-positive" style="width: 25%;"></div>
+                                <div class="sentiment-neutral" style="width: 30%;"></div>
+                                <div class="sentiment-negative" style="width: 45%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="vendor-name">
+                            <span style="color: #10B981; font-size: 1.25rem;">&#9679;</span>
+                            Klaviyo
+                        </td>
+                        <td><span class="rating-badge high">4.6/5</span></td>
+                        <td>1,078</td>
+                        <td>Ecommerce, Shopify stores</td>
+                        <td>Gets expensive at scale</td>
+                        <td>
+                            <div class="sentiment-bar" style="width: 120px;">
+                                <div class="sentiment-positive" style="width: 75%;"></div>
+                                <div class="sentiment-neutral" style="width: 15%;"></div>
+                                <div class="sentiment-negative" style="width: 10%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Deep Dive Tabs -->
+        <div class="card">
+            <h2 class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                What Practitioners Are Actually Saying
+            </h2>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('hubspot')">HubSpot</button>
+                <button class="tab-btn" onclick="showTab('marketo')">Marketo</button>
+                <button class="tab-btn" onclick="showTab('activecampaign')">ActiveCampaign</button>
+                <button class="tab-btn" onclick="showTab('sfmc')">Salesforce MC</button>
+                <button class="tab-btn" onclick="showTab('klaviyo')">Klaviyo</button>
+            </div>
+
+            <!-- HubSpot Tab -->
+            <div id="hubspot-tab" class="tab-content active">
+                <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Theme Summary: HubSpot Marketing Hub</h3>
+                <div class="themes-container">
+                    <span class="theme-pill praise">Easy to use</span>
+                    <span class="theme-pill praise">All-in-one platform</span>
+                    <span class="theme-pill praise">Great for inbound</span>
+                    <span class="theme-pill criticism">Predatory pricing</span>
+                    <span class="theme-pill criticism">Feature paywalls</span>
+                    <span class="theme-pill criticism">Starter to Pro jump</span>
+                    <span class="theme-pill mixed">CMS is garbage</span>
+                    <span class="theme-pill mixed">Reporting limitations</span>
+                </div>
+
+                <div class="quotes-grid">
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"My sales rep quoted $17,500/year - a massive leap from our current $250/year Starter plan. For a small business, that's an outrageous and frankly offensive increase."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/hubspot</span>
+                            <a href="https://www.reddit.com/r/hubspot/comments/1krc67q/am_i_the_only_one_who_finds_hubspots_jump_from/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"I started hating HubSpot. My bill quickly increased due to nonsense bundles and rocket science-level complicated packages. It feels like their starter packages were traps."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/CRM</span>
+                            <a href="https://www.reddit.com/r/CRM/comments/1hht2me/i_started_hating_hubspot_is_anyone_else_in_the/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"After so many years of being a HubSpot fan, I am outraged. The company is turning into a forced upgrade billing machine. Already using Apollo for sequences which is much more adaptive."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/hubspot</span>
+                            <a href="https://www.reddit.com/r/hubspot/comments/1j80zo9/after_so_many_years_of_being_a_hubspot_fan_and/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Marketing automation and campaign setup is FAR superior in HubSpot. It's honestly astonishing how far behind Salesforce is for creating campaigns."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">LinkedIn</span>
+                            <a href="https://www.linkedin.com/posts/justin-humphreys-11215046_what-do-i-think-of-hubspot-after-2-months-activity-7371808956429520896-cBRZ" target="_blank" class="quote-link">View on LinkedIn</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"HubSpot's CMS is completely garbage and it gates way too many essential features between different tiers and hubs, but it's pretty solid overall."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/marketing</span>
+                            <a href="https://www.reddit.com/r/marketing/comments/1avr9m0/am_i_the_only_one_who_thinks_hubspot_kinda_sucks/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Why We're Leaving HubSpot After 13 Years. Their 'go broad' product strategy has diluted their ability to deliver. We're switching to best-in-class, purpose-built tools for each function."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">LinkedIn</span>
+                            <a href="https://www.linkedin.com/posts/erikc_why-were-leaving-hubspot-after-13-years-activity-7361970504758386688-Lw5B" target="_blank" class="quote-link">View on LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketo Tab -->
+            <div id="marketo-tab" class="tab-content">
+                <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Theme Summary: Adobe Marketo Engage</h3>
+                <div class="themes-container">
+                    <span class="theme-pill praise">Powerful automation</span>
+                    <span class="theme-pill praise">Enterprise-grade</span>
+                    <span class="theme-pill praise">Lead scoring</span>
+                    <span class="theme-pill criticism">Extremely complex</span>
+                    <span class="theme-pill criticism">Needs dedicated staff</span>
+                    <span class="theme-pill criticism">Dated UI</span>
+                    <span class="theme-pill mixed">Expensive</span>
+                    <span class="theme-pill mixed">Adobe acquisition concerns</span>
+                </div>
+
+                <div class="quotes-grid">
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Why is Marketo so damn expensive? Why did Adobe buy it, and how did something so clunky, that requires so many people to run it, get to become the Enterprise marketing platform of choice?"</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/marketing</span>
+                            <a href="https://www.reddit.com/r/marketing/comments/uo1mho/marketo_users_unite/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Every problem causes more problems, each solution breaks and needs a team of consultants. The biggest advantage seems to be that it's a job creator."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/marketing</span>
+                            <a href="https://www.reddit.com/r/marketing/comments/uo1mho/marketo_users_unite/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"I hated HubSpot, until using Marketo... I try and remind people that yes it feels like major features were designed in completely different universes, but at least it's not Marketo."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/marketing</span>
+                            <a href="https://www.reddit.com/r/marketing/comments/1avr9m0/am_i_the_only_one_who_thinks_hubspot_kinda_sucks/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Marketo's automation features for lead monitoring, management, and email customization are time-saving and efficient. These capabilities generate high-quality leads."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">TrustRadius</span>
+                            <a href="https://www.trustradius.com/products/adobe-marketo-engage/reviews" target="_blank" class="quote-link">View Review</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Adobe sure as hell don't warn you you'll spend the cost of Marketo AGAIN on the people needed to run it. 'Do our training (which we'll charge for)' and your whole team will be ready... spoiler: they won't."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/marketing</span>
+                            <a href="https://www.reddit.com/r/marketing/comments/uo1mho/marketo_users_unite/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Marketo is 4.3/5 on Capterra with 706 reviews. Ease of use: 3.8. The platform offers flexibility to tailor it to your unique requirements, but navigation can be optimized."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">Capterra</span>
+                            <a href="https://www.capterra.com/p/75130/Marketo-Lead-Management/reviews/" target="_blank" class="quote-link">View Reviews</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ActiveCampaign Tab -->
+            <div id="activecampaign-tab" class="tab-content">
+                <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Theme Summary: ActiveCampaign</h3>
+                <div class="themes-container">
+                    <span class="theme-pill praise">Best automation builder</span>
+                    <span class="theme-pill praise">Great value</span>
+                    <span class="theme-pill praise">Clean interface</span>
+                    <span class="theme-pill praise">Flexible tagging</span>
+                    <span class="theme-pill mixed">Gets expensive at scale</span>
+                    <span class="theme-pill criticism">No visual CRM</span>
+                    <span class="theme-pill criticism">Learning curve</span>
+                </div>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Mailerlite best for beginners, Sendinblue for tight budget users, MailChimp for boomers, ActiveCampaign for advanced. I used ActiveCampaign and really loved it."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/marketing</span>
+                            <a href="https://www.reddit.com/r/marketing/comments/11wpxd8/which_email_marketing_tool_do_you_use_do_you/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"We switched from Mailchimp to ActiveCampaign and haven't looked back! It handles our newsletters, abandoned carts, automations, and welcome flows. The tagging system makes segmentation really flexible."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/ecommerce</span>
+                            <a href="https://www.reddit.com/r/ecommerce/comments/1r83pxc/goto_ecommerce_email_marketing_software/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"ActiveCampaign is amazing. I researched the everyliving hell out of all this software and it really grabbed my attention with its automation abilities. Great customer service too."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/marketing</span>
+                            <a href="https://www.reddit.com/r/marketing/comments/mlet3b/email_marketing_platform_recommendation_that_is/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"ActiveCampaign is 4.6/5 on Capterra with 2,534 reviews. 'Metrics reports provide very useful insights about our campaigns that help us evaluate their performances.'"</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">Capterra</span>
+                            <a href="https://www.capterra.com/p/79367/ActiveCampaign/reviews/" target="_blank" class="quote-link">View Reviews</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"I moved to ActiveCampaign. A lot of these tools (Klaviyo included) have no visual CRM so it makes managing customers harder. AC has the benefit of being able to add on a CRM for minimal extra cost."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/SaaS</span>
+                            <a href="https://www.reddit.com/r/SaaS/comments/1ay573l/whats_your_current_email_marketing_platform_for/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Automation builder can feel clunky and knowledge base articles are often too sparse when you need step-by-step guidance. But overall, a great tool for email automation and customer engagement."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">Capterra</span>
+                            <a href="https://www.capterra.com/p/79367/ActiveCampaign/reviews/" target="_blank" class="quote-link">View Reviews</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Salesforce Marketing Cloud Tab -->
+            <div id="sfmc-tab" class="tab-content">
+                <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Theme Summary: Salesforce Marketing Cloud</h3>
+                <div class="themes-container">
+                    <span class="theme-pill praise">Salesforce integration</span>
+                    <span class="theme-pill praise">Enterprise scalability</span>
+                    <span class="theme-pill criticism">Requires IT support</span>
+                    <span class="theme-pill criticism">Poor UX</span>
+                    <span class="theme-pill criticism">Forms are terrible</span>
+                    <span class="theme-pill mixed">Expensive</span>
+                    <span class="theme-pill criticism">Not intuitive</span>
+                </div>
+
+                <div class="quotes-grid">
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"We've had two demos of SFMC and I'm not impressed and have major concerns, especially with web forms and the lack of ability to embed SFMC forms on websites built with other CMS like Drupal."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/hubspot</span>
+                            <a href="https://www.reddit.com/r/hubspot/comments/1c6a1cn/company_is_pushing_switch_to_salesforce_marketing/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"It's worse than you're imagining. Salesforce owns it and somehow it feels less native than the HubSpot/Salesforce integration. HubSpot plays so much better with SFDC than SFMC."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/hubspot</span>
+                            <a href="https://www.reddit.com/r/hubspot/comments/1c6a1cn/company_is_pushing_switch_to_salesforce_marketing/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card negative">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Salesforce Marketing Cloud is sold as a marketing tool, but to be honest, you need a LOT of technical IT support to run the tool. Creating SQL is not as easy as drag-and-drop."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">TrustRadius</span>
+                            <a href="https://www.trustradius.com/compare-products/knak-vs-salesforce-marketing-cloud" target="_blank" class="quote-link">View Review</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"I rated this a seven because I love Salesforce, and it is excellent on the sales side. However, the marketing side has some pros and cons. It's not easy to automate workflows."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">TrustRadius</span>
+                            <a href="https://www.trustradius.com/compare-products/knak-vs-salesforce-marketing-cloud" target="_blank" class="quote-link">View Review</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"The drag-and-drop editors make it easy to create visually appealing emails. The integration with Salesforce Service Cloud is efficient, allowing for smooth syncing of data."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">TrustRadius</span>
+                            <a href="https://www.trustradius.com/products/salesforce-marketing-cloud/reviews/all" target="_blank" class="quote-link">View Review</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Score 7.9/10 on TrustRadius from 1,427 reviews. Starting at $1,250/month. Pricing is high, but it seamlessly integrates with other Salesforce solutions."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">TrustRadius</span>
+                            <a href="https://www.trustradius.com/products/salesforce-marketing-cloud/reviews" target="_blank" class="quote-link">View Reviews</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Klaviyo Tab -->
+            <div id="klaviyo-tab" class="tab-content">
+                <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Theme Summary: Klaviyo</h3>
+                <div class="themes-container">
+                    <span class="theme-pill praise">Best for ecommerce</span>
+                    <span class="theme-pill praise">Shopify integration</span>
+                    <span class="theme-pill praise">Great flows</span>
+                    <span class="theme-pill praise">Split testing</span>
+                    <span class="theme-pill mixed">Expensive at scale</span>
+                    <span class="theme-pill criticism">Setup not intuitive</span>
+                    <span class="theme-pill criticism">Not for B2B</span>
+                </div>
+
+                <div class="quotes-grid">
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Klaviyo is the gold standard for product-based e-commerce businesses. There is no other platform that comes close to the capabilities offered."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">TrustRadius</span>
+                            <a href="https://www.trustradius.com/products/klaviyo/reviews/all" target="_blank" class="quote-link">View Review</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"We've loved the switch to Klaviyo! Allowed us to streamline SMS and email into 1 platform and dramatically cut our monthly expense while continuing to show growth."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">TrustRadius</span>
+                            <a href="https://www.trustradius.com/reviews/klaviyo-2023-07-06-19-01-56" target="_blank" class="quote-link">View Review</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Shopify email is great. Use it until you can afford Klaviyo. Klaviyo is pretty much the standard for Shopify at that size for a reason. Integration is seamless and the flow builder is amazing."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/shopify</span>
+                            <a href="https://www.reddit.com/r/shopify/comments/1aphput/is_klaviyo_that_good/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Setup is not very easy, it's not so plug and play. Some options are confusing and not intuitive. We feel like you need a dedicated email person to understand best practices."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">TrustRadius</span>
+                            <a href="https://www.trustradius.com/products/klaviyo/reviews/all" target="_blank" class="quote-link">View Review</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card neutral">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"I pay around 40k EUR a year for 277k active profiles. I'm starting to question Klaviyo's true value vs competitors like Shopify Emails. That's around 720 USD per month savings."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">r/Klaviyo</span>
+                            <a href="https://www.reddit.com/r/Klaviyo/comments/1r3l934/switching_from_klaviyo_to_shopify_emails/" target="_blank" class="quote-link">View on Reddit</a>
+                        </div>
+                    </div>
+
+                    <div class="quote-card positive">
+                        <div class="quote-icon">"</div>
+                        <p class="quote-text">"Klaviyo is 8.6/10 on TrustRadius from 287 reviews. Excellent for email marketing, especially with flows and split testing. Starting at $20/month."</p>
+                        <div class="quote-meta">
+                            <span class="quote-source">TrustRadius</span>
+                            <a href="https://www.trustradius.com/products/klaviyo/reviews" target="_blank" class="quote-link">View Reviews</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Positioning Recommendations -->
+        <div class="positioning-card">
+            <h3>Positioning Recommendations</h3>
+            <p style="color: var(--gray); margin-bottom: 1.5rem;">Based on sentiment analysis, here are the key opportunities and positioning angles for each segment:</p>
+
+            <ul class="positioning-list">
+                <li>
+                    <span class="positioning-icon">1</span>
+                    <div>
+                        <strong>Against HubSpot:</strong> Target SMBs hitting the "Starter to Pro wall" - highlight transparent pricing, no feature paywalls, and comparable automation at a fraction of the cost. The $250/yr to $17,500/yr jump is a major pain point.
+                    </div>
+                </li>
+                <li>
+                    <span class="positioning-icon">2</span>
+                    <div>
+                        <strong>Against Marketo:</strong> Emphasize ease of use and speed to value. Marketo users complain about needing dedicated staff and consultants. Position as "enterprise-grade results without the enterprise overhead."
+                    </div>
+                </li>
+                <li>
+                    <span class="positioning-icon">3</span>
+                    <div>
+                        <strong>Against SFMC:</strong> Highlight usability and marketing-first design. SFMC is criticized for requiring SQL knowledge and IT support. Lead with "built for marketers, not developers."
+                    </div>
+                </li>
+                <li>
+                    <span class="positioning-icon">4</span>
+                    <div>
+                        <strong>Best-of-Breed Trend:</strong> Users are increasingly unbundling from all-in-one platforms. Consider positioning point solutions (e.g., Attio + Apollo + ActiveCampaign) as an alternative stack.
+                    </div>
+                </li>
+                <li>
+                    <span class="positioning-icon">5</span>
+                    <div>
+                        <strong>Ecommerce vs B2B:</strong> Klaviyo owns ecommerce email. For B2B, the battle is between HubSpot (ease), Marketo (power), and ActiveCampaign (value). Position according to customer segment.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Data Sources -->
+        <div class="card">
+            <h2 class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+                Data Sources
+            </h2>
+            <p style="color: var(--gray); margin-bottom: 1rem;">This analysis synthesizes sentiment data from multiple sources to provide a comprehensive view of practitioner opinions.</p>
+            <div class="source-pills">
+                <span class="source-pill">Reddit (r/hubspot, r/marketing, r/CRM, r/shopify, r/ecommerce)</span>
+                <span class="source-pill">G2 Reviews</span>
+                <span class="source-pill">Capterra Reviews</span>
+                <span class="source-pill">TrustRadius Reviews</span>
+                <span class="source-pill">LinkedIn Posts</span>
+                <span class="source-pill">Twitter/X</span>
+                <span class="source-pill">Substack</span>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h3 class="cta-title">Need Help Evaluating Marketing Automation Platforms?</h3>
+            <p class="cta-text">Our team can help you navigate the crowded marketing automation landscape and find the right fit for your GTM strategy.</p>
+            <a href="https://42agency.com/contact" target="_blank" class="cta-button">Get in Touch</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/42-logo.png" alt="42 Agency">
+                    <p>B2B performance marketing for companies that sell to enterprises. We've managed $50M+ in ad spend across 200+ accounts.</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://x.com/42aboratory" target="_blank" aria-label="X/Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@Get42Agency" target="_blank" aria-label="YouTube">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Assess</h4>
+                    <a href="/assessments/hubspot-health/">HubSpot Health Check</a>
+                    <a href="/assess/calculator/">Benchmark Calculator</a>
+                    <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
+                    <a href="/google-ads-audit/">Google Ads Audit</a>
+                    <a href="/meta-audit/">Meta Ads Audit</a>
+                    <a href="/hubspot-audit/">HubSpot Audit</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Benchmarks</h4>
+                    <a href="/b2b-benchmarks/">All B2B Benchmarks</a>
+                    <a href="/b2b-benchmarks/linkedin-ads-benchmarks/">LinkedIn Ads</a>
+                    <a href="/b2b-benchmarks/google-ads-benchmarks/">Google Ads</a>
+                    <a href="/b2b-benchmarks/meta-ads-benchmarks/">Meta Ads</a>
+                    <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/">InMail Benchmarks</a>
+                    <a href="/b2b-benchmarks/legal-tech-linkedin-ads/" class="sublink">Legal Tech</a>
+                    <a href="/b2b-benchmarks/healthcare-tech-linkedin-ads/" class="sublink">Healthcare Tech</a>
+                    <a href="/b2b-benchmarks/fintech-linkedin-ads/" class="sublink">FinTech</a>
+                    <a href="/b2b-benchmarks/devops-linkedin-ads/" class="sublink">DevOps</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">LinkedIn Ads Copilot</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting" target="_blank">Targeting Guide</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting/audience-sizing" target="_blank">Audience Sizing</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting/job-titles" target="_blank">Job Title Targeting</a>
+                    <h4 style="margin-top: 1.5rem;">Resources</h4>
+                    <a href="/playbooks/">B2B Playbooks</a>
+                    <a href="/zenabm/">ABM Toolkit</a>
+                    <a href="/mops-funnel/">MOPS Funnel Workbook</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com" target="_blank">Website</a>
+                    <a href="https://42agency.com/contact" target="_blank">Contact Us</a>
+                    <a href="https://42agency.com/case-studies" target="_blank">Case Studies</a>
+                    <a href="https://42slash.com" target="_blank">42/ Essays</a>
+                    <a href="https://42agency.com/careers" target="_blank">Careers</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 42 Agency. All rights reserved.</p>
+                <p>
+                    <a href="https://42agency.com/privacy" target="_blank">Privacy</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="https://42agency.com/terms" target="_blank">Terms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        function showTab(vendor) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(vendor + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Chart.js
+        const colors = {
+            hubspot: '#FF7A59',
+            marketo: '#8B5CF6',
+            activecampaign: '#3B82F6',
+            sfmc: '#00A1E0',
+            klaviyo: '#10B981',
+            dark: '#1a1a1a'
+        };
+
+        const vendors = [
+            { name: 'HubSpot Marketing Hub', rating: 4.5, reviews: 14286, color: colors.hubspot },
+            { name: 'ActiveCampaign', rating: 4.6, reviews: 14616, color: colors.activecampaign },
+            { name: 'Klaviyo', rating: 4.6, reviews: 1078, color: colors.klaviyo },
+            { name: 'Marketo Engage', rating: 4.1, reviews: 2935, color: colors.marketo },
+            { name: 'Salesforce MC', rating: 4.0, reviews: 4634, color: colors.sfmc }
+        ];
+
+        // Ratings Chart
+        const ratingsCtx = document.getElementById('ratingsChart').getContext('2d');
+        new Chart(ratingsCtx, {
+            type: 'bar',
+            data: {
+                labels: vendors.map(v => v.name),
+                datasets: [{
+                    label: 'G2 Rating',
+                    data: vendors.map(v => v.rating),
+                    backgroundColor: vendors.map(v => v.color),
+                    borderColor: colors.dark,
+                    borderWidth: 2,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: colors.dark,
+                        titleFont: { family: 'Inter', weight: '700' },
+                        bodyFont: { family: 'Inter' },
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                return 'Rating: ' + context.raw.toFixed(1) + '/5';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        min: 3.5,
+                        max: 5,
+                        grid: { color: '#e5e5e5' },
+                        ticks: {
+                            font: { family: 'Inter', weight: '500' }
+                        }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Inter', weight: '600', size: 11 } }
+                    }
+                }
+            }
+        });
+
+        // Bubble Chart
+        const bubbleCtx = document.getElementById('bubbleChart').getContext('2d');
+        new Chart(bubbleCtx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Vendors',
+                    data: vendors.map(v => ({
+                        x: v.rating,
+                        y: v.reviews / 1000,
+                        r: Math.max(10, Math.sqrt(v.reviews) / 3),
+                        vendor: v.name,
+                        reviews: v.reviews
+                    })),
+                    backgroundColor: vendors.map(v => v.color + 'CC'),
+                    borderColor: colors.dark,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: colors.dark,
+                        titleFont: { family: 'Inter', weight: '700' },
+                        bodyFont: { family: 'Inter' },
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            title: function(context) {
+                                return context[0].raw.vendor;
+                            },
+                            label: function(context) {
+                                const data = context.raw;
+                                return [
+                                    'Rating: ' + data.x.toFixed(1) + '/5',
+                                    'Reviews: ' + data.reviews.toLocaleString()
+                                ];
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        min: 3.8,
+                        max: 4.8,
+                        title: {
+                            display: true,
+                            text: 'G2 Rating',
+                            font: { family: 'Inter', weight: '600' }
+                        },
+                        grid: { color: '#e5e5e5' },
+                        ticks: { font: { family: 'Inter', weight: '500' } }
+                    },
+                    y: {
+                        min: 0,
+                        max: 18,
+                        title: {
+                            display: true,
+                            text: 'Reviews (thousands)',
+                            font: { family: 'Inter', weight: '600' }
+                        },
+                        grid: { color: '#e5e5e5' },
+                        ticks: { font: { family: 'Inter', weight: '500' } }
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

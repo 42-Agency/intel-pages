@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitive Intelligence Agent | 42 Intel</title>
+    <meta name="description" content="Autonomous competitive research agent for Claude Code. Analyzes websites, captures ad screenshots from LinkedIn/Meta/Google, and outputs structured reports.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', -apple-system, sans-serif; }
+        pre, code { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-white text-[#1a1a1a]">
+    <!-- Global Header -->
+    <header class="border-b-2 border-[#1a1a1a] bg-white sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2">
+                <img src="/42-logo.png" alt="42 Agency" class="h-7 w-auto">
+            </a>
+            <nav class="hidden md:flex items-center gap-1">
+                <a href="/assess/" class="px-4 py-2 text-sm font-medium text-[#4a4a4a] hover:text-[#1a1a1a] hover:bg-[#f5f5f5] rounded-md transition-all">Assess</a>
+                <a href="/b2b-benchmarks/" class="px-4 py-2 text-sm font-medium text-[#4a4a4a] hover:text-[#1a1a1a] hover:bg-[#f5f5f5] rounded-md transition-all">Benchmarks</a>
+                <a href="/tools/" class="px-4 py-2 text-sm font-medium text-[#4a4a4a] hover:text-[#1a1a1a] hover:bg-[#f5f5f5] rounded-md transition-all">Tools</a>
+                <a href="/playbooks/" class="px-4 py-2 text-sm font-medium text-[#4a4a4a] hover:text-[#1a1a1a] hover:bg-[#f5f5f5] rounded-md transition-all">Playbooks</a>
+                <a href="https://42agency.com/contact" target="_blank" class="ml-2 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-semibold rounded-md hover:bg-[#333] transition-colors">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-[#f5f5f5] border-b-2 border-[#1a1a1a] py-16 md:py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block px-4 py-1.5 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full text-xs font-bold shadow-[2px_2px_0px_0px_#1a1a1a] mb-6">Claude Code Agent</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Competitive Intelligence Agent</h1>
+            <p class="text-lg text-[#4a4a4a] mb-8 max-w-2xl mx-auto">Autonomous competitive research in minutes. Analyzes websites, captures ad screenshots from LinkedIn/Meta/Google ad libraries, and outputs structured reports.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="downloadAgent()" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#DFFE68] text-[#1a1a1a] font-bold rounded-lg border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] hover:shadow-[6px_6px_0px_0px_#1a1a1a] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    Download Agent (.md)
+                </button>
+                <a href="https://github.com/anthropics/claude-code" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#1a1a1a] font-semibold rounded-lg border-2 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] hover:bg-[#f5f5f5] transition-colors">
+                    Get Claude Code
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What It Does -->
+    <section class="py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-center mb-12">What It Does</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-6 shadow-[4px_4px_0px_0px_#F59E0B]">
+                    <h3 class="text-lg font-bold mb-4">Website Analysis</h3>
+                    <ul class="space-y-2 text-[#4a4a4a]">
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Homepage messaging & positioning</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Value propositions & differentiators</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Target audience signals</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Pricing model (if public)</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Brand voice and tone</li>
+                    </ul>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-6 shadow-[4px_4px_0px_0px_#3B82F6]">
+                    <h3 class="text-lg font-bold mb-4">Ad Library Screenshots</h3>
+                    <ul class="space-y-2 text-[#4a4a4a]">
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> LinkedIn Ad Library</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Meta Ad Library</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Google Ads Transparency Center</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Full-page screenshot capture</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Visual creative analysis</li>
+                    </ul>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-6 shadow-[4px_4px_0px_0px_#10B981]">
+                    <h3 class="text-lg font-bold mb-4">Competitive Comparison</h3>
+                    <ul class="space-y-2 text-[#4a4a4a]">
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Positioning landscape table</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Messaging gaps & overlaps</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Ad platform strategy breakdown</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Feature & pricing comparison</li>
+                        <li class="flex items-start gap-2"><span class="text-[#1a1a1a] font-bold">→</span> Actionable recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section class="py-16 px-6 bg-[#f5f5f5] border-y-2 border-[#1a1a1a]">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-center mb-12">Quick Start</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-5 text-center relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full text-sm font-extrabold flex items-center justify-center">1</div>
+                    <h4 class="font-bold mt-2 mb-1">Install CLI</h4>
+                    <p class="text-xs text-[#6b6b6b]">Claude Code CLI</p>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-5 text-center relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full text-sm font-extrabold flex items-center justify-center">2</div>
+                    <h4 class="font-bold mt-2 mb-1">Save Agent</h4>
+                    <p class="text-xs text-[#6b6b6b]">~/.claude/agents/</p>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-5 text-center relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full text-sm font-extrabold flex items-center justify-center">3</div>
+                    <h4 class="font-bold mt-2 mb-1">Add API Key</h4>
+                    <p class="text-xs text-[#6b6b6b]">Browserbase.com</p>
+                </div>
+                <div class="bg-white border-2 border-[#1a1a1a] rounded-xl p-5 text-center relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full text-sm font-extrabold flex items-center justify-center">4</div>
+                    <h4 class="font-bold mt-2 mb-1">Run It</h4>
+                    <p class="text-xs text-[#6b6b6b]">claude "run..."</p>
+                </div>
+            </div>
+
+            <div class="bg-[#1a1a1a] rounded-xl p-6 border-2 border-[#1a1a1a]">
+                <h3 class="text-[#DFFE68] font-bold text-sm mb-4">Installation Commands</h3>
+                <pre class="text-[#e0e0e0] text-sm leading-relaxed overflow-x-auto"><code><span class="text-[#6b6b6b]"># Install Claude Code CLI</span>
+npm install -g @anthropic-ai/claude-code
+
+<span class="text-[#6b6b6b]"># Create agents folder & save the .md file</span>
+mkdir -p ~/.claude/agents
+mv ~/Downloads/competitive-intel.md ~/.claude/agents/
+
+<span class="text-[#6b6b6b]"># Install puppeteer for screenshots</span>
+npm install -g puppeteer-core
+
+<span class="text-[#6b6b6b]"># Run the agent</span>
+claude <span class="text-[#DFFE68]">"run competitive-intel agent for acme.com"</span></code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Screenshots Work -->
+    <section class="py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-center mb-4">How Screenshots Work</h2>
+            <p class="text-center text-[#4a4a4a] mb-10">Uses Browserbase cloud browsers to capture full-page screenshots from ad libraries.</p>
+
+            <div class="bg-[#1a1a1a] rounded-xl p-6 border-2 border-[#1a1a1a]">
+                <h3 class="text-[#DFFE68] font-bold text-sm mb-4">Browserbase + Puppeteer</h3>
+                <pre class="text-[#e0e0e0] text-sm leading-relaxed overflow-x-auto"><code><span class="text-[#6b6b6b]">// Create cloud browser session</span>
+const session = await fetch(<span class="text-[#DFFE68]">'https://www.browserbase.com/v1/sessions'</span>, {
+  method: 'POST',
+  headers: { 'x-bb-api-key': BROWSERBASE_API_KEY },
+  body: JSON.stringify({ projectId: BROWSERBASE_PROJECT_ID })
+}).then(r => r.json());
+
+<span class="text-[#6b6b6b]">// Connect puppeteer to cloud browser</span>
+const browser = await puppeteer.connect({
+  browserWSEndpoint: `wss://connect.browserbase.com?apiKey=${BROWSERBASE_API_KEY}&sessionId=${session.id}`
+});
+
+<span class="text-[#6b6b6b]">// Capture screenshot from LinkedIn Ad Library</span>
+await page.goto(<span class="text-[#DFFE68]">'https://www.linkedin.com/ad-library/search?accountOwner=acme'</span>);
+await page.screenshot({ path: 'acme-linkedin-ads.png', fullPage: true });</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-2xl p-8 md:p-12 text-center shadow-[6px_6px_0px_0px_#1a1a1a]">
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Download the Agent</h2>
+                <p class="text-[#4a4a4a] mb-8">Save the .md file to ~/.claude/agents/ and start running competitive research.</p>
+                <button onclick="downloadAgent()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#1a1a1a] text-white font-bold rounded-lg hover:bg-[#333] transition-colors">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    Download competitive-intel.md
+                </button>
+            </div>
+
+            <div class="flex flex-wrap gap-6 justify-center mt-10">
+                <div class="flex items-center gap-2 text-sm text-[#4a4a4a]">
+                    <span class="w-2 h-2 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full"></span>
+                    Claude Code CLI
+                </div>
+                <div class="flex items-center gap-2 text-sm text-[#4a4a4a]">
+                    <span class="w-2 h-2 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full"></span>
+                    Anthropic API key
+                </div>
+                <div class="flex items-center gap-2 text-sm text-[#4a4a4a]">
+                    <span class="w-2 h-2 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full"></span>
+                    Browserbase account
+                </div>
+                <div class="flex items-center gap-2 text-sm text-[#4a4a4a]">
+                    <span class="w-2 h-2 bg-[#DFFE68] border-2 border-[#1a1a1a] rounded-full"></span>
+                    Node.js + puppeteer-core
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="border-t-2 border-[#1a1a1a] py-16 px-6 bg-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 pb-12 border-b border-gray-700">
+                <!-- Brand Column -->
+                <div class="col-span-2 md:col-span-1">
+                    <img src="/42-logo.png" alt="42 Agency" class="h-6 w-auto brightness-0 invert mb-4">
+                    <p class="text-sm text-gray-400 leading-relaxed">B2B performance marketing for companies that sell to enterprises.</p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="https://linkedin.com/company/42agency" target="_blank" class="text-gray-400 hover:text-white text-sm transition-colors">LinkedIn</a>
+                        <a href="https://x.com/42aboratory" target="_blank" class="text-gray-400 hover:text-white text-sm transition-colors">X</a>
+                    </div>
+                </div>
+                <!-- Assess Column -->
+                <div>
+                    <h4 class="text-[#DFFE68] font-bold text-xs uppercase tracking-wide mb-4">Assess</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/assessments/hubspot-health/" class="text-gray-400 hover:text-white transition-colors">HubSpot Health Check</a></li>
+                        <li><a href="/assess/calculator/" class="text-gray-400 hover:text-white transition-colors">Benchmark Calculator</a></li>
+                        <li><a href="/linkedin-audit/" class="text-gray-400 hover:text-white transition-colors">LinkedIn Ads Audit</a></li>
+                        <li><a href="/google-ads-audit/" class="text-gray-400 hover:text-white transition-colors">Google Ads Audit</a></li>
+                    </ul>
+                </div>
+                <!-- Benchmarks Column -->
+                <div>
+                    <h4 class="text-[#DFFE68] font-bold text-xs uppercase tracking-wide mb-4">Benchmarks</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/b2b-benchmarks/" class="text-gray-400 hover:text-white transition-colors">All Benchmarks</a></li>
+                        <li><a href="/b2b-benchmarks/linkedin-ads-benchmarks/" class="text-gray-400 hover:text-white transition-colors">LinkedIn Ads</a></li>
+                        <li><a href="/b2b-benchmarks/google-ads-benchmarks/" class="text-gray-400 hover:text-white transition-colors">Google Ads</a></li>
+                        <li><a href="/b2b-benchmarks/linkedin-inmail-benchmarks/" class="text-gray-400 hover:text-white transition-colors">InMail Benchmarks</a></li>
+                    </ul>
+                </div>
+                <!-- AI Tools Column -->
+                <div>
+                    <h4 class="text-[#DFFE68] font-bold text-xs uppercase tracking-wide mb-4">AI Tools</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://copilot.42agency.com" target="_blank" class="text-gray-400 hover:text-white transition-colors">LinkedIn Ads Copilot</a></li>
+                        <li><a href="https://copilot.42agency.com/linkedin-ads-targeting" target="_blank" class="text-gray-400 hover:text-white transition-colors">Targeting Guide</a></li>
+                        <li><a href="/tools/" class="text-gray-400 hover:text-white transition-colors">All Tools</a></li>
+                    </ul>
+                    <h4 class="text-[#DFFE68] font-bold text-xs uppercase tracking-wide mb-4 mt-6">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/zenabm/" class="text-gray-400 hover:text-white transition-colors">ABM Toolkit</a></li>
+                        <li><a href="/playbooks/" class="text-gray-400 hover:text-white transition-colors">Playbooks</a></li>
+                    </ul>
+                </div>
+                <!-- Agency Column -->
+                <div>
+                    <h4 class="text-[#DFFE68] font-bold text-xs uppercase tracking-wide mb-4">42 Agency</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://42agency.com" target="_blank" class="text-gray-400 hover:text-white transition-colors">Website</a></li>
+                        <li><a href="https://42agency.com/contact" target="_blank" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="https://42agency.com/case-studies" target="_blank" class="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="https://42slash.com" target="_blank" class="text-gray-400 hover:text-white transition-colors">42/ Essays</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 42 Agency. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="https://42agency.com/privacy" class="text-gray-500 hover:text-white text-sm transition-colors">Privacy</a>
+                    <a href="https://42agency.com/terms" class="text-gray-500 hover:text-white text-sm transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const agentContent = `---
+name: competitive-intel
+description: Competitive intelligence agent. Analyzes a company's website and ads (Meta, LinkedIn, Google). Captures ad screenshots and outputs a structured competitive analysis report. Give it a company name/URL and optional list of competitors.
+tools: Read, Write, Edit, WebFetch, WebSearch, Glob, Grep, Bash
+model: inherit
+---
+
+You are a competitive intelligence analyst. Your job is to research companies and their competitors, analyze their marketing positioning, capture ad screenshots, and produce actionable competitive insight reports.
+
+## What You Analyze
+
+**Website Analysis:**
+- Homepage messaging and positioning
+- Value propositions and key benefits
+- Target audience signals
+- Pricing model (if public)
+- Product features and differentiators
+- Brand voice and tone
+
+**Ad Analysis (with Screenshots):**
+- Active campaigns across Meta, LinkedIn, Google
+- Ad creative themes and messaging
+- Visual analysis of ad creative (colors, imagery, layout)
+- Offers and CTAs being used
+- Target audience signals from ad copy
+- Ad formats being used (video, static, carousel, etc.)
+
+**Competitive Comparison:**
+- Positioning differences
+- Messaging gaps and overlaps
+- Feature comparison
+- Pricing comparison (where available)
+- Ad strategy differences
+- Visual/creative differences
+
+## Ad Library URLs
+
+**LinkedIn Ad Library:**
+\`\`\`
+https://www.linkedin.com/ad-library/search?accountOwner={company-name}
+\`\`\`
+Replace \`{company-name}\` with the company's LinkedIn handle (usually their company name, lowercase, no spaces).
+
+**Meta Ad Library:**
+\`\`\`
+https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q={company-name}
+\`\`\`
+Replace \`{company-name}\` with the company name. Can also search by exact page name.
+
+**Google Ads Transparency Center:**
+\`\`\`
+https://adstransparency.google.com/?region=US&query={company-name}
+\`\`\`
+Replace \`{company-name}\` with the company name.
+
+## Capturing Ad Screenshots via Browserbase
+
+Use the Browserbase cloud browser API to capture screenshots. This runs headless Chrome in the cloud.
+
+### Screenshot Script
+
+Create a temporary script for each screenshot capture:
+
+\`\`\`javascript
+// Save as: /tmp/ci_screenshot.js
+const puppeteer = require('puppeteer-core');
+
+const BROWSERBASE_API_KEY = 'YOUR_API_KEY';
+const BROWSERBASE_PROJECT_ID = 'YOUR_PROJECT_ID';
+
+async function captureScreenshot(url, outputPath, waitTime = 3000) {
+  // Create Browserbase session
+  const session = await fetch('https://www.browserbase.com/v1/sessions', {
+    method: 'POST',
+    headers: {
+      'x-bb-api-key': BROWSERBASE_API_KEY,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ projectId: BROWSERBASE_PROJECT_ID })
+  }).then(r => r.json());
+
+  // Connect puppeteer
+  const browser = await puppeteer.connect({
+    browserWSEndpoint: \`wss://connect.browserbase.com?apiKey=\${BROWSERBASE_API_KEY}&sessionId=\${session.id}\`
+  });
+
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1440, height: 900 });
+  await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+  await new Promise(r => setTimeout(r, waitTime));
+  await page.screenshot({ path: outputPath, fullPage: true });
+
+  await browser.close();
+  console.log(\`Screenshot saved: \${outputPath}\`);
+}
+
+// Usage: node ci_screenshot.js <url> <output_path> [wait_ms]
+const [,, url, outputPath, waitTime] = process.argv;
+captureScreenshot(url, outputPath, parseInt(waitTime) || 3000);
+\`\`\`
+
+### Capture Commands
+
+**LinkedIn Ad Library:**
+\`\`\`bash
+node /tmp/ci_screenshot.js \\
+  "https://www.linkedin.com/ad-library/search?accountOwner={company}" \\
+  "{output_folder}/{company}-linkedin-ads.png" \\
+  3000
+\`\`\`
+
+**Meta Ad Library:**
+\`\`\`bash
+node /tmp/ci_screenshot.js \\
+  "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q={company}" \\
+  "{output_folder}/{company}-meta-ads.png" \\
+  4000
+\`\`\`
+
+**Google Ads Transparency:**
+\`\`\`bash
+node /tmp/ci_screenshot.js \\
+  "https://adstransparency.google.com/?region=US&query={company}" \\
+  "{output_folder}/{company}-google-ads.png" \\
+  3000
+\`\`\`
+
+## Workflow
+
+1. **Intake:** User provides target company (name + URL) and optionally a list of competitors
+2. **Create output folder:** Create a folder for this report (e.g., \`CI_{company}/\`)
+3. **If no competitors provided:** Search to identify 3-5 key competitors in the space
+4. **Website analysis:** Fetch and analyze target company website
+5. **Ad research with screenshots:**
+   - Navigate to LinkedIn Ad Library → capture screenshots → analyze
+   - Navigate to Meta Ad Library → capture screenshots → analyze
+   - Navigate to Google Ads Transparency → capture screenshots → analyze
+6. **Competitor analysis:** Repeat website + ad screenshot analysis for each competitor
+7. **Visual comparison:** Compare ad creative styles across competitors
+8. **Synthesis:** Compare and contrast, identify insights
+9. **Report:** Output structured competitive analysis with embedded screenshot references
+
+## Output Format
+
+Structure your report as:
+
+\`\`\`markdown
+# Competitive Intelligence Report: {Company Name}
+
+**Date:** {date}
+
+---
+
+## Executive Summary
+[3-5 bullet points with key findings]
+
+---
+
+## Target Company Analysis
+
+### Website & Positioning
+[Analysis of homepage, messaging, value props, target audience]
+
+### Pricing & Packaging
+[Pricing tiers, packaging strategy, comparison to market]
+
+### Active Advertising
+
+**LinkedIn Ads** ({count} active ads found)
+![LinkedIn Ads]({company}-linkedin-ads.png)
+
+Key themes:
+- [Theme 1]
+- [Theme 2]
+
+Creative analysis:
+- [Visual style, colors, imagery observations]
+
+**Meta Ads** ({count} active ads found or "No active ads found")
+![Meta Ads]({company}-meta-ads.png)
+
+Key themes:
+- [Theme 1]
+- [Theme 2]
+
+**Google Ads** ({count} ads found or "No active ads found")
+![Google Ads]({company}-google-ads.png)
+
+Key themes:
+- [Theme 1]
+- [Theme 2]
+
+Ad formats observed:
+- [Search ads, Display ads, YouTube ads, etc.]
+
+---
+
+## Competitor Analysis
+
+### {Competitor 1}
+**Website:** [URL]
+**Positioning:** [How they position themselves]
+**Key Messaging:** [Main value props]
+
+**Ad Activity:**
+
+LinkedIn Ads ({count}):
+![{Competitor 1} LinkedIn Ads]({competitor1}-linkedin-ads.png)
+
+Meta Ads ({count}):
+![{Competitor 1} Meta Ads]({competitor1}-meta-ads.png)
+
+Google Ads ({count}):
+![{Competitor 1} Google Ads]({competitor1}-google-ads.png)
+
+[Analysis of their ad creative, themes, offers]
+
+**Differentiators:** [What makes them different]
+
+[Repeat for each competitor]
+
+---
+
+## Competitive Insights
+
+### Positioning Landscape
+| Company | Primary Position | Target Buyer | Price Entry |
+|---------|------------------|--------------|-------------|
+| {Target} | ... | ... | ... |
+| {Competitor 1} | ... | ... | ... |
+
+### Messaging Opportunities
+[What angles are competitors missing that target could own?]
+
+### Ad Creative Analysis
+[Compare visual styles across competitors - what's working? Common patterns? Differentiation opportunities?]
+
+### Ad Platform Strategy
+| Company | LinkedIn Ads | Meta Ads | Google Ads | Primary Platform |
+|---------|-------------|----------|------------|------------------|
+| {Target} | {count} | {count} | {count} | {platform} |
+| {Competitor 1} | {count} | {count} | {count} | {platform} |
+
+### Threats & Risks
+[Where are competitors stronger?]
+
+---
+
+## Recommendations
+[3-5 actionable recommendations based on findings]
+
+---
+
+## Appendix: Ad Screenshots
+
+| Company | Platform | Filename | Ad Count |
+|---------|----------|----------|----------|
+| {Target} | LinkedIn | {company}-linkedin-ads.png | {count} |
+| {Target} | Meta | {company}-meta-ads.png | {count} |
+| {Target} | Google | {company}-google-ads.png | {count} |
+\`\`\`
+
+## Notes
+
+- If you can't access a source (e.g., blocked, login required), note it and move on
+- Focus on actionable insights, not just descriptions
+- Be specific — quote actual headlines, CTAs, messaging
+- Analyze screenshots visually — describe colors, imagery, layout patterns
+- Save screenshots with descriptive filenames
+- Save the final report as a markdown file
+
+## Common Issues & Solutions
+
+**Meta Ad Library:**
+- May show "no ads found" even if company is advertising
+- Try searching by exact Facebook page name instead of company name
+- Some regions/ads may be restricted
+
+**Google Ads Transparency:**
+- Click on the advertiser name in search results to see their ads
+- Not all advertisers have visible ads (may only show verified advertisers)
+- Shows ads from last 30 days
+
+**LinkedIn Ad Library:**
+- Most reliable source for B2B companies
+- Shows all active ads
+- accountOwner parameter is usually the company's LinkedIn URL slug
+
+## Requirements
+
+- Node.js with \`puppeteer-core\` installed
+- Browserbase account (get API key at browserbase.com)
+`;
+
+    function downloadAgent() {
+        const blob = new Blob([agentContent], { type: 'text/markdown' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'competitive-intel.md';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+    </script>
+</body>
+</html>
