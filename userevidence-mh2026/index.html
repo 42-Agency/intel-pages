@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserEvidence — Market Intelligence | 42 Agency</title>
+    <link rel="icon" href="https://userevidence.com/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid #1a1a1a;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .logo { height: 32px; }
+        .header-meta { font-size: 14px; color: #6b6b6b; }
+
+        /* Hero */
+        .hero {
+            background: #f5f5f5;
+            border-bottom: 2px solid #1a1a1a;
+            padding: 64px 24px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            color: #4a4a4a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-bottom: 2px solid #1a1a1a;
+        }
+        .stat {
+            padding: 24px;
+            text-align: center;
+            border-right: 2px solid #1a1a1a;
+        }
+        .stat:last-child { border-right: none; }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b6b6b;
+            margin-top: 4px;
+        }
+
+        /* Main Content */
+        .main { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+
+        /* Section */
+        .section { margin-bottom: 48px; }
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #DFFE68;
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+        .card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .card p { color: #4a4a4a; }
+
+        /* Findings List */
+        .findings-list {
+            list-style: none;
+        }
+        .findings-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .findings-list li:last-child { border-bottom: none; }
+        .finding-icon {
+            width: 24px;
+            height: 24px;
+            background: #DFFE68;
+            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        /* Keyword Table */
+        .keyword-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        .keyword-table th, .keyword-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .keyword-table th {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #6b6b6b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .keyword-table td { font-size: 0.9375rem; }
+        .cpc-high { color: #10B981; font-weight: 600; }
+
+        /* Revenue Model */
+        .revenue-model {
+            background: #f5f5f5;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .funnel-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+        .funnel-step:last-child { border-bottom: none; }
+        .funnel-label { font-weight: 500; }
+        .funnel-value { font-weight: 700; font-size: 1.125rem; }
+        .funnel-arrow { color: #6b6b6b; }
+
+        /* CTA Section */
+        .cta-section {
+            background: #DFFE68;
+            border: 2px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 48px;
+            box-shadow: 6px 6px 0px 0px #1a1a1a;
+        }
+        .cta-section h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .cta-section h2::before { display: none; }
+        .cta-section p {
+            color: #4a4a4a;
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid #1a1a1a;
+            padding: 32px 24px;
+            background: #1a1a1a;
+            color: #9a9a9a;
+            text-align: center;
+        }
+        .footer a { color: #DFFE68; }
+
+        /* Inside Joke Banner */
+        .test-banner {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .stat { border-bottom: 2px solid #1a1a1a; }
+            .hero h1 { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Inside Joke Banner for Mark -->
+    <div class="test-banner">
+        🤖 GENERATED BY 42's AI SDR — Mark, please rate the personalization 1-10. We're testing on friends before unleashing this on the world.
+    </div>
+
+    <header class="header">
+        <img src="/42-logo.png" alt="42 Agency" class="logo">
+        <span class="header-meta">Executive Briefing • February 2026</span>
+    </header>
+
+    <section class="hero">
+        <h1>28K Customer Marketers. 150+ Monthly Searches. Who's Reaching Them?</h1>
+        <p>UserEvidence's ICP is searching and scrolling. Here's where the demand is.</p>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-value">28K+</div>
+            <div class="stat-label">LinkedIn Audience</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">150+</div>
+            <div class="stat-label">Monthly Searches</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">$52</div>
+            <div class="stat-label">Avg CPC</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">$840K</div>
+            <div class="stat-label">Pipeline Opportunity</div>
+        </div>
+    </div>
+
+    <main class="main">
+        <section class="section">
+            <h2>Key Findings</h2>
+            <ul class="findings-list">
+                <li>
+                    <span class="finding-icon">1</span>
+                    <div>
+                        <strong>28K+ Customer/Product Marketing Managers on LinkedIn</strong> — at B2B SaaS companies with 500+ employees (UserEvidence's sweet spot per their "More than 500 end users" qualifier)
+                    </div>
+                </li>
+                <li>
+                    <span class="finding-icon">2</span>
+                    <div>
+                        <strong>"Customer advocacy platform" = 110 searches/mo at $67 CPC</strong> — high-intent category keyword with serious buyer interest (that CPC signals enterprise buyers, not tire-kickers)
+                    </div>
+                </li>
+                <li>
+                    <span class="finding-icon">3</span>
+                    <div>
+                        <strong>TechValidate is the only named competitor</strong> — category positioning opportunity to own "customer evidence" narrative before more players enter
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Search Demand Breakdown</h2>
+            <div class="card">
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Volume</th>
+                            <th>CPC</th>
+                            <th>Competition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>customer advocacy platform</td>
+                            <td>110/mo</td>
+                            <td class="cpc-high">$66.97</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td>customer testimonials software</td>
+                            <td>10/mo</td>
+                            <td class="cpc-high">$37.23</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>customer reference management</td>
+                            <td>30/mo</td>
+                            <td>—</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td>b2b customer proof</td>
+                            <td>emerging</td>
+                            <td>—</td>
+                            <td>Greenfield</td>
+                        </tr>
+                        <tr>
+                            <td>customer evidence platform</td>
+                            <td>emerging</td>
+                            <td>—</td>
+                            <td>Greenfield</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Revenue Opportunity Model</h2>
+            <p style="color: #6b6b6b; margin-bottom: 16px;">Based on category search volume + LinkedIn audience, assuming standard B2B SaaS funnel metrics:</p>
+            <div class="revenue-model">
+                <div class="funnel-step">
+                    <span class="funnel-label">Monthly Searches</span>
+                    <span class="funnel-value">150</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">→ Clicks (35% CTR)</span>
+                    <span class="funnel-value">53</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">→ Leads (8% CVR)</span>
+                    <span class="funnel-value">4</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">→ SQLs (40% qualification)</span>
+                    <span class="funnel-value">1.7</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">→ Pipeline (@ $50K ACV)</span>
+                    <span class="funnel-value" style="color: #10B981;">$70K/mo</span>
+                </div>
+            </div>
+            <p style="color: #6b6b6b; margin-top: 16px; font-size: 0.875rem;">
+                <strong>Annual pipeline opportunity:</strong> ~$840K from search alone. LinkedIn adds 3-5x this when layered with ABM.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>LinkedIn Audience Targeting</h2>
+            <div class="card">
+                <h3>Recommended Segments</h3>
+                <p style="margin-bottom: 16px;">Based on UserEvidence's ICP (B2B SaaS, 500+ end users, customer/product marketing):</p>
+                <ul style="margin-left: 20px; color: #4a4a4a;">
+                    <li><strong>Customer Marketing Managers</strong> — primary buyer, owns proof collection</li>
+                    <li><strong>Product Marketing Managers</strong> — secondary, needs proof for positioning</li>
+                    <li><strong>Marketing Ops/RevOps</strong> — influences tech stack decisions</li>
+                    <li><strong>Demand Gen Leaders</strong> — consumes proof for campaigns</li>
+                </ul>
+                <p style="margin-top: 16px; font-size: 0.875rem; color: #6b6b6b;">
+                    <strong>Product Interest Layer:</strong> Marketing Automation, ABM Software (high-intent buying signals)
+                </p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Want the Full Campaign Architecture?</h2>
+            <p>This briefing covers the opportunity. The full strategy includes audience segmentation, creative concepts, and a 90-day roadmap.</p>
+            <a href="https://42agency.com/contact-us?utm_source=intel&utm_campaign=userevidence" class="cta-button">Schedule a Strategy Call</a>
+            <p style="font-size: 0.75rem; color: #6b6b6b; margin-top: 16px;">15 minutes. We'll walk through the specific numbers.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Prepared by <a href="https://42agency.com">42 Agency</a> • B2B Paid Media for SaaS</p>
+        <p style="margin-top: 8px; font-size: 0.75rem;">This analysis was generated using our proprietary market intelligence system. 🤖</p>
+    </footer>
+</body>
+</html>

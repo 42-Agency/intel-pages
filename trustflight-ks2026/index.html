@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustFlight — Market Intelligence | 42 Agency</title>
+    <link rel="icon" href="https://trustflight.com/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid #1a1a1a;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .logo { height: 32px; }
+        .header-meta { font-size: 14px; color: #6b6b6b; }
+
+        /* Pavilion Banner */
+        .pavilion-banner {
+            background: linear-gradient(90deg, #0066CC, #00AA88);
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: #f5f5f5;
+            border-bottom: 2px solid #1a1a1a;
+            padding: 64px 24px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            color: #4a4a4a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-bottom: 2px solid #1a1a1a;
+        }
+        .stat {
+            padding: 24px;
+            text-align: center;
+            border-right: 2px solid #1a1a1a;
+        }
+        .stat:last-child { border-right: none; }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b6b6b;
+            margin-top: 4px;
+        }
+
+        /* Main Content */
+        .main { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+
+        /* Section */
+        .section { margin-bottom: 48px; }
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #DFFE68;
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+        .card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .card p { color: #4a4a4a; }
+
+        /* Findings List */
+        .findings-list {
+            list-style: none;
+        }
+        .findings-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .findings-list li:last-child { border-bottom: none; }
+        .finding-icon {
+            width: 24px;
+            height: 24px;
+            background: #DFFE68;
+            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        /* Keyword Table */
+        .keyword-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        .keyword-table th, .keyword-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .keyword-table th {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #6b6b6b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .keyword-table td { font-size: 0.9375rem; }
+        .cpc-high { color: #10B981; font-weight: 600; }
+
+        /* Revenue Model */
+        .revenue-model {
+            background: #f5f5f5;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .funnel-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+        .funnel-step:last-child { border-bottom: none; }
+        .funnel-label { font-weight: 500; }
+        .funnel-value { font-weight: 700; font-size: 1.125rem; }
+
+        /* Comparison Box */
+        .comparison-box {
+            background: #FEF3C7;
+            border: 2px solid #F59E0B;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .comparison-box h3 {
+            color: #92400E;
+            margin-bottom: 12px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #DFFE68;
+            border: 2px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 48px;
+            box-shadow: 6px 6px 0px 0px #1a1a1a;
+        }
+        .cta-section h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .cta-section h2::before { display: none; }
+        .cta-section p {
+            color: #4a4a4a;
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid #1a1a1a;
+            padding: 32px 24px;
+            background: #1a1a1a;
+            color: #9a9a9a;
+            text-align: center;
+        }
+        .footer a { color: #DFFE68; }
+
+        @media (max-width: 768px) {
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .stat { border-bottom: 2px solid #1a1a1a; }
+            .hero h1 { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Pavilion Dinner Banner -->
+    <div class="pavilion-banner">
+        Great meeting you at the Pavilion dinner last week, Karl. Here's the market data I mentioned.
+    </div>
+
+    <header class="header">
+        <img src="/42-logo.png" alt="42 Agency" class="logo">
+        <span class="header-meta">Executive Briefing • February 2026</span>
+    </header>
+
+    <section class="hero">
+        <h1>320 Monthly Searches. $45 CPC. Aviation Software Buyers Are Looking.</h1>
+        <p>TrustFlight's ICP is actively searching. Here's where the demand is — and what it costs to capture it.</p>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-value">320+</div>
+            <div class="stat-label">Monthly Searches</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">$45</div>
+            <div class="stat-label">Avg CPC</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">1.6K</div>
+            <div class="stat-label">Your Customers</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">$1.2M</div>
+            <div class="stat-label">Pipeline Opportunity</div>
+        </div>
+    </div>
+
+    <main class="main">
+        <section class="section">
+            <h2>Key Findings</h2>
+            <ul class="findings-list">
+                <li>
+                    <span class="finding-icon">1</span>
+                    <div>
+                        <strong>"Aircraft maintenance software" = 320 searches/mo at $45 CPC</strong> — Enterprise aviation buyers actively searching. High CPCs signal serious purchase intent.
+                    </div>
+                </li>
+                <li>
+                    <span class="finding-icon">2</span>
+                    <div>
+                        <strong>Niche market = category ownership opportunity</strong> — Aviation compliance/safety software has minimal paid competition. First-mover advantage available.
+                    </div>
+                </li>
+                <li>
+                    <span class="finding-icon">3</span>
+                    <div>
+                        <strong>LinkedIn targeting: Aviation Ops + Safety + Maintenance directors</strong> — Precise ICP targeting at airlines, MROs, and flight schools with 750+ AOCs as social proof.
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Search Demand Breakdown</h2>
+            <div class="card">
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Volume</th>
+                            <th>CPC</th>
+                            <th>Competition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>aircraft maintenance software</td>
+                            <td>320/mo</td>
+                            <td class="cpc-high">$45.38</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>aviation safety software</td>
+                            <td>10/mo</td>
+                            <td class="cpc-high">$54.76</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>aviation compliance software</td>
+                            <td>30/mo</td>
+                            <td>$6.36</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td>electronic tech log</td>
+                            <td>emerging</td>
+                            <td>—</td>
+                            <td>Greenfield</td>
+                        </tr>
+                        <tr>
+                            <td>aviation QMS software</td>
+                            <td>emerging</td>
+                            <td>—</td>
+                            <td>Greenfield</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Revenue Opportunity Model</h2>
+            <p style="color: #6b6b6b; margin-bottom: 16px;">Based on search volume + LinkedIn audience, assuming enterprise aviation sales cycle:</p>
+            <div class="revenue-model">
+                <div class="funnel-step">
+                    <span class="funnel-label">Monthly Searches</span>
+                    <span class="funnel-value">360</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">→ Clicks (30% CTR)</span>
+                    <span class="funnel-value">108</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">→ Leads (5% CVR)</span>
+                    <span class="funnel-value">5.4</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">→ SQLs (30% qualification)</span>
+                    <span class="funnel-value">1.6</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">→ Pipeline (@ $75K ACV)</span>
+                    <span class="funnel-value" style="color: #10B981;">$100K/mo</span>
+                </div>
+            </div>
+            <p style="color: #6b6b6b; margin-top: 16px; font-size: 0.875rem;">
+                <strong>Annual pipeline opportunity:</strong> ~$1.2M from search. LinkedIn ABM adds 2-3x with aviation industry targeting.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>LinkedIn Targeting</h2>
+            <div class="card">
+                <h3>Your ICP on LinkedIn (Aviation Decision Makers)</h3>
+                <p style="margin-bottom: 16px;">Based on TrustFlight's product page targeting:</p>
+                <ul style="margin-left: 20px; color: #4a4a4a;">
+                    <li><strong>Director of Operations</strong> — primary buyer, owns fleet efficiency</li>
+                    <li><strong>Director of Maintenance</strong> — owns tech log, maintenance software</li>
+                    <li><strong>Safety Manager / Risk Specialist</strong> — owns SMS, compliance</li>
+                    <li><strong>Quality Specialist</strong> — owns QMS, regulatory alignment</li>
+                </ul>
+                <p style="margin-top: 16px; font-size: 0.875rem; color: #6b6b6b;">
+                    <strong>Industry Layer:</strong> Airlines & Aviation, Aerospace • <strong>Company Size:</strong> 51-5000 employees
+                </p>
+                <p style="margin-top: 12px; font-size: 0.875rem; color: #10B981; font-weight: 600;">
+                    Note: I saw you're hiring a Demand Gen Manager — perfect timing to build out paid media.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Re: AI SDR Tools</h2>
+            <div class="comparison-box">
+                <h3>About That Artisan Evaluation...</h3>
+                <p style="color: #78350F;">You mentioned you're looking at Artisan ($2,500/mo). This intel page + personalized outreach was built by our homegrown AI SDR in ~20 minutes for under $1 in API costs.</p>
+                <p style="color: #78350F; margin-top: 12px;">Not saying Artisan isn't good — but worth comparing the actual output before committing to $30K/year.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Want the Full Campaign Architecture?</h2>
+            <p>This briefing covers the opportunity. The full strategy includes aviation-specific audience segmentation, creative concepts, and a 90-day roadmap.</p>
+            <a href="https://42agency.com/contact-us?utm_source=intel&utm_campaign=trustflight" class="cta-button">Let's Talk</a>
+            <p style="font-size: 0.75rem; color: #6b6b6b; margin-top: 16px;">15 minutes. We'll walk through the specific numbers.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Prepared by <a href="https://42agency.com">42 Agency</a> • B2B Paid Media for SaaS</p>
+        <p style="margin-top: 8px; font-size: 0.75rem;">This analysis was generated using our AI-powered market intelligence system.</p>
+    </footer>
+</body>
+</html>

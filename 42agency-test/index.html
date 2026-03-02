@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST - AI SDR System Demo | 42 Agency</title>
+    <link rel="icon" href="https://42agency.com/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --blue: #3B82F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img { height: 28px; width: auto; }
+
+        .test-badge {
+            background: var(--orange);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero {
+            background: white;
+            border-bottom: 2px solid var(--black);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--muted);
+            margin-top: 0.25rem;
+        }
+
+        .section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .findings-list {
+            list-style: none;
+        }
+
+        .findings-list li {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .findings-list li::before {
+            content: '';
+            display: none;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .check-icon svg {
+            width: 14px;
+            height: 14px;
+            stroke: white;
+            stroke-width: 3;
+        }
+
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--black);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .workflow-section {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .workflow-step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        .keyword-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .keyword-table th,
+        .keyword-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .keyword-table th {
+            background: var(--light-gray);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .keyword-table td {
+            font-size: 0.875rem;
+        }
+
+        .keyword-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .footer {
+            border-top: 2px solid var(--black);
+            background: var(--black);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            color: #999;
+        }
+
+        .footer img {
+            height: 24px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <span class="test-badge">TEST MODE - AI SDR DEMO</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>10K Decision-Makers. 9K Monthly Searches. AI SDR System Active.</h1>
+            <p>This is a TEST page demonstrating the AI SDR workflow. All systems operational.</p>
+        </div>
+    </section>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">5,400</div>
+            <div class="stat-label">"b2b marketing agency" monthly searches</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">$65.39</div>
+            <div class="stat-label">Average CPC (enterprise buyers)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">2,900</div>
+            <div class="stat-label">"demand generation agency" searches</div>
+        </div>
+    </div>
+
+    <section class="section">
+        <h2 class="section-title">Keyword Intelligence</h2>
+        <div class="workflow-section" style="padding: 0; overflow: hidden;">
+            <table class="keyword-table">
+                <thead>
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Volume</th>
+                        <th>CPC</th>
+                        <th>Competition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>b2b marketing agency</strong></td>
+                        <td>5,400</td>
+                        <td>$65.39</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td><strong>demand generation agency</strong></td>
+                        <td>2,900</td>
+                        <td>$59.67</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>linkedin ads agency</strong></td>
+                        <td>720</td>
+                        <td>$71.90</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>hubspot agency</strong></td>
+                        <td>590</td>
+                        <td>$16.74</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>b2b demand gen</strong></td>
+                        <td>390</td>
+                        <td>$31.44</td>
+                        <td>Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">AI SDR Workflow Executed</h2>
+        <div class="workflow-section">
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Company Research (WebFetch)</h4>
+                    <p>Scraped 42agency.com - B2B SaaS marketing, demand gen, MOPS, creative services</p>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Keyword Data (DataForSEO)</h4>
+                    <p>Pulled 5 keywords with volumes, CPCs ($16-71), and competition levels</p>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Intel Page Created</h4>
+                    <p>This page - deployed to intel.42agency.com/42agency-test/</p>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>5-Email Sequence Drafted</h4>
+                    <p>AI GTM template with TeleVox case study reference</p>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Smartlead Campaign Created</h4>
+                    <p>Campaign with sequences, lead, schedule (Mon-Thu 9-4 ET), email account attached</p>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h4>Campaign Activated</h4>
+                    <p>Status: ACTIVE (test mode)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Key Findings</h2>
+        <ul class="findings-list">
+            <li>
+                <span class="check-icon">
+                    <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                <span><strong>High CPC = Enterprise Buyers</strong> - $65+ CPCs on "b2b marketing agency" signals serious budget holders searching</span>
+            </li>
+            <li>
+                <span class="check-icon">
+                    <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                <span><strong>9,000+ Monthly Searches</strong> - Combined volume across core terms shows strong demand</span>
+            </li>
+            <li>
+                <span class="check-icon">
+                    <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                <span><strong>AI SDR System Operational</strong> - Full workflow executed: research, intel page, sequences, Smartlead campaign</span>
+            </li>
+        </ul>
+    </section>
+
+    <div class="cta-section">
+        <h2>AI SDR System Test Complete</h2>
+        <p>This demonstrates the end-to-end workflow: research, intel page deployment, email sequences, and Smartlead campaign creation.</p>
+        <a href="https://42agency.com/contact" class="btn-primary">Schedule a Strategy Call</a>
+    </div>
+
+    <footer class="footer">
+        <img src="/42-logo.png" alt="42 Agency">
+        <p>TEST PAGE - Generated by AI SDR Agent</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem;">&copy; 2026 42 Agency</p>
+    </footer>
+</body>
+</html>

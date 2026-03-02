@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragonboat — Market Intelligence | 42 Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fff; color: #1a1a1a; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+
+        /* Header */
+        .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 2px solid #1a1a1a; margin-bottom: 40px; }
+        .logo { font-weight: 800; font-size: 20px; }
+        .badge { background: #DFFE68; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; border: 2px solid #1a1a1a; }
+
+        /* Hero */
+        .hero { text-align: center; margin-bottom: 48px; }
+        .company-badge { display: inline-flex; align-items: center; gap: 8px; background: #f5f5f5; padding: 8px 16px; border-radius: 24px; border: 2px solid #1a1a1a; margin-bottom: 24px; }
+        .company-badge img { width: 24px; height: 24px; border-radius: 4px; }
+        h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+        .subheadline { font-size: 18px; color: #4a4a4a; }
+
+        /* Stats Bar */
+        .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+        .stat { background: #fff; border: 2px solid #1a1a1a; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 4px 4px 0 #1a1a1a; }
+        .stat-value { font-size: 28px; font-weight: 800; color: #1a1a1a; }
+        .stat-label { font-size: 12px; color: #6b6b6b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Findings */
+        .findings { background: #f5f5f5; border: 2px solid #1a1a1a; border-radius: 16px; padding: 32px; margin-bottom: 48px; }
+        .findings h2 { font-size: 20px; font-weight: 800; margin-bottom: 24px; }
+        .finding { display: flex; gap: 12px; margin-bottom: 16px; }
+        .finding:last-child { margin-bottom: 0; }
+        .check { width: 24px; height: 24px; background: #DFFE68; border: 2px solid #1a1a1a; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; }
+        .finding-text { font-size: 15px; }
+
+        /* Keyword Table */
+        .keywords { margin-bottom: 48px; }
+        .keywords h2 { font-size: 20px; font-weight: 800; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; border: 2px solid #1a1a1a; border-radius: 12px; overflow: hidden; }
+        th { background: #1a1a1a; color: #fff; padding: 14px 16px; text-align: left; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 14px 16px; border-bottom: 1px solid #e5e5e5; font-size: 14px; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f5f5f5; }
+        .volume { font-weight: 700; }
+        .cpc { color: #10B981; font-weight: 700; }
+
+        /* Revenue Model */
+        .revenue-model { background: #fff; border: 2px solid #1a1a1a; border-radius: 16px; padding: 32px; margin-bottom: 48px; box-shadow: 4px 4px 0 #1a1a1a; }
+        .revenue-model h2 { font-size: 20px; font-weight: 800; margin-bottom: 24px; }
+        .model-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .model-item { }
+        .model-label { font-size: 12px; color: #6b6b6b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+        .model-value { font-size: 24px; font-weight: 800; }
+        .model-note { font-size: 13px; color: #6b6b6b; margin-top: 4px; }
+
+        /* Case Study */
+        .case-study { background: #1a1a1a; color: #fff; border-radius: 16px; padding: 32px; margin-bottom: 48px; }
+        .case-study h2 { font-size: 20px; font-weight: 800; margin-bottom: 8px; color: #DFFE68; }
+        .case-study-company { font-size: 14px; color: #999; margin-bottom: 16px; }
+        .case-study-text { font-size: 15px; color: #ccc; margin-bottom: 20px; line-height: 1.7; }
+        .case-study-stats { display: flex; gap: 32px; }
+        .case-stat { }
+        .case-stat-value { font-size: 28px; font-weight: 800; color: #DFFE68; }
+        .case-stat-label { font-size: 12px; color: #999; }
+
+        /* CTA */
+        .cta { background: #DFFE68; border: 2px solid #1a1a1a; border-radius: 16px; padding: 40px; text-align: center; box-shadow: 6px 6px 0 #1a1a1a; }
+        .cta h2 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+        .cta p { color: #4a4a4a; margin-bottom: 24px; }
+        .cta-btn { display: inline-block; background: #1a1a1a; color: #fff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+        .cta-btn:hover { background: #333; transform: translateY(-2px); }
+        .cta-subtext { font-size: 13px; color: #6b6b6b; margin-top: 16px; }
+
+        /* Footer */
+        .footer { text-align: center; padding-top: 40px; margin-top: 48px; border-top: 2px solid #1a1a1a; color: #6b6b6b; font-size: 13px; }
+
+        @media (max-width: 640px) {
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .model-grid { grid-template-columns: 1fr; }
+            .case-study-stats { flex-direction: column; gap: 16px; }
+            h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">42 Agency</div>
+            <div class="badge">Executive Briefing</div>
+        </header>
+
+        <section class="hero">
+            <div class="company-badge">
+                <img src="https://logo.clearbit.com/dragonboat.io" alt="Dragonboat" onerror="this.style.display='none'">
+                <span style="font-weight: 700;">Dragonboat</span>
+            </div>
+            <h1>2,080 Monthly Searches. $45-102 CPCs. Who's Capturing Product Management Demand?</h1>
+            <p class="subheadline">High-intent buyers are searching for product roadmap and portfolio tools. Here's the opportunity.</p>
+        </section>
+
+        <section class="stats-bar">
+            <div class="stat">
+                <div class="stat-value">2,080+</div>
+                <div class="stat-label">Monthly Searches</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$45.81</div>
+                <div class="stat-label">Avg CPC</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">45K+</div>
+                <div class="stat-label">LinkedIn Audience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$1.8M</div>
+                <div class="stat-label">Pipeline Opportunity</div>
+            </div>
+        </section>
+
+        <section class="findings">
+            <h2>Key Findings</h2>
+            <div class="finding">
+                <div class="check">1</div>
+                <div class="finding-text"><strong>45K+ Product Leaders on LinkedIn</strong> — VPs, Directors, and Heads of Product at mid-market and enterprise companies are your exact ICP</div>
+            </div>
+            <div class="finding">
+                <div class="check">2</div>
+                <div class="finding-text"><strong>$101 CPC for "product roadmap software"</strong> — The highest CPCs signal enterprise buyers with real budget. Competitors are bidding aggressively.</div>
+            </div>
+            <div class="finding">
+                <div class="check">3</div>
+                <div class="finding-text"><strong>"OKR product management" = greenfield</strong> — 260 searches/mo at just $4.46 CPC. Low competition, high relevance to Dragonboat's strategy-to-execution story.</div>
+            </div>
+        </section>
+
+        <section class="keywords">
+            <h2>Keyword Opportunity</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Volume</th>
+                        <th>CPC</th>
+                        <th>Intent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>product management tools</td>
+                        <td class="volume">1,300</td>
+                        <td class="cpc">$45.81</td>
+                        <td>Category</td>
+                    </tr>
+                    <tr>
+                        <td>product roadmap software</td>
+                        <td class="volume">480</td>
+                        <td class="cpc">$101.71</td>
+                        <td>High-Intent</td>
+                    </tr>
+                    <tr>
+                        <td>okr product management</td>
+                        <td class="volume">260</td>
+                        <td class="cpc">$4.46</td>
+                        <td>Category</td>
+                    </tr>
+                    <tr>
+                        <td>product portfolio management software</td>
+                        <td class="volume">40</td>
+                        <td class="cpc">$23.33</td>
+                        <td>High-Intent</td>
+                    </tr>
+                    <tr>
+                        <td>product strategy software</td>
+                        <td class="volume">20</td>
+                        <td class="cpc">—</td>
+                        <td>Category</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="revenue-model">
+            <h2>Revenue Opportunity Model</h2>
+            <div class="model-grid">
+                <div class="model-item">
+                    <div class="model-label">Addressable Searches</div>
+                    <div class="model-value">2,080/mo</div>
+                    <div class="model-note">High-intent product management keywords</div>
+                </div>
+                <div class="model-item">
+                    <div class="model-label">Est. Click Share (10%)</div>
+                    <div class="model-value">208 clicks</div>
+                    <div class="model-note">Conservative capture rate</div>
+                </div>
+                <div class="model-item">
+                    <div class="model-label">Demo Rate (3%)</div>
+                    <div class="model-value">6 demos/mo</div>
+                    <div class="model-note">B2B SaaS benchmark</div>
+                </div>
+                <div class="model-item">
+                    <div class="model-label">Annual Pipeline</div>
+                    <div class="model-value">$1.8M</div>
+                    <div class="model-note">At $25K ACV, 25% close rate</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study">
+            <h2>Similar Win: Metronome</h2>
+            <div class="case-study-company">B2B Product/Ops Tooling — Usage-Based Billing Platform</div>
+            <div class="case-study-text">
+                Metronome came to us with a similar challenge: enterprise product/ops buyers, high-intent category keywords, and competitors outspending them on paid search. We built a full-funnel demand engine combining LinkedIn audience targeting with high-intent search capture. The result: predictable pipeline from day one.
+            </div>
+            <div class="case-study-stats">
+                <div class="case-stat">
+                    <div class="case-stat-value">4.2x</div>
+                    <div class="case-stat-label">Pipeline ROI</div>
+                </div>
+                <div class="case-stat">
+                    <div class="case-stat-value">67%</div>
+                    <div class="case-stat-label">Lower CAC</div>
+                </div>
+                <div class="case-stat">
+                    <div class="case-stat-value">90 days</div>
+                    <div class="case-stat-label">To Pipeline</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Want the Complete Market Analysis?</h2>
+            <p>This briefing covers the opportunity. The full strategy includes 50+ keywords, campaign architecture, and a 90-day roadmap.</p>
+            <a href="https://42agency.com/contact-us" class="cta-btn">Schedule a Strategy Call</a>
+            <p class="cta-subtext">15 minutes. We'll walk through the specific numbers.</p>
+        </section>
+
+        <footer class="footer">
+            <p>Prepared by 42 Agency — intel.42agency.com/dragonboat-0ae50a</p>
+        </footer>
+    </div>
+</body>
+</html>

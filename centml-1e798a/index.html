@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CentML Market Intelligence | 42 Agency</title>
+    <link rel="icon" type="image/png" href="https://centml.ai/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 2px solid #1a1a1a;
+            padding: 16px 0;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 32px;
+        }
+
+        .badge {
+            padding: 6px 12px;
+            background: #f5f5f5;
+            border: 2px solid #1a1a1a;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero */
+        .hero {
+            background: #f5f5f5;
+            border-bottom: 2px solid #1a1a1a;
+            padding: 64px 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #4a4a4a;
+            max-width: 600px;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* Stats Grid */
+        .stats-section {
+            padding: 48px 0;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: #fff;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b6b6b;
+            margin-top: 4px;
+        }
+
+        /* Findings */
+        .findings-section {
+            padding: 48px 0;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .findings-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .finding-card {
+            background: #fff;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+
+        .finding-card.highlight {
+            background: #DFFE68;
+        }
+
+        .finding-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #1a1a1a;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+
+        .finding-card.highlight .finding-number {
+            background: #1a1a1a;
+            color: #DFFE68;
+        }
+
+        .finding-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline;
+        }
+
+        .finding-detail {
+            margin-top: 8px;
+            color: #4a4a4a;
+            padding-left: 40px;
+        }
+
+        .finding-card.highlight .finding-detail {
+            color: #1a1a1a;
+        }
+
+        /* Keywords Table */
+        .keywords-section {
+            padding: 48px 0;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .keywords-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+
+        .keywords-table th {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .keywords-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 0.875rem;
+        }
+
+        .keywords-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .keywords-table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .keyword-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #f5f5f5;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+
+        .cpc-high {
+            color: #F59E0B;
+            font-weight: 700;
+        }
+
+        .cpc-medium {
+            color: #3B82F6;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 48px 0;
+        }
+
+        .cta-card {
+            background: #DFFE68;
+            border: 2px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 6px 6px 0px 0px #1a1a1a;
+            text-align: center;
+        }
+
+        .cta-card h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .cta-card p {
+            color: #4a4a4a;
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .cta-subtext {
+            margin-top: 16px;
+            font-size: 0.875rem;
+            color: #6b6b6b;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 2px solid #1a1a1a;
+            padding: 32px 0;
+            background: #1a1a1a;
+            color: #9a9a9a;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: #DFFE68;
+            text-decoration: none;
+        }
+
+        /* Case Study */
+        .case-study-section {
+            padding: 48px 0;
+            border-bottom: 2px solid #1a1a1a;
+            background: #fff;
+        }
+
+        .case-study-card {
+            background: #fff;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 4px 4px 0px 0px #10B981;
+        }
+
+        .case-study-label {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #10B981;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .case-study-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .case-study-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .case-stat {
+            text-align: center;
+        }
+
+        .case-stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #10B981;
+        }
+
+        .case-stat-label {
+            font-size: 0.75rem;
+            color: #6b6b6b;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="/42-logo.png" alt="42 Agency" class="logo">
+                <span class="badge">Executive Briefing</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>8,700+ Monthly Searches. $13-19 CPCs. Who's Capturing AI Infrastructure Demand?</h1>
+            <p>Your ICP is actively searching for GPU optimization and ML ops solutions. Here's where the demand is and how to capture it.</p>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">8.7K+</div>
+                    <div class="stat-label">Monthly Searches</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$13.83</div>
+                    <div class="stat-label">Avg CPC</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">880</div>
+                    <div class="stat-label">Branded Searches</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">46%</div>
+                    <div class="stat-label">Competition Index</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="findings-section">
+        <div class="container">
+            <h2 class="section-title">Key Market Intelligence</h2>
+            <div class="findings-list">
+                <div class="finding-card highlight">
+                    <span class="finding-number">1</span>
+                    <span class="finding-title">"AI Infrastructure" drives 3,600 monthly searches at $13.83 CPC</span>
+                    <p class="finding-detail">Enterprise buyers actively searching for GPU optimization solutions. High CPCs ($4.48-$18.63) signal serious purchase intent from infrastructure decision-makers.</p>
+                </div>
+                <div class="finding-card">
+                    <span class="finding-number">2</span>
+                    <span class="finding-title">"GPU Cloud" commands premium CPCs at $18.65</span>
+                    <p class="finding-detail">1,300 monthly searches with the highest CPCs in the category. Competition index of 60% indicates established players, but CentML's efficiency angle is differentiated.</p>
+                </div>
+                <div class="finding-card">
+                    <span class="finding-number">3</span>
+                    <span class="finding-title">880 branded searches monthly - awareness building momentum</span>
+                    <p class="finding-detail">Strong branded search volume for a Series A company. NVIDIA acquisition news likely to spike this further. Opportunity to capture competitor brand traffic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="keywords-section">
+        <div class="container">
+            <h2 class="section-title">Search Demand Breakdown</h2>
+            <table class="keywords-table">
+                <thead>
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Volume</th>
+                        <th>Avg CPC</th>
+                        <th>Competition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="keyword-tag">ai infrastructure</span></td>
+                        <td>3,600</td>
+                        <td class="cpc-high">$13.83</td>
+                        <td>46%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="keyword-tag">ml ops</span></td>
+                        <td>1,600</td>
+                        <td class="cpc-medium">$11.70</td>
+                        <td>39%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="keyword-tag">gpu cloud</span></td>
+                        <td>1,300</td>
+                        <td class="cpc-high">$18.65</td>
+                        <td>60%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="keyword-tag">model training</span></td>
+                        <td>1,000</td>
+                        <td class="cpc-medium">$2.48</td>
+                        <td>7%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="keyword-tag">centml</span></td>
+                        <td>880</td>
+                        <td class="cpc-medium">$12.66</td>
+                        <td>2%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="keyword-tag">gpu optimization</span></td>
+                        <td>170</td>
+                        <td class="cpc-medium">$12.99</td>
+                        <td>16%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="keyword-tag">machine learning infrastructure</span></td>
+                        <td>170</td>
+                        <td class="cpc-medium">$11.33</td>
+                        <td>31%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="case-study-section">
+        <div class="container">
+            <h2 class="section-title">Related Success Story</h2>
+            <div class="case-study-card">
+                <span class="case-study-label">AI Company Case Study</span>
+                <h3 class="case-study-title">How We Helped Afresh (AI for Fresh Food) Build Pipeline</h3>
+                <p>Afresh uses AI to reduce food waste in grocery retail. Similar to CentML, they needed to reach technical decision-makers at enterprise companies while communicating complex AI/ML value props simply.</p>
+                <div class="case-study-stats">
+                    <div class="case-stat">
+                        <div class="case-stat-value">3.2x</div>
+                        <div class="case-stat-label">Pipeline Growth</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-value">-41%</div>
+                        <div class="case-stat-label">Cost Per MQL</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-value">6mo</div>
+                        <div class="case-stat-label">Engagement</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Want the Full Demand Capture Strategy?</h2>
+                <p>This briefing shows the opportunity. The full strategy includes campaign architecture, audience targeting, and a 90-day roadmap for CentML.</p>
+                <a href="https://calendly.com/kamil-42agency/30min" class="cta-button">Schedule a Strategy Call</a>
+                <p class="cta-subtext">15 minutes. We'll walk through the specific numbers.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Prepared by <a href="https://42agency.com">42 Agency</a> | B2B Demand Generation</p>
+        </div>
+    </footer>
+</body>
+</html>
