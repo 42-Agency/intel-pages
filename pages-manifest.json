@@ -1,0 +1,224 @@
+{
+  "baseUrl": "https://intel.42agency.com",
+  "lastUpdated": "2026-03-04",
+  "categories": {
+    "core": {
+      "description": "Main hub and navigation pages",
+      "pages": [
+        "/",
+        "/assess/",
+        "/b2b-benchmarks/",
+        "/tools/",
+        "/playbooks/"
+      ]
+    },
+    "assessments": {
+      "description": "Interactive diagnostic tools",
+      "pages": [
+        "/assess/calculator/",
+        "/assessments/",
+        "/assessments/hubspot-health/"
+      ]
+    },
+    "tools": {
+      "description": "AI-powered calculators and utilities",
+      "pages": [
+        "/tools/company-resolver/",
+        "/tools/company-sampler/",
+        "/tools/google-ads-budget-calculator/",
+        "/tools/linkedin-budget-calculator/",
+        "/tools/linkedin-inmail-calculator/",
+        "/tools/meta-budget-calculator/"
+      ]
+    },
+    "playbooks": {
+      "description": "Soft-gated B2B playbooks",
+      "pages": [
+        "/playbooks/abm-enrichment/",
+        "/playbooks/closed-lost-revival/",
+        "/playbooks/intent-signals/",
+        "/playbooks/lead-reengagement/",
+        "/playbooks/lead-scoring-framework/"
+      ]
+    },
+    "benchmarks": {
+      "description": "Industry benchmark data pages",
+      "pages": [
+        "/b2b-benchmarks/calculator/",
+        "/b2b-benchmarks/google-ads-benchmarks/",
+        "/b2b-benchmarks/linkedin-ads-benchmarks/",
+        "/b2b-benchmarks/linkedin-inmail-benchmarks/",
+        "/b2b-benchmarks/meta-ads-benchmarks/",
+        "/b2b-benchmarks/construction-tech-linkedin-ads/",
+        "/b2b-benchmarks/consumer-b2b-linkedin-ads/",
+        "/b2b-benchmarks/devops-linkedin-ads/",
+        "/b2b-benchmarks/digital-workplace-linkedin-ads/",
+        "/b2b-benchmarks/ecommerce-retail-linkedin-ads/",
+        "/b2b-benchmarks/edtech-hrtech-linkedin-ads/",
+        "/b2b-benchmarks/fintech-linkedin-ads/",
+        "/b2b-benchmarks/healthcare-tech-linkedin-ads/",
+        "/b2b-benchmarks/legal-tech-linkedin-ads/",
+        "/b2b-benchmarks/life-sciences-linkedin-ads/",
+        "/b2b-benchmarks/logistics-linkedin-ads/",
+        "/b2b-benchmarks/martech-salestech-linkedin-ads/",
+        "/b2b-benchmarks/privacy-security-linkedin-ads/",
+        "/b2b-benchmarks/ucaas-telecom-linkedin-ads/"
+      ]
+    },
+    "audits": {
+      "description": "Audit template download pages",
+      "pages": [
+        "/google-ads-audit/",
+        "/linkedin-audit/",
+        "/meta-audit/",
+        "/hubspot-audit/",
+        "/hubspot-audit/data-quality/",
+        "/hubspot-audit/property-cleanup/",
+        "/hubspot-audit/workflow-audit/"
+      ]
+    },
+    "linkedin_targeting": {
+      "description": "LinkedIn targeting guides",
+      "pages": [
+        "/linkedin-targeting/",
+        "/linkedin-targeting/account-lists/",
+        "/linkedin-targeting/audience-sizing/",
+        "/linkedin-targeting/job-title-targeting/"
+      ]
+    },
+    "mops": {
+      "description": "Marketing operations resources",
+      "pages": [
+        "/mops-funnel/",
+        "/mops-funnel/lead-scoring/",
+        "/mops-funnel/lifecycle-stages/",
+        "/mops-funnel/mql-definition/",
+        "/hubspot-salesforce/",
+        "/hubspot-salesforce/field-mapping/",
+        "/hubspot-salesforce/lifecycle-alignment/",
+        "/hubspot-salesforce/sync-errors/"
+      ]
+    },
+    "abm": {
+      "description": "ABM toolkit and resources",
+      "pages": [
+        "/zenabm/",
+        "/zenabm/account-scoring/",
+        "/zenabm/account-tiering/",
+        "/zenabm/audit.html",
+        "/zenabm/buying-signals/",
+        "/abm-campaign/",
+        "/abm-campaign/account-selection/",
+        "/abm-campaign/measurement/",
+        "/abm-campaign/play-design/"
+      ]
+    },
+    "sentiment_analysis": {
+      "description": "Market sentiment analysis pages",
+      "pages": [
+        "/abm-platforms/",
+        "/abm-sentiment/",
+        "/crm-sentiment/",
+        "/hubspot-marketing-hub-sentiment/",
+        "/liveflow-sentiment/",
+        "/map-sentiment/",
+        "/seo-aeo-sentiment/",
+        "/toggl-track-sentiment/"
+      ]
+    },
+    "agents": {
+      "description": "Claude Code agent pages",
+      "pages": [
+        "/ci-agent/",
+        "/claude-code/",
+        "/claude-code/cheatsheet.html",
+        "/exitfive/",
+        "/exitfive/cheatsheet.html"
+      ]
+    },
+    "reports": {
+      "description": "Research reports and studies",
+      "pages": [
+        "/reports/b2b-paid-media-2026/",
+        "/reports/demand-gen-benchmarks/",
+        "/reports/hubspot-roi-study/"
+      ]
+    },
+    "client_intel": {
+      "description": "Client-specific intel pages (AI SDR generated)",
+      "pages": [
+        "/3e-abm-playbook/",
+        "/a2x-a6591c/",
+        "/acme-corp-2de127/",
+        "/aquant-qpqrmj/",
+        "/attio-06f6f3/",
+        "/benevity/",
+        "/bigco-d65d9b/",
+        "/centml-1e798a/",
+        "/contactmonkey-f5fdc7/",
+        "/cytactic-x7k2m9/",
+        "/dragonboat-0ae50a/",
+        "/enable-ci/",
+        "/glyphic-conquest/",
+        "/glyphic-tamar/",
+        "/graphite-connect-c1e5cd/",
+        "/graphite-connect-v2/",
+        "/graphite-conquest/",
+        "/healthmine-b3643d/",
+        "/healthmine-conquest/",
+        "/itential-1ecc51/",
+        "/itential-conquest/",
+        "/lindus-health-v05xur/",
+        "/luminai-9cf0ae/",
+        "/luminai-conquest/",
+        "/mailgun-xr9sjy/",
+        "/mkt1/",
+        "/parloa-a63daf/",
+        "/part3-ca-intel/",
+        "/plotly-200117/",
+        "/plotly-conquest/",
+        "/prosperops-79d84e/",
+        "/prosperops-conquest/",
+        "/raindrop-296a35/",
+        "/servicenow-875257/",
+        "/snowflake-ci/",
+        "/steno-paralegal-playbook/",
+        "/steno-time-calculator/",
+        "/tealbook-758ecd/",
+        "/tealbook-conquest/",
+        "/thoughtfarmer-tricia/",
+        "/tiger-data-a8ac2a/",
+        "/tigerdata-test01/",
+        "/trustflight-ks2026/",
+        "/userevidence-mh2026/",
+        "/wix-conquest/",
+        "/wix-sarah/",
+        "/xyte-m7s9k2/"
+      ]
+    },
+    "aeo": {
+      "description": "AEO (AI Engine Optimization) pages",
+      "pages": [
+        "/aeo/template/",
+        "/aeo/vanta/"
+      ]
+    },
+    "test": {
+      "description": "Test and staging pages (non-critical)",
+      "critical": false,
+      "pages": [
+        "/42agency-test/",
+        "/testco-af8202/",
+        "/wix-pdf-temp/",
+        "/wix-sarah-temp/"
+      ]
+    }
+  },
+  "redirects": [
+    { "from": "/b2b-benchmarks/calculator", "to": "/assess/calculator/" },
+    { "from": "/exitfive", "to": "/claude-code/" }
+  ],
+  "externalPages": [
+    { "path": "/ci-agent/", "note": "Previously on ci-agent-site.vercel.app, now consolidated" }
+  ]
+}

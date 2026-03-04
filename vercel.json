@@ -9,6 +9,16 @@
       "source": "/b2b-benchmarks/calculator/",
       "destination": "/assess/calculator/",
       "permanent": true
+    },
+    {
+      "source": "/exitfive",
+      "destination": "/claude-code/",
+      "permanent": true
+    },
+    {
+      "source": "/exitfive/",
+      "destination": "/claude-code/",
+      "permanent": true
     }
   ],
   "headers": [
