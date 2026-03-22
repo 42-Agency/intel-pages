@@ -365,7 +365,7 @@ async function sendResultsEmail(email, result) {
     <div style="background:#DFFE68;border:2px solid #1a1a1a;border-radius:12px;padding:24px;margin:24px 0;text-align:center;">
       <h3 style="color:#1a1a1a;margin:0 0 12px 0;">Need Help With Google Ads?</h3>
       <p style="color:#4a4a4a;margin:0 0 16px 0;">Get a free campaign audit from our B2B specialists.</p>
-      <a href="https://42agency.com/contact?utm_source=google_budget_email&utm_medium=intel" style="display:inline-block;background:#1a1a1a;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Get Your Free Audit</a>
+      <a href="https://www.42agency.com/contact-us?utm_source=google_budget_email&utm_medium=intel" style="display:inline-block;background:#1a1a1a;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Get Your Free Audit</a>
     </div>
 
     <p style="color:#6b6b6b;font-size:14px;margin:24px 0 0 0;">Run another estimate anytime at:<br><a href="https://intel.42agency.com/tools/google-ads-budget-calculator" style="color:#4285F4;">intel.42agency.com/tools/google-ads-budget-calculator</a></p>

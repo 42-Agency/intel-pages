@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Savings Calculator | Steno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --steno-purple-dark: #2F317C;
+            --steno-purple: #493087;
+            --steno-magenta: #CE11A4;
+            --steno-teal-dark: #040909;
+            --steno-teal: #286A65;
+            --steno-teal-light: #ABDFD4;
+            --steno-mint: #D6ECE2;
+            --steno-cream: #F5F5EE;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6b6b6b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--steno-cream);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--white);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--steno-purple) 0%, var(--steno-magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, var(--steno-purple) 0%, var(--steno-magenta) 100%);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(73, 48, 135, 0.3);
+        }
+
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--steno-purple) 0%, var(--steno-magenta) 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .calculator-inputs {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .calculator-inputs h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .calculator-inputs h2 svg {
+            width: 24px;
+            height: 24px;
+            color: var(--steno-purple);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .input-group .hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--steno-purple);
+        }
+
+        .input-with-unit {
+            position: relative;
+        }
+
+        .input-with-unit input {
+            padding-right: 4rem;
+        }
+
+        .input-unit {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .range-slider {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .range-slider input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(to right, var(--steno-teal-light) 0%, var(--steno-teal-light) var(--value, 50%), #e5e5e5 var(--value, 50%), #e5e5e5 100%);
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .range-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--steno-teal);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .results-panel {
+            background: linear-gradient(135deg, var(--steno-teal-dark) 0%, var(--steno-teal) 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            color: var(--white);
+            position: sticky;
+            top: 100px;
+        }
+
+        .results-panel h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .results-panel h2 svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .result-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .result-card.highlight {
+            background: rgba(171,223,212,0.2);
+            border-color: var(--steno-teal-light);
+        }
+
+        .result-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .result-value.large {
+            font-size: 3rem;
+        }
+
+        .result-subtext {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        .result-breakdown {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .breakdown-row .label {
+            opacity: 0.8;
+        }
+
+        .breakdown-row .value {
+            font-weight: 600;
+        }
+
+        .results-cta {
+            display: block;
+            width: 100%;
+            background: var(--white);
+            color: var(--steno-teal-dark);
+            padding: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .results-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .how-it-works {
+            margin-top: 3rem;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .how-it-works h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .how-step {
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--steno-teal-light) 0%, var(--steno-mint) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .step-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--steno-teal);
+        }
+
+        .how-step h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .how-step p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--steno-purple);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+
+            .results-panel {
+                position: static;
+            }
+
+            .how-steps {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">steno</div>
+            <a href="https://steno.com/schedule-demo" class="header-cta">Schedule a Demo</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <span class="page-badge">Interactive Tool</span>
+            <h1>Time Savings Calculator</h1>
+            <p>See how much time your team could save with Transcript Genius AI-powered transcript analysis.</p>
+        </div>
+
+        <div class="calculator-container">
+            <div class="calculator-inputs">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="8" y1="18" x2="8" y2="18.01"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+                    Your Current Workflow
+                </h2>
+
+                <div class="input-group">
+                    <label for="depositions">Depositions per month</label>
+                    <p class="hint">Average number of depositions your firm handles monthly</p>
+                    <div class="range-slider">
+                        <input type="range" id="depositions" min="1" max="50" value="10" oninput="updateCalculator()">
+                        <div class="range-labels">
+                            <span>1</span>
+                            <span id="depositions-value">10</span>
+                            <span>50+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="pages">Average pages per transcript</label>
+                    <p class="hint">Typical deposition transcript length</p>
+                    <div class="range-slider">
+                        <input type="range" id="pages" min="50" max="500" value="200" step="25" oninput="updateCalculator()">
+                        <div class="range-labels">
+                            <span>50</span>
+                            <span id="pages-value">200</span>
+                            <span>500+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="review-time">Hours to review per transcript</label>
+                    <p class="hint">Time spent searching, summarizing, and extracting key testimony</p>
+                    <div class="range-slider">
+                        <input type="range" id="review-time" min="1" max="10" value="4" step="0.5" oninput="updateCalculator()">
+                        <div class="range-labels">
+                            <span>1 hr</span>
+                            <span id="review-time-value">4 hrs</span>
+                            <span>10+ hrs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="hourly-rate">Effective hourly rate</label>
+                    <p class="hint">Paralegal billable rate or cost-to-firm</p>
+                    <div class="input-with-unit">
+                        <input type="number" id="hourly-rate" value="75" min="25" max="300" oninput="updateCalculator()">
+                        <span class="input-unit">/hr</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="team-size">Paralegals on team</label>
+                    <p class="hint">How many team members handle transcript review</p>
+                    <select id="team-size" onchange="updateCalculator()">
+                        <option value="1">1 paralegal</option>
+                        <option value="2" selected>2 paralegals</option>
+                        <option value="3">3 paralegals</option>
+                        <option value="5">5 paralegals</option>
+                        <option value="10">10+ paralegals</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="results-panel">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                    Your Results
+                </h2>
+
+                <div class="result-card highlight">
+                    <div class="result-label">Monthly time saved</div>
+                    <div class="result-value large" id="hours-saved">16 hrs</div>
+                    <div class="result-subtext">With Transcript Genius AI</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-label">Annual cost savings</div>
+                    <div class="result-value" id="cost-saved">$14,400</div>
+                    <div class="result-subtext">Time your team can reinvest</div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="breakdown-row">
+                        <span class="label">Current monthly hours</span>
+                        <span class="value" id="current-hours">40 hrs</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="label">With Transcript Genius</span>
+                        <span class="value" id="new-hours">24 hrs</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="label">Time reduction</span>
+                        <span class="value" id="reduction-pct">40%</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="label">Annual hours saved</span>
+                        <span class="value" id="annual-hours">192 hrs</span>
+                    </div>
+                </div>
+
+                <a href="https://steno.com/schedule-demo" class="results-cta">
+                    See It In Action →
+                </a>
+            </div>
+        </div>
+
+        <div class="how-it-works">
+            <h2>How Transcript Genius Saves Time</h2>
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <h3>Ask, Don't Search</h3>
+                    <p>Type questions in plain English instead of manually ctrl+F through hundreds of pages.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <h3>Instant Summaries</h3>
+                    <p>Generate deposition summaries with key testimony highlighted and page citations included.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Cross-Depo Analysis</h3>
+                    <p>Find contradictions across multiple transcripts automatically — no spreadsheets required.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Transcript Genius is included free with every Steno deposition. <a href="https://steno.com/schedule-demo">Schedule a demo</a> to see it in action.</p>
+    </footer>
+
+    <script>
+        function updateCalculator() {
+            // Get input values
+            const depositions = parseInt(document.getElementById('depositions').value);
+            const pages = parseInt(document.getElementById('pages').value);
+            const reviewTime = parseFloat(document.getElementById('review-time').value);
+            const hourlyRate = parseFloat(document.getElementById('hourly-rate').value);
+            const teamSize = parseInt(document.getElementById('team-size').value);
+
+            // Update display values
+            document.getElementById('depositions-value').textContent = depositions;
+            document.getElementById('pages-value').textContent = pages;
+            document.getElementById('review-time-value').textContent = reviewTime + ' hrs';
+
+            // Update range slider backgrounds
+            updateSliderBackground('depositions', 1, 50);
+            updateSliderBackground('pages', 50, 500);
+            updateSliderBackground('review-time', 1, 10);
+
+            // Calculate savings (40% reduction with Transcript Genius)
+            const reductionRate = 0.40;
+            const currentMonthlyHours = depositions * reviewTime;
+            const newMonthlyHours = currentMonthlyHours * (1 - reductionRate);
+            const monthlySavedHours = currentMonthlyHours - newMonthlyHours;
+            const annualSavedHours = monthlySavedHours * 12;
+            const annualCostSavings = annualSavedHours * hourlyRate * teamSize;
+
+            // Update results
+            document.getElementById('hours-saved').textContent = Math.round(monthlySavedHours) + ' hrs';
+            document.getElementById('cost-saved').textContent = '$' + numberWithCommas(Math.round(annualCostSavings));
+            document.getElementById('current-hours').textContent = Math.round(currentMonthlyHours) + ' hrs';
+            document.getElementById('new-hours').textContent = Math.round(newMonthlyHours) + ' hrs';
+            document.getElementById('reduction-pct').textContent = Math.round(reductionRate * 100) + '%';
+            document.getElementById('annual-hours').textContent = Math.round(annualSavedHours) + ' hrs';
+        }
+
+        function updateSliderBackground(id, min, max) {
+            const slider = document.getElementById(id);
+            const value = ((slider.value - min) / (max - min)) * 100;
+            slider.style.setProperty('--value', value + '%');
+        }
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCalculator();
+        });
+    </script>
+</body>
+</html>

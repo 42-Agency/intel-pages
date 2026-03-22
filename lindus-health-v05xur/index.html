@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lindus Health | Executive Briefing - 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta property="og:title" content="Lindus Health Executive Briefing - 42 Agency">
+    <meta property="og:description" content="8K+ Clinical Operations Decision-Makers. 7K Monthly Searches. Who's Reaching Them?">
+    <meta property="og:image" content="https://intel.42agency.com/og-share.png">
+
+    <style>
+        :root {
+            --brand-green: #5BD675;
+            --brand-green-dark: #4bc563;
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f8f9fa;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--light-gray);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .header {
+            background: white;
+            border-bottom: 3px solid var(--brand-green);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 36px; }
+        .header-text { text-align: right; }
+        .header-title { font-size: 1.1rem; font-weight: 600; }
+        .header-subtitle { font-size: 0.85rem; color: var(--gray); }
+        .main { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .intro { text-align: center; margin-bottom: 2rem; }
+        .intro h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .intro p { color: var(--gray); font-size: 1.1rem; }
+
+        .findings-box {
+            background: white;
+            border: 2px solid var(--dark);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--dark);
+        }
+        .findings-box:empty { display: none; }
+        .findings-title {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .findings-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--brand-green);
+            border-radius: 2px;
+        }
+        .finding-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: #333;
+        }
+        .finding-item:last-child { margin-bottom: 0; }
+        .finding-item svg { width: 20px; height: 20px; fill: var(--brand-green); flex-shrink: 0; margin-top: 2px; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .stat-card {
+            background: white;
+            border: 2px solid var(--dark);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 3px 3px 0px 0px var(--dark);
+        }
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.02em;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.25rem;
+        }
+
+        .keyword-table {
+            background: white;
+            border: 2px solid var(--dark);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--dark);
+        }
+        .keyword-table-header {
+            background: var(--dark);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .keyword-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .keyword-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            background: #f5f5f5;
+            border-bottom: 2px solid var(--dark);
+        }
+        .keyword-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        .keyword-table tr:last-child td {
+            border-bottom: none;
+        }
+        .keyword-badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-branded { background: #DFFE68; color: var(--dark); }
+        .badge-category { background: #E0F2FE; color: #0369A1; }
+        .badge-intent { background: #FEF3C7; color: #92400E; }
+
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--dark);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 6px 6px 0px 0px var(--dark);
+            margin-top: 2rem;
+        }
+        .cta-section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+        .cta-section p {
+            color: #333;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .cta-subtext {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .context-box {
+            background: white;
+            border: 2px solid var(--dark);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--dark);
+        }
+        .context-box h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .context-box h3 svg {
+            width: 20px;
+            height: 20px;
+        }
+        .context-box p {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.7;
+        }
+        .context-box ul {
+            margin-top: 0.75rem;
+            padding-left: 1.25rem;
+        }
+        .context-box li {
+            font-size: 0.9rem;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer { text-align: center; padding: 2rem; color: var(--gray); font-size: 0.85rem; }
+        .footer a { color: var(--brand-green); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .header { padding: 0.75rem 1rem; }
+            .header-inner { flex-direction: column; gap: 0.5rem; }
+            .main { padding: 1rem; }
+            .intro h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency" style="height: 40px;">
+            </div>
+            <div class="header-text" style="display: flex; align-items: center; gap: 12px;">
+                <img src="https://www.google.com/s2/favicons?domain=lindushealth.com&sz=128" alt="Lindus Health" style="height: 32px; width: 32px; border-radius: 4px;">
+                <div>
+                    <div class="header-title">Lindus Health</div>
+                    <div class="header-subtitle">Executive Briefing</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="intro">
+            <h1>8K+ Clinical Ops Decision-Makers. 7K Monthly Searches. Who's Reaching Them?</h1>
+            <p>Your ICP is searching for CRO partners and evaluating options. Here's where the demand is.</p>
+        </div>
+
+        <!-- Key Findings -->
+        <div class="findings-box">
+            <div class="findings-title">Key Findings</div>
+            <div class="finding-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span><strong>8K+ VP/Director Clinical Operations</strong> on LinkedIn in biotech & pharma - your core buyer audience across US, UK, and EU.</span>
+            </div>
+            <div class="finding-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span><strong>7,000+ monthly searches</strong> for CRO/clinical trial services - $15-30 CPCs signal enterprise buyers actively evaluating partners.</span>
+            </div>
+            <div class="finding-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span><strong>"Decentralized clinical trials" is greenfield</strong> - 590/mo searches, competitors own "CRO" but Lindus can own the DCT/hybrid narrative.</span>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">1,300</div>
+                <div class="stat-label">Branded Searches/Mo</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">4,400</div>
+                <div class="stat-label">Category Searches/Mo</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$15-30</div>
+                <div class="stat-label">Avg. CPC Range</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">72.9%</div>
+                <div class="stat-label">Your Speed Advantage</div>
+            </div>
+        </div>
+
+        <!-- Keyword Data -->
+        <div class="keyword-table">
+            <div class="keyword-table-header">Search Demand Analysis</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Type</th>
+                        <th>Volume/Mo</th>
+                        <th>CPC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>lindus health</strong></td>
+                        <td><span class="keyword-badge badge-branded">Branded</span></td>
+                        <td>1,300</td>
+                        <td>$14.84</td>
+                    </tr>
+                    <tr>
+                        <td><strong>clinical research organization</strong></td>
+                        <td><span class="keyword-badge badge-category">Category</span></td>
+                        <td>4,400</td>
+                        <td>$15.14</td>
+                    </tr>
+                    <tr>
+                        <td><strong>contract research organization</strong></td>
+                        <td><span class="keyword-badge badge-category">Category</span></td>
+                        <td>4,400</td>
+                        <td>$15.14</td>
+                    </tr>
+                    <tr>
+                        <td><strong>patient recruitment clinical trials</strong></td>
+                        <td><span class="keyword-badge badge-intent">High Intent</span></td>
+                        <td>720</td>
+                        <td>$30.35</td>
+                    </tr>
+                    <tr>
+                        <td><strong>decentralized clinical trials</strong></td>
+                        <td><span class="keyword-badge badge-intent">High Intent</span></td>
+                        <td>590</td>
+                        <td>$14.87</td>
+                    </tr>
+                    <tr>
+                        <td><strong>phase 2 clinical trial</strong></td>
+                        <td><span class="keyword-badge badge-category">Category</span></td>
+                        <td>880</td>
+                        <td>$6.24</td>
+                    </tr>
+                    <tr>
+                        <td><strong>phase 3 clinical trial</strong></td>
+                        <td><span class="keyword-badge badge-category">Category</span></td>
+                        <td>1,300</td>
+                        <td>$9.25</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Market Context -->
+        <div class="context-box">
+            <h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+                Competitive Landscape
+            </h3>
+            <p>The CRO market is dominated by legacy players (IQVIA, ICON, PPD, PAREXEL, Syneos Health) who compete on scale and global reach. Lindus Health's "Anti-CRO" positioning creates a distinct category opportunity:</p>
+            <ul>
+                <li><strong>Speed narrative:</strong> 72.9% faster trials is a quantifiable differentiator in a market where timeline overruns are the #1 complaint</li>
+                <li><strong>Fixed-price model:</strong> Performance-based pricing addresses the #2 complaint (cost overruns)</li>
+                <li><strong>DCT/Hybrid positioning:</strong> "Decentralized clinical trials" has 590 monthly searches with lower CPCs - Lindus can own this emerging category before incumbents</li>
+                <li><strong>Citrus platform:</strong> Proprietary eClinical tech differentiates from CROs that cobble together third-party tools</li>
+            </ul>
+        </div>
+
+        <!-- Opportunity Context -->
+        <div class="context-box">
+            <h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+                The Demand Opportunity
+            </h3>
+            <p>Post-Series B ($55M), Lindus is positioned to capture demand at scale. The question is: who's reaching these buyers first?</p>
+            <ul>
+                <li><strong>LinkedIn:</strong> 8K+ VP/Director Clinical Ops + R&D leaders in biotech/pharma - highly targetable by company size, therapeutic area, and geography</li>
+                <li><strong>Search:</strong> 7K+ monthly searches across category and high-intent terms - competitors are bidding $15-30/click, indicating serious enterprise buyers</li>
+                <li><strong>Content gap:</strong> No one owns the "anti-CRO" or "faster trials" narrative in paid - this is white space</li>
+            </ul>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Want the Full Demand Landscape?</h2>
+            <p>This briefing covers the opportunity. The full strategy maps demand to channels, identifies quick wins, and includes a 90-day execution roadmap tailored for the new brand launch.</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="https://www.42agency.com/contact-us" class="cta-btn">Schedule a Strategy Call</a>
+            </div>
+            <p class="cta-subtext">15 minutes. We'll walk through the numbers.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 <a href="https://42agency.com">42 Agency</a> &middot; B2B Performance Marketing</p>
+    </footer>
+
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

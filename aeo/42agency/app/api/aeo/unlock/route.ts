@@ -151,7 +151,7 @@ async function sendResultsEmail(
         <p style="margin: 0 0 16px; color: #999; font-size: 14px;">
           42 Agency specializes in AEO strategies for B2B companies. Let us help you get discovered by AI-powered search.
         </p>
-        <a href="https://42agency.com/contact" style="color: #fff; text-decoration: underline; font-size: 14px;">
+        <a href="https://www.42agency.com/contact-us" style="color: #fff; text-decoration: underline; font-size: 14px;">
           Book a strategy call →
         </a>
       </td>

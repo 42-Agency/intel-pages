@@ -11,7 +11,7 @@ export function Header() {
           <a href="https://intel.42agency.com/assess/" className="px-4 py-2 text-[#4a4a4a] text-sm font-medium rounded-lg hover:text-[#1a1a1a] hover:bg-[#f5f5f5] transition-all">Assess</a>
           <a href="https://intel.42agency.com/b2b-benchmarks/" className="px-4 py-2 text-[#4a4a4a] text-sm font-medium rounded-lg hover:text-[#1a1a1a] hover:bg-[#f5f5f5] transition-all">Benchmarks</a>
           <a href="https://intel.42agency.com/tools/" className="px-4 py-2 text-[#4a4a4a] text-sm font-medium rounded-lg hover:text-[#1a1a1a] hover:bg-[#f5f5f5] transition-all">Tools</a>
-          <a href="https://42agency.com/contact" target="_blank" className="ml-2 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-semibold rounded-lg hover:bg-[#333] transition-colors">Contact Us</a>
+          <a href="https://www.42agency.com/contact-us" target="_blank" className="ml-2 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-semibold rounded-lg hover:bg-[#333] transition-colors">Contact Us</a>
         </nav>
       </div>
     </header>

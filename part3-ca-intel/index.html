@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part3 | Market Intelligence - 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta property="og:title" content="Part3 Market Intelligence - 42 Agency">
+    <meta property="og:description" content="1,100+ Monthly Searches. 15K+ Decision-Makers. Who's Reaching Them?">
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --blue: #3B82F6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+        .header {
+            background: white;
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; }
+        .header-text { text-align: right; }
+        .header-title { font-size: 0.9rem; font-weight: 600; }
+        .header-subtitle { font-size: 0.75rem; color: var(--muted); }
+
+        .main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+        .intro { text-align: center; margin-bottom: 2.5rem; }
+        .intro h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .intro p { color: var(--gray); font-size: 1.1rem; }
+
+        .findings-section {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+        .findings-title {
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--black);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .findings-title svg { width: 20px; height: 20px; fill: var(--green); }
+
+        .finding-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+        }
+        .finding-item:last-child { margin-bottom: 0; }
+        .finding-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+        .finding-icon.search { background: var(--blue); color: white; }
+        .finding-icon.audience { background: var(--green); color: white; }
+        .finding-icon.insight { background: var(--orange); color: white; }
+        .finding-text { font-size: 0.95rem; color: var(--gray); }
+        .finding-text strong { color: var(--black); }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .data-card {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 3px 3px 0px 0px var(--black);
+        }
+        .data-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+            line-height: 1;
+        }
+        .data-card .label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.25rem;
+        }
+
+        .keyword-table {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+        .keyword-table-header {
+            background: var(--black);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .keyword-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .keyword-table th, .keyword-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        .keyword-table th {
+            background: var(--light-gray);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .keyword-table tr:last-child td { border-bottom: none; }
+        .cpc-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        .cpc-high { background: #fee2e2; color: #dc2626; }
+        .cpc-medium { background: #fef3c7; color: #d97706; }
+
+        .icp-section {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+        .icp-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .icp-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .icp-item {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .icp-item h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
+        }
+        .icp-item p {
+            font-weight: 600;
+            color: var(--black);
+            font-size: 0.9rem;
+        }
+
+        .competitor-section {
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+        .competitor-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .competitor-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .competitor-card h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .competitor-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        .competitor-card .weakness {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #fef3c7;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #92400e;
+        }
+
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 6px 6px 0px 0px var(--black);
+        }
+        .cta-section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+        .cta-section p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--black);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px 0px var(--black);
+        }
+        .cta-subtext {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .footer {
+            border-top: 2px solid var(--black);
+            background: var(--black);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .footer p { color: #666; font-size: 0.85rem; }
+        .footer a { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .data-grid { grid-template-columns: 1fr; }
+            .icp-grid { grid-template-columns: 1fr; }
+            .competitor-grid { grid-template-columns: 1fr; }
+            .intro h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <div class="header-text">
+                <div class="header-title">Executive Briefing</div>
+                <div class="header-subtitle">Prepared for Part3</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="intro">
+            <h1>1,100+ Monthly Searches. 15K+ Decision-Makers.<br>Who's Reaching Them?</h1>
+            <p>Your ICP is searching and scrolling. Here's where the demand is.</p>
+        </div>
+
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="number">1,100+</div>
+                <div class="label">Monthly Searches</div>
+            </div>
+            <div class="data-card">
+                <div class="number">$25-94</div>
+                <div class="label">CPC Range</div>
+            </div>
+            <div class="data-card">
+                <div class="number">15K+</div>
+                <div class="label">LinkedIn ICP</div>
+            </div>
+        </div>
+
+        <div class="findings-section">
+            <div class="findings-title">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                Key Findings
+            </div>
+            <div class="finding-item">
+                <div class="finding-icon audience">1</div>
+                <div class="finding-text">
+                    <strong>15K+ Principals, Partners, and Project Architects on LinkedIn</strong> - segmented across healthcare, education, government, and commercial sectors. Mid-market A/E firms (20-300 employees) in US and Canada.
+                </div>
+            </div>
+            <div class="finding-item">
+                <div class="finding-icon search">2</div>
+                <div class="finding-text">
+                    <strong>1,100+ monthly searches for CA software categories</strong> - "Construction document management" (320/mo, $65 CPC), "Construction submittal software" (210/mo, $40 CPC), "RFI management software" (50/mo, $44 CPC). High CPCs signal enterprise buyers.
+                </div>
+            </div>
+            <div class="finding-item">
+                <div class="finding-icon insight">3</div>
+                <div class="finding-text">
+                    <strong>"Newforma alternative" is greenfield</strong> - 10 searches/mo at $15-60 CPC with HIGH competition. Newforma users are actively looking for modern options. Part3 can own this category with targeted content.
+                </div>
+            </div>
+        </div>
+
+        <div class="keyword-table">
+            <div class="keyword-table-header">Search Demand Analysis</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Monthly Volume</th>
+                        <th>CPC</th>
+                        <th>Competition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>construction document management</td>
+                        <td>320</td>
+                        <td><span class="cpc-badge cpc-high">$65.44</span></td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>architecture project management</td>
+                        <td>390</td>
+                        <td><span class="cpc-badge cpc-medium">$24.71</span></td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>construction submittal software</td>
+                        <td>210</td>
+                        <td><span class="cpc-badge cpc-medium">$39.51</span></td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>construction administration software</td>
+                        <td>50</td>
+                        <td><span class="cpc-badge cpc-high">$93.70</span></td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>rfi management software</td>
+                        <td>50</td>
+                        <td><span class="cpc-badge cpc-medium">$43.52</span></td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>newforma alternative</td>
+                        <td>10</td>
+                        <td><span class="cpc-badge cpc-medium">$15-60</span></td>
+                        <td>High</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="icp-section">
+            <div class="icp-title">Target ICP: Architecture & Engineering Firms</div>
+            <div class="icp-grid">
+                <div class="icp-item">
+                    <h4>Company Size</h4>
+                    <p>20-300 employees (mid-market sweet spot)</p>
+                </div>
+                <div class="icp-item">
+                    <h4>Job Titles</h4>
+                    <p>Principal, Partner, Director of Operations, CA Manager, Project Architect</p>
+                </div>
+                <div class="icp-item">
+                    <h4>Verticals</h4>
+                    <p>Healthcare, Education, Government, Commercial</p>
+                </div>
+                <div class="icp-item">
+                    <h4>Geography</h4>
+                    <p>US + Canada (North America focus)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="competitor-section">
+            <div class="competitor-title">Competitive Landscape</div>
+            <div class="competitor-grid">
+                <div class="competitor-card">
+                    <h4>Newforma</h4>
+                    <p>Legacy desktop-based CA software. Market leader but aging technology.</p>
+                    <div class="weakness">Weakness: No mobile, complex UI, desktop-only</div>
+                </div>
+                <div class="competitor-card">
+                    <h4>Procore</h4>
+                    <p>Contractor-focused platform. Strong market presence.</p>
+                    <div class="weakness">Weakness: Not architect-centric, overkill for A/E firms</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Want the Complete Market Analysis?</h2>
+            <p>This briefing covers the opportunity. The full strategy includes 50+ keywords, campaign architecture, and a 90-day roadmap.</p>
+            <a href="https://www.42agency.com/contact-us" class="cta-btn">Schedule a Strategy Call</a>
+            <div class="cta-subtext">15 minutes. We'll walk through the specific numbers.</div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Prepared by <a href="https://42agency.com" target="_blank">42 Agency</a> - B2B Performance Marketing</p>
+    </footer>
+</body>
+</html>

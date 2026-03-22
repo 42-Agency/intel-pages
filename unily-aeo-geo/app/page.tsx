@@ -15,7 +15,7 @@ export default function UnilyAEOGEOPage() {
             <a href="https://intel.42agency.com/assess/" className="px-4 py-2 text-[#4a4a4a] text-sm font-medium rounded-lg hover:text-[#1a1a1a] hover:bg-[#f5f5f5] transition-all">Assess</a>
             <a href="https://intel.42agency.com/b2b-benchmarks/" className="px-4 py-2 text-[#4a4a4a] text-sm font-medium rounded-lg hover:text-[#1a1a1a] hover:bg-[#f5f5f5] transition-all">Benchmarks</a>
             <a href="https://intel.42agency.com/tools/" className="px-4 py-2 text-[#4a4a4a] text-sm font-medium rounded-lg hover:text-[#1a1a1a] hover:bg-[#f5f5f5] transition-all">Tools</a>
-            <a href="https://42agency.com/contact" target="_blank" className="ml-2 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-semibold rounded-lg hover:bg-[#333] transition-colors">Contact Us</a>
+            <a href="https://www.42agency.com/contact-us" target="_blank" className="ml-2 px-4 py-2 bg-[#1a1a1a] text-white text-sm font-semibold rounded-lg hover:bg-[#333] transition-colors">Contact Us</a>
           </nav>
         </div>
       </header>
@@ -406,7 +406,7 @@ export default function UnilyAEOGEOPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://42agency.com/contact"
+                href="https://www.42agency.com/contact-us"
                 target="_blank"
                 className="px-8 py-4 bg-[#1a1a1a] text-white font-bold rounded-lg hover:bg-[#333] transition-colors"
               >
@@ -475,7 +475,7 @@ export default function UnilyAEOGEOPage() {
               <h4 className="text-xs font-bold uppercase tracking-wide text-[#DFFE68] mb-4">42 Agency</h4>
               <div className="space-y-2">
                 <a href="https://42agency.com" target="_blank" className="block text-sm text-gray-400 hover:text-white">Website</a>
-                <a href="https://42agency.com/contact" target="_blank" className="block text-sm text-gray-400 hover:text-white">Contact Us</a>
+                <a href="https://www.42agency.com/contact-us" target="_blank" className="block text-sm text-gray-400 hover:text-white">Contact Us</a>
               </div>
             </div>
           </div>

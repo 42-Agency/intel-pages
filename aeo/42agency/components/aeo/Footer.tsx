@@ -30,7 +30,7 @@ export function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-wide text-[#DFFE68] mb-4">42 Agency</h4>
             <div className="space-y-2">
               <a href="https://42agency.com" target="_blank" className="block text-sm text-gray-400 hover:text-white">Website</a>
-              <a href="https://42agency.com/contact" target="_blank" className="block text-sm text-gray-400 hover:text-white">Contact Us</a>
+              <a href="https://www.42agency.com/contact-us" target="_blank" className="block text-sm text-gray-400 hover:text-white">Contact Us</a>
             </div>
           </div>
         </div>

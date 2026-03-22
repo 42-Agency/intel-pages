@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clari | Campaign Intelligence - 42 Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot Tracking -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <meta property="og:title" content="Clari Campaign Intelligence - 42 Agency">
+    <meta property="og:description" content="Your ICP is searching for RevOps solutions. Here's where the demand is.">
+
+    <style>
+        :root {
+            --brand-green: #5BD675;
+            --brand-green-dark: #4bc563;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f8f9fa;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--light-gray);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .header {
+            background: white;
+            border-bottom: 3px solid var(--brand-green);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 36px; }
+        .header-text { text-align: right; }
+        .header-title { font-size: 1.1rem; font-weight: 600; }
+        .header-subtitle { font-size: 0.85rem; color: var(--gray); }
+        .main { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .intro { text-align: center; margin-bottom: 2rem; }
+        .intro h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .intro p { color: var(--gray); font-size: 1.1rem; }
+
+        .findings-box {
+            background: white;
+            border-left: 4px solid var(--brand-green);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .findings-box:empty { display: none; }
+        .findings-title {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+        .finding-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #333;
+        }
+        .finding-item:last-child { margin-bottom: 0; }
+        .finding-item svg { width: 18px; height: 18px; fill: var(--brand-green); flex-shrink: 0; margin-top: 2px; }
+
+        .pdf-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .pdf-header {
+            background: var(--dark);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .pdf-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .pdf-title svg { width: 20px; height: 20px; fill: var(--brand-green); }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 80vh;
+            min-height: 600px;
+            border: none;
+            display: block;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--brand-green);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .download-btn:hover { background: var(--brand-green-dark); }
+        .download-btn svg { width: 16px; height: 16px; }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            color: white;
+        }
+        .cta-section h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .cta-section p { color: #ccc; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-btn {
+            display: inline-block;
+            background: var(--brand-green);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(91,214,117,0.4); }
+
+        .included-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .included-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        .included-item svg { width: 18px; height: 18px; fill: var(--brand-green); flex-shrink: 0; }
+
+        .footer { text-align: center; padding: 2rem; color: var(--gray); font-size: 0.85rem; }
+        .footer a { color: var(--brand-green); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .header { padding: 0.75rem 1rem; }
+            .header-inner { flex-direction: column; gap: 0.5rem; }
+            .main { padding: 1rem; }
+            .intro h1 { font-size: 1.5rem; }
+            .pdf-header { flex-direction: column; text-align: center; }
+            .pdf-viewer { height: 60vh; min-height: 400px; }
+            .cta-section { padding: 1.5rem; }
+            .included-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/42-logo.png" alt="42 Agency" style="height: 40px;">
+            </div>
+            <div class="header-text" style="display: flex; align-items: center; gap: 12px;">
+                <img src="https://www.google.com/s2/favicons?domain=clari.com&sz=128" alt="Clari" style="height: 32px; width: 32px; border-radius: 4px;">
+                <div>
+                    <div class="header-title">Clari</div>
+                    <div class="header-subtitle">Executive Briefing</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="intro">
+            <h1>53K Revenue Leaders. 9,100 Monthly Searches. Who's Reaching Them?</h1>
+            <p>Your ICP is searching for RevOps solutions. Here's where the demand is.</p>
+        </div>
+
+        <!-- Key Findings Callout -->
+        <div class="findings-box">
+            <div class="findings-title">Key Findings</div><div class="finding-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span>53K+ VP/Director Revenue Operations on LinkedIn — segmented by enterprise software, fintech, and healthcare verticals</span>
+            </div><div class="finding-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span>9,100+ monthly searches across 'revenue orchestration' and 'sales forecasting' — $49-77 CPCs signal enterprise buyers</span>
+            </div><div class="finding-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span>'Revenue orchestration' is greenfield — competitors own 'sales forecasting' but not the RevOps narrative</span>
+            </div>
+        </div>
+
+        <div class="pdf-container">
+            <div class="pdf-header">
+                <span class="pdf-title">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                    Campaign Intelligence Report
+                </span>
+                <a href="Clari_Prospecting_Intel.pdf" download class="download-btn">
+                    <svg viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <!-- Google Docs Viewer -->
+            <iframe
+                class="pdf-viewer"
+                src="https://docs.google.com/viewer?url=https%3A%2F%2Fintel.42agency.com%2Fclari-6d2658%2FClari_Prospecting_Intel.pdf&embedded=true"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="cta-section">
+            <h2>Want the Complete Market Analysis?</h2>
+            <p>This briefing covers the opportunity. The full strategy includes campaign architecture, audience targeting, and a 90-day roadmap.</p>
+
+            <div style="margin-top: 1.5rem;">
+                <a href="https://www.42agency.com/contact-us" class="cta-btn">Schedule a Strategy Call</a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">15 minutes. We'll walk through the specific numbers.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 <a href="https://42agency.com">42 Agency</a> &middot; B2B Performance Marketing</p>
+    </footer>
+</body>
+</html>

@@ -156,7 +156,7 @@ export default function AEOPage() {
               42 Agency specializes in AEO (AI Engine Optimization) strategies for B2B companies. Let us help you get discovered by AI-powered search engines.
             </p>
             <a
-              href="https://42agency.com/contact"
+              href="https://www.42agency.com/contact-us"
               target="_blank"
               className="inline-block px-8 py-4 bg-[#1a1a1a] text-white font-bold rounded-lg hover:bg-[#333] transition-colors"
             >

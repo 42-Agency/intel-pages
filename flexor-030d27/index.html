@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexor — Market Intelligence | 42 Agency</title>
+    <link rel="icon" type="image/png" href="https://flexor.ai/wp-content/uploads/2025/06/cropped-fav-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid #1a1a1a;
+            background: #fff;
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { height: 32px; }
+        .header-badge {
+            padding: 6px 12px;
+            background: #f5f5f5;
+            border: 2px solid #1a1a1a;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Hero */
+        .hero {
+            background: #f5f5f5;
+            border-bottom: 2px solid #1a1a1a;
+            padding: 64px 24px;
+        }
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: #4a4a4a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 24px;
+        }
+        .stats-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .stats-inner { grid-template-columns: repeat(4, 1fr); }
+        }
+        .stat { text-align: center; }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #DFFE68;
+        }
+        .stat-label {
+            font-size: 0.875rem;
+            color: #9a9a9a;
+            margin-top: 4px;
+        }
+
+        /* Main Content */
+        .main { padding: 48px 24px; }
+        .main-inner { max-width: 900px; margin: 0 auto; }
+
+        /* Section */
+        .section { margin-bottom: 48px; }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: #DFFE68;
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card {
+            background: #fff;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+        .card-grid {
+            display: grid;
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .card-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .finding-card {
+            background: #fff;
+            border: 2px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 3px 3px 0px 0px #1a1a1a;
+        }
+        .finding-number {
+            width: 28px;
+            height: 28px;
+            background: #DFFE68;
+            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .finding-text {
+            font-size: 0.95rem;
+            color: #1a1a1a;
+        }
+
+        /* Revenue Model */
+        .revenue-model {
+            background: #f5f5f5;
+            border: 2px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+        .funnel {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 24px 0;
+        }
+        @media (min-width: 768px) {
+            .funnel {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .funnel-step {
+            flex: 1;
+            text-align: center;
+            padding: 16px;
+            background: #fff;
+            border: 2px solid #1a1a1a;
+            border-radius: 8px;
+            position: relative;
+        }
+        .funnel-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+        .funnel-label {
+            font-size: 0.75rem;
+            color: #6b6b6b;
+            margin-top: 4px;
+        }
+        .funnel-arrow {
+            color: #9a9a9a;
+            font-size: 1.5rem;
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .funnel-arrow { display: block; }
+        }
+
+        /* Unit Economics */
+        .unit-economics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 2px dashed #ccc;
+        }
+        .unit-stat {
+            text-align: center;
+        }
+        .unit-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .unit-label {
+            font-size: 0.75rem;
+            color: #6b6b6b;
+        }
+
+        /* Keyword Table */
+        .keyword-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        .keyword-table th,
+        .keyword-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .keyword-table th {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #6b6b6b;
+        }
+        .keyword-table td {
+            font-size: 0.9rem;
+        }
+        .keyword-table tr:hover {
+            background: #f9f9f9;
+        }
+        .cpc-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #F59E0B10;
+            border: 1px solid #F59E0B;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #F59E0B;
+        }
+
+        /* LinkedIn Section */
+        .linkedin-section {
+            background: #0077B510;
+            border: 2px solid #0077B5;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 3px 3px 0px 0px #0077B5;
+        }
+        .linkedin-title {
+            font-weight: 700;
+            color: #0077B5;
+            margin-bottom: 16px;
+        }
+        .audience-grid {
+            display: grid;
+            gap: 12px;
+        }
+        @media (min-width: 768px) {
+            .audience-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .audience-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            background: #fff;
+            border-radius: 8px;
+        }
+        .audience-label { color: #4a4a4a; }
+        .audience-value { font-weight: 700; color: #0077B5; }
+
+        /* CTA Section */
+        .cta {
+            background: #DFFE68;
+            border: 2px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 48px 32px;
+            box-shadow: 6px 6px 0px 0px #1a1a1a;
+            text-align: center;
+            margin-top: 48px;
+        }
+        .cta h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .cta p {
+            color: #4a4a4a;
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: #1a1a1a;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        .cta-subtext {
+            margin-top: 12px;
+            font-size: 0.875rem;
+            color: #6b6b6b;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid #1a1a1a;
+            padding: 32px 24px;
+            background: #1a1a1a;
+            text-align: center;
+        }
+        .footer p {
+            color: #9a9a9a;
+            font-size: 0.875rem;
+        }
+        .footer a {
+            color: #DFFE68;
+            text-decoration: none;
+        }
+
+        /* Competitor Section */
+        .competitor-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #fff;
+            border: 2px solid #1a1a1a;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin: 4px;
+        }
+        .competitor-funding {
+            font-size: 0.75rem;
+            color: #10B981;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <img src="https://intel.42agency.com/42-logo.png" alt="42 Agency" class="logo">
+            <span class="header-badge">Executive Briefing</span>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>4,800+ Monthly Searches. $20+ CPCs.<br>Who's Capturing Your Demand?</h1>
+            <p>Data teams are searching for unstructured data solutions. Here's where the opportunity is — and who's capturing it today.</p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat">
+                <div class="stat-value">85K+</div>
+                <div class="stat-label">Data Engineers on LinkedIn</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">4,800+</div>
+                <div class="stat-label">Monthly Searches</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$20+</div>
+                <div class="stat-label">Avg. CPC</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$2.4M</div>
+                <div class="stat-label">Pipeline Opportunity</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="main-inner">
+
+            <!-- Key Findings -->
+            <section class="section">
+                <h2 class="section-title">Key Findings</h2>
+                <div class="card-grid">
+                    <div class="finding-card">
+                        <div class="finding-number">1</div>
+                        <p class="finding-text"><strong>85K+ Data Engineers & Analysts on LinkedIn</strong> — targeting Snowflake, BigQuery, and Databricks users across enterprise data teams.</p>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">2</div>
+                        <p class="finding-text"><strong>4,800+ monthly searches</strong> across "unstructured data," "data transformation," and "data extraction" — $12-38 CPCs signal enterprise buyers.</p>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">3</div>
+                        <p class="finding-text"><strong>Unstructured.io raised $65M</strong> — category is heating up. Flexor's SQL-first, data-stack-native positioning is differentiated but under-captured in paid.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Revenue Opportunity Model -->
+            <section class="section">
+                <h2 class="section-title">Revenue Opportunity Model</h2>
+                <div class="revenue-model">
+                    <p style="color: #6b6b6b; margin-bottom: 8px;">Based on category search volume × enterprise conversion benchmarks</p>
+
+                    <div class="funnel">
+                        <div class="funnel-step">
+                            <div class="funnel-value">4,800</div>
+                            <div class="funnel-label">Monthly Searches</div>
+                        </div>
+                        <span class="funnel-arrow">→</span>
+                        <div class="funnel-step">
+                            <div class="funnel-value">960</div>
+                            <div class="funnel-label">Clicks (20% CTR)</div>
+                        </div>
+                        <span class="funnel-arrow">→</span>
+                        <div class="funnel-step">
+                            <div class="funnel-value">48</div>
+                            <div class="funnel-label">Leads (5% CVR)</div>
+                        </div>
+                        <span class="funnel-arrow">→</span>
+                        <div class="funnel-step">
+                            <div class="funnel-value">12</div>
+                            <div class="funnel-label">SQLs (25%)</div>
+                        </div>
+                        <span class="funnel-arrow">→</span>
+                        <div class="funnel-step" style="background: #DFFE68;">
+                            <div class="funnel-value">$2.4M</div>
+                            <div class="funnel-label">Pipeline (@ $200K ACV)</div>
+                        </div>
+                    </div>
+
+                    <div class="unit-economics">
+                        <div class="unit-stat">
+                            <div class="unit-value">$200K</div>
+                            <div class="unit-label">Est. Deal Size (Enterprise Data)</div>
+                        </div>
+                        <div class="unit-stat">
+                            <div class="unit-value">$1,600</div>
+                            <div class="unit-label">Target CAC (8:1 LTV:CAC)</div>
+                        </div>
+                        <div class="unit-stat">
+                            <div class="unit-value">$19K</div>
+                            <div class="unit-label">Est. Monthly Ad Spend</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Keyword Data -->
+            <section class="section">
+                <h2 class="section-title">Keyword Intelligence</h2>
+                <div class="card">
+                    <table class="keyword-table">
+                        <thead>
+                            <tr>
+                                <th>Keyword</th>
+                                <th>Monthly Volume</th>
+                                <th>CPC</th>
+                                <th>Competition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>unstructured data</strong></td>
+                                <td>2,400</td>
+                                <td><span class="cpc-badge">$12.27</span></td>
+                                <td>Low</td>
+                            </tr>
+                            <tr>
+                                <td><strong>data transformation</strong></td>
+                                <td>1,600</td>
+                                <td><span class="cpc-badge">$37.97</span></td>
+                                <td>Low</td>
+                            </tr>
+                            <tr>
+                                <td><strong>data extraction software</strong></td>
+                                <td>480</td>
+                                <td><span class="cpc-badge">$22.26</span></td>
+                                <td>Low</td>
+                            </tr>
+                            <tr>
+                                <td><strong>document parsing</strong></td>
+                                <td>210</td>
+                                <td><span class="cpc-badge">$12.62</span></td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td><strong>text to table</strong></td>
+                                <td>170</td>
+                                <td><span class="cpc-badge">$1.52</span></td>
+                                <td>Low</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 16px; font-size: 0.85rem; color: #6b6b6b;">
+                        💡 <strong>Insight:</strong> "Data transformation" at $38 CPC signals high enterprise intent. "Text to table" is greenfield — low competition, Flexor's exact value prop.
+                    </p>
+                </div>
+            </section>
+
+            <!-- LinkedIn Audience -->
+            <section class="section">
+                <h2 class="section-title">LinkedIn Audience</h2>
+                <div class="linkedin-section">
+                    <h3 class="linkedin-title">Target ICP: Data Engineers & Analysts at Enterprise Companies</h3>
+                    <div class="audience-grid">
+                        <div class="audience-item">
+                            <span class="audience-label">Data Engineers (Snowflake/BigQuery/Databricks)</span>
+                            <span class="audience-value">45K+</span>
+                        </div>
+                        <div class="audience-item">
+                            <span class="audience-label">Data Analysts (Enterprise)</span>
+                            <span class="audience-value">28K+</span>
+                        </div>
+                        <div class="audience-item">
+                            <span class="audience-label">ML Engineers</span>
+                            <span class="audience-value">12K+</span>
+                        </div>
+                        <div class="audience-item">
+                            <span class="audience-label">CDOs / Data Leaders</span>
+                            <span class="audience-value">8K+</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 16px; font-size: 0.85rem; color: #4a4a4a;">
+                        Segmented by: Company size (501+), Industry (Financial Services, Healthcare, Tech), Skills (SQL, Python, dbt)
+                    </p>
+                </div>
+            </section>
+
+            <!-- Competitive Landscape -->
+            <section class="section">
+                <h2 class="section-title">Competitive Landscape</h2>
+                <div class="card">
+                    <p style="margin-bottom: 16px;">Key players in unstructured data transformation:</p>
+                    <div>
+                        <span class="competitor-badge">
+                            Unstructured.io
+                            <span class="competitor-funding">$65M raised</span>
+                        </span>
+                        <span class="competitor-badge">
+                            Forage AI
+                            <span class="competitor-funding">92 employees</span>
+                        </span>
+                        <span class="competitor-badge">
+                            AWS Textract
+                            <span class="competitor-funding">Platform play</span>
+                        </span>
+                        <span class="competitor-badge">
+                            Azure Form Recognizer
+                            <span class="competitor-funding">Platform play</span>
+                        </span>
+                    </div>
+                    <p style="margin-top: 16px; font-size: 0.85rem; color: #6b6b6b;">
+                        💡 <strong>Flexor's differentiation:</strong> SQL-first approach that integrates natively with modern data stacks (Snowflake, BigQuery, dbt). Competitors require separate infrastructure — Flexor doesn't.
+                    </p>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="cta">
+                <h2>Want the Complete Market Analysis?</h2>
+                <p>This briefing covers the opportunity. The full strategy includes 50+ keywords, campaign architecture, and a 90-day roadmap.</p>
+                <a href="https://www.42agency.com/contact-us" class="cta-button">Schedule a Strategy Call →</a>
+                <p class="cta-subtext">15 minutes. We'll walk through the specific numbers.</p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Prepared by <a href="https://www.42agency.com">42 Agency</a> — B2B Demand Generation</p>
+    </footer>
+</body>
+</html>

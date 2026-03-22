@@ -135,7 +135,7 @@ async function sendResultsEmail(email, results) {
       <div style="background:#DFFE68;border:2px solid #1a1a1a;border-radius:12px;padding:24px;margin:24px 0;text-align:center;">
         <h3 style="color:#1a1a1a;margin:0 0 12px 0;">Need Help Running InMail Campaigns?</h3>
         <p style="color:#4a4a4a;margin:0 0 16px 0;">Our team has run hundreds of campaigns with gift card incentives.</p>
-        <a href="https://42agency.com/contact?utm_source=inmail_calculator_email&utm_medium=intel" style="display:inline-block;background:#1a1a1a;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Get a Free Strategy Call</a>
+        <a href="https://www.42agency.com/contact-us?utm_source=inmail_calculator_email&utm_medium=intel" style="display:inline-block;background:#1a1a1a;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Get a Free Strategy Call</a>
       </div>
 
       <p style="color:#6b6b6b;font-size:14px;margin:24px 0 0 0;">

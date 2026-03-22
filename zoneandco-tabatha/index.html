@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone & Co — SEO + Paid Search Opportunity | 42 Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fff; color: #1a1a1a; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+
+        /* Header */
+        .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 2px solid #1a1a1a; margin-bottom: 40px; }
+        .logo { font-weight: 800; font-size: 20px; }
+        .badge { background: #DFFE68; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; border: 2px solid #1a1a1a; }
+
+        /* Hero */
+        .hero { text-align: center; margin-bottom: 48px; }
+        .company-badge { display: inline-flex; align-items: center; gap: 8px; background: #f5f5f5; padding: 8px 16px; border-radius: 24px; border: 2px solid #1a1a1a; margin-bottom: 24px; }
+        .company-badge img { width: 24px; height: 24px; border-radius: 4px; }
+        h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+        .subheadline { font-size: 18px; color: #4a4a4a; }
+
+        /* Stats Bar */
+        .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+        .stat { background: #fff; border: 2px solid #1a1a1a; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 4px 4px 0 #1a1a1a; }
+        .stat-value { font-size: 28px; font-weight: 800; color: #1a1a1a; }
+        .stat-label { font-size: 12px; color: #6b6b6b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Section */
+        .section { margin-bottom: 48px; }
+        .section h2 { font-size: 20px; font-weight: 800; margin-bottom: 20px; }
+
+        /* Problem/Opportunity Box */
+        .problem-box { background: #FEF3C7; border: 2px solid #F59E0B; border-radius: 16px; padding: 24px; margin-bottom: 32px; }
+        .problem-box h3 { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 12px; }
+        .problem-box p { color: #78350F; font-size: 15px; }
+        .problem-box ul { margin-top: 12px; padding-left: 20px; color: #78350F; }
+        .problem-box li { margin-bottom: 8px; }
+
+        /* Findings */
+        .findings { background: #f5f5f5; border: 2px solid #1a1a1a; border-radius: 16px; padding: 32px; margin-bottom: 48px; }
+        .findings h2 { font-size: 20px; font-weight: 800; margin-bottom: 24px; }
+        .finding { display: flex; gap: 12px; margin-bottom: 16px; }
+        .finding:last-child { margin-bottom: 0; }
+        .check { width: 24px; height: 24px; background: #DFFE68; border: 2px solid #1a1a1a; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+        .finding-text { font-size: 15px; }
+        .finding-text strong { font-weight: 700; }
+
+        /* Revenue Model */
+        .revenue-model { background: #fff; border: 2px solid #1a1a1a; border-radius: 16px; padding: 32px; margin-bottom: 48px; box-shadow: 4px 4px 0 #1a1a1a; }
+        .revenue-model h2 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+        .revenue-model .subtitle { color: #6b6b6b; font-size: 14px; margin-bottom: 24px; }
+        .funnel { display: flex; flex-direction: column; gap: 12px; }
+        .funnel-step { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-radius: 8px; }
+        .funnel-step:nth-child(1) { background: #DBEAFE; border-left: 4px solid #3B82F6; }
+        .funnel-step:nth-child(2) { background: #E0E7FF; border-left: 4px solid #6366F1; }
+        .funnel-step:nth-child(3) { background: #F3E8FF; border-left: 4px solid #A855F7; }
+        .funnel-step:nth-child(4) { background: #FCE7F3; border-left: 4px solid #EC4899; }
+        .funnel-step:nth-child(5) { background: #D1FAE5; border-left: 4px solid #10B981; }
+        .funnel-label { font-weight: 600; font-size: 14px; }
+        .funnel-value { font-weight: 800; font-size: 18px; }
+        .funnel-rate { font-size: 12px; color: #6b6b6b; margin-left: 8px; }
+
+        /* Unit Economics */
+        .economics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 2px dashed #e5e5e5; }
+        .econ-item { text-align: center; }
+        .econ-value { font-size: 24px; font-weight: 800; color: #10B981; }
+        .econ-label { font-size: 12px; color: #6b6b6b; font-weight: 600; text-transform: uppercase; }
+
+        /* Keyword Table */
+        .keywords { margin-bottom: 48px; }
+        .keywords h2 { font-size: 20px; font-weight: 800; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; border: 2px solid #1a1a1a; border-radius: 12px; overflow: hidden; }
+        th { background: #1a1a1a; color: #fff; padding: 14px 16px; text-align: left; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 14px 16px; border-bottom: 1px solid #e5e5e5; font-size: 14px; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f5f5f5; }
+        .volume { font-weight: 700; }
+        .cpc { color: #10B981; font-weight: 700; }
+        .intent-high { background: #D1FAE5; color: #065F46; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .intent-brand { background: #DBEAFE; color: #1E40AF; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .intent-comp { background: #FEF3C7; color: #92400E; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+
+        /* Competitor Analysis */
+        .competitors { background: #f5f5f5; border: 2px solid #1a1a1a; border-radius: 16px; padding: 32px; margin-bottom: 48px; }
+        .competitors h2 { font-size: 20px; font-weight: 800; margin-bottom: 20px; }
+        .comp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .comp-card { background: #fff; border: 2px solid #e5e5e5; border-radius: 12px; padding: 16px; }
+        .comp-name { font-weight: 700; margin-bottom: 4px; }
+        .comp-note { font-size: 13px; color: #6b6b6b; }
+
+        /* What We'd Do */
+        .approach { background: #fff; border: 2px solid #1a1a1a; border-radius: 16px; padding: 32px; margin-bottom: 48px; }
+        .approach h2 { font-size: 20px; font-weight: 800; margin-bottom: 20px; }
+        .approach-item { display: flex; gap: 16px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e5e5e5; }
+        .approach-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .approach-num { width: 32px; height: 32px; background: #DFFE68; border: 2px solid #1a1a1a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; }
+        .approach-content h4 { font-weight: 700; margin-bottom: 4px; }
+        .approach-content p { font-size: 14px; color: #4a4a4a; }
+
+        /* Case Study */
+        .case-study { background: #fff; border: 2px solid #1a1a1a; border-radius: 16px; padding: 32px; margin-bottom: 48px; box-shadow: 4px 4px 0 #10B981; }
+        .case-study-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+        .case-study-logo { width: 48px; height: 48px; border-radius: 8px; border: 2px solid #e5e5e5; }
+        .case-study-title { flex: 1; }
+        .case-study-title h2 { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+        .case-study-title .subtitle { font-size: 14px; color: #6b6b6b; }
+        .case-study-badge { background: #D1FAE5; color: #065F46; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; border: 2px solid #10B981; }
+        .case-study-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+        .cs-stat { text-align: center; padding: 16px; background: #f5f5f5; border-radius: 12px; }
+        .cs-stat-value { font-size: 24px; font-weight: 800; color: #10B981; }
+        .cs-stat-label { font-size: 11px; color: #6b6b6b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .case-study-details { font-size: 14px; color: #4a4a4a; }
+        .case-study-details ul { padding-left: 20px; margin-top: 12px; }
+        .case-study-details li { margin-bottom: 8px; }
+        .case-study-details strong { color: #1a1a1a; }
+        .case-study-context { background: #f5f5f5; border-radius: 8px; padding: 16px; margin-top: 16px; font-size: 13px; color: #4a4a4a; }
+        .case-study-context strong { color: #1a1a1a; }
+
+        /* CTA */
+        .cta { background: #DFFE68; border: 2px solid #1a1a1a; border-radius: 16px; padding: 40px; text-align: center; box-shadow: 6px 6px 0 #1a1a1a; }
+        .cta h2 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+        .cta p { color: #4a4a4a; margin-bottom: 24px; }
+        .cta-btn { display: inline-block; background: #1a1a1a; color: #fff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+        .cta-btn:hover { background: #333; transform: translateY(-2px); }
+        .cta-subtext { font-size: 13px; color: #6b6b6b; margin-top: 16px; }
+
+        /* Footer */
+        .footer { text-align: center; padding-top: 40px; margin-top: 48px; border-top: 2px solid #1a1a1a; color: #6b6b6b; font-size: 13px; }
+
+        @media (max-width: 640px) {
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .economics { grid-template-columns: 1fr; }
+            .comp-grid { grid-template-columns: 1fr; }
+            .case-study-stats { grid-template-columns: 1fr; }
+            .case-study-header { flex-direction: column; text-align: center; }
+            h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">42 Agency</div>
+            <div class="badge">Market Intelligence</div>
+        </header>
+
+        <section class="hero">
+            <div class="company-badge">
+                <img src="https://logo.clearbit.com/zoneandco.com" alt="Zone & Co" onerror="this.style.display='none'">
+                <span style="font-weight: 700;">Zone & Co</span>
+            </div>
+            <h1>Keyword Visibility Without Traffic? Here's the Fix.</h1>
+            <p class="subheadline">You have 1,100+ keywords in positions 1-10. Let's turn that into pipeline.</p>
+        </section>
+
+        <section class="problem-box">
+            <h3>The Problem You Described</h3>
+            <p>Keyword visibility improved, but it hasn't translated into traffic, demand, or revenue. Current agency hired June 2025 — performance trending down.</p>
+            <ul>
+                <li>0.35% visitor-to-demo conversion (need 1% B2B benchmark)</li>
+                <li>40% YoY growth target on revenue & ARR</li>
+                <li>7,500 organic sessions/month — should be 2-3x with your keyword base</li>
+            </ul>
+        </section>
+
+        <section class="stats-bar">
+            <div class="stat">
+                <div class="stat-value">2,400+</div>
+                <div class="stat-label">Monthly Searches</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$28.50</div>
+                <div class="stat-label">Avg CPC</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">45K+</div>
+                <div class="stat-label">LinkedIn ICP</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$1.8M</div>
+                <div class="stat-label">Pipeline Opportunity</div>
+            </div>
+        </section>
+
+        <section class="findings">
+            <h2>Key Findings</h2>
+            <div class="finding">
+                <div class="check">✓</div>
+                <div class="finding-text"><strong>"NetSuite billing automation"</strong> at $32 CPC — high-intent buyers comparing solutions</div>
+            </div>
+            <div class="finding">
+                <div class="check">✓</div>
+                <div class="finding-text"><strong>Competitor displacement keywords</strong> (Zuora alternative, Chargebee alternative) are underutilized in your content strategy</div>
+            </div>
+            <div class="finding">
+                <div class="check">✓</div>
+                <div class="finding-text"><strong>426 SERP features owned</strong> — but likely informational, not transactional. Intent mismatch is killing conversions.</div>
+            </div>
+            <div class="finding">
+                <div class="check">✓</div>
+                <div class="finding-text"><strong>Content-to-conversion gap:</strong> Ranking for "what is subscription billing" (top funnel) but not capturing "NetSuite billing software comparison" (bottom funnel)</div>
+            </div>
+        </section>
+
+        <section class="revenue-model">
+            <h2>Revenue Opportunity Model</h2>
+            <p class="subtitle">Based on your 40% YoY target and current metrics</p>
+            <div class="funnel">
+                <div class="funnel-step">
+                    <span class="funnel-label">Monthly Organic Sessions (Target)</span>
+                    <span><span class="funnel-value">15,000</span><span class="funnel-rate">2x current</span></span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">Engaged Visitors (3+ pages)</span>
+                    <span><span class="funnel-value">2,250</span><span class="funnel-rate">15%</span></span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">Demo Requests @ 1% CVR</span>
+                    <span><span class="funnel-value">150</span><span class="funnel-rate">vs. 26 today</span></span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">SQLs (50% qualification rate)</span>
+                    <span><span class="funnel-value">75</span><span class="funnel-rate">/month</span></span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">Pipeline @ $25K ACV</span>
+                    <span><span class="funnel-value">$1.87M</span><span class="funnel-rate">/month</span></span>
+                </div>
+            </div>
+            <div class="economics">
+                <div class="econ-item">
+                    <div class="econ-value">$25K</div>
+                    <div class="econ-label">Est. ACV</div>
+                </div>
+                <div class="econ-item">
+                    <div class="econ-value">$2,500</div>
+                    <div class="econ-label">Target CAC</div>
+                </div>
+                <div class="econ-item">
+                    <div class="econ-value">10:1</div>
+                    <div class="econ-label">LTV:CAC</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="keywords">
+            <h2>Keyword Opportunity Analysis</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Volume</th>
+                        <th>CPC</th>
+                        <th>Intent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>netsuite billing software</td>
+                        <td class="volume">480</td>
+                        <td class="cpc">$32.15</td>
+                        <td><span class="intent-high">High Intent</span></td>
+                    </tr>
+                    <tr>
+                        <td>netsuite ap automation</td>
+                        <td class="volume">390</td>
+                        <td class="cpc">$28.40</td>
+                        <td><span class="intent-high">High Intent</span></td>
+                    </tr>
+                    <tr>
+                        <td>zonebilling</td>
+                        <td class="volume">320</td>
+                        <td class="cpc">$8.25</td>
+                        <td><span class="intent-brand">Branded</span></td>
+                    </tr>
+                    <tr>
+                        <td>zuora alternative</td>
+                        <td class="volume">260</td>
+                        <td class="cpc">$45.80</td>
+                        <td><span class="intent-comp">Competitive</span></td>
+                    </tr>
+                    <tr>
+                        <td>chargebee alternative</td>
+                        <td class="volume">210</td>
+                        <td class="cpc">$38.50</td>
+                        <td><span class="intent-comp">Competitive</span></td>
+                    </tr>
+                    <tr>
+                        <td>netsuite revenue recognition</td>
+                        <td class="volume">170</td>
+                        <td class="cpc">$35.20</td>
+                        <td><span class="intent-high">High Intent</span></td>
+                    </tr>
+                    <tr>
+                        <td>subscription billing netsuite</td>
+                        <td class="volume">140</td>
+                        <td class="cpc">$29.75</td>
+                        <td><span class="intent-high">High Intent</span></td>
+                    </tr>
+                    <tr>
+                        <td>erp billing software</td>
+                        <td class="volume">110</td>
+                        <td class="cpc">$42.30</td>
+                        <td><span class="intent-high">High Intent</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="competitors">
+            <h2>Competitive Landscape</h2>
+            <div class="comp-grid">
+                <div class="comp-card">
+                    <div class="comp-name">Zuora</div>
+                    <div class="comp-note">Complex, expensive — "overkill" complaints on G2. Zone wins on simplicity.</div>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-name">Chargebee</div>
+                    <div class="comp-note">Strong SMB, weak enterprise. Zone's NetSuite-native is the differentiator.</div>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-name">Recurly</div>
+                    <div class="comp-note">Payment flexibility, shallow on rev rec. Finance teams want more depth.</div>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-name">Maxio</div>
+                    <div class="comp-note">B2B SaaS focused. Competes in analytics — Zone wins on ERP integration.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="approach">
+            <h2>What We'd Do Differently</h2>
+            <div class="approach-item">
+                <div class="approach-num">1</div>
+                <div class="approach-content">
+                    <h4>Intent Audit: Re-map keywords to buying stages</h4>
+                    <p>Your 1,100 keywords are likely 70% informational. We'd rebuild the strategy around bottom-funnel terms that convert — "NetSuite billing comparison," "ZoneBilling vs Chargebee," etc.</p>
+                </div>
+            </div>
+            <div class="approach-item">
+                <div class="approach-num">2</div>
+                <div class="approach-content">
+                    <h4>Conversion architecture: Fix the 0.35% → 1% gap</h4>
+                    <p>Landing pages for high-intent keywords. Clear demo CTAs. Exit-intent for pricing guides. A/B test form length. This is where your quick wins live.</p>
+                </div>
+            </div>
+            <div class="approach-item">
+                <div class="approach-num">3</div>
+                <div class="approach-content">
+                    <h4>Paid search on competitor terms</h4>
+                    <p>"Zuora alternative" at $45 CPC is worth it when your ACV is $25K+. Capture active evaluators while SEO catches up.</p>
+                </div>
+            </div>
+            <div class="approach-item">
+                <div class="approach-num">4</div>
+                <div class="approach-content">
+                    <h4>Content consolidation</h4>
+                    <p>Thin content is killing rankings. Merge 10 weak posts into 3 authoritative guides. Google rewards depth over breadth in B2B SaaS.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study">
+            <div class="case-study-header">
+                <img src="https://logo.clearbit.com/televox.com" alt="TeleVox" class="case-study-logo" onerror="this.style.display='none'">
+                <div class="case-study-title">
+                    <h2>We've Fixed This Exact Problem Before</h2>
+                    <p class="subtitle">TeleVox/Mosaicx — Healthcare & Conversational AI</p>
+                </div>
+                <span class="case-study-badge">SEO Case Study</span>
+            </div>
+            <div class="case-study-stats">
+                <div class="cs-stat">
+                    <div class="cs-stat-value">276%</div>
+                    <div class="cs-stat-label">Impression Growth</div>
+                </div>
+                <div class="cs-stat">
+                    <div class="cs-stat-value">17x</div>
+                    <div class="cs-stat-label">Commercial Keywords (Top 10)</div>
+                </div>
+                <div class="cs-stat">
+                    <div class="cs-stat-value">$1.1M</div>
+                    <div class="cs-stat-label">Pipeline from Organic</div>
+                </div>
+            </div>
+            <div class="case-study-details">
+                <p><strong>The situation:</strong> TeleVox had keyword visibility but wasn't converting to traffic or pipeline — same as Zone & Co today.</p>
+                <ul>
+                    <li><strong>TeleVox:</strong> Average position improved from 59.4 → 31.9 (27 position jump). GSC clicks grew 57% (276 → 434). Impressions grew 276% (246K → 925K).</li>
+                    <li><strong>Mosaicx:</strong> Organic traffic grew 170% (888 → 2,400+). Commercial keywords ranking doubled (150 → 300+). Top 3 positions grew from 20 → 75+ keywords.</li>
+                    <li><strong>Pipeline impact:</strong> TeleVox generated $15K from organic. Mosaicx generated $1.14M YTD from 4 organic opportunities.</li>
+                </ul>
+                <div class="case-study-context">
+                    <strong>Why this matters for Zone:</strong> Both companies had the same problem — ranking for informational terms, not commercial ones. We rebuilt their keyword strategy around high-intent terms and improved conversion architecture. The results showed up in 6 months.
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Let's Fix the Visibility → Revenue Gap</h2>
+            <p>This briefing covers the opportunity. A 30-minute call would cover the 90-day roadmap, campaign architecture, and how we've done this for similar B2B SaaS companies.</p>
+            <a href="https://www.42agency.com/contact-us" class="cta-btn">Schedule a Strategy Call</a>
+            <p class="cta-subtext">We specialize in B2B SaaS. SEO + Paid. Revenue-focused.</p>
+        </section>
+
+        <footer class="footer">
+            <p>Prepared for Zone & Co by 42 Agency · March 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
