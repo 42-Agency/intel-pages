@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://intel.42agency.com",
-  "lastUpdated": "2026-03-22",
+  "lastUpdated": "2026-03-25",
   "categories": {
     "core": {
       "description": "Main hub and navigation pages",
@@ -156,6 +156,7 @@
         "/aquant-qpqrmj/",
         "/arrows-dz0305/",
         "/attio-06f6f3/",
+        "/axonius-mm0325/",
         "/benevity/",
         "/bigco-d65d9b/",
         "/centml-1e798a/",
@@ -182,7 +183,9 @@
         "/mailgun-xr9sjy/",
         "/managed-abm/",
         "/mkt1/",
+        "/nue-ad0325/",
         "/numeric/",
+        "/orca-rn0325/",
         "/parloa-a63daf/",
         "/part3-ca-intel/",
         "/plotly-200117/",
@@ -190,6 +193,7 @@
         "/prosperops-79d84e/",
         "/prosperops-conquest/",
         "/raindrop-296a35/",
+        "/rasa-mo0325/",
         "/rasa/",
         "/sanitaire/",
         "/sanitaire/charlestowne-hotels/",
