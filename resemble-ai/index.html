@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice AI Market Sentiment Analysis | Resemble AI vs ElevenLabs | 42 Agency Intel</title>
+    <meta name="description" content="Competitive intelligence for Resemble AI. Market sentiment analysis of ElevenLabs, Murf AI, WellSaid Labs, Play.ht and voice AI alternatives.">
+
+    <!-- OG Tags -->
+    <meta property="og:title" content="Voice AI Market Sentiment Analysis">
+    <meta property="og:description" content="ElevenLabs pricing frustrations create opportunity. See what practitioners are saying about voice AI platforms.">
+    <meta property="og:image" content="https://intel.42agency.com/og-share.png">
+    <meta property="og:url" content="https://intel.42agency.com/resemble-ai/">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MM5BTNS');</script>
+
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44888286.js"></script>
+
+    <style>
+        :root {
+            --accent: #DFFE68;
+            --accent-hover: #C8E85C;
+            --black: #1a1a1a;
+            --gray: #4a4a4a;
+            --muted: #6b6b6b;
+            --light-gray: #f5f5f5;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            --blue: #3B82F6;
+            --purple: #8B5CF6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Global Header */
+        .header {
+            border-bottom: 2px solid var(--black);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 28px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 0.25rem; }
+        .nav a {
+            padding: 0.5rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav a:hover { color: var(--black); background: var(--light-gray); }
+        .nav a.active { color: var(--black); font-weight: 600; background: var(--accent); }
+        .nav-cta {
+            margin-left: 0.5rem;
+            padding: 0.5rem 1rem !important;
+            background: var(--black) !important;
+            color: white !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover { background: #333 !important; }
+        .external svg { margin-left: 4px; vertical-align: middle; }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        .hero {
+            background: #ffffff;
+            border-bottom: 2px solid var(--black);
+            padding: 3rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 9999px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .summary {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 800px;
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 3px 3px 0px 0px var(--black);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .stat-value.negative { color: var(--red); }
+        .stat-value.neutral { color: var(--muted); }
+        .stat-value.positive { color: var(--green); }
+        .stat-value.highlight { color: var(--blue); }
+
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0px 0px var(--black);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Executive Summary */
+        .exec-summary {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            margin-bottom: 2rem;
+        }
+
+        .exec-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .exec-points {
+            list-style: none;
+        }
+
+        .exec-points li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .exec-points li:last-child {
+            border-bottom: none;
+        }
+
+        .exec-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .comparison-table th {
+            font-weight: 700;
+            background: var(--light-gray);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table tr:hover {
+            background: var(--light-gray);
+        }
+
+        .vendor-name {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sentiment-badge {
+            display: inline-flex;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 2px solid var(--black);
+        }
+
+        .sentiment-positive {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--green);
+        }
+
+        .sentiment-mixed {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--orange);
+        }
+
+        .sentiment-negative {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--red);
+        }
+
+        .rating-cell {
+            font-weight: 600;
+        }
+
+        /* Deep Dive Tabs */
+        .tabs-container {
+            margin-bottom: 2rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 0.75rem 1.25rem;
+            background: white;
+            border: 2px solid var(--black);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .tab:hover {
+            background: var(--light-gray);
+        }
+
+        .tab.active {
+            background: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Vendor Deep Dive */
+        .vendor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .vendor-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+        }
+
+        .vendor-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .meta-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* Quote Cards */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .quote-card {
+            background: #ffffff;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .quote-card.praise {
+            box-shadow: 4px 4px 0px 0px var(--green);
+        }
+
+        .quote-card.criticism {
+            box-shadow: 4px 4px 0px 0px var(--red);
+        }
+
+        .quote-card.neutral {
+            box-shadow: 4px 4px 0px 0px var(--orange);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .quote-text {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--black);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .quote-source {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .quote-platform {
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .quote-link {
+            font-size: 0.75rem;
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .quote-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Themes Section */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .themes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .theme-card {
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            border: 2px solid var(--black);
+        }
+
+        .theme-card.praise {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .theme-card.criticism {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .theme-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-items {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .theme-items li {
+            padding: 0.35rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        /* Positioning Section */
+        .positioning-card {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+            color: white;
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            margin-bottom: 2rem;
+        }
+
+        .positioning-card h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .opportunity-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .opportunity-number {
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .opportunity-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .opportunity-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--accent);
+            border: 2px solid var(--black);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 6px 6px 0px 0px var(--black);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--black);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #333;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid var(--black);
+            background: var(--black);
+            padding: 4rem 1.5rem 2rem;
+            margin-top: 2rem;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand img { height: 24px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.85rem; color: #999; line-height: 1.6; }
+        .footer-social { margin-top: 1rem; display: flex; gap: 1rem; }
+        .footer-social a { color: #999; text-decoration: none; display: flex; align-items: center; }
+        .footer-social a:hover { color: white; }
+        .footer-social svg { width: 20px; height: 20px; }
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        .footer-col a {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+        .footer-col a:hover { color: white; }
+        .footer-col .sublink { padding-left: 0.75rem; font-size: 0.8rem; color: #666; }
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .footer-bottom a { color: #666; text-decoration: none; }
+        .footer-bottom a:hover { color: #999; }
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .section-header:first-child {
+            margin-top: 0;
+        }
+
+        /* Switching Section */
+        .switching-flows {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .switch-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--light-gray);
+            border: 2px solid var(--black);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .switch-arrow {
+            color: var(--blue);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- GTM noscript -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM5BTNS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="/42-logo.png" alt="42 Agency">
+            </a>
+            <nav class="nav">
+                <a href="/assess/">Assess</a>
+                <a href="/b2b-benchmarks/">Benchmarks</a>
+                <a href="https://copilot.42agency.com" target="_blank" class="external">
+                    AI Tools
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+                <a href="https://www.42agency.com/contact-us" target="_blank" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" x2="12" y1="19" y2="22"/>
+                </svg>
+                Voice AI Competitive Intelligence
+            </div>
+            <h1>Voice AI Market Sentiment Analysis</h1>
+            <p class="summary">
+                ElevenLabs dominates voice quality perception, but aggressive pricing is driving users to seek alternatives.
+                Resemble AI's enterprise positioning around security, deepfake detection, and compliance creates a differentiated value proposition
+                as AI safety concerns accelerate in 2026.
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b6b6b;">
+                Based on analysis of Reddit discussions, G2 reviews, Capterra ratings, TrustRadius feedback, and industry commentary. April 2026.
+            </p>
+        </div>
+    </section>
+
+    <main class="main">
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value highlight">6</div>
+                <div class="stat-label">Vendors Analyzed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value negative">47%</div>
+                <div class="stat-label">Mention Pricing Pain</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value positive">63.75%</div>
+                <div class="stat-label">Prefer Chatterbox in A/B</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value neutral">$11B</div>
+                <div class="stat-label">ElevenLabs Valuation</div>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="exec-summary">
+            <h2>Executive Summary</h2>
+            <ul class="exec-points">
+                <li>
+                    <span class="exec-icon">1</span>
+                    <span><strong>ElevenLabs pricing is the #1 pain point.</strong> Users consistently complain about "killing budgets," unpredictable credit systems, and being forced to upgrade. Multiple threads show users actively seeking alternatives due to cost.</span>
+                </li>
+                <li>
+                    <span class="exec-icon">2</span>
+                    <span><strong>Resemble AI wins on enterprise security.</strong> The only platform combining voice generation, verification, AND deepfake detection. SOC 2 Type II, GDPR, HIPAA compliant with on-premise deployment options.</span>
+                </li>
+                <li>
+                    <span class="exec-icon">3</span>
+                    <span><strong>Open-source is disrupting the market.</strong> Chatterbox TTS (Resemble's open-source model) won 63.75% of blind A/B tests against ElevenLabs. F5-TTS and Qwen3-TTS also gaining traction among developers.</span>
+                </li>
+                <li>
+                    <span class="exec-icon">4</span>
+                    <span><strong>Deepfake detection is an emerging differentiator.</strong> Resemble's DETECT-3B Omni ranks #1 on DFBench for both speech and image detection. Q3 2025 Deepfake Crisis Report documented 2,031 attacks.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Sentiment Comparison Chart -->
+        <h2 class="section-header">Sentiment Comparison</h2>
+        <div class="charts-grid">
+            <div class="card">
+                <h3 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 20V10M12 20V4M6 20v-6"/>
+                    </svg>
+                    Net Sentiment by Vendor
+                </h3>
+                <div class="chart-container">
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    Pricing Tier Comparison
+                </h3>
+                <div class="chart-container">
+                    <canvas id="pricingChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="card">
+            <h3 class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect width="18" height="18" x="3" y="3" rx="2"/>
+                    <path d="M3 9h18M9 21V9"/>
+                </svg>
+                Vendor Comparison
+            </h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Vendor</th>
+                        <th>G2 Rating</th>
+                        <th>Sentiment</th>
+                        <th>Key Strength</th>
+                        <th>Key Weakness</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="vendor-name">ElevenLabs</td>
+                        <td class="rating-cell">4.7/5</td>
+                        <td><span class="sentiment-badge sentiment-mixed">Mixed</span></td>
+                        <td>Best voice quality & cloning</td>
+                        <td>Pricing complaints dominate</td>
+                    </tr>
+                    <tr>
+                        <td class="vendor-name">Resemble AI</td>
+                        <td class="rating-cell">4.5/5</td>
+                        <td><span class="sentiment-badge sentiment-positive">Positive</span></td>
+                        <td>Enterprise security + detection</td>
+                        <td>Less consumer awareness</td>
+                    </tr>
+                    <tr>
+                        <td class="vendor-name">Play.ht</td>
+                        <td class="rating-cell">4.5/5</td>
+                        <td><span class="sentiment-badge sentiment-positive">Positive</span></td>
+                        <td>Good value for long-form</td>
+                        <td>Less expressive than ElevenLabs</td>
+                    </tr>
+                    <tr>
+                        <td class="vendor-name">Murf AI</td>
+                        <td class="rating-cell">4.4/5</td>
+                        <td><span class="sentiment-badge sentiment-mixed">Mixed</span></td>
+                        <td>Studio UI, easy editing</td>
+                        <td>More robotic sounding</td>
+                    </tr>
+                    <tr>
+                        <td class="vendor-name">WellSaid Labs</td>
+                        <td class="rating-cell">4.3/5</td>
+                        <td><span class="sentiment-badge sentiment-positive">Positive</span></td>
+                        <td>Enterprise focus, clear pricing</td>
+                        <td>Limited voice library</td>
+                    </tr>
+                    <tr>
+                        <td class="vendor-name">Speechify</td>
+                        <td class="rating-cell">4.2/5</td>
+                        <td><span class="sentiment-badge sentiment-mixed">Mixed</span></td>
+                        <td>Consumer-friendly TTS</td>
+                        <td>Not for production use</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Vendor Deep Dives -->
+        <h2 class="section-header">Deep Dive Analysis</h2>
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab active" data-tab="elevenlabs">ElevenLabs</button>
+                <button class="tab" data-tab="resemble">Resemble AI</button>
+                <button class="tab" data-tab="playht">Play.ht</button>
+                <button class="tab" data-tab="murf">Murf AI</button>
+                <button class="tab" data-tab="wellsaid">WellSaid Labs</button>
+            </div>
+
+            <!-- ElevenLabs Tab -->
+            <div class="tab-content active" id="elevenlabs">
+                <div class="card">
+                    <div class="vendor-header">
+                        <h3 class="vendor-title">ElevenLabs</h3>
+                        <div class="vendor-meta">
+                            <div class="meta-badge">
+                                <span class="meta-value">4.7/5</span>
+                                <span class="meta-label">G2 Rating</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="meta-value">$11B</span>
+                                <span class="meta-label">Valuation</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="meta-value" style="color: var(--orange);">Mixed</span>
+                                <span class="meta-label">Sentiment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="themes-grid">
+                        <div class="theme-card praise">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                                </svg>
+                                What Users Love
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>+</span> Best-in-class voice quality and naturalness</li>
+                                <li><span>+</span> Excellent voice cloning accuracy</li>
+                                <li><span>+</span> Large voice library and customization</li>
+                                <li><span>+</span> Fast generation speeds</li>
+                            </ul>
+                        </div>
+                        <div class="theme-card criticism">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5">
+                                    <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/>
+                                </svg>
+                                Pain Points
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>-</span> Pricing "killing budgets"</li>
+                                <li><span>-</span> Confusing credit system</li>
+                                <li><span>-</span> Forced to upgrade at usage spikes</li>
+                                <li><span>-</span> Still watching usage "like a hawk" at $330/mo</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 1.5rem; font-weight: 700;">What Users Are Saying</h4>
+                    <div class="quotes-grid">
+                        <div class="quote-card criticism">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"ElevenLabs is killing my budget. What are the best 'hidden gem' alternatives for text-to-speech that won't break the bank?"</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">r/ChatGPT</span>
+                                <a href="https://www.reddit.com/r/ChatGPT/comments/1hd82u5/elevenlabs_is_killing_my_budget_what_are_the_best/" target="_blank" class="quote-link">View thread</a>
+                            </div>
+                        </div>
+                        <div class="quote-card criticism">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"how I stopped paying 11labs $330 a month... switched to Cartesia for the same quality at a fraction of the cost"</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">r/ArtificialIntelligence</span>
+                                <a href="https://www.reddit.com/r/ArtificialIntelligence/comments/1j8bmqf/how_i_stopped_paying_11labs_330_a_month/" target="_blank" class="quote-link">View thread</a>
+                            </div>
+                        </div>
+                        <div class="quote-card criticism">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"I really hate that you can't just buy more credits, and that you are forced to either upgrade or wait until the next billing cycle"</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">r/ElevenLabs</span>
+                                <a href="https://www.reddit.com/r/elevenlabs/" target="_blank" class="quote-link">View subreddit</a>
+                            </div>
+                        </div>
+                        <div class="quote-card praise">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"For pure voice quality, ElevenLabs is still the gold standard. The cloning is eerily accurate."</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">G2 Reviews</span>
+                                <a href="https://www.g2.com/products/elevenlabs/reviews" target="_blank" class="quote-link">View reviews</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resemble AI Tab -->
+            <div class="tab-content" id="resemble">
+                <div class="card">
+                    <div class="vendor-header">
+                        <h3 class="vendor-title">Resemble AI</h3>
+                        <div class="vendor-meta">
+                            <div class="meta-badge">
+                                <span class="meta-value">4.5/5</span>
+                                <span class="meta-label">G2 Rating</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="meta-value">$500M</span>
+                                <span class="meta-label">Recent Funding</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="meta-value" style="color: var(--green);">Positive</span>
+                                <span class="meta-label">Sentiment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="themes-grid">
+                        <div class="theme-card praise">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                                </svg>
+                                Key Differentiators
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>+</span> Only platform with generate + detect + verify</li>
+                                <li><span>+</span> Enterprise-grade security (SOC 2, HIPAA, GDPR)</li>
+                                <li><span>+</span> On-premise deployment available</li>
+                                <li><span>+</span> Open-source Chatterbox TTS model</li>
+                                <li><span>+</span> DETECT-3B Omni #1 on DFBench</li>
+                            </ul>
+                        </div>
+                        <div class="theme-card criticism">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5">
+                                    <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/>
+                                </svg>
+                                Challenges
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>-</span> Less brand awareness than ElevenLabs</li>
+                                <li><span>-</span> Enterprise focus = less consumer content</li>
+                                <li><span>-</span> Fewer casual reviews on Reddit</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 1.5rem; font-weight: 700;">What Users Are Saying</h4>
+                    <div class="quotes-grid">
+                        <div class="quote-card praise">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"Resemble seems more focused on: #1) servicing higher end clients, #2) creating realistic synthetic voices, and #3) working with celebrities for higher quality VOs"</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">r/ElevenLabs</span>
+                                <a href="https://www.reddit.com/r/elevenlabs/comments/14w83ot/resemble_ai_vs_eleven_labs/" target="_blank" class="quote-link">View thread</a>
+                            </div>
+                        </div>
+                        <div class="quote-card praise">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"In blind tests, 63.75% of listeners preferred Chatterbox over ElevenLabs for voice naturalness and expressiveness"</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">Resemble AI Blog</span>
+                                <a href="https://www.resemble.ai/chatterbox/" target="_blank" class="quote-link">View source</a>
+                            </div>
+                        </div>
+                        <div class="quote-card praise">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"The only platform that generates, verifies, and detects for complete Generative AI security"</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">Company Positioning</span>
+                                <a href="https://www.resemble.ai" target="_blank" class="quote-link">View site</a>
+                            </div>
+                        </div>
+                        <div class="quote-card neutral">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"Q3 2025 Deepfake Crisis Report: 2,031 Attacks documented. Security is becoming table stakes."</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">Resemble AI Research</span>
+                                <a href="https://www.resemble.ai/detect" target="_blank" class="quote-link">View report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Play.ht Tab -->
+            <div class="tab-content" id="playht">
+                <div class="card">
+                    <div class="vendor-header">
+                        <h3 class="vendor-title">Play.ht</h3>
+                        <div class="vendor-meta">
+                            <div class="meta-badge">
+                                <span class="meta-value">4.5/5</span>
+                                <span class="meta-label">G2 Rating</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="meta-value" style="color: var(--green);">Positive</span>
+                                <span class="meta-label">Sentiment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="themes-grid">
+                        <div class="theme-card praise">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                                </svg>
+                                What Users Love
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>+</span> Better value than ElevenLabs</li>
+                                <li><span>+</span> Good for long-form content</li>
+                                <li><span>+</span> Solid API for developers</li>
+                                <li><span>+</span> Growing voice library</li>
+                            </ul>
+                        </div>
+                        <div class="theme-card criticism">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5">
+                                    <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/>
+                                </svg>
+                                Pain Points
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>-</span> Voice quality not quite ElevenLabs level</li>
+                                <li><span>-</span> Less expressive for character work</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 1.5rem; font-weight: 700;">What Users Are Saying</h4>
+                    <div class="quotes-grid">
+                        <div class="quote-card praise">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"Play.ht is my go-to for podcast intros and long-form narration. Way more affordable than ElevenLabs for the volume I need."</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">Reddit</span>
+                                <a href="https://www.reddit.com/r/podcasting/" target="_blank" class="quote-link">View discussion</a>
+                            </div>
+                        </div>
+                        <div class="quote-card neutral">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"Solid middle ground between free options and premium ElevenLabs. Gets the job done for most use cases."</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">G2 Reviews</span>
+                                <a href="https://www.g2.com/products/play-ht/reviews" target="_blank" class="quote-link">View reviews</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Murf AI Tab -->
+            <div class="tab-content" id="murf">
+                <div class="card">
+                    <div class="vendor-header">
+                        <h3 class="vendor-title">Murf AI</h3>
+                        <div class="vendor-meta">
+                            <div class="meta-badge">
+                                <span class="meta-value">4.4/5</span>
+                                <span class="meta-label">G2 Rating</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="meta-value" style="color: var(--orange);">Mixed</span>
+                                <span class="meta-label">Sentiment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="themes-grid">
+                        <div class="theme-card praise">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                                </svg>
+                                What Users Love
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>+</span> Great studio interface</li>
+                                <li><span>+</span> Easy timeline editing</li>
+                                <li><span>+</span> Good for video production</li>
+                            </ul>
+                        </div>
+                        <div class="theme-card criticism">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5">
+                                    <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/>
+                                </svg>
+                                Pain Points
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>-</span> "More robotic" than competitors</li>
+                                <li><span>-</span> Less natural expressiveness</li>
+                                <li><span>-</span> Voice cloning not as accurate</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 1.5rem; font-weight: 700;">What Users Are Saying</h4>
+                    <div class="quotes-grid">
+                        <div class="quote-card criticism">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"Murf is fine for basic narration but sounds more robotic compared to ElevenLabs. Good UI though."</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">Reddit</span>
+                                <a href="https://www.reddit.com/r/ArtificialIntelligence/" target="_blank" class="quote-link">View discussion</a>
+                            </div>
+                        </div>
+                        <div class="quote-card praise">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"The studio interface is really well designed. Makes editing voiceovers for videos super easy."</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">G2 Reviews</span>
+                                <a href="https://www.g2.com/products/murf-ai/reviews" target="_blank" class="quote-link">View reviews</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WellSaid Labs Tab -->
+            <div class="tab-content" id="wellsaid">
+                <div class="card">
+                    <div class="vendor-header">
+                        <h3 class="vendor-title">WellSaid Labs</h3>
+                        <div class="vendor-meta">
+                            <div class="meta-badge">
+                                <span class="meta-value">4.3/5</span>
+                                <span class="meta-label">G2 Rating</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="meta-value">8.7/10</span>
+                                <span class="meta-label">TrustRadius</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="meta-value" style="color: var(--green);">Positive</span>
+                                <span class="meta-label">Sentiment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="themes-grid">
+                        <div class="theme-card praise">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                                </svg>
+                                What Users Love
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>+</span> Clear, predictable pricing</li>
+                                <li><span>+</span> Enterprise-focused</li>
+                                <li><span>+</span> Good customer support</li>
+                                <li><span>+</span> $99/mo Creative, $199/mo Business</li>
+                            </ul>
+                        </div>
+                        <div class="theme-card criticism">
+                            <h4 class="theme-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5">
+                                    <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/>
+                                </svg>
+                                Pain Points
+                            </h4>
+                            <ul class="theme-items">
+                                <li><span>-</span> Smaller voice library</li>
+                                <li><span>-</span> Less flashy features</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 1.5rem; font-weight: 700;">What Users Are Saying</h4>
+                    <div class="quotes-grid">
+                        <div class="quote-card praise">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">"WellSaid has been reliable for our enterprise needs. Clear pricing, good support, no surprises."</p>
+                            <div class="quote-source">
+                                <span class="quote-platform">TrustRadius</span>
+                                <a href="https://www.trustradius.com/products/wellsaid-labs/reviews" target="_blank" class="quote-link">View reviews</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Switching Patterns -->
+        <h2 class="section-header">Switching Patterns</h2>
+        <div class="card">
+            <p style="margin-bottom: 1rem;">Based on community discussions, these are the most common migration paths:</p>
+            <div class="switching-flows">
+                <div class="switch-item">
+                    <strong>ElevenLabs</strong>
+                    <span class="switch-arrow">-></span>
+                    <span>Cartesia</span>
+                </div>
+                <div class="switch-item">
+                    <strong>ElevenLabs</strong>
+                    <span class="switch-arrow">-></span>
+                    <span>Play.ht</span>
+                </div>
+                <div class="switch-item">
+                    <strong>ElevenLabs</strong>
+                    <span class="switch-arrow">-></span>
+                    <span>Open-source (F5-TTS)</span>
+                </div>
+                <div class="switch-item">
+                    <strong>Consumer</strong>
+                    <span class="switch-arrow">-></span>
+                    <span>Resemble AI (Enterprise)</span>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted);">
+                Primary driver: Cost savings. Secondary: Need for enterprise features (security, compliance, on-prem).
+            </p>
+        </div>
+
+        <!-- Positioning Opportunities -->
+        <div class="positioning-card">
+            <h2>Positioning Opportunities for Resemble AI</h2>
+            <div class="opportunity-grid">
+                <div class="opportunity-item">
+                    <div class="opportunity-number">1</div>
+                    <div class="opportunity-title">Attack ElevenLabs Pricing</div>
+                    <div class="opportunity-desc">Users are actively searching for alternatives. Position transparent pricing and predictable costs as a key differentiator. Target Reddit threads about budget frustrations.</div>
+                </div>
+                <div class="opportunity-item">
+                    <div class="opportunity-number">2</div>
+                    <div class="opportunity-title">Lead with Security + Detection</div>
+                    <div class="opportunity-desc">No other voice AI vendor offers generate + verify + detect. As deepfake concerns grow, this becomes critical for regulated industries (healthcare, finance, media).</div>
+                </div>
+                <div class="opportunity-item">
+                    <div class="opportunity-number">3</div>
+                    <div class="opportunity-title">Leverage Chatterbox Win Rate</div>
+                    <div class="opportunity-desc">63.75% preference over ElevenLabs in blind tests is powerful social proof. Create comparison content and A/B test demos for prospects.</div>
+                </div>
+                <div class="opportunity-item">
+                    <div class="opportunity-number">4</div>
+                    <div class="opportunity-title">Enterprise Landing Page Targeting</div>
+                    <div class="opportunity-desc">Position against ElevenLabs for enterprise accounts seeking SOC 2, HIPAA, GDPR compliance and on-premise deployment options.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h3 class="cta-title">Need Help with Competitive Positioning?</h3>
+            <p class="cta-text">Our team specializes in B2B demand generation for AI companies. Let's talk about positioning Resemble AI against ElevenLabs.</p>
+            <a href="https://www.42agency.com/contact-us" target="_blank" class="cta-button">Get in Touch</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/42-logo.png" alt="42 Agency">
+                    <p>B2B performance marketing for companies that sell to enterprises. We've managed $50M+ in ad spend across 200+ accounts.</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/company/42agency" target="_blank" aria-label="LinkedIn">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://x.com/42aboratory" target="_blank" aria-label="X/Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@Get42Agency" target="_blank" aria-label="YouTube">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Assess</h4>
+                    <a href="/assessments/hubspot-health/">HubSpot Health Check</a>
+                    <a href="/assess/calculator/">Benchmark Calculator</a>
+                    <a href="/linkedin-audit/">LinkedIn Ads Audit</a>
+                    <a href="/google-ads-audit/">Google Ads Audit</a>
+                    <a href="/meta-audit/">Meta Ads Audit</a>
+                    <a href="/hubspot-audit/">HubSpot Audit</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Benchmarks</h4>
+                    <a href="/b2b-benchmarks/">All B2B Benchmarks</a>
+                    <a href="/b2b-benchmarks/linkedin-ads-benchmarks/">LinkedIn Ads</a>
+                    <a href="/b2b-benchmarks/google-ads-benchmarks/">Google Ads</a>
+                    <a href="/b2b-benchmarks/meta-ads-benchmarks/">Meta Ads</a>
+                    <a href="/b2b-benchmarks/linkedin-inmail-benchmarks/">InMail Benchmarks</a>
+                    <a href="/b2b-benchmarks/legal-tech-linkedin-ads/" class="sublink">Legal Tech</a>
+                    <a href="/b2b-benchmarks/healthcare-tech-linkedin-ads/" class="sublink">Healthcare Tech</a>
+                    <a href="/b2b-benchmarks/fintech-linkedin-ads/" class="sublink">FinTech</a>
+                    <a href="/b2b-benchmarks/devops-linkedin-ads/" class="sublink">DevOps</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>AI Tools</h4>
+                    <a href="https://copilot.42agency.com" target="_blank">LinkedIn Ads Copilot</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting" target="_blank">Targeting Guide</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting/audience-sizing" target="_blank">Audience Sizing</a>
+                    <a href="https://copilot.42agency.com/linkedin-ads-targeting/job-titles" target="_blank">Job Title Targeting</a>
+                    <h4 style="margin-top: 1.5rem;">Resources</h4>
+                    <a href="/playbooks/">B2B Playbooks</a>
+                    <a href="/zenabm/">ABM Toolkit</a>
+                    <a href="/mops-funnel/">MOPS Funnel Workbook</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>42 Agency</h4>
+                    <a href="https://42agency.com" target="_blank">Website</a>
+                    <a href="https://www.42agency.com/contact-us" target="_blank">Contact Us</a>
+                    <a href="https://42agency.com/case-studies" target="_blank">Case Studies</a>
+                    <a href="https://42slash.com" target="_blank">42/ Essays</a>
+                    <a href="https://42slash.com/subscribe" target="_blank" style="color: var(--accent);">Subscribe to Newsletter</a>
+                    <a href="https://42agency.com/careers" target="_blank">Careers</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 42 Agency. All rights reserved.</p>
+                <p>
+                    <a href="https://42agency.com/privacy" target="_blank">Privacy</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="https://42agency.com/terms" target="_blank">Terms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Charts
+        const colors = {
+            negative: '#EF4444',
+            neutral: '#9CA3AF',
+            positive: '#10B981',
+            accent: '#DFFE68',
+            dark: '#1a1a1a',
+            orange: '#F59E0B',
+            blue: '#3B82F6',
+            purple: '#8B5CF6'
+        };
+
+        // Sentiment Chart
+        const vendors = [
+            { name: 'ElevenLabs', sentiment: 0.15 },
+            { name: 'Resemble AI', sentiment: 0.55 },
+            { name: 'Play.ht', sentiment: 0.45 },
+            { name: 'Murf AI', sentiment: 0.20 },
+            { name: 'WellSaid Labs', sentiment: 0.50 },
+            { name: 'Speechify', sentiment: 0.10 }
+        ];
+
+        const sortedVendors = [...vendors].sort((a, b) => a.sentiment - b.sentiment);
+
+        function getColor(sentiment) {
+            if (sentiment < 0.2) return colors.orange;
+            if (sentiment >= 0.4) return colors.positive;
+            return colors.neutral;
+        }
+
+        const sentimentCtx = document.getElementById('sentimentChart').getContext('2d');
+        new Chart(sentimentCtx, {
+            type: 'bar',
+            data: {
+                labels: sortedVendors.map(v => v.name),
+                datasets: [{
+                    label: 'Net Sentiment',
+                    data: sortedVendors.map(v => v.sentiment),
+                    backgroundColor: sortedVendors.map(v => getColor(v.sentiment)),
+                    borderColor: colors.dark,
+                    borderWidth: 2,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: colors.dark,
+                        titleFont: { family: 'Inter', weight: '700' },
+                        bodyFont: { family: 'Inter' },
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                const sentiment = context.raw;
+                                return 'Sentiment: +' + (sentiment * 100).toFixed(0) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        min: 0,
+                        max: 1,
+                        grid: { color: '#e5e5e5' },
+                        ticks: {
+                            font: { family: 'Inter', weight: '500' },
+                            callback: function(value) {
+                                return (value * 100) + '%';
+                            }
+                        }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Inter', weight: '600' } }
+                    }
+                }
+            }
+        });
+
+        // Pricing Chart
+        const pricingCtx = document.getElementById('pricingChart').getContext('2d');
+        new Chart(pricingCtx, {
+            type: 'bar',
+            data: {
+                labels: ['ElevenLabs', 'WellSaid', 'Murf AI', 'Play.ht'],
+                datasets: [
+                    {
+                        label: 'Starter/Creator',
+                        data: [22, 99, 29, 39],
+                        backgroundColor: colors.blue,
+                        borderColor: colors.dark,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Pro/Business',
+                        data: [99, 199, 99, 99],
+                        backgroundColor: colors.purple,
+                        borderColor: colors.dark,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Scale/Enterprise',
+                        data: [330, 499, 199, 199],
+                        backgroundColor: colors.orange,
+                        borderColor: colors.dark,
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { family: 'Inter', weight: '500' },
+                            usePointStyle: true,
+                            padding: 15
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: colors.dark,
+                        titleFont: { family: 'Inter', weight: '700' },
+                        bodyFont: { family: 'Inter' },
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': $' + context.raw + '/mo';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Inter', weight: '600' } }
+                    },
+                    y: {
+                        grid: { color: '#e5e5e5' },
+                        ticks: {
+                            font: { family: 'Inter', weight: '500' },
+                            callback: function(value) {
+                                return '$' + value;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

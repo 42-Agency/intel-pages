@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://intel.42agency.com",
-  "lastUpdated": "2026-04-01",
+  "lastUpdated": "2026-04-11",
   "categories": {
     "core": {
       "description": "Main hub and navigation pages",
@@ -125,6 +125,7 @@
         "/hubspot-marketing-hub-sentiment/",
         "/liveflow-sentiment/",
         "/map-sentiment/",
+        "/resemble-ai/",
         "/seo-aeo-sentiment/",
         "/thoughtspot/",
         "/toggl-track-sentiment/"
